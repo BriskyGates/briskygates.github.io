@@ -48,19 +48,39 @@ body {
     background: var(--primary-color);
     color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
+    padding: 10px 16px;
+    border-radius: 25px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1rem;
     box-shadow: var(--shadow);
     transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 60px;
+    height: 44px;
+    position: relative;
 }
 
 .lang-btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.05);
     box-shadow: var(--shadow-lg);
     background: #1d4ed8;
+}
+
+.lang-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.lang-btn i {
+    font-size: 1.1rem;
+}
+
+.lang-btn .lang-text {
+    font-size: 0.9rem;
+    font-weight: 700;
 }
 
 /* 通用区域样式 */
@@ -1064,8 +1084,18 @@ body {
     }
 
     .lang-btn {
-        padding: 6px 12px;
-        font-size: 0.85rem;
+        width: 44px;
+        height: 44px;
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .lang-btn i {
+        font-size: 1.1rem;
+    }
+
+    .lang-btn .lang-text {
+        font-size: 0.75rem;
     }
 
     .skills-summary {

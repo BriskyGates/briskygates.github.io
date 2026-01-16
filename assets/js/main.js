@@ -48,6 +48,31 @@ document.addEventListener('DOMContentLoaded', function() {
 let currentLang = 'zh'; // 'zh' 或 'en'
 let currentConfig = null;
 
+// 检测当前语言
+function detectCurrentLanguage() {
+    // 1. 检查 URL 参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    if (langParam === 'en' || langParam === 'zh') {
+        return langParam;
+    }
+    
+    // 2. 检查 localStorage
+    const savedLang = localStorage.getItem('preferredLanguage');
+    if (savedLang === 'en' || savedLang === 'zh') {
+        return savedLang;
+    }
+    
+    // 3. 检查当前加载的配置文件路径
+    if (window.siteConfig) {
+        // 如果是从 Jekyll 加载的，默认是中文
+        return 'zh';
+    }
+    
+    // 4. 默认返回中文
+    return 'zh';
+}
+
 function initApp(config) {
     console.log('初始化应用，配置数据:', config);
     
@@ -56,17 +81,59 @@ function initApp(config) {
         return;
     }
     
-    currentConfig = config;
+    // 检测当前语言
+    currentLang = detectCurrentLanguage();
     
-    // 创建 Vue 应用
-    if (typeof Vue === 'undefined') {
-        console.error('Vue.js 未加载！');
-        // 如果没有 Vue，使用纯 JavaScript 渲染
-        renderWithVanillaJS(config);
+    // 如果检测到是英文，但当前配置是中文，需要切换
+    if (currentLang === 'en') {
+        // 检查配置文件的路径或内容来判断
+        const configPath = '/assets/data/homeConfig.en.json';
+        const basePath = window.location.pathname.includes('/briskygates.github.io') 
+            ? '/briskygates.github.io' 
+            : '';
+        
+        // 尝试加载英文配置
+        fetch(basePath + configPath)
+            .then(response => {
+                if (!response.ok) {
+                    return fetch(configPath);
+                }
+                return response;
+            })
+            .then(response => response.json())
+            .then(data => {
+                currentConfig = data;
+                renderWithVue(data);
+                updateLanguageButton();
+            })
+            .catch(error => {
+                console.warn('无法加载英文配置，使用当前配置:', error);
+                currentConfig = config;
+                renderWithVue(config);
+                updateLanguageButton();
+            });
     } else {
-        console.log('使用 Vue.js 渲染');
+        currentConfig = config;
         renderWithVue(config);
+        updateLanguageButton();
     }
+}
+
+// 更新语言切换按钮
+function updateLanguageButton() {
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) {
+        const langText = langToggle.querySelector('.lang-text');
+        if (langText) {
+            langText.textContent = currentLang === 'en' ? '中文' : 'EN';
+        }
+        langToggle.title = currentLang === 'en' 
+            ? 'Switch to Chinese / 切换到中文' 
+            : 'Switch to English / 切换到英文';
+    }
+    
+    // 更新页面语言属性
+    document.documentElement.lang = currentLang === 'en' ? 'en' : 'zh-CN';
 }
 
 // 使用 Vue.js 渲染
@@ -215,22 +282,22 @@ async function switchLanguage() {
         currentLang = newLang;
         currentConfig = data;
         
+        // 保存语言偏好到 localStorage
+        localStorage.setItem('preferredLanguage', newLang);
+        
+        // 更新 URL 参数（不刷新页面）
+        const url = new URL(window.location);
+        url.searchParams.set('lang', newLang);
+        window.history.pushState({}, '', url);
+        
         // 重新渲染Vue应用
         renderWithVue(data);
         
-        // 更新按钮文本
-        const langToggle = document.getElementById('langToggle');
-        if (langToggle) {
-            const buttonText = newLang === 'en' ? '中文' : 'EN';
-            const span = langToggle.querySelector('span');
-            if (span) {
-                span.textContent = buttonText;
-            }
-            langToggle.title = newLang === 'en' ? 'Switch to Chinese' : '切换到英文';
-        }
+        // 更新按钮
+        updateLanguageButton();
         
-        // 更新页面语言属性
-        document.documentElement.lang = newLang === 'en' ? 'en' : 'zh-CN';
+        // 滚动到顶部，提供更好的用户体验
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         
         console.log(`语言已切换到${newLang === 'en' ? '英文' : '中文'}`);
     } catch (error) {
