@@ -1,0 +1,258 @@
+{
+  "ui": {
+    "languageToggle": {
+      "buttonText": "中文",
+      "tooltip": "Switch to Chinese"
+    },
+    "toast": {
+      "wechatCopied": "WeChat ID copied to clipboard",
+      "xianyuCopied": "Store name copied to clipboard",
+      "telegramCopied": "Telegram ID copied to clipboard"
+    },
+    "projectStatus": {
+      "active": "🔥 Active",
+      "testing": "🧪 Testing",
+      "development": "⚡ In Development",
+      "planned": "📋 Planned",
+      "progressLabel": "Progress"
+    }
+  },
+  "profile": {
+    "avatar": "🐶",
+    "status": "Online",
+    "title": "🐶 【About Me】",
+    "greeting": {
+      "text": "🤝 Hi, I'm Abu, based in Shanghai",
+      "description": "💻 <strong>Python Full-Stack Engineer</strong><br>🤖 <strong>AI Solutions Architect</strong>"
+    },
+    "roles": [
+      {
+        "label": "Core Skills",
+        "value": "Python Backend Architecture + AI Agent Engineering",
+        "type": "primary"
+      },
+      {
+        "label": "Service Focus",
+        "value": "Enterprise AI Solutions & Technical Consulting ⚡",
+        "type": "secondary"
+      }
+    ],
+    "stats": [
+      {
+        "number": "6+",
+        "label": "Years Exp"
+      },
+      {
+        "number": "500+",
+        "label": "Projects"
+      },
+      {
+        "number": "100+",
+        "label": "Clients"
+      },
+      {
+        "number": "99.99%",
+        "label": "Satisfaction"
+      }
+    ],
+    "location": {
+      "icon": "🏙️",
+      "text": "Shanghai, China"
+    }
+  },
+  "skills": {
+    "title": "📊 【Core Technical Capabilities】",
+    "motto": "Python Backend Architecture + AI Engineering Practice, <strong>Providing End-to-End Enterprise Solutions</strong>🎯",
+    "items": [
+      {
+        "title": "AI Application Engineering",
+        "description": "RAG Architecture Design / LLM Production Deployment / Text2SQL / Multi-Agent Systems",
+        "tags": ["RAG", "LLM", "Text2SQL", "Agent"],
+        "icon": "🤖"
+      },
+      {
+        "title": "Enterprise Application Integration",
+        "description": "Lark/WeCom Open Platform / WeChat Mini Program Ecosystem / Telegram Bot Development",
+        "tags": ["Lark", "Mini Program", "Telegram", "API Integration"],
+        "icon": "🚀"
+      },
+      {
+        "title": "Intelligent Document Processing",
+        "description": "OCR Technology Application / NLP Content Extraction / Smart Deduplication / Data Structuring",
+        "tags": ["OCR", "Doc Parsing", "Smart Extraction"],
+        "icon": "📄"
+      },
+      {
+        "title": "Data Engineering & Automation",
+        "description": "Distributed Crawler Architecture / ETL Data Pipelines / RPA Process Automation",
+        "tags": ["Crawler", "RPA", "Automation"],
+        "icon": "⚡"
+      }
+    ],
+    "summary": [
+      {
+        "icon": "🏗️",
+        "text": "Full-Stack Architecture"
+      },
+      {
+        "icon": "🧠",
+        "text": "AI Engineering Experience"
+      },
+      {
+        "icon": "⚡",
+        "text": "Agile Delivery"
+      }
+    ]
+  },
+  "services": {
+    "title": "💼 【Professional Services】",
+    "items": [
+      {
+        "title": "Enterprise AI Agent Systems",
+        "description": "RAG-based enterprise knowledge Q&A systems, supporting private deployment and customized training",
+        "technologies": ["RAG", "Vector DB", "LLM", "Knowledge Base"],
+        "badge": "Enterprise",
+        "icon": "🤖"
+      },
+      {
+        "title": "Office Platform Application Development",
+        "description": "Lark/WeCom ecosystem app development, OpenAPI deep integration, intelligent workflow orchestration",
+        "technologies": ["Lark API", "WeCom API", "Automation", "Integration"],
+        "badge": "Office Automation",
+        "icon": "🚀"
+      },
+      {
+        "title": "Multi-Platform Application Development",
+        "description": "WeChat Mini Program full-stack development, Telegram Bot automation system construction",
+        "technologies": ["Mini Program", "Telegram Bot", "API", "Backend"],
+        "badge": "Multi-Platform",
+        "icon": "📱"
+      },
+      {
+        "title": "Data Collection & Processing Systems",
+        "description": "Distributed crawler architecture design, data ETL pipelines, automated task scheduling",
+        "technologies": ["Scrapy", "Data Cleaning", "Scheduled Tasks", "API"],
+        "badge": "Data Engineering",
+        "icon": "⚙️"
+      },
+      {
+        "title": "Python Technical Consulting",
+        "description": "Architecture design consulting, technical problem-solving, code quality review and optimization advice",
+        "technologies": ["Python", "Project Practice", "Problem Diagnosis", "Q&A"],
+        "badge": "Technical Advisor",
+        "icon": "📚"
+      }
+    ],
+    "partners": {
+      "title": "🌐 【Partner Recruitment】",
+      "types": [
+        {
+          "icon": "🚀",
+          "type": "AI Entrepreneurs",
+          "description": "Providing full-stack technical support from MVP to productization"
+        },
+        {
+          "icon": "🏢",
+          "type": "Enterprises / Teams",
+          "description": "Providing AI technology implementation solutions and system integration services"
+        },
+        {
+          "icon": "👥",
+          "type": "Tech Partners",
+          "description": "Seeking like-minded tech experts to co-build innovative projects"
+        }
+      ],
+      "note": "Welcome <strong>short-term project cooperation</strong> or <strong>long-term technical advisory</strong> collaboration to explore technical value together 💬"
+    }
+  },
+  "projects": {
+    "title": "🚀 【Research Directions】",
+    "status": "Continuous Iteration",
+    "items": [
+      {
+        "title": "GraphRAG & Multi-Agent Collaboration",
+        "description": "Graph structure-based retrieval-augmented generation technology, combined with MCP Agent to achieve multi-agent collaboration systems",
+        "tags": ["GraphRAG", "Text2SQL", "MCP Agent", "Multi-Agent"],
+        "highlights": [
+          "Deep integration of graph database and vector retrieval",
+          "Intelligent natural language to SQL conversion",
+          "Multi-Agent collaboration pattern design"
+        ],
+        "progress": 75,
+        "status": "active"
+      },
+      {
+        "title": "LLM Local Deployment Optimization",
+        "description": "Local deployment solutions for large language models and embedding technologies, deeply optimized for enterprise applications",
+        "tags": ["LLM", "Embedding", "Model Optimization", "Local Deployment"],
+        "highlights": [
+          "Model quantization and inference acceleration",
+          "GPU resource optimization configuration",
+          "Multi-model concurrent management"
+        ],
+        "progress": 85,
+        "status": "testing"
+      },
+      {
+        "title": "Enterprise AI Copilot System",
+        "description": "Building dedicated AI assistant systems for enterprises, integrating knowledge base management, intelligent Q&A, and workflow automation",
+        "tags": ["AI Copilot", "Knowledge Base", "Workflow", "Enterprise App"],
+        "highlights": [
+          "Private knowledge base construction",
+          "Intelligent workflow orchestration",
+          "Multi-tenant architecture design"
+        ],
+        "progress": 60,
+        "status": "development"
+      }
+    ],
+    "innovation": {
+      "icon": "💡",
+      "title": "Technical Philosophy",
+      "text": "Focus on the engineering implementation of AI technology, drive business value with technology, and build sustainable business solutions."
+    }
+  },
+  "contact": {
+    "title": "📮 【Contact Information】",
+    "intro": {
+      "icon": "🌟",
+      "title": "Technology Drives Value Creation",
+      "description": "Welcome to discuss technical solutions and collaboration opportunities, create value together 💬"
+    },
+    "methods": [
+
+    ],
+    "availability": {
+      "icon": "⏰",
+      "title": "Response Time",
+      "responseTime": "2-4 hours",
+      "timezone": "UTC+8 (Beijing Time)",
+      "labels": {
+        "usuallyWithin": "Usually within",
+        "response": "response",
+        "timezoneLabel": "Timezone"
+      }
+    },
+    "collaboration": {
+      "icon": "🤝",
+      "title": "Collaboration Types",
+      "types": [
+        {
+          "icon": "💼",
+          "text": "Project Cooperation"
+        },
+        {
+          "icon": "🎓",
+          "text": "Technical Guidance"
+        },
+        {
+          "icon": "🚀",
+          "text": "Startup Partner"
+        }
+      ]
+    },
+    "footer": {
+      "highlights": ["Open Collaboration", "Tech Sharing", "Value Co-creation"]
+    }
+  }
+}

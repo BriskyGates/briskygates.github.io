@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.log('尝试从 JSON 文件加载配置');
         // 备用方案：从 JSON 文件加载（使用相对路径）
-        const configPath = '/_data/homeConfig.json';
+        const configPath = '/assets/data/homeConfig.json';
         // 如果是 GitHub Pages，可能需要调整路径
         const basePath = window.location.pathname.includes('/briskygates.github.io') 
             ? '/briskygates.github.io' 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 console.error('加载配置失败:', error);
-                console.error('请确保 _data/homeConfig.json 文件存在且可访问');
+                console.error('请确保 assets/data/homeConfig.json 文件存在且可访问');
                 // 显示错误提示
                 const app = document.getElementById('app');
                 if (app) {
@@ -186,7 +186,7 @@ function renderWithVanillaJS(config) {
 // 语言切换功能
 async function switchLanguage() {
     const newLang = currentLang === 'zh' ? 'en' : 'zh';
-    const configPath = newLang === 'en' ? '/_data/homeConfig.en.json' : '/_data/homeConfig.json';
+    const configPath = newLang === 'en' ? '/assets/data/homeConfig.en.json' : '/assets/data/homeConfig.json';
     
     // 如果是 GitHub Pages，可能需要调整路径
     const basePath = window.location.pathname.includes('/briskygates.github.io') 

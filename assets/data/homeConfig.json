@@ -1,0 +1,258 @@
+{
+  "ui": {
+    "languageToggle": {
+      "buttonText": "EN",
+      "tooltip": "切换到英文"
+    },
+    "toast": {
+      "wechatCopied": "微信号已复制到剪贴板",
+      "xianyuCopied": "店铺名称已复制到剪贴板",
+      "telegramCopied": "Telegram账号已复制到剪贴板"
+    },
+    "projectStatus": {
+      "active": "🔥 进行中",
+      "testing": "🧪 测试中",
+      "development": "⚡ 开发中",
+      "planned": "📋 计划中",
+      "progressLabel": "进度"
+    }
+  },
+  "profile": {
+    "avatar": "🐶",
+    "status": "在线中",
+    "title": "🐶 【关于我】",
+    "greeting": {
+      "text": "🤝 Hi，我是阿布，常驻上海",
+      "description": "💻 <strong>Python 全栈工程师</strong><br>🤖 <strong>AI 解决方案架构师</strong>"
+    },
+    "roles": [
+      {
+        "label": "核心技能",
+        "value": "Python 后端架构 + AI Agent 工程化",
+        "type": "primary"
+      },
+      {
+        "label": "服务方向",
+        "value": "企业级 AI 解决方案与技术咨询 ⚡",
+        "type": "secondary"
+      }
+    ],
+    "stats": [
+      {
+        "number": "6+",
+        "label": "年实战"
+      },
+      {
+        "number": "500+",
+        "label": "项目"
+      },
+      {
+        "number": "100+",
+        "label": "企业服务"
+      },
+      {
+        "number": "99.99%",
+        "label": "好评率"
+      }
+    ],
+    "location": {
+      "icon": "🏙️",
+      "text": "上海，中国"
+    }
+  },
+  "skills": {
+    "title": "📊 【核心技术能力】",
+    "motto": "Python 后端架构 + AI 工程化实践，<strong>提供端到端企业级解决方案</strong>🎯",
+    "items": [
+      {
+        "title": "AI 智能应用工程化",
+        "description": "RAG 架构设计 / LLM 生产级部署 / Text2SQL / Multi-Agent 系统",
+        "tags": ["RAG", "LLM", "Text2SQL", "Agent"],
+        "icon": "🤖"
+      },
+      {
+        "title": "企业级应用集成",
+        "description": "飞书/企微开放平台 / 微信小程序生态 / Telegram Bot 开发",
+        "tags": ["飞书", "小程序", "Telegram", "API集成"],
+        "icon": "🚀"
+      },
+      {
+        "title": "文档智能处理",
+        "description": "OCR 技术应用 / NLP 内容提取 / 智能去重算法 / 数据结构化",
+        "tags": ["OCR", "文档解析", "智能提取"],
+        "icon": "📄"
+      },
+      {
+        "title": "数据工程与自动化",
+        "description": "分布式爬虫架构 / ETL 数据流水线 / RPA 流程自动化",
+        "tags": ["爬虫", "RPA", "自动化"],
+        "icon": "⚡"
+      }
+    ],
+    "summary": [
+      {
+        "icon": "🏗️",
+        "text": "全栈架构能力"
+      },
+      {
+        "icon": "🧠",
+        "text": "AI 工程化经验"
+      },
+      {
+        "icon": "⚡",
+        "text": "敏捷交付能力"
+      }
+    ]
+  },
+  "services": {
+    "title": "💼 【专业服务】",
+    "items": [
+      {
+        "title": "企业 AI 智能体系统",
+        "description": "基于 RAG 架构的企业级知识问答系统，支持私有化部署与定制化训练",
+        "technologies": ["RAG", "向量数据库", "LLM", "知识库"],
+        "badge": "企业级",
+        "icon": "🤖"
+      },
+      {
+        "title": "办公平台应用开发",
+        "description": "飞书/企微生态应用开发、OpenAPI 深度集成、智能工作流编排",
+        "technologies": ["飞书 API", "企微 API", "自动化", "集成"],
+        "badge": "办公自动化",
+        "icon": "🚀"
+      },
+      {
+        "title": "多平台应用开发",
+        "description": "微信小程序全栈开发、Telegram Bot 自动化系统构建",
+        "technologies": ["小程序", "Telegram Bot", "API", "后端"],
+        "badge": "多平台",
+        "icon": "📱"
+      },
+      {
+        "title": "数据采集与处理系统",
+        "description": "分布式爬虫架构设计、数据ETL流水线、自动化任务调度",
+        "technologies": ["Scrapy", "数据清洗", "定时任务", "API"],
+        "badge": "数据工程",
+        "icon": "⚙️"
+      },
+      {
+        "title": "Python 技术咨询",
+        "description": "架构设计咨询、技术难题攻坚、代码质量审查与优化建议",
+        "technologies": ["Python", "项目实战", "问题诊断", "技术答疑"],
+        "badge": "技术顾问",
+        "icon": "📚"
+      }
+    ],
+    "partners": {
+      "title": "🌐 【合作伙伴招募】",
+      "types": [
+        {
+          "icon": "🚀",
+          "type": "AI 创业者",
+          "description": "提供从MVP到产品化的全栈技术支持"
+        },
+        {
+          "icon": "🏢",
+          "type": "企业 / 团队",
+          "description": "为企业提供AI技术落地方案与系统集成服务"
+        },
+        {
+          "icon": "👥",
+          "type": "技术伙伴",
+          "description": "寻找志同道合的技术专家，共建创新项目"
+        }
+      ],
+      "note": "欢迎<strong>短期项目合作</strong>或<strong>长期技术顾问</strong>合作，共同探索技术价值 💬"
+    }
+  },
+  "projects": {
+    "title": "🚀 【技术研究方向】",
+    "status": "持续迭代中",
+    "items": [
+      {
+        "title": "GraphRAG & 多智能体协作",
+        "description": "基于图结构的检索增强生成技术，结合MCP Agent实现多智能体协作系统",
+        "tags": ["GraphRAG", "Text2SQL", "MCP Agent", "多智能体"],
+        "highlights": [
+          "图数据库与向量检索的深度融合",
+          "自然语言到SQL的智能转换",
+          "多Agent协作模式设计"
+        ],
+        "progress": 75,
+        "status": "active"
+      },
+      {
+        "title": "LLM 本地化部署优化",
+        "description": "大语言模型与embedding技术的本地化部署方案，针对企业级应用进行深度优化",
+        "tags": ["LLM", "Embedding", "模型优化", "本地部署"],
+        "highlights": [
+          "模型量化与推理加速",
+          "GPU资源优化配置",
+          "多模型并发管理"
+        ],
+        "progress": 85,
+        "status": "testing"
+      },
+      {
+        "title": "企业级 AI Copilot 系统",
+        "description": "为企业打造专属的AI助手系统，集成知识库管理、智能问答、工作流自动化",
+        "tags": ["AI Copilot", "知识库", "工作流", "企业应用"],
+        "highlights": [
+          "私有化知识库构建",
+          "智能工作流编排",
+          "多租户架构设计"
+        ],
+        "progress": 60,
+        "status": "development"
+      }
+    ],
+    "innovation": {
+      "icon": "💡",
+      "title": "技术理念",
+      "text": "专注 AI 技术的工程化落地，以技术驱动业务价值，构建可持续的商业解决方案。"
+    }
+  },
+  "contact": {
+    "title": "📮 【联系方式】",
+    "intro": {
+      "icon": "🌟",
+      "title": "技术驱动价值创造",
+      "description": "欢迎探讨技术方案与合作机会，共创价值 💬"
+    },
+    "methods": [
+  
+    ],
+    "availability": {
+      "icon": "⏰",
+      "title": "响应时间",
+      "responseTime": "2-4小时",
+      "timezone": "UTC+8 (北京时间)",
+      "labels": {
+        "usuallyWithin": "通常在",
+        "response": "内回复",
+        "timezoneLabel": "时区"
+      }
+    },
+    "collaboration": {
+      "icon": "🤝",
+      "title": "合作方式",
+      "types": [
+        {
+          "icon": "💼",
+          "text": "项目合作"
+        },
+        {
+          "icon": "🎓",
+          "text": "技术指导"
+        },
+        {
+          "icon": "🚀",
+          "text": "创业伙伴"
+        }
+      ]
+    },
+    "footer": {
+      "highlights": ["开放协作", "技术共享", "价值共创"]
+    }
+  }
+}
