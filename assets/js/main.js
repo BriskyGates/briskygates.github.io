@@ -82,12 +82,23 @@ function renderWithVue(config) {
     }
     
     const { createApp } = Vue;
+    const appElement = document.getElementById('app');
     
-    // 如果已有实例，先卸载
+    if (!appElement) {
+        console.error('找不到 #app 元素！');
+        return;
+    }
+    
+    // 如果已有实例，先保存 HTML 内容，然后卸载
+    let savedHTML = null;
     if (vueApp) {
+        console.log('保存现有 HTML 内容');
+        savedHTML = appElement.innerHTML;
         vueApp.unmount();
         vueApp = null;
         vueAppInstance = null;
+        // 恢复 HTML 内容
+        appElement.innerHTML = savedHTML;
     }
     
     vueApp = createApp({
@@ -155,13 +166,8 @@ function renderWithVue(config) {
     });
     
     // 挂载应用
-    const appElement = document.getElementById('app');
-    if (appElement) {
-        vueAppInstance = vueApp.mount('#app');
-        console.log('Vue 应用已成功挂载');
-    } else {
-        console.error('找不到 #app 元素！');
-    }
+    vueAppInstance = vueApp.mount('#app');
+    console.log('Vue 应用已成功挂载');
 }
 
 // 使用纯 JavaScript 渲染（备用方案）
