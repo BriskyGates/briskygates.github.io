@@ -44,6 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// 当前语言状态
+let currentLang = 'zh'; // 'zh' 或 'en'
+let currentConfig = null;
+
 function initApp(config) {
     console.log('初始化应用，配置数据:', config);
     
@@ -51,6 +55,8 @@ function initApp(config) {
         console.error('配置数据为空！');
         return;
     }
+    
+    currentConfig = config;
     
     // 创建 Vue 应用
     if (typeof Vue === 'undefined') {
@@ -64,6 +70,9 @@ function initApp(config) {
 }
 
 // 使用 Vue.js 渲染
+let vueAppInstance = null;
+let vueApp = null;
+
 function renderWithVue(config) {
     console.log('开始使用 Vue.js 渲染，配置:', config);
     
@@ -74,7 +83,14 @@ function renderWithVue(config) {
     
     const { createApp } = Vue;
     
-    const app = createApp({
+    // 如果已有实例，先卸载
+    if (vueApp) {
+        vueApp.unmount();
+        vueApp = null;
+        vueAppInstance = null;
+    }
+    
+    vueApp = createApp({
         data() {
             return {
                 config: config,
@@ -141,7 +157,7 @@ function renderWithVue(config) {
     // 挂载应用
     const appElement = document.getElementById('app');
     if (appElement) {
-        app.mount('#app');
+        vueAppInstance = vueApp.mount('#app');
         console.log('Vue 应用已成功挂载');
     } else {
         console.error('找不到 #app 元素！');
@@ -168,12 +184,59 @@ function renderWithVanillaJS(config) {
 }
 
 // 语言切换功能
+async function switchLanguage() {
+    const newLang = currentLang === 'zh' ? 'en' : 'zh';
+    const configPath = newLang === 'en' ? '/_data/homeConfig.en.json' : '/_data/homeConfig.json';
+    
+    // 如果是 GitHub Pages，可能需要调整路径
+    const basePath = window.location.pathname.includes('/briskygates.github.io') 
+        ? '/briskygates.github.io' 
+        : '';
+    
+    try {
+        console.log(`切换到${newLang === 'en' ? '英文' : '中文'}，加载配置: ${basePath + configPath}`);
+        
+        let response = await fetch(basePath + configPath);
+        if (!response.ok) {
+            // 尝试根路径
+            response = await fetch(configPath);
+            if (!response.ok) {
+                throw new Error(`无法加载配置文件: ${configPath}`);
+            }
+        }
+        
+        const data = await response.json();
+        currentLang = newLang;
+        currentConfig = data;
+        
+        // 重新渲染Vue应用
+        renderWithVue(data);
+        
+        // 更新按钮文本
+        const langToggle = document.getElementById('langToggle');
+        if (langToggle) {
+            const buttonText = newLang === 'en' ? '中文' : 'EN';
+            const span = langToggle.querySelector('span');
+            if (span) {
+                span.textContent = buttonText;
+            }
+            langToggle.title = newLang === 'en' ? 'Switch to Chinese' : '切换到英文';
+        }
+        
+        // 更新页面语言属性
+        document.documentElement.lang = newLang === 'en' ? 'en' : 'zh-CN';
+        
+        console.log(`语言已切换到${newLang === 'en' ? '英文' : '中文'}`);
+    } catch (error) {
+        console.error('语言切换失败:', error);
+        alert(`语言切换失败: ${error.message}`);
+    }
+}
+
+// 初始化语言切换按钮
 document.addEventListener('DOMContentLoaded', function() {
     const langToggle = document.getElementById('langToggle');
     if (langToggle) {
-        langToggle.addEventListener('click', function() {
-            // 这里可以实现语言切换逻辑
-            alert('语言切换功能待实现');
-        });
+        langToggle.addEventListener('click', switchLanguage);
     }
 });
