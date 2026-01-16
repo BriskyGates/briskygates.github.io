@@ -1,5 +1,194 @@
-<!doctype html>
-<html>
-  <head><meta charset="utf-8"><title>我的主页</title></head>
-  <body><h1>Hello GitHub Pages!</h1></body>
-</html>
+---
+layout: default
+title: 阿布的个人主页
+description: Python 全栈工程师 | AI 解决方案架构师
+---
+
+<div id="app">
+    <!-- 语言切换按钮 -->
+    <div class="language-toggle">
+        <button id="langToggle" class="lang-btn" :title="config.ui.languageToggle.tooltip">
+            <span>{{ config.ui.languageToggle.buttonText }}</span>
+        </button>
+    </div>
+
+    <!-- 个人资料区域 -->
+    <section id="profile" class="section profile-section">
+        <div class="profile-header">
+            <div class="avatar">{{ config.profile.avatar }}</div>
+            <div class="status-badge">{{ config.profile.status }}</div>
+        </div>
+        <h1 class="section-title">{{ config.profile.title }}</h1>
+        <div class="greeting">
+            <p class="greeting-text">{{ config.profile.greeting.text }}</p>
+            <div class="greeting-desc" v-html="config.profile.greeting.description"></div>
+        </div>
+        <div class="roles">
+            <div v-for="role in config.profile.roles" :key="role.label" :class="['role-card', role.type]">
+                <span class="role-label">{{ role.label }}：</span>
+                <span class="role-value">{{ role.value }}</span>
+            </div>
+        </div>
+        <div class="stats">
+            <div v-for="stat in config.profile.stats" :key="stat.label" class="stat-item">
+                <div class="stat-number">{{ stat.number }}</div>
+                <div class="stat-label">{{ stat.label }}</div>
+            </div>
+        </div>
+        <div class="location">
+            <span class="location-icon">{{ config.profile.location.icon }}</span>
+            <span class="location-text">{{ config.profile.location.text }}</span>
+        </div>
+    </section>
+
+    <!-- 技能区域 -->
+    <section id="skills" class="section skills-section">
+        <h2 class="section-title">{{ config.skills.title }}</h2>
+        <p class="section-motto" v-html="config.skills.motto"></p>
+        <div class="skills-grid">
+            <div v-for="skill in config.skills.items" :key="skill.title" class="skill-card">
+                <div class="skill-icon">{{ skill.icon }}</div>
+                <h3 class="skill-title">{{ skill.title }}</h3>
+                <p class="skill-description">{{ skill.description }}</p>
+                <div class="skill-tags">
+                    <span v-for="tag in skill.tags" :key="tag" class="tag">{{ tag }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="skills-summary">
+            <div v-for="item in config.skills.summary" :key="item.text" class="summary-item">
+                <span class="summary-icon">{{ item.icon }}</span>
+                <span class="summary-text">{{ item.text }}</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务区域 -->
+    <section id="services" class="section services-section">
+        <h2 class="section-title">{{ config.services.title }}</h2>
+        <div class="services-grid">
+            <div v-for="service in config.services.items" :key="service.title" class="service-card">
+                <div class="service-header">
+                    <span class="service-icon">{{ service.icon }}</span>
+                    <span class="service-badge">{{ service.badge }}</span>
+                </div>
+                <h3 class="service-title">{{ service.title }}</h3>
+                <p class="service-description">{{ service.description }}</p>
+                <div class="service-technologies">
+                    <span v-for="tech in service.technologies" :key="tech" class="tech-tag">{{ tech }}</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 合作伙伴招募 -->
+        <div class="partners-section">
+            <h3 class="partners-title">{{ config.services.partners.title }}</h3>
+            <div class="partners-grid">
+                <div v-for="partner in config.services.partners.types" :key="partner.type" class="partner-card">
+                    <div class="partner-icon">{{ partner.icon }}</div>
+                    <h4 class="partner-type">{{ partner.type }}</h4>
+                    <p class="partner-description">{{ partner.description }}</p>
+                </div>
+            </div>
+            <p class="partners-note" v-html="config.services.partners.note"></p>
+        </div>
+    </section>
+
+    <!-- 项目区域 -->
+    <section id="projects" class="section projects-section">
+        <div class="projects-header">
+            <h2 class="section-title">{{ config.projects.title }}</h2>
+            <span class="projects-status">{{ config.projects.status }}</span>
+        </div>
+        <div class="projects-grid">
+            <div v-for="project in config.projects.items" :key="project.title" class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">{{ project.title }}</h3>
+                    <span :class="['project-status', project.status]">
+                        {{ getStatusText(project.status) }}
+                    </span>
+                </div>
+                <p class="project-description">{{ project.description }}</p>
+                <div class="project-tags">
+                    <span v-for="tag in project.tags" :key="tag" class="tag">{{ tag }}</span>
+                </div>
+                <div class="project-highlights">
+                    <h4>亮点：</h4>
+                    <ul>
+                        <li v-for="highlight in project.highlights" :key="highlight">{{ highlight }}</li>
+                    </ul>
+                </div>
+                <div class="project-progress">
+                    <div class="progress-label">
+                        <span>{{ config.ui.projectStatus.progressLabel }}：</span>
+                        <span class="progress-value">{{ project.progress }}%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" :style="{ width: project.progress + '%' }"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="innovation">
+            <span class="innovation-icon">{{ config.projects.innovation.icon }}</span>
+            <h3 class="innovation-title">{{ config.projects.innovation.title }}</h3>
+            <p class="innovation-text">{{ config.projects.innovation.text }}</p>
+        </div>
+    </section>
+
+    <!-- 联系方式区域 -->
+    <section id="contact" class="section contact-section">
+        <h2 class="section-title">{{ config.contact.title }}</h2>
+        <div class="contact-intro">
+            <span class="intro-icon">{{ config.contact.intro.icon }}</span>
+            <h3 class="intro-title">{{ config.contact.intro.title }}</h3>
+            <p class="intro-description">{{ config.contact.intro.description }}</p>
+        </div>
+        
+        <div class="contact-methods" v-if="config.contact.methods && config.contact.methods.length > 0">
+            <div v-for="method in config.contact.methods" :key="method.type" class="contact-method">
+                <span class="method-icon">{{ method.icon }}</span>
+                <span class="method-label">{{ method.label }}</span>
+                <button v-if="method.copy" @click="copyToClipboard(method.value, method.type)" class="copy-btn">
+                    {{ method.value }}
+                </button>
+                <a v-else :href="method.link" target="_blank" class="contact-link">{{ method.value }}</a>
+            </div>
+        </div>
+
+        <div class="availability">
+            <span class="availability-icon">{{ config.contact.availability.icon }}</span>
+            <h3 class="availability-title">{{ config.contact.availability.title }}</h3>
+            <p class="availability-text">
+                <span>{{ config.contact.availability.labels.usuallyWithin }}</span>
+                <strong>{{ config.contact.availability.responseTime }}</strong>
+                <span>{{ config.contact.availability.labels.response }}</span>
+            </p>
+            <p class="timezone">{{ config.contact.availability.labels.timezoneLabel }}: {{ config.contact.availability.timezone }}</p>
+        </div>
+
+        <div class="collaboration">
+            <span class="collaboration-icon">{{ config.contact.collaboration.icon }}</span>
+            <h3 class="collaboration-title">{{ config.contact.collaboration.title }}</h3>
+            <div class="collaboration-types">
+                <div v-for="type in config.contact.collaboration.types" :key="type.text" class="collaboration-type">
+                    <span class="type-icon">{{ type.icon }}</span>
+                    <span class="type-text">{{ type.text }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-footer">
+            <div class="footer-highlights">
+                <span v-for="highlight in config.contact.footer.highlights" :key="highlight" class="highlight-tag">
+                    {{ highlight }}
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast 提示 -->
+    <div id="toast" class="toast" v-if="showToast">
+        <span>{{ toastMessage }}</span>
+    </div>
+</div>

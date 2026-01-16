@@ -1,0 +1,36 @@
+# Jekyll 配置文件
+title: 阿布的个人主页
+description: Python 全栈工程师 | AI 解决方案架构师
+url: https://briskygates.github.io
+baseurl: ""
+
+# 构建设置
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# 主题设置（使用空白主题，自定义样式）
+theme: null
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# 包含文件
+include:
+  - _pages
+
+# 默认设置
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
