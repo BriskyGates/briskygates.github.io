@@ -148,24 +148,17 @@ function renderWithVue(config) {
         return;
     }
     
+    if (vueAppInstance) {
+        vueAppInstance.config = config;
+        return;
+    }
+    
     const { createApp } = Vue;
     const appElement = document.getElementById('app');
     
     if (!appElement) {
         console.error('找不到 #app 元素！');
         return;
-    }
-    
-    // 如果已有实例，先保存 HTML 内容，然后卸载
-    let savedHTML = null;
-    if (vueApp) {
-        console.log('保存现有 HTML 内容');
-        savedHTML = appElement.innerHTML;
-        vueApp.unmount();
-        vueApp = null;
-        vueAppInstance = null;
-        // 恢复 HTML 内容
-        appElement.innerHTML = savedHTML;
     }
     
     vueApp = createApp({
