@@ -1090,10 +1090,12 @@ body {
     }
 
     .lang-btn {
-        width: 44px;
+        min-width: 60px;
+        width: auto;
         height: 44px;
-        padding: 8px 10px;
+        padding: 8px 12px;
         font-size: 0.9rem;
+        white-space: nowrap;
     }
 
     .lang-btn i {
@@ -1101,7 +1103,7 @@ body {
     }
 
     .lang-btn .lang-text {
-        font-size: 0.75rem;
+        font-size: 0.85rem;
     }
 
     .skills-summary {
