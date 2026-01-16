@@ -12,19 +12,25 @@
     
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Vue.js -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
     <div class="container">
         {{ content }}
     </div>
     
+    <!-- Vue.js - 在配置数据之后加载 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
     <!-- 配置数据 -->
     <script>
         // 将 Jekyll 数据传递给 JavaScript
+        {% if site.data.homeConfig %}
         window.siteConfig = {{ site.data.homeConfig | jsonify }};
+        console.log('Jekyll 配置数据已设置:', window.siteConfig);
+        {% else %}
+        console.warn('Jekyll 配置数据未找到，将尝试从 JSON 文件加载');
+        window.siteConfig = null;
+        {% endif %}
     </script>
     
     <!-- JavaScript -->

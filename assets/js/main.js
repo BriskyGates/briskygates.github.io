@@ -3,10 +3,16 @@
 
 // 等待 DOM 加载完成
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM 加载完成');
+    console.log('window.siteConfig:', window.siteConfig);
+    console.log('Vue 是否加载:', typeof Vue !== 'undefined');
+    
     // 优先使用 Jekyll 传递的配置数据
-    if (typeof window.siteConfig !== 'undefined') {
+    if (typeof window.siteConfig !== 'undefined' && window.siteConfig !== null) {
+        console.log('使用 window.siteConfig');
         initApp(window.siteConfig);
     } else {
+        console.log('尝试从 JSON 文件加载配置');
         // 备用方案：从 JSON 文件加载（使用相对路径）
         const configPath = '/_data/homeConfig.json';
         // 如果是 GitHub Pages，可能需要调整路径
@@ -23,30 +29,52 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => response.json())
             .then(data => {
+                console.log('从 JSON 文件加载配置成功:', data);
                 initApp(data);
             })
             .catch(error => {
                 console.error('加载配置失败:', error);
                 console.error('请确保 _data/homeConfig.json 文件存在且可访问');
+                // 显示错误提示
+                const app = document.getElementById('app');
+                if (app) {
+                    app.innerHTML = '<div style="padding: 20px; text-align: center;"><h2>配置加载失败</h2><p>请检查浏览器控制台查看详细错误信息</p></div>';
+                }
             });
     }
 });
 
 function initApp(config) {
+    console.log('初始化应用，配置数据:', config);
+    
+    if (!config) {
+        console.error('配置数据为空！');
+        return;
+    }
+    
     // 创建 Vue 应用
     if (typeof Vue === 'undefined') {
+        console.error('Vue.js 未加载！');
         // 如果没有 Vue，使用纯 JavaScript 渲染
         renderWithVanillaJS(config);
     } else {
+        console.log('使用 Vue.js 渲染');
         renderWithVue(config);
     }
 }
 
 // 使用 Vue.js 渲染
 function renderWithVue(config) {
+    console.log('开始使用 Vue.js 渲染，配置:', config);
+    
+    if (!config) {
+        console.error('配置数据为空，无法渲染！');
+        return;
+    }
+    
     const { createApp } = Vue;
     
-    createApp({
+    const app = createApp({
         data() {
             return {
                 config: config,
@@ -56,11 +84,14 @@ function renderWithVue(config) {
         },
         methods: {
             getStatusText(status) {
+                if (!this.config || !this.config.ui || !this.config.ui.projectStatus) {
+                    return status;
+                }
                 const statusMap = {
-                    'active': config.ui.projectStatus.active,
-                    'testing': config.ui.projectStatus.testing,
-                    'development': config.ui.projectStatus.development,
-                    'planned': config.ui.projectStatus.planned
+                    'active': this.config.ui.projectStatus.active,
+                    'testing': this.config.ui.projectStatus.testing,
+                    'development': this.config.ui.projectStatus.development,
+                    'planned': this.config.ui.projectStatus.planned
                 };
                 return statusMap[status] || status;
             },
@@ -87,10 +118,13 @@ function renderWithVue(config) {
                 }
             },
             getToastMessage(type) {
+                if (!this.config || !this.config.ui || !this.config.ui.toast) {
+                    return '已复制到剪贴板';
+                }
                 const toastMap = {
-                    'wechat': config.ui.toast.wechatCopied,
-                    'xianyu': config.ui.toast.xianyuCopied,
-                    'telegram': config.ui.toast.telegramCopied
+                    'wechat': this.config.ui.toast.wechatCopied,
+                    'xianyu': this.config.ui.toast.xianyuCopied,
+                    'telegram': this.config.ui.toast.telegramCopied
                 };
                 return toastMap[type] || '已复制到剪贴板';
             },
@@ -102,7 +136,16 @@ function renderWithVue(config) {
                 }, 2000);
             }
         }
-    }).mount('#app');
+    });
+    
+    // 挂载应用
+    const appElement = document.getElementById('app');
+    if (appElement) {
+        app.mount('#app');
+        console.log('Vue 应用已成功挂载');
+    } else {
+        console.error('找不到 #app 元素！');
+    }
 }
 
 // 使用纯 JavaScript 渲染（备用方案）
