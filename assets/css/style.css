@@ -25,6 +25,10 @@ body {
     padding: 10px;
 }
 
+[v-cloak] {
+    display: none;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
