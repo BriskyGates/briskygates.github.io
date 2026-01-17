@@ -239,9 +239,9 @@ function setupScrollAnimations() {
         return;
     }
 
-    sections.forEach((section, sectionIndex) => {
+    sections.forEach((section) => {
         section.classList.add('reveal-section');
-        const sectionDelay = Math.min(sectionIndex * 0.08, 0.4);
+        const sectionDelay = 0.06;
         section.style.setProperty('--reveal-delay', `${sectionDelay}s`);
 
         const revealItems = section.querySelectorAll(
@@ -251,9 +251,14 @@ function setupScrollAnimations() {
             '.contact-method, .availability, .collaboration, .collaboration-type, .highlight-tag'
         );
 
+        const itemCount = revealItems.length;
+        const baseDelay = 0.08;
+        const spread = 0.45;
+        const step = itemCount > 1 ? spread / (itemCount - 1) : 0;
+
         revealItems.forEach((item, itemIndex) => {
             item.classList.add('reveal-item');
-            const itemDelay = Math.min(0.08 + itemIndex * 0.06, 0.6);
+            const itemDelay = baseDelay + itemIndex * step;
             item.style.setProperty('--reveal-item-delay', `${itemDelay}s`);
         });
     });
