@@ -150,7 +150,6 @@ function renderWithVue(config) {
     
     if (vueAppInstance) {
         vueAppInstance.config = config;
-        requestAnimationFrame(setupScrollAnimations);
         return;
     }
     
@@ -228,70 +227,7 @@ function renderWithVue(config) {
     
     // 挂载应用
     vueAppInstance = vueApp.mount('#app');
-    setupScrollAnimations();
     console.log('Vue 应用已成功挂载');
-}
-
-// Scroll reveal
-function setupScrollAnimations() {
-    const sections = document.querySelectorAll('.section');
-    if (!sections.length) {
-        return;
-    }
-
-    sections.forEach((section) => {
-        section.classList.add('reveal-section');
-        const sectionDelay = 0.06;
-        section.style.setProperty('--reveal-delay', `${sectionDelay}s`);
-
-        const revealItems = section.querySelectorAll(
-            '.section-title, .section-motto, .profile-header, .greeting, .role-card, .stat-item, ' +
-            '.location, .skill-card, .summary-item, .service-card, .partner-card, .partners-title, ' +
-            '.partners-note, .projects-status, .project-card, .innovation, .contact-intro, ' +
-            '.contact-method, .availability, .collaboration, .collaboration-type, .highlight-tag'
-        );
-
-        const itemCount = revealItems.length;
-        const baseDelay = 0.08;
-        const spread = 0.45;
-        const step = itemCount > 1 ? spread / (itemCount - 1) : 0;
-
-        revealItems.forEach((item, itemIndex) => {
-            item.classList.add('reveal-item');
-            const itemDelay = baseDelay + itemIndex * step;
-            item.style.setProperty('--reveal-item-delay', `${itemDelay}s`);
-        });
-    });
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-        sections.forEach(section => section.classList.add('is-visible'));
-        return;
-    }
-
-    if (window.__revealObserver) {
-        window.__revealObserver.disconnect();
-    }
-
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.2,
-        rootMargin: '0px 0px -10% 0px'
-    });
-
-    sections.forEach(section => {
-        if (!section.classList.contains('is-visible')) {
-            observer.observe(section);
-        }
-    });
-
-    window.__revealObserver = observer;
 }
 
 // Vanilla JS render (fallback)
