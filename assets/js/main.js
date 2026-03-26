@@ -148,7 +148,9 @@ function renderWithVue(config) {
         return;
     }
     
+    // 如果 Vue 实例已存在，更新配置数据即可（利用 Vue 的响应式系统）
     if (vueAppInstance) {
+        console.log('更新现有 Vue 实例的配置数据');
         vueAppInstance.config = config;
         return;
     }
@@ -164,7 +166,7 @@ function renderWithVue(config) {
     vueApp = createApp({
         data() {
             return {
-                config: config,
+                config: config || {},
                 showToast: false,
                 toastMessage: ''
             };

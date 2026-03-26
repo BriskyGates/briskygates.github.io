@@ -21,16 +21,12 @@
     <!-- Vue.js - 在配置数据之后加载 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
-    <!-- 配置数据 -->
+    <!-- 配置数据 - 直接从 assets/data 加载，避免维护两份相同的 JSON 文件 -->
     <script>
-        // 将 Jekyll 数据传递给 JavaScript
-        {% if site.data.homeConfig %}
-        window.siteConfig = {{ site.data.homeConfig | jsonify }};
-        console.log('Jekyll 配置数据已设置:', window.siteConfig);
-        {% else %}
-        console.warn('Jekyll 配置数据未找到，将尝试从 JSON 文件加载');
+        // 配置数据将通过 fetch 从 assets/data 加载
+        // 详见 main.js 中的加载逻辑
         window.siteConfig = null;
-        {% endif %}
+        console.log('配置将通过 fetch 从 assets/data 加载');
     </script>
     
     <!-- JavaScript -->

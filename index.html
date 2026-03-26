@@ -4,6 +4,10 @@ title: 阿布的个人主页
 description: Python 全栈工程师 | AI 解决方案架构师
 ---
 
+{% comment %} 
+  使用 {% raw %} 防止 Jekyll 处理 Vue.js 的 {{ }} 模板语法。
+  整个 #app 容器都被包裹，因为所有内容都是 Vue 动态渲染的。
+{% endcomment %}
 {% raw %}
 <div id="app" v-cloak>
     <!-- 语言切换按钮 -->
