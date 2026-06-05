@@ -12,30 +12,42 @@
 
 ## 本地开发
 
-### 前置要求
+### 方式一：Node 预览（推荐，无需 Ruby）
 
-- Ruby 2.7 或更高版本
-- Bundler gem
+1. 安装 [Node.js](https://nodejs.org/)（LTS 即可）
+2. 在项目目录执行：
 
-### 安装步骤
-
-1. 克隆仓库：
-```bash
-git clone https://github.com/briskygates/briskygates.github.io.git
-cd briskygates.github.io
+```powershell
+npm install
+npm run dev
 ```
 
-2. 安装依赖：
-```bash
+3. 浏览器打开 **http://127.0.0.1:4174**
+
+修改 `index.html` 或 `assets/data/*.json` 后，重新运行 `npm run dev`（或先执行 `node tests/helpers/build-fixture.js` 再刷新页面）。
+
+若报 **`EADDRINUSE` / 端口已被占用**，说明 4174 上已有 dev 服务在跑，**直接打开上面的地址即可**；若要重启，先结束占用进程：
+
+```powershell
+Stop-Process -Id (Get-NetTCPConnection -LocalPort 4174).OwningProcess -Force
+npm run dev
+```
+
+或换端口：`$env:PORT=4000; npm run dev`
+
+### 方式二：Jekyll 完整构建（可选）
+
+需要安装 [Ruby](https://rubyinstaller.org/)（Windows 勾选 “Add Ruby to PATH”）和 Bundler：
+
+```powershell
+gem install bundler
 bundle install
-```
-
-3. 启动本地服务器：
-```bash
 bundle exec jekyll serve
 ```
 
-4. 在浏览器中打开 `http://localhost:4000`
+浏览器打开 `http://localhost:4000`。
+
+若提示 **`bundle` 不是内部或外部命令**，说明未安装 Ruby，请改用上面的 **`npm run dev`**。
 
 ## 部署到 GitHub Pages
 
