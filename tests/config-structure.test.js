@@ -21,6 +21,7 @@ const REQUIRED_UI_KEYS = [
 ];
 
 const REQUIRED_PROJECT_STATUS_KEYS = [
+    'production',
     'active',
     'testing',
     'development',
@@ -29,7 +30,17 @@ const REQUIRED_PROJECT_STATUS_KEYS = [
     'progressLabel'
 ];
 
-const TOP_LEVEL_KEYS = ['ui', 'profile', 'skills', 'services', 'projects', 'contact'];
+const TOP_LEVEL_KEYS = [
+    'ui',
+    'profile',
+    'featured',
+    'projectShowcase',
+    'experience',
+    'skills',
+    'services',
+    'projects',
+    'contact'
+];
 
 function collectKeys(obj, prefix = '') {
     if (obj === null || typeof obj !== 'object' || Array.isArray(obj)) {
@@ -86,10 +97,10 @@ test('中英文配置嵌套 key 结构一致', () => {
     assert.deepEqual(zhKeys, enKeys);
 });
 
-test('index.html 不包含硬编码的「亮点：」', () => {
+test('index.html 使用配置驱动渲染且无硬编码亮点文案', () => {
     const indexHtml = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
     assert.doesNotMatch(indexHtml, /亮点：/);
-    assert.match(indexHtml, /highlightsLabel/);
+    assert.match(indexHtml, /getStatusText/);
     assert.match(indexHtml, /@click="switchLanguage"/);
 });
 
