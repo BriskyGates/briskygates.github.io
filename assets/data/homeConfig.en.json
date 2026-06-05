@@ -1,8 +1,11 @@
 {
   "ui": {
+    "pageTitle": "Abu's Personal Homepage",
+    "pageDescription": "Python Full-Stack Engineer | AI Solutions Architect",
+    "labelSuffix": ": ",
     "languageToggle": {
       "buttonText": "中文",
-      "tooltip": "Switch to Chinese"
+      "tooltip": "Switch to Chinese / 切换到中文"
     },
     "toast": {
       "wechatCopied": "WeChat ID copied to clipboard",
@@ -14,6 +17,7 @@
       "testing": "🧪 Testing",
       "development": "⚡ In Development",
       "planned": "📋 Planned",
+      "highlightsLabel": "Highlights:",
       "progressLabel": "Progress"
     }
   },

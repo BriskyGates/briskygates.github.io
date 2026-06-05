@@ -1,8 +1,11 @@
 {
   "ui": {
+    "pageTitle": "阿布的个人主页",
+    "pageDescription": "Python 全栈工程师 | AI 解决方案架构师",
+    "labelSuffix": "：",
     "languageToggle": {
       "buttonText": "EN",
-      "tooltip": "切换到英文"
+      "tooltip": "切换到英文 / Switch to English"
     },
     "toast": {
       "wechatCopied": "微信号已复制到剪贴板",
@@ -14,6 +17,7 @@
       "testing": "🧪 测试中",
       "development": "⚡ 开发中",
       "planned": "📋 计划中",
+      "highlightsLabel": "亮点：",
       "progressLabel": "进度"
     }
   },
