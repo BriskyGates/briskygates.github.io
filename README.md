@@ -46,25 +46,42 @@ bundle exec jekyll serve
 
 ## 配置文件
 
-所有内容配置都在 `_data/homeConfig.json` 文件中，你可以直接编辑这个文件来更新网站内容。
+网站内容配置位于 `assets/data/` 目录：
+
+- `assets/data/homeConfig.json` — 中文内容
+- `assets/data/homeConfig.en.json` — 英文内容
+
+编辑对应文件后提交即可更新网站内容。
+
+## 运行测试
+
+```bash
+npm install
+npm test
+```
+
+单元测试与配置文件结构校验位于 `tests/` 目录；端到端测试会启动本地静态服务器验证语言切换等功能。
 
 ## 项目结构
 
 ```
 .
-├── _config.yml          # Jekyll 配置文件
-├── _data/
-│   └── homeConfig.json  # 网站内容配置
+├── _config.yml              # Jekyll 配置文件
 ├── _layouts/
-│   └── default.html     # 默认布局模板
+│   └── default.html         # 默认布局模板
 ├── assets/
 │   ├── css/
-│   │   └── style.css    # 样式文件
+│   │   └── style.css        # 样式文件
+│   ├── data/
+│   │   ├── homeConfig.json  # 中文内容配置
+│   │   └── homeConfig.en.json # 英文内容配置
 │   └── js/
-│       └── main.js      # JavaScript 文件
-├── index.html           # 主页
-├── Gemfile              # Ruby 依赖
-└── README.md            # 项目说明
+│       ├── app-core.js      # 核心逻辑（可测试）
+│       └── main.js          # 页面入口脚本
+├── tests/                   # 测试用例
+├── index.html               # 主页
+├── Gemfile                  # Ruby 依赖
+└── README.md                # 项目说明
 ```
 
 ## 许可证
