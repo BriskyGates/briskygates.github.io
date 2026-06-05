@@ -1,8 +1,12 @@
 {
   "ui": {
-    "pageTitle": "Abu's Personal Homepage",
-    "pageDescription": "Python Full-Stack Engineer | AI Solutions Architect",
+    "pageTitle": "Abu · AI Full-Stack Engineer",
+    "pageDescription": "Python Full-Stack | Enterprise AI | RAG · Agent · Document Intelligence",
     "labelSuffix": ": ",
+    "searchPlaceholder": "Explore skills, projects, and collaboration…",
+    "heroCtaPrimary": "View featured work",
+    "heroCtaSecondary": "Get in touch",
+    "contactMethodsTitle": "Contact",
     "languageToggle": {
       "buttonText": "中文",
       "tooltip": "Switch to Chinese / 切换到中文"
@@ -12,249 +16,518 @@
       "xianyuCopied": "Store name copied to clipboard",
       "telegramCopied": "Telegram ID copied to clipboard"
     },
+    "nav": [
+      { "id": "home", "label": "Home", "icon": "fas fa-house" },
+      { "id": "showcase", "label": "Featured", "icon": "fas fa-fire" },
+      { "id": "projects", "label": "Projects", "icon": "fas fa-layer-group" },
+      { "id": "experience", "label": "Experience", "icon": "fas fa-route" },
+      { "id": "skills", "label": "Skills", "icon": "fas fa-bolt" },
+      { "id": "services", "label": "Services", "icon": "fas fa-briefcase" },
+      { "id": "contact", "label": "Contact", "icon": "fas fa-paper-plane" }
+    ],
     "projectStatus": {
-      "active": "🔥 Active",
-      "testing": "🧪 Testing",
-      "development": "⚡ In Development",
-      "planned": "📋 Planned",
-      "highlightsLabel": "Highlights:",
+      "production": "Live",
+      "active": "Active",
+      "testing": "Testing",
+      "development": "In Dev",
+      "planned": "Planned",
+      "highlightsLabel": "Highlights",
       "progressLabel": "Progress"
+    },
+    "greetings": {
+      "morning": "Good morning",
+      "afternoon": "Good afternoon",
+      "evening": "Good evening",
+      "night": "Still coding?"
     }
   },
   "profile": {
+    "name": "Abu",
     "avatar": "🐶",
-    "status": "Online",
-    "title": "🐶 【About Me】",
+    "tagline": "Shanghai · Online",
+    "status": "Available",
+    "heroTitle": "Engineering AI into products that actually ship",
+    "title": "About",
     "greeting": {
-      "text": "🤝 Hi, I'm Abu, based in Shanghai",
-      "description": "💻 <strong>Python Full-Stack Engineer</strong><br>🤖 <strong>AI Solutions Architect</strong>"
+      "text": "Hi, I'm Abu, based in Shanghai",
+      "description": "<strong>Python Full-Stack Engineer</strong> · <strong>AI Solutions Architect</strong><br>Finance research, enterprise knowledge bases, Telegram/Lark ecosystems, and document intelligence pipelines"
     },
+    "heroChips": ["RAG & Vector Search", "Multi-Agent / MCP", "FastAPI Microservices", "PDF/OCR Pipelines", "Telegram Bots"],
     "roles": [
       {
-        "label": "Core Skills",
-        "value": "Python Backend Architecture + AI Agent Engineering",
+        "label": "Core Strength",
+        "value": "End-to-end enterprise AI: architecture → delivery → production ops",
         "type": "primary"
       },
       {
-        "label": "Service Focus",
-        "value": "Enterprise AI Solutions & Technical Consulting ⚡",
+        "label": "Collaboration Focus",
+        "value": "Financial institutions · Tech teams · Startups & SMBs",
         "type": "secondary"
       }
     ],
     "stats": [
-      {
-        "number": "6+",
-        "label": "Years Exp"
-      },
-      {
-        "number": "500+",
-        "label": "Projects"
-      },
-      {
-        "number": "100+",
-        "label": "Clients"
-      },
-      {
-        "number": "99.99%",
-        "label": "Satisfaction"
-      }
+      { "number": "6+", "label": "Years" },
+      { "number": "80+", "label": "Repos" },
+      { "number": "15+", "label": "AI Projects" },
+      { "number": "Full-Stack", "label": "Delivery" }
     ],
     "location": {
-      "icon": "🏙️",
-      "text": "Shanghai, China"
-    }
+      "icon": "📍",
+      "text": "Shanghai, China · UTC+8"
+    },
+    "heroGradient": ["#1db954", "#1ed760", "#509bf5"]
+  },
+  "featured": {
+    "title": "Featured Work",
+    "subtitle": "Representative production work, grouped by capability",
+    "items": [
+      {
+        "id": "asset_allocation_agent",
+        "title": "Financial Institution Asset Allocation Agent",
+        "subtitle": "Finance × LLM Workflows",
+        "description": "Allocation API, news-driven models, MySQL persistence, and backtest NAV — a full enterprise agent pipeline.",
+        "tags": ["FastAPI", "LLM", "Backtest", "MySQL"],
+        "icon": "📊",
+        "accent": "#509bf5",
+        "status": "production",
+        "highlights": [
+          "Structured dual-table persistence",
+          "Event-driven workflow configs",
+          "Backtest service & API monitoring"
+        ]
+      },
+      {
+        "id": "multi_llm_analysis",
+        "title": "Multi-LLM Question Analysis Engine",
+        "subtitle": "Eval Mode × Generation Mode",
+        "description": "T1–T8 typing: proof/chart/multi-choice routing; separate eval vs generation pipelines with G-round review support.",
+        "tags": ["Multi-LLM", "Type Engine", "Pipeline"],
+        "icon": "🧠",
+        "accent": "#e91429",
+        "status": "production",
+        "highlights": [
+          "8 question types with tailored routing",
+          "Proof evaluation vs standard generation",
+          "Review chain and question metadata design"
+        ]
+      },
+      {
+        "id": "group_management_bot",
+        "title": "Telegram Group & Escrow Bot",
+        "subtitle": "Full Business Bot Stack",
+        "description": "Group automation, private escrow, public reporting, listings, wallet top-up — production Telegram product.",
+        "tags": ["aiogram", "MySQL", "Redis", "Escrow"],
+        "icon": "🤖",
+        "accent": "#1db954",
+        "status": "production",
+        "highlights": [
+          "Join verification / anti-spam / scheduled posts",
+          "Escrow groups & payment confirmation",
+          "User manual & production deployment"
+        ]
+      },
+      {
+        "id": "fastapi_celery_kb",
+        "title": "Research Report Vector KB",
+        "subtitle": "RAG Pipeline · GPU Cluster",
+        "description": "FastAPI + Celery chunking & vectorization for A-share filings and reports at scale.",
+        "tags": ["Celery", "Vector DB", "Chunking", "Docker"],
+        "icon": "📚",
+        "accent": "#b49bc8",
+        "status": "production",
+        "highlights": [
+          "Auto chunk transform & ingest",
+          "Parallel vectorization jobs",
+          "Docker Compose production"
+        ]
+      }
+    ]
+  },
+  "projectShowcase": {
+    "rows": [
+      {
+        "id": "enterprise-ai",
+        "title": "Enterprise AI",
+        "description": "Agents and multi-model apps for financial research scenarios",
+        "items": [
+          {
+            "id": "multi_llm_analysis",
+            "title": "Multi-LLM Question Engine",
+            "subtitle": "Proof / Chart / Generation",
+            "description": "T1–T8 typing, eval vs generation modes, G-round review pipelines.",
+            "tags": ["Multi-LLM", "Engine"],
+            "icon": "🧠",
+            "accent": "#ff6b6b"
+          },
+          {
+            "id": "rerank_system",
+            "title": "Retrieval Reranker",
+            "subtitle": "RAG precision",
+            "description": "Reranking service for report/filing recall quality.",
+            "tags": ["Rerank", "RAG"],
+            "icon": "🎯",
+            "accent": "#f59e0b"
+          },
+          {
+            "id": "report_recall",
+            "title": "Report Figure & Passage Recall",
+            "subtitle": "Multimodal retrieval",
+            "description": "Figure recall, vector DB, latest report_recall pipeline.",
+            "tags": ["Vector", "Research"],
+            "icon": "📈",
+            "accent": "#06b6d4"
+          },
+          {
+            "id": "etf_unusual",
+            "title": "ETF Anomaly Monitor",
+            "subtitle": "Quant · News",
+            "description": "ETF anomaly analytics via external data feeds, with premium & volume metrics.",
+            "tags": ["ETF", "Quant"],
+            "icon": "📉",
+            "accent": "#8b5cf6"
+          }
+        ]
+      },
+      {
+        "id": "rag-knowledge",
+        "title": "RAG & Knowledge",
+        "description": "Chunking, embedding, recall, and KB builds",
+        "items": [
+          {
+            "id": "multi_source_chunk",
+            "title": "Multi-Source Doc Chunk & Embed",
+            "subtitle": "Production pipeline",
+            "description": "Multi-source chunk + vectorize on cloud infra for flash news etc.",
+            "tags": ["Chunk", "Vectorize"],
+            "icon": "🔗",
+            "accent": "#10b981"
+          },
+          {
+            "id": "qwen3_pg_recall",
+            "title": "Qwen3 Embedding Recall",
+            "subtitle": "PG vector search",
+            "description": "PostgreSQL recall with Qwen3 embeddings.",
+            "tags": ["Qwen3", "PostgreSQL"],
+            "icon": "🔍",
+            "accent": "#3b82f6"
+          },
+          {
+            "id": "finance_chat_openapi",
+            "title": "Finance Chat OpenAPI Service",
+            "subtitle": "Finance chat API",
+            "description": "Enterprise Chat OpenAPI with logging, database, and release pipeline ops.",
+            "tags": ["OpenAPI", "Chat"],
+            "icon": "💬",
+            "accent": "#ec4899"
+          },
+          {
+            "id": "announcement_tagging",
+            "title": "Filing Title Tagging",
+            "subtitle": "NLP classification",
+            "description": "Auto tags for announcement titles in news aggregation.",
+            "tags": ["NLP", "Classification"],
+            "icon": "🏷️",
+            "accent": "#f97316"
+          }
+        ]
+      },
+      {
+        "id": "doc-intelligence",
+        "title": "Document Intelligence",
+        "description": "PDF parse, OCR, watermark removal, structuring",
+        "items": [
+          {
+            "id": "pdf2xml",
+            "title": "PDF2XML Parser",
+            "subtitle": "PDFlib TET · FastAPI",
+            "description": "High-performance PDF text/table/font geometry — Docker-ready service.",
+            "tags": ["PDF", "FastAPI"],
+            "icon": "📄",
+            "accent": "#6366f1"
+          },
+          {
+            "id": "pdf_chunker",
+            "title": "Smart PDF Chunking",
+            "subtitle": "Report / filing modes",
+            "description": "Table detection (ruled/stateless), Markdown table output.",
+            "tags": ["Chunking", "Tables"],
+            "icon": "✂️",
+            "accent": "#14b8a6"
+          },
+          {
+            "id": "pdf_watermark",
+            "title": "Report Watermark Removal",
+            "subtitle": "Multi-institution templates",
+            "description": "Configurable institution templates (font/keyword/position) for batch removal.",
+            "tags": ["Watermark", "Batch"],
+            "icon": "💧",
+            "accent": "#a855f7"
+          },
+          {
+            "id": "paddle_ocr_vl",
+            "title": "PaddleOCR-VL Service",
+            "subtitle": "Upload & parse",
+            "description": "FastAPI wrapper for PaddleOCR-VL, Win/Linux, optional MLX-VLM.",
+            "tags": ["OCR", "VL"],
+            "icon": "👁️",
+            "accent": "#22c55e"
+          }
+        ]
+      },
+      {
+        "id": "agent-mcp",
+        "title": "Agent & MCP",
+        "description": "Tool orchestration, code act, protocol innovation",
+        "items": [
+          {
+            "id": "dynamic_mcp",
+            "title": "Dynamic MCP · Code Act",
+            "subtitle": "Load tools on demand",
+            "description": "Code execution + lazy tool loading, incl. Excel NL query subsystem.",
+            "tags": ["MCP", "Code Act"],
+            "icon": "⚡",
+            "accent": "#1db954"
+          },
+          {
+            "id": "mcp_json_rpc",
+            "title": "MCP Tool Orchestration",
+            "subtitle": "Multi-tool flows",
+            "description": "Single/multi-tool plans, context-aware dialogue, up to 5 parallel rounds.",
+            "tags": ["JSON-RPC", "Orchestration"],
+            "icon": "🔧",
+            "accent": "#0ea5e9"
+          },
+          {
+            "id": "ai_mcp_middleware",
+            "title": "AI MCP Middleware Service",
+            "subtitle": "Middleware",
+            "description": "MCP middleware API connecting business systems and LLM tools.",
+            "tags": ["MCP", "API"],
+            "icon": "🌐",
+            "accent": "#64748b"
+          },
+          {
+            "id": "multi_agent_zyyx",
+            "title": "Multi-Agent Collaboration",
+            "subtitle": "Multi-agent systems",
+            "description": "Multi-agent collaboration patterns and implementation.",
+            "tags": ["Multi-Agent"],
+            "icon": "🤝",
+            "accent": "#d946ef"
+          }
+        ]
+      },
+      {
+        "id": "platform-auto",
+        "title": "Platform & Automation",
+        "description": "Bots, monitoring, email, office integration",
+        "items": [
+          {
+            "id": "onchain_token_monitor",
+            "title": "On-Chain Token Monitor",
+            "subtitle": "SOL/BSC · TG push",
+            "description": "New-token monitoring via on-chain data APIs, multi-account polling, Redis dedup, group & trader bots.",
+            "tags": ["Web3", "Telegram"],
+            "icon": "⛓️",
+            "accent": "#facc15"
+          },
+          {
+            "id": "cc_monitor_gmail",
+            "title": "Gmail → Telegram Relay",
+            "subtitle": "Email automation",
+            "description": "IMAP watch, smart filters, async relay, group state management.",
+            "tags": ["IMAP", "Bot"],
+            "icon": "📧",
+            "accent": "#ef4444"
+          },
+          {
+            "id": "lark_sync",
+            "title": "Lark Bitable Order Sync",
+            "subtitle": "Office automation",
+            "description": "Bidirectional sync between Lark bitable and order systems.",
+            "tags": ["Lark", "Automation"],
+            "icon": "🚀",
+            "accent": "#3370ff"
+          },
+          {
+            "id": "email_auto_crawl",
+            "title": "Outlook Mail & PDF Extract",
+            "subtitle": "RPA · PyInstaller",
+            "description": "Auto-fetch Outlook attachments, parse institutional research PDFs to structured Excel.",
+            "tags": ["RPA", "PDF"],
+            "icon": "📬",
+            "accent": "#78716c"
+          }
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Where engineering meets real business scenarios",
+    "items": [
+      {
+        "period": "2024 — Present",
+        "title": "Finance AI · Agents & RAG",
+        "description": "Led/contributed to allocation agents, research vector KBs, rerank/recall, and multi-LLM analysis for financial institution clients — from POC to monitored production.",
+        "tags": ["Agents", "RAG", "FastAPI", "Docker"]
+      },
+      {
+        "period": "2022 — 2024",
+        "title": "Document Intelligence",
+        "description": "Built PDF chunking, watermark removal, OCR-VL, PDF2XML pipelines for massive research/filing corpora.",
+        "tags": ["PDF", "OCR", "ETL"]
+      },
+      {
+        "period": "2020 — Present",
+        "title": "Telegram / Lark Ecosystem",
+        "description": "Escrow bots, email relay, on-chain monitors, bitable sync — high concurrency and state machines.",
+        "tags": ["aiogram", "Lark API", "Redis"]
+      },
+      {
+        "period": "Ongoing",
+        "title": "MCP & Agent Engineering",
+        "description": "MCP orchestration, code-act patterns, Text2SQL — auditable, reproducible LLM workflows.",
+        "tags": ["MCP", "Agent", "Text2SQL"]
+      }
+    ]
   },
   "skills": {
-    "title": "📊 【Core Technical Capabilities】",
-    "motto": "Python Backend Architecture + AI Engineering Practice, <strong>Providing End-to-End Enterprise Solutions</strong>🎯",
+    "title": "Core Skills",
+    "motto": "Not just prompting — <strong>embedding AI into existing systems</strong> with operable, scalable delivery",
     "items": [
       {
         "title": "AI Application Engineering",
-        "description": "RAG Architecture Design / LLM Production Deployment / Text2SQL / Multi-Agent Systems",
-        "tags": ["RAG", "LLM", "Text2SQL", "Agent"],
+        "description": "RAG / LLM deploy / Text2SQL / Multi-Agent / MCP toolchains",
+        "tags": ["RAG", "LLM", "MCP", "Agent"],
         "icon": "🤖"
       },
       {
-        "title": "Enterprise Application Integration",
-        "description": "Lark/WeCom Open Platform / WeChat Mini Program Ecosystem / Telegram Bot Development",
-        "tags": ["Lark", "Mini Program", "Telegram", "API Integration"],
-        "icon": "🚀"
+        "title": "Finance Text & Knowledge",
+        "description": "Report/filing chunking, recall, rerank, figure retrieval, news tagging",
+        "tags": ["Vector DB", "Research", "Recall"],
+        "icon": "📊"
       },
       {
-        "title": "Intelligent Document Processing",
-        "description": "OCR Technology Application / NLP Content Extraction / Smart Deduplication / Data Structuring",
-        "tags": ["OCR", "Doc Parsing", "Smart Extraction"],
+        "title": "Document Intelligence",
+        "description": "PDF parse / OCR-VL / watermark / table detection / structuring",
+        "tags": ["PDF", "OCR", "Pipeline"],
         "icon": "📄"
       },
       {
-        "title": "Data Engineering & Automation",
-        "description": "Distributed Crawler Architecture / ETL Data Pipelines / RPA Process Automation",
-        "tags": ["Crawler", "RPA", "Automation"],
+        "title": "Platform & Automation",
+        "description": "Telegram bots / Lark / email RPA / Celery scheduling",
+        "tags": ["Bot", "Lark", "Celery"],
         "icon": "⚡"
       }
     ],
     "summary": [
-      {
-        "icon": "🏗️",
-        "text": "Full-Stack Architecture"
-      },
-      {
-        "icon": "🧠",
-        "text": "AI Engineering Experience"
-      },
-      {
-        "icon": "⚡",
-        "text": "Agile Delivery"
-      }
+      { "icon": "🏗️", "text": "Full-Stack" },
+      { "icon": "🧠", "text": "AI Engineering" },
+      { "icon": "🚀", "text": "Agile Delivery" }
     ]
   },
   "services": {
-    "title": "💼 【Professional Services】",
+    "title": "What I Offer",
     "items": [
       {
-        "title": "Enterprise AI Agent Systems",
-        "description": "RAG-based enterprise knowledge Q&A systems, supporting private deployment and customized training",
-        "technologies": ["RAG", "Vector DB", "LLM", "Knowledge Base"],
+        "title": "Enterprise AI Agents",
+        "description": "Knowledge Q&A, workflow agents, private deploy, API monitoring",
+        "technologies": ["RAG", "Agent", "FastAPI"],
         "badge": "Enterprise",
         "icon": "🤖"
       },
       {
-        "title": "Office Platform Application Development",
-        "description": "Lark/WeCom ecosystem app development, OpenAPI deep integration, intelligent workflow orchestration",
-        "technologies": ["Lark API", "WeCom API", "Automation", "Integration"],
-        "badge": "Office Automation",
-        "icon": "🚀"
+        "title": "Finance Text RAG",
+        "description": "Report/filing ingest, chunk strategy, recall/rerank & eval",
+        "technologies": ["Vector DB", "Rerank", "ETL"],
+        "badge": "Finance",
+        "icon": "📈"
       },
       {
-        "title": "Multi-Platform Application Development",
-        "description": "WeChat Mini Program full-stack development, Telegram Bot automation system construction",
-        "technologies": ["Mini Program", "Telegram Bot", "API", "Backend"],
-        "badge": "Multi-Platform",
+        "title": "Document Pipelines",
+        "description": "PDF parse, OCR, watermark removal, batch structuring",
+        "technologies": ["PDF", "OCR", "Python"],
+        "badge": "Doc AI",
+        "icon": "📄"
+      },
+      {
+        "title": "Bots & Office Automation",
+        "description": "Telegram/Lark bots, email relay, task scheduling",
+        "technologies": ["aiogram", "Lark", "Celery"],
+        "badge": "Automation",
         "icon": "📱"
       },
       {
-        "title": "Data Collection & Processing Systems",
-        "description": "Distributed crawler architecture design, data ETL pipelines, automated task scheduling",
-        "technologies": ["Scrapy", "Data Cleaning", "Scheduled Tasks", "API"],
-        "badge": "Data Engineering",
-        "icon": "⚙️"
-      },
-      {
-        "title": "Python Technical Consulting",
-        "description": "Architecture design consulting, technical problem-solving, code quality review and optimization advice",
-        "technologies": ["Python", "Project Practice", "Problem Diagnosis", "Q&A"],
-        "badge": "Technical Advisor",
+        "title": "Python Consulting",
+        "description": "Architecture review, performance, hard problems",
+        "technologies": ["Architecture", "Code Review"],
+        "badge": "Advisor",
         "icon": "📚"
       }
     ],
     "partners": {
-      "title": "🌐 【Partner Recruitment】",
+      "title": "Ideal Partners",
       "types": [
         {
           "icon": "🚀",
-          "type": "AI Entrepreneurs",
-          "description": "Providing full-stack technical support from MVP to productization"
+          "type": "AI Startups",
+          "description": "MVP to product — backend & AI engineering"
         },
         {
           "icon": "🏢",
-          "type": "Enterprises / Teams",
-          "description": "Providing AI technology implementation solutions and system integration services"
+          "type": "Enterprise & institutional clients",
+          "description": "Financial research & knowledge-base AI integration"
         },
         {
           "icon": "👥",
-          "type": "Tech Partners",
-          "description": "Seeking like-minded tech experts to co-build innovative projects"
+          "type": "Tech Co-founders",
+          "description": "Build valuable Agent / RAG products together"
         }
       ],
-      "note": "Welcome <strong>short-term project cooperation</strong> or <strong>long-term technical advisory</strong> collaboration to explore technical value together 💬"
+      "note": "Open to <strong>project work</strong> or <strong>long-term advisory</strong> — let's align in a 30-min call first 💬"
     }
   },
   "projects": {
-    "title": "🚀 【Research Directions】",
-    "status": "Continuous Iteration",
-    "items": [
-      {
-        "title": "GraphRAG & Multi-Agent Collaboration",
-        "description": "Graph structure-based retrieval-augmented generation technology, combined with MCP Agent to achieve multi-agent collaboration systems",
-        "tags": ["GraphRAG", "Text2SQL", "MCP Agent", "Multi-Agent"],
-        "highlights": [
-          "Deep integration of graph database and vector retrieval",
-          "Intelligent natural language to SQL conversion",
-          "Multi-Agent collaboration pattern design"
-        ],
-        "progress": 75,
-        "status": "active"
-      },
-      {
-        "title": "LLM Local Deployment Optimization",
-        "description": "Local deployment solutions for large language models and embedding technologies, deeply optimized for enterprise applications",
-        "tags": ["LLM", "Embedding", "Model Optimization", "Local Deployment"],
-        "highlights": [
-          "Model quantization and inference acceleration",
-          "GPU resource optimization configuration",
-          "Multi-model concurrent management"
-        ],
-        "progress": 85,
-        "status": "testing"
-      },
-      {
-        "title": "Enterprise AI Copilot System",
-        "description": "Building dedicated AI assistant systems for enterprises, integrating knowledge base management, intelligent Q&A, and workflow automation",
-        "tags": ["AI Copilot", "Knowledge Base", "Workflow", "Enterprise App"],
-        "highlights": [
-          "Private knowledge base construction",
-          "Intelligent workflow orchestration",
-          "Multi-tenant architecture design"
-        ],
-        "progress": 60,
-        "status": "development"
-      }
-    ],
+    "title": "Philosophy",
+    "status": "",
+    "items": [],
     "innovation": {
       "icon": "💡",
       "title": "Technical Philosophy",
-      "text": "Focus on the engineering implementation of AI technology, drive business value with technology, and build sustainable business solutions."
+      "text": "AI value is in production — observable, rollback-friendly, maintainable. Solid Python engineering turns models into systems that actually run in your business."
     }
   },
   "contact": {
-    "title": "🤝 【Collaboration & Communication】",
+    "title": "Let's Talk",
     "intro": {
-      "icon": "🌟",
-      "title": "Technology Drives Value Creation",
-      "description": "Welcome to discuss technical solutions and collaboration opportunities, create value together 💬"
+      "icon": "✨",
+      "title": "Have an idea? Let's ship it",
+      "description": "Agents, RAG, document pipelines, or bots — bring your scenario. I'll assess feasibility honestly and propose a concrete path."
     },
     "methods": [],
     "availability": {
       "icon": "⏰",
       "title": "Response Time",
-      "responseTime": "2-4 hours",
-      "timezone": "UTC+8 (Beijing Time)",
+      "responseTime": "2–4 hours",
+      "timezone": "UTC+8 (Beijing)",
       "labels": {
-        "usuallyWithin": "Usually within",
-        "response": "response",
+        "usuallyWithin": "Weekdays usually within",
+        "response": "",
         "timezoneLabel": "Timezone"
       }
     },
     "collaboration": {
       "icon": "🤝",
-      "title": "Collaboration Types",
+      "title": "Collaboration",
       "types": [
-        {
-          "icon": "💼",
-          "text": "Project Cooperation"
-        },
-        {
-          "icon": "🎓",
-          "text": "Technical Guidance"
-        },
-        {
-          "icon": "🚀",
-          "text": "Startup Partner"
-        }
+        { "icon": "💼", "text": "Projects" },
+        { "icon": "🎓", "text": "Advisory" },
+        { "icon": "🚀", "text": "Co-founder" }
       ]
     },
     "footer": {
-      "highlights": ["Open Collaboration", "Tech Sharing", "Value Co-creation"]
+      "highlights": ["Open comms", "Engineering-first", "Outcome-driven"]
     }
   }
 }

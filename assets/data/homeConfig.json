@@ -1,8 +1,12 @@
 {
   "ui": {
-    "pageTitle": "阿布的个人主页",
-    "pageDescription": "Python 全栈工程师 | AI 解决方案架构师",
+    "pageTitle": "阿布 · AI 全栈工程师",
+    "pageDescription": "Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能",
     "labelSuffix": "：",
+    "searchPlaceholder": "探索技能、项目与合作方式…",
+    "heroCtaPrimary": "浏览代表作",
+    "heroCtaSecondary": "聊聊合作",
+    "contactMethodsTitle": "联系方式",
     "languageToggle": {
       "buttonText": "EN",
       "tooltip": "切换到英文 / Switch to English"
@@ -10,227 +14,505 @@
     "toast": {
       "wechatCopied": "微信号已复制到剪贴板",
       "xianyuCopied": "店铺名称已复制到剪贴板",
-      "telegramCopied": "Telegram账号已复制到剪贴板"
+      "telegramCopied": "Telegram 账号已复制到剪贴板"
     },
+    "nav": [
+      { "id": "home", "label": "首页", "icon": "fas fa-house" },
+      { "id": "showcase", "label": "代表作", "icon": "fas fa-fire" },
+      { "id": "projects", "label": "项目库", "icon": "fas fa-layer-group" },
+      { "id": "experience", "label": "履历", "icon": "fas fa-route" },
+      { "id": "skills", "label": "技能", "icon": "fas fa-bolt" },
+      { "id": "services", "label": "服务", "icon": "fas fa-briefcase" },
+      { "id": "contact", "label": "联系", "icon": "fas fa-paper-plane" }
+    ],
     "projectStatus": {
-      "active": "🔥 进行中",
-      "testing": "🧪 测试中",
-      "development": "⚡ 开发中",
-      "planned": "📋 计划中",
-      "highlightsLabel": "亮点：",
+      "production": "已上线",
+      "active": "持续迭代",
+      "testing": "测试中",
+      "development": "开发中",
+      "planned": "规划中",
+      "highlightsLabel": "亮点",
       "progressLabel": "进度"
+    },
+    "greetings": {
+      "morning": "早上好",
+      "afternoon": "下午好",
+      "evening": "晚上好",
+      "night": "夜深了，还在写代码？"
     }
   },
   "profile": {
+    "name": "阿布",
     "avatar": "🐶",
-    "status": "在线中",
-    "title": "🐶 【关于我】",
+    "tagline": "上海 · 在线",
+    "status": "可接项目",
+    "heroTitle": "用工程化 AI，把复杂业务做成可上线的产品",
+    "title": "关于我",
     "greeting": {
-      "text": "🤝 Hi，我是阿布，常驻上海",
-      "description": "💻 <strong>Python 全栈工程师</strong><br>🤖 <strong>AI 解决方案架构师</strong>"
+      "text": "Hi，我是阿布，常驻上海",
+      "description": "<strong>Python 全栈工程师</strong> · <strong>AI 解决方案架构师</strong><br>深耕金融研报、企业知识库、Telegram/飞书生态与文档智能管线"
     },
+    "heroChips": ["RAG & 向量检索", "Multi-Agent / MCP", "FastAPI 微服务", "PDF/OCR 管线", "Telegram Bot"],
     "roles": [
       {
-        "label": "核心技能",
-        "value": "Python 后端架构 + AI Agent 工程化",
+        "label": "核心能力",
+        "value": "从 0 到 1 搭建企业级 AI 应用：架构设计 → 开发交付 → 上线运维",
         "type": "primary"
       },
       {
-        "label": "服务方向",
-        "value": "企业级 AI 解决方案与技术咨询 ⚡",
+        "label": "合作方向",
+        "value": "金融机构 · 科技团队 · 创业公司与中小企业",
         "type": "secondary"
       }
     ],
     "stats": [
-      {
-        "number": "6+",
-        "label": "年实战"
-      },
-      {
-        "number": "500+",
-        "label": "项目"
-      },
-      {
-        "number": "100+",
-        "label": "企业服务"
-      },
-      {
-        "number": "99.99%",
-        "label": "好评率"
-      }
+      { "number": "6+", "label": "年实战" },
+      { "number": "80+", "label": "自研仓库" },
+      { "number": "15+", "label": "AI 核心项目" },
+      { "number": "全栈", "label": "交付闭环" }
     ],
     "location": {
-      "icon": "🏙️",
-      "text": "上海，中国"
-    }
+      "icon": "📍",
+      "text": "上海，中国 · UTC+8"
+    },
+    "heroGradient": ["#1db954", "#1ed760", "#509bf5"]
   },
-  "skills": {
-    "title": "📊 【核心技术能力】",
-    "motto": "Python 后端架构 + AI 工程化实践，<strong>提供端到端企业级解决方案</strong>🎯",
+  "featured": {
+    "title": "精选代表作",
+    "subtitle": "按能力维度精选的代表性实战项目",
     "items": [
       {
-        "title": "AI 智能应用工程化",
-        "description": "RAG 架构设计 / LLM 生产级部署 / Text2SQL / Multi-Agent 系统",
-        "tags": ["RAG", "LLM", "Text2SQL", "Agent"],
+        "id": "asset_allocation_agent",
+        "title": "金融机构资产配置智能体",
+        "subtitle": "金融决策 × LLM 工作流",
+        "description": "资产配置建议 API、新闻事件驱动模型、MySQL 持久化与回测净值曲线，完整的企业级智能体落地链路。",
+        "tags": ["FastAPI", "LLM", "回测", "MySQL"],
+        "icon": "📊",
+        "accent": "#509bf5",
+        "status": "production",
+        "highlights": [
+          "资产配置 API 与双表结构化落库",
+          "新闻事件驱动工作流配置",
+          "回测服务与 API 监控脚本"
+        ]
+      },
+      {
+        "id": "multi_llm_analysis",
+        "title": "多 LLM 题型分析引擎",
+        "subtitle": "评估模式 × 生成模式",
+        "description": "T1–T8 题型体系：证明题、图表题、多选题自动分流；评估模式与生成模式分离，支持 G 轮复核与复杂题型流水线。",
+        "tags": ["Multi-LLM", "题型引擎", "Pipeline"],
+        "icon": "🧠",
+        "accent": "#e91429",
+        "status": "production",
+        "highlights": [
+          "8 类题型路由与差异化处理策略",
+          "证明题评估 vs 标准题生成双模式",
+          "可复核链路与题型元数据设计"
+        ]
+      },
+      {
+        "id": "group_management_bot",
+        "title": "Telegram 群管 & 担保交易 Bot",
+        "subtitle": "复杂业务 Bot 全链路",
+        "description": "群管自动化、专群担保、公群报备、供需发布、充值与客服——生产级 Telegram 商业机器人。",
+        "tags": ["aiogram", "MySQL", "Redis", "担保交易"],
+        "icon": "🤖",
+        "accent": "#1db954",
+        "status": "production",
+        "highlights": [
+          "进群验证 / 反垃圾 / 定时消息",
+          "专群担保与财务确认收款",
+          "完整用户手册与生产部署"
+        ]
+      },
+      {
+        "id": "fastapi_celery_kb",
+        "title": "研报 & 公告向量知识库",
+        "subtitle": "RAG 数据管线 · GPU 集群",
+        "description": "基于 FastAPI + Celery 的 A 股公告/研报分块、向量化与知识库构建，支撑大规模金融文本检索场景。",
+        "tags": ["Celery", "向量库", "分块", "Docker"],
+        "icon": "📚",
+        "accent": "#b49bc8",
+        "status": "production",
+        "highlights": [
+          "公告 chunk 自动转换与入库",
+          "多库并行向量化任务",
+          "Docker Compose 生产部署"
+        ]
+      }
+    ]
+  },
+  "projectShowcase": {
+    "rows": [
+      {
+        "id": "enterprise-ai",
+        "title": "企业级 AI 落地",
+        "description": "金融机构投研场景的智能体与多模型应用",
+        "items": [
+          {
+            "id": "multi_llm_analysis",
+            "title": "多 LLM 题型分析引擎",
+            "subtitle": "证明题 / 图表题 / 生成模式",
+            "description": "T1–T8 题型分类，评估模式与生成模式分离，支持 G 轮复核与复杂题型流水线。",
+            "tags": ["Multi-LLM", "题型引擎"],
+            "icon": "🧠",
+            "accent": "#ff6b6b"
+          },
+          {
+            "id": "rerank_system",
+            "title": "检索重排序系统",
+            "subtitle": "RAG 精度提升",
+            "description": "面向研报/公告召回的重排序服务，提升 Top-K 结果相关性。",
+            "tags": ["Rerank", "RAG"],
+            "icon": "🎯",
+            "accent": "#f59e0b"
+          },
+          {
+            "id": "report_recall",
+            "title": "研报图表 & 段落召回",
+            "subtitle": "多模态检索",
+            "description": "研报 figure recall、向量数据库与最新版 report_recall 管线。",
+            "tags": ["向量检索", "研报"],
+            "icon": "📈",
+            "accent": "#06b6d4"
+          },
+          {
+            "id": "etf_unusual",
+            "title": "ETF 异动监测",
+            "subtitle": "量化 · 资讯",
+            "description": "对接外部资讯源的 ETF 异动分析、溢价率与量价指标实时计算展示。",
+            "tags": ["ETF", "量化"],
+            "icon": "📉",
+            "accent": "#8b5cf6"
+          }
+        ]
+      },
+      {
+        "id": "rag-knowledge",
+        "title": "RAG & 知识工程",
+        "description": "分块、向量化、召回与知识库构建",
+        "items": [
+          {
+            "id": "multi_source_chunk",
+            "title": "多源文档分块向量化",
+            "subtitle": "生产级数据管线",
+            "description": "多来源文档 chunk + vectorize，部署于生产 GPU 环境，支撑 flash news 等场景。",
+            "tags": ["Chunk", "Vectorize"],
+            "icon": "🔗",
+            "accent": "#10b981"
+          },
+          {
+            "id": "qwen3_pg_recall",
+            "title": "Qwen3 Embedding 召回",
+            "subtitle": "PG 向量检索",
+            "description": "基于 Qwen3 embedding 的 PostgreSQL 召回方案。",
+            "tags": ["Qwen3", "PostgreSQL"],
+            "icon": "🔍",
+            "accent": "#3b82f6"
+          },
+          {
+            "id": "finance_chat_openapi",
+            "title": "金融对话 OpenAPI 服务",
+            "subtitle": "对话式金融问答",
+            "description": "面向企业业务的 Chat OpenAPI，配套日志、数据库与发布流水线运维体系。",
+            "tags": ["OpenAPI", "Chat"],
+            "icon": "💬",
+            "accent": "#ec4899"
+          },
+          {
+            "id": "announcement_tagging",
+            "title": "公告标题智能打标",
+            "subtitle": "NLP 分类",
+            "description": "公告标题自动标签与分类，服务资讯聚合场景。",
+            "tags": ["NLP", "分类"],
+            "icon": "🏷️",
+            "accent": "#f97316"
+          }
+        ]
+      },
+      {
+        "id": "doc-intelligence",
+        "title": "文档智能",
+        "description": "PDF 解析、OCR、去水印与结构化抽取",
+        "items": [
+          {
+            "id": "pdf2xml",
+            "title": "PDF2XML 结构化解析",
+            "subtitle": "PDFlib TET · FastAPI",
+            "description": "高性能 PDF 文本/表格/字体几何解析，Docker 就绪的企业文档服务。",
+            "tags": ["PDF", "FastAPI"],
+            "icon": "📄",
+            "accent": "#6366f1"
+          },
+          {
+            "id": "pdf_chunker",
+            "title": "PDF 智能分块",
+            "subtitle": "研报 / 公告双模式",
+            "description": "表格识别（有线框/无线框）、Markdown 表格输出，适配研报与公告两类 PDF。",
+            "tags": ["分块", "表格识别"],
+            "icon": "✂️",
+            "accent": "#14b8a6"
+          },
+          {
+            "id": "pdf_watermark",
+            "title": "研报 PDF 去水印",
+            "subtitle": "多机构模板库",
+            "description": "按可配置机构模板（字体/关键词/位置规则）批量去除研报水印。",
+            "tags": ["水印", "批处理"],
+            "icon": "💧",
+            "accent": "#a855f7"
+          },
+          {
+            "id": "paddle_ocr_vl",
+            "title": "PaddleOCR-VL 服务",
+            "subtitle": "上传即解析",
+            "description": "FastAPI 封装 PaddleOCR-VL，支持 Windows/Linux，可选 MLX-VLM 后端。",
+            "tags": ["OCR", "VL"],
+            "icon": "👁️",
+            "accent": "#22c55e"
+          }
+        ]
+      },
+      {
+        "id": "agent-mcp",
+        "title": "Agent & MCP",
+        "description": "工具编排、代码执行与协议层创新",
+        "items": [
+          {
+            "id": "dynamic_mcp",
+            "title": "Dynamic MCP · 代码执行",
+            "subtitle": "按需加载工具",
+            "description": "复现「代码执行 + 按需加载工具」策略，含 Excel 自然语言查询子系统。",
+            "tags": ["MCP", "Code Act"],
+            "icon": "⚡",
+            "accent": "#1db954"
+          },
+          {
+            "id": "mcp_json_rpc",
+            "title": "MCP 智能工具编排",
+            "subtitle": "多工具协同",
+            "description": "单工具查询、多工具编排、上下文感知对话，最大 5 轮并行调用。",
+            "tags": ["JSON-RPC", "编排"],
+            "icon": "🔧",
+            "accent": "#0ea5e9"
+          },
+          {
+            "id": "ai_mcp_middleware",
+            "title": "AI MCP 中间件服务",
+            "subtitle": "中间件服务",
+            "description": "MCP 中间件 API，连接业务系统与 LLM 工具生态。",
+            "tags": ["MCP", "API"],
+            "icon": "🌐",
+            "accent": "#64748b"
+          },
+          {
+            "id": "multi_agent_zyyx",
+            "title": "Multi-Agent 协作",
+            "subtitle": "多智能体系统",
+            "description": "多 Agent 协作模式设计与实现探索。",
+            "tags": ["Multi-Agent"],
+            "icon": "🤝",
+            "accent": "#d946ef"
+          }
+        ]
+      },
+      {
+        "id": "platform-auto",
+        "title": "平台 & 自动化",
+        "description": "Bot、监控、邮件与办公集成",
+        "items": [
+          {
+            "id": "onchain_token_monitor",
+            "title": "链上代币监控推送",
+            "subtitle": "SOL/BSC · TG 推送",
+            "description": "对接链上数据平台的新币监控、多账户轮询、Redis 去重、推送到群与交易机器人。",
+            "tags": ["Web3", "Telegram"],
+            "icon": "⛓️",
+            "accent": "#facc15"
+          },
+          {
+            "id": "cc_monitor_gmail",
+            "title": "Gmail → Telegram 转发",
+            "subtitle": "邮件自动化",
+            "description": "IMAP 实时监控、智能过滤、异步转发与群组状态管理。",
+            "tags": ["IMAP", "Bot"],
+            "icon": "📧",
+            "accent": "#ef4444"
+          },
+          {
+            "id": "lark_sync",
+            "title": "飞书多维表格订单同步",
+            "subtitle": "办公自动化",
+            "description": "飞书多维表格与业务订单系统双向同步。",
+            "tags": ["飞书", "自动化"],
+            "icon": "🚀",
+            "accent": "#3370ff"
+          },
+          {
+            "id": "email_auto_crawl",
+            "title": "Outlook 邮件 & PDF 抽取",
+            "subtitle": "RPA · PyInstaller",
+            "description": "自动抓取 Outlook 邮件附件、解析机构研报 PDF、输出结构化 Excel。",
+            "tags": ["RPA", "PDF"],
+            "icon": "📬",
+            "accent": "#78716c"
+          }
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "title": "能力履历",
+    "subtitle": "技术栈与业务场景的真实交集",
+    "items": [
+      {
+        "period": "2024 — 至今",
+        "title": "金融 AI · 智能体 & RAG",
+        "description": "主导/参与金融机构与资管客户的智能体、研报向量库、召回重排与多 LLM 分析等项目，从 POC 到可监控的生产服务。",
+        "tags": ["智能体", "RAG", "FastAPI", "Docker"]
+      },
+      {
+        "period": "2022 — 2024",
+        "title": "文档智能管线",
+        "description": "构建 PDF 分块、去水印、OCR-VL、PDF2XML 等工具链，支撑海量研报/公告的结构化与入库。",
+        "tags": ["PDF", "OCR", "ETL"]
+      },
+      {
+        "period": "2020 — 至今",
+        "title": "Telegram / 飞书生态",
+        "description": "群管担保 Bot、邮件转发、链上监控、飞书多维表格等业务 Bot 与自动化系统，熟悉高并发与状态机设计。",
+        "tags": ["aiogram", "飞书 API", "Redis"]
+      },
+      {
+        "period": "持续",
+        "title": "MCP & Agent 工程化",
+        "description": "探索 MCP 工具编排、代码执行范式与 Text2SQL，将 LLM 能力嵌入可审计、可复现的工程流程。",
+        "tags": ["MCP", "Agent", "Text2SQL"]
+      }
+    ]
+  },
+  "skills": {
+    "title": "核心技术",
+    "motto": "不只会调模型——<strong>更擅长把 AI 嵌进现有业务系统</strong>，交付可运维、可扩展的方案",
+    "items": [
+      {
+        "title": "AI 应用工程化",
+        "description": "RAG 架构 / LLM 部署 / Text2SQL / Multi-Agent / MCP 工具链",
+        "tags": ["RAG", "LLM", "MCP", "Agent"],
         "icon": "🤖"
       },
       {
-        "title": "企业级应用集成",
-        "description": "飞书/企微开放平台 / 微信小程序生态 / Telegram Bot 开发",
-        "tags": ["飞书", "小程序", "Telegram", "API集成"],
-        "icon": "🚀"
+        "title": "金融文本 & 知识库",
+        "description": "研报/公告分块向量化、召回重排、图表召回、资讯打标",
+        "tags": ["向量库", "研报", "召回"],
+        "icon": "📊"
       },
       {
-        "title": "文档智能处理",
-        "description": "OCR 技术应用 / NLP 内容提取 / 智能去重算法 / 数据结构化",
-        "tags": ["OCR", "文档解析", "智能提取"],
+        "title": "文档智能",
+        "description": "PDF 解析 / OCR-VL / 去水印 / 表格识别 / 结构化抽取",
+        "tags": ["PDF", "OCR", "Pipeline"],
         "icon": "📄"
       },
       {
-        "title": "数据工程与自动化",
-        "description": "分布式爬虫架构 / ETL 数据流水线 / RPA 流程自动化",
-        "tags": ["爬虫", "RPA", "自动化"],
+        "title": "平台集成 & 自动化",
+        "description": "Telegram Bot / 飞书 / 邮件 RPA / Celery 任务调度",
+        "tags": ["Bot", "飞书", "Celery"],
         "icon": "⚡"
       }
     ],
     "summary": [
-      {
-        "icon": "🏗️",
-        "text": "全栈架构能力"
-      },
-      {
-        "icon": "🧠",
-        "text": "AI 工程化经验"
-      },
-      {
-        "icon": "⚡",
-        "text": "敏捷交付能力"
-      }
+      { "icon": "🏗️", "text": "全栈架构" },
+      { "icon": "🧠", "text": "AI 工程化" },
+      { "icon": "🚀", "text": "敏捷交付" }
     ]
   },
   "services": {
-    "title": "💼 【专业服务】",
+    "title": "可提供的合作",
     "items": [
       {
-        "title": "企业 AI 智能体系统",
-        "description": "基于 RAG 架构的企业级知识问答系统，支持私有化部署与定制化训练",
-        "technologies": ["RAG", "向量数据库", "LLM", "知识库"],
+        "title": "企业 AI 智能体",
+        "description": "知识库问答、工作流智能体、私有化部署与 API 监控",
+        "technologies": ["RAG", "Agent", "FastAPI"],
         "badge": "企业级",
         "icon": "🤖"
       },
       {
-        "title": "办公平台应用开发",
-        "description": "飞书/企微生态应用开发、OpenAPI 深度集成、智能工作流编排",
-        "technologies": ["飞书 API", "企微 API", "自动化", "集成"],
-        "badge": "办公自动化",
-        "icon": "🚀"
+        "title": "金融文本 RAG 系统",
+        "description": "研报/公告入库、分块策略、召回重排与评测",
+        "technologies": ["向量库", "Rerank", "ETL"],
+        "badge": "金融",
+        "icon": "📈"
       },
       {
-        "title": "多平台应用开发",
-        "description": "微信小程序全栈开发、Telegram Bot 自动化系统构建",
-        "technologies": ["小程序", "Telegram Bot", "API", "后端"],
-        "badge": "多平台",
+        "title": "文档处理管线",
+        "description": "PDF 解析、OCR、去水印、批量结构化",
+        "technologies": ["PDF", "OCR", "Python"],
+        "badge": "文档智能",
+        "icon": "📄"
+      },
+      {
+        "title": "Bot & 办公自动化",
+        "description": "Telegram/飞书机器人、邮件转发、任务调度",
+        "technologies": ["aiogram", "飞书", "Celery"],
+        "badge": "自动化",
         "icon": "📱"
       },
       {
-        "title": "数据采集与处理系统",
-        "description": "分布式爬虫架构设计、数据ETL流水线、自动化任务调度",
-        "technologies": ["Scrapy", "数据清洗", "定时任务", "API"],
-        "badge": "数据工程",
-        "icon": "⚙️"
-      },
-      {
-        "title": "Python 技术咨询",
-        "description": "架构设计咨询、技术难题攻坚、代码质量审查与优化建议",
-        "technologies": ["Python", "项目实战", "问题诊断", "技术答疑"],
-        "badge": "技术顾问",
+        "title": "Python 技术顾问",
+        "description": "架构评审、性能优化、疑难问题攻坚",
+        "technologies": ["架构", "Code Review"],
+        "badge": "顾问",
         "icon": "📚"
       }
     ],
     "partners": {
-      "title": "🌐 【合作伙伴招募】",
+      "title": "期待这样的伙伴",
       "types": [
         {
           "icon": "🚀",
-          "type": "AI 创业者",
-          "description": "提供从MVP到产品化的全栈技术支持"
+          "type": "AI 创业团队",
+          "description": "从 MVP 到产品化，补齐后端与 AI 工程能力"
         },
         {
           "icon": "🏢",
-          "type": "企业 / 团队",
-          "description": "为企业提供AI技术落地方案与系统集成服务"
+          "type": "企业与机构客户",
+          "description": "金融投研、知识库类 AI 落地与系统集成"
         },
         {
           "icon": "👥",
-          "type": "技术伙伴",
-          "description": "寻找志同道合的技术专家，共建创新项目"
+          "type": "技术合伙人",
+          "description": "一起打磨有商业价值的 Agent / RAG 产品"
         }
       ],
-      "note": "欢迎<strong>短期项目合作</strong>或<strong>长期技术顾问</strong>合作，共同探索技术价值 💬"
+      "note": "欢迎<strong>项目合作</strong>或<strong>长期技术顾问</strong>，先用 30 分钟对齐需求再开工 💬"
     }
   },
   "projects": {
-    "title": "🚀 【技术研究方向】",
-    "status": "持续迭代中",
-    "items": [
-      {
-        "title": "GraphRAG & 多智能体协作",
-        "description": "基于图结构的检索增强生成技术，结合MCP Agent实现多智能体协作系统",
-        "tags": ["GraphRAG", "Text2SQL", "MCP Agent", "多智能体"],
-        "highlights": [
-          "图数据库与向量检索的深度融合",
-          "自然语言到SQL的智能转换",
-          "多Agent协作模式设计"
-        ],
-        "progress": 75,
-        "status": "active"
-      },
-      {
-        "title": "LLM 本地化部署优化",
-        "description": "大语言模型与embedding技术的本地化部署方案，针对企业级应用进行深度优化",
-        "tags": ["LLM", "Embedding", "模型优化", "本地部署"],
-        "highlights": [
-          "模型量化与推理加速",
-          "GPU资源优化配置",
-          "多模型并发管理"
-        ],
-        "progress": 85,
-        "status": "testing"
-      },
-      {
-        "title": "企业级 AI Copilot 系统",
-        "description": "为企业打造专属的AI助手系统，集成知识库管理、智能问答、工作流自动化",
-        "tags": ["AI Copilot", "知识库", "工作流", "企业应用"],
-        "highlights": [
-          "私有化知识库构建",
-          "智能工作流编排",
-          "多租户架构设计"
-        ],
-        "progress": 60,
-        "status": "development"
-      }
-    ],
+    "title": "技术理念",
+    "status": "",
+    "items": [],
     "innovation": {
       "icon": "💡",
       "title": "技术理念",
-      "text": "专注 AI 技术的工程化落地，以技术驱动业务价值，构建可持续的商业解决方案。"
+      "text": "AI 的价值在落地——可观测、可回滚、可维护。用扎实的 Python 工程能力，把模型能力变成业务里真正在跑的系统。"
     }
   },
   "contact": {
-    "title": "🤝 【合作交流】",
+    "title": "合作交流",
     "intro": {
-      "icon": "🌟",
-      "title": "技术驱动价值创造",
-      "description": "欢迎探讨技术方案与合作机会，共创价值 💬"
+      "icon": "✨",
+      "title": "有想法？一起把它做成产品",
+      "description": "无论是智能体、RAG、文档管线还是 Bot，欢迎带着场景来聊——我会诚实评估可行性并给出落地路径。"
     },
     "methods": [],
     "availability": {
       "icon": "⏰",
       "title": "响应时间",
-      "responseTime": "2-4小时",
-      "timezone": "UTC+8 (北京时间)",
+      "responseTime": "2–4 小时",
+      "timezone": "UTC+8（北京时间）",
       "labels": {
-        "usuallyWithin": "通常在",
+        "usuallyWithin": "工作日通常在",
         "response": "内回复",
         "timezoneLabel": "时区"
       }
@@ -239,22 +521,13 @@
       "icon": "🤝",
       "title": "合作方式",
       "types": [
-        {
-          "icon": "💼",
-          "text": "项目合作"
-        },
-        {
-          "icon": "🎓",
-          "text": "技术指导"
-        },
-        {
-          "icon": "🚀",
-          "text": "创业伙伴"
-        }
+        { "icon": "💼", "text": "项目外包" },
+        { "icon": "🎓", "text": "技术顾问" },
+        { "icon": "🚀", "text": "创业合伙" }
       ]
     },
     "footer": {
-      "highlights": ["开放协作", "技术共享", "价值共创"]
+      "highlights": ["开放沟通", "工程优先", "结果导向"]
     }
   }
 }
