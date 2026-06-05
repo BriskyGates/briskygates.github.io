@@ -116,6 +116,14 @@ function renderWithVue(config) {
                 return {
                     background: `linear-gradient(135deg, ${a} 0%, ${b} 45%, ${c} 100%)`
                 };
+            },
+            activeNavLabel() {
+                const nav = this.config?.ui?.nav;
+                if (!nav) {
+                    return '';
+                }
+                const item = nav.find(entry => entry.id === this.activeSection);
+                return item?.label || '';
             }
         },
         mounted() {
@@ -129,11 +137,20 @@ function renderWithVue(config) {
             }
         },
         methods: {
+            getScrollOffset() {
+                const topbar = parseInt(
+                    getComputedStyle(document.documentElement).getPropertyValue('--topbar-height'),
+                    10
+                );
+                const extra = window.innerWidth <= 768 ? 12 : 20;
+                return (topbar || 60) + extra;
+            },
             scrollToSection(id) {
                 this.sidebarOpen = false;
                 const el = document.getElementById(id);
                 if (el) {
-                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const top = el.getBoundingClientRect().top + window.scrollY - this.getScrollOffset();
+                    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
                     this.activeSection = id;
                 }
             },
@@ -142,7 +159,7 @@ function renderWithVue(config) {
                 if (!nav || !nav.length) {
                     return;
                 }
-                const offset = 120;
+                const offset = this.getScrollOffset();
                 let current = nav[0].id;
                 for (const item of nav) {
                     const el = document.getElementById(item.id);

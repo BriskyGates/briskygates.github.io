@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Test Fixture</title>
     <meta name="description" content="test fixture">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,13 +44,10 @@
 
     <main class="main-view">
         <header class="top-bar">
-            <button type="button" class="mobile-menu-btn" @click="sidebarOpen = !sidebarOpen" aria-label="菜单">
-                <i class="fas fa-bars"></i>
-            </button>
             <div class="top-bar-brand">
                 <span class="brand-avatar">{{ config.profile.avatar }}</span>
                 <div class="brand-meta">
-                    <strong>{{ config.profile.name }}</strong>
+                    <strong>{{ activeSection === 'home' ? config.profile.name : activeNavLabel }}</strong>
                     <span class="status-dot">{{ config.profile.tagline }}</span>
                 </div>
             </div>
@@ -262,7 +259,7 @@
             @click.prevent="scrollToSection(item.id)"
         >
             <i :class="item.icon"></i>
-            <span>{{ item.label }}</span>
+            <span>{{ item.shortLabel || item.label }}</span>
         </a>
     </nav>
 

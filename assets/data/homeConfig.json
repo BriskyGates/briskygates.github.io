@@ -17,12 +17,12 @@
       "telegramCopied": "Telegram 账号已复制到剪贴板"
     },
     "nav": [
-      { "id": "home", "label": "首页", "icon": "fas fa-house" },
-      { "id": "showcase", "label": "代表作", "icon": "fas fa-fire" },
-      { "id": "projects", "label": "项目库", "icon": "fas fa-layer-group" },
-      { "id": "experience", "label": "履历", "icon": "fas fa-route" },
-      { "id": "skills", "label": "技能", "icon": "fas fa-bolt" },
-      { "id": "services", "label": "服务", "icon": "fas fa-briefcase" }
+      { "id": "home", "label": "首页", "shortLabel": "首页", "icon": "fas fa-house" },
+      { "id": "showcase", "label": "代表作", "shortLabel": "作品", "icon": "fas fa-fire" },
+      { "id": "projects", "label": "项目库", "shortLabel": "项目", "icon": "fas fa-layer-group" },
+      { "id": "experience", "label": "履历", "shortLabel": "履历", "icon": "fas fa-route" },
+      { "id": "skills", "label": "技能", "shortLabel": "技能", "icon": "fas fa-bolt" },
+      { "id": "services", "label": "服务", "shortLabel": "服务", "icon": "fas fa-briefcase" }
     ],
     "projectStatus": {
       "production": "已上线",
@@ -139,6 +139,21 @@
           "MMR 去重 + 时效/权威度加权融合排序",
           "Uvicorn 多进程部署与召回日志落库"
         ]
+      },
+      {
+        "id": "need_radar_bot",
+        "title": "AI 商机雷达 Bot",
+        "subtitle": "供需互补 · 线索推送",
+        "description": "Telegram 商业线索发现系统：频道扫描、LLM 意图识别、供需互补检索、盯词推送与 Web 运营后台。",
+        "tags": ["Telegram", "LLM", "混合检索"],
+        "icon": "📡",
+        "accent": "#8b5cf6",
+        "status": "production",
+        "highlights": [
+          "供方/需方互补匹配与语义 /find",
+          "频道白名单增量抓取 + 订阅推送",
+          "Web 管理后台（线索/用户/扫描）"
+        ]
       }
     ]
   },
@@ -184,6 +199,15 @@
             "tags": ["ETF", "量化"],
             "icon": "📉",
             "accent": "#8b5cf6"
+          },
+          {
+            "id": "temp_ner",
+            "title": "金融 NER 识别服务",
+            "subtitle": "X2NER · 时间解析",
+            "description": "投研场景实体识别：关键词/向量多路召回、可选 LLM 二次筛选，附时间语义解析 API。",
+            "tags": ["NER", "FastAPI", "向量召回"],
+            "icon": "🏷️",
+            "accent": "#f472b6"
           }
         ]
       },
@@ -270,6 +294,24 @@
             "tags": ["OCR", "VL"],
             "icon": "👁️",
             "accent": "#22c55e"
+          },
+          {
+            "id": "extract_pdf_toc",
+            "title": "PDF 目录挖掘服务",
+            "subtitle": "三策降级",
+            "description": "书签直读 → 正则目录页 → RapidLayout 版面兜底，FastAPI 高可用 TOC 抽取。",
+            "tags": ["PDF", "TOC", "RapidLayout"],
+            "icon": "📑",
+            "accent": "#a78bfa"
+          },
+          {
+            "id": "gpu_rapid_layout",
+            "title": "GPU 版面检测 API",
+            "subtitle": "高并发 · 异步落库",
+            "description": "图片流 + 元数据输入的版面框检测服务，同步返回并后台任务写入 PostgreSQL。",
+            "tags": ["FastAPI", "版面检测", "GPU"],
+            "icon": "🖼️",
+            "accent": "#f59e0b"
           }
         ]
       },
@@ -313,6 +355,40 @@
             "tags": ["Multi-Agent"],
             "icon": "🤝",
             "accent": "#d946ef"
+          }
+        ]
+      },
+      {
+        "id": "tg-mobile",
+        "title": "Telegram & 端侧应用",
+        "description": "Bot 生态、移动智能体与桌面效率工具",
+        "items": [
+          {
+            "id": "need_radar_bot",
+            "title": "AI 商机雷达",
+            "subtitle": "线索扫描 · 互补匹配",
+            "description": "频道消息 LLM 意图分析、供需互补检索、盯词推送与运营 Web 后台。",
+            "tags": ["Bot", "LLM", "SeekDB"],
+            "icon": "📡",
+            "accent": "#8b5cf6"
+          },
+          {
+            "id": "tg_ai_search",
+            "title": "Telegram AI 搜索",
+            "subtitle": "混合检索 · 重排",
+            "description": "Meilisearch 全文 + Qdrant 向量 + RRF 融合，BGE-M3 中文语义与 Cross-Encoder 重排。",
+            "tags": ["Meilisearch", "Qdrant", "RAG"],
+            "icon": "🔎",
+            "accent": "#06b6d4"
+          },
+          {
+            "id": "smart_clipboard",
+            "title": "Smart Clipboard",
+            "subtitle": "Tauri · Rust · AI",
+            "description": "Windows 智能剪贴板：Rust 核心监听 + Python Sidecar JSON-RPC，托盘热键与多厂商 AI 过滤扩展。",
+            "tags": ["Tauri", "Rust", "Sidecar"],
+            "icon": "📋",
+            "accent": "#818cf8"
           }
         ]
       },
