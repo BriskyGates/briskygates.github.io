@@ -50,7 +50,7 @@
     "title": "About",
     "greeting": {
       "text": "Hi, I'm Abu, based in Shanghai",
-      "description": "<strong>Python Full-Stack Engineer</strong> · <strong>AI Solutions Architect</strong><br>Finance research, enterprise knowledge bases, Telegram/Lark ecosystems, and document intelligence pipelines"
+      "description": "<strong>Python Full-Stack Engineer</strong> · <strong>AI Solutions Architect</strong><br>Enterprise knowledge bases, document intelligence, Telegram/Lark ecosystems, and production-grade RAG delivery"
     },
     "heroChips": ["RAG & Vector Search", "Multi-Agent / MCP", "FastAPI Microservices", "PDF/OCR Pipelines", "Telegram Bots"],
     "roles": [
@@ -61,7 +61,7 @@
       },
       {
         "label": "Collaboration Focus",
-        "value": "Financial institutions · Tech teams · Startups & SMBs",
+        "value": "Enterprise clients · Product & engineering teams · Startups & SMBs",
         "type": "secondary"
       }
     ],
@@ -81,21 +81,6 @@
     "title": "Featured Work",
     "subtitle": "Representative production work, grouped by capability",
     "items": [
-      {
-        "id": "asset_allocation_agent",
-        "title": "Financial Institution Asset Allocation Agent",
-        "subtitle": "Finance × LLM Workflows",
-        "description": "Allocation API, news-driven models, MySQL persistence, and backtest NAV — a full enterprise agent pipeline.",
-        "tags": ["FastAPI", "LLM", "Backtest", "MySQL"],
-        "icon": "📊",
-        "accent": "#509bf5",
-        "status": "production",
-        "highlights": [
-          "Structured dual-table persistence",
-          "Event-driven workflow configs",
-          "Backtest service & API monitoring"
-        ]
-      },
       {
         "id": "multi_llm_analysis",
         "title": "Multi-LLM Question Analysis Engine",
@@ -130,7 +115,7 @@
         "id": "fastapi_celery_kb",
         "title": "Research Report Vector KB",
         "subtitle": "RAG Pipeline · GPU Cluster",
-        "description": "FastAPI + Celery chunking & vectorization for A-share filings and reports at scale.",
+        "description": "FastAPI + Celery chunking & vectorization for filings and research reports at scale.",
         "tags": ["Celery", "Vector DB", "Chunking", "Docker"],
         "icon": "📚",
         "accent": "#b49bc8",
@@ -140,6 +125,21 @@
           "Parallel vectorization jobs",
           "Docker Compose production"
         ]
+      },
+      {
+        "id": "rerank_system",
+        "title": "Retrieval Reranker",
+        "subtitle": "RAG Precision · Production API",
+        "description": "Reranking for report/filing recall: semantic rerank + embedding similarity, MMR dedup, time/authority weighting, with PostgreSQL recall logs.",
+        "tags": ["FastAPI", "Rerank", "MMR", "PostgreSQL"],
+        "icon": "🎯",
+        "accent": "#f59e0b",
+        "status": "production",
+        "highlights": [
+          "10+ semantic scoring paths & Qwen rerank branch",
+          "MMR dedup with time/authority fusion",
+          "Multi-worker Uvicorn & traceable recall logs"
+        ]
       }
     ]
   },
@@ -148,7 +148,7 @@
       {
         "id": "enterprise-ai",
         "title": "Enterprise AI",
-        "description": "Agents and multi-model apps for financial research scenarios",
+        "description": "Agents and multi-model apps for enterprise research and Q&A scenarios",
         "items": [
           {
             "id": "multi_llm_analysis",
@@ -197,7 +197,7 @@
             "id": "multi_source_chunk",
             "title": "Multi-Source Doc Chunk & Embed",
             "subtitle": "Production pipeline",
-            "description": "Multi-source chunk + vectorize on cloud infra for flash news etc.",
+            "description": "Multi-source chunk + vectorize on cloud infra for real-time news feeds, etc.",
             "tags": ["Chunk", "Vectorize"],
             "icon": "🔗",
             "accent": "#10b981"
@@ -212,9 +212,9 @@
             "accent": "#3b82f6"
           },
           {
-            "id": "finance_chat_openapi",
-            "title": "Finance Chat OpenAPI Service",
-            "subtitle": "Finance chat API",
+            "id": "enterprise_chat_openapi",
+            "title": "Enterprise Chat OpenAPI Service",
+            "subtitle": "Knowledge Q&A API",
             "description": "Enterprise Chat OpenAPI with logging, database, and release pipeline ops.",
             "tags": ["OpenAPI", "Chat"],
             "icon": "💬",
@@ -257,8 +257,8 @@
           {
             "id": "pdf_watermark",
             "title": "Report Watermark Removal",
-            "subtitle": "Multi-institution templates",
-            "description": "Configurable institution templates (font/keyword/position) for batch removal.",
+            "subtitle": "Multi-rule templates",
+            "description": "Configurable watermark rule templates (font/keyword/position) for batch removal.",
             "tags": ["Watermark", "Batch"],
             "icon": "💧",
             "accent": "#a855f7"
@@ -307,7 +307,7 @@
             "accent": "#64748b"
           },
           {
-            "id": "multi_agent_zyyx",
+            "id": "multi_agent_collab",
             "title": "Multi-Agent Collaboration",
             "subtitle": "Multi-agent systems",
             "description": "Multi-agent collaboration patterns and implementation.",
@@ -353,7 +353,7 @@
             "id": "email_auto_crawl",
             "title": "Outlook Mail & PDF Extract",
             "subtitle": "RPA · PyInstaller",
-            "description": "Auto-fetch Outlook attachments, parse institutional research PDFs to structured Excel.",
+            "description": "Auto-fetch Outlook attachments, parse research PDFs to structured Excel.",
             "tags": ["RPA", "PDF"],
             "icon": "📬",
             "accent": "#78716c"
@@ -368,8 +368,8 @@
     "items": [
       {
         "period": "2024 — Present",
-        "title": "Finance AI · Agents & RAG",
-        "description": "Led/contributed to allocation agents, research vector KBs, rerank/recall, and multi-LLM analysis for financial institution clients — from POC to monitored production.",
+        "title": "Enterprise AI · Agents & RAG",
+        "description": "Led/contributed to enterprise agents, research vector KBs, rerank/recall, and multi-LLM analysis for B2B clients — from POC to monitored production.",
         "tags": ["Agents", "RAG", "FastAPI", "Docker"]
       },
       {
@@ -403,7 +403,7 @@
         "icon": "🤖"
       },
       {
-        "title": "Finance Text & Knowledge",
+        "title": "Domain Text & Knowledge",
         "description": "Report/filing chunking, recall, rerank, figure retrieval, news tagging",
         "tags": ["Vector DB", "Research", "Recall"],
         "icon": "📊"
@@ -438,10 +438,10 @@
         "icon": "🤖"
       },
       {
-        "title": "Finance Text RAG",
+        "title": "Document RAG Systems",
         "description": "Report/filing ingest, chunk strategy, recall/rerank & eval",
         "technologies": ["Vector DB", "Rerank", "ETL"],
-        "badge": "Finance",
+        "badge": "RAG",
         "icon": "📈"
       },
       {
@@ -476,8 +476,8 @@
         },
         {
           "icon": "🏢",
-          "type": "Enterprise & institutional clients",
-          "description": "Financial research & knowledge-base AI integration"
+          "type": "Enterprise clients",
+          "description": "Knowledge-base, Q&A, and AI system integration"
         },
         {
           "icon": "👥",

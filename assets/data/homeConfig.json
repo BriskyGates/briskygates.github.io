@@ -50,7 +50,7 @@
     "title": "关于我",
     "greeting": {
       "text": "Hi，我是阿布，常驻上海",
-      "description": "<strong>Python 全栈工程师</strong> · <strong>AI 解决方案架构师</strong><br>深耕金融研报、企业知识库、Telegram/飞书生态与文档智能管线"
+      "description": "<strong>Python 全栈工程师</strong> · <strong>AI 解决方案架构师</strong><br>深耕企业知识库、行业文档智能、Telegram/飞书生态与 RAG 工程化交付"
     },
     "heroChips": ["RAG & 向量检索", "Multi-Agent / MCP", "FastAPI 微服务", "PDF/OCR 管线", "Telegram Bot"],
     "roles": [
@@ -61,7 +61,7 @@
       },
       {
         "label": "合作方向",
-        "value": "金融机构 · 科技团队 · 创业公司与中小企业",
+        "value": "企业客户 · 产品/技术团队 · 创业公司与中小企业",
         "type": "secondary"
       }
     ],
@@ -81,21 +81,6 @@
     "title": "精选代表作",
     "subtitle": "按能力维度精选的代表性实战项目",
     "items": [
-      {
-        "id": "asset_allocation_agent",
-        "title": "金融机构资产配置智能体",
-        "subtitle": "金融决策 × LLM 工作流",
-        "description": "资产配置建议 API、新闻事件驱动模型、MySQL 持久化与回测净值曲线，完整的企业级智能体落地链路。",
-        "tags": ["FastAPI", "LLM", "回测", "MySQL"],
-        "icon": "📊",
-        "accent": "#509bf5",
-        "status": "production",
-        "highlights": [
-          "资产配置 API 与双表结构化落库",
-          "新闻事件驱动工作流配置",
-          "回测服务与 API 监控脚本"
-        ]
-      },
       {
         "id": "multi_llm_analysis",
         "title": "多 LLM 题型分析引擎",
@@ -130,7 +115,7 @@
         "id": "fastapi_celery_kb",
         "title": "研报 & 公告向量知识库",
         "subtitle": "RAG 数据管线 · GPU 集群",
-        "description": "基于 FastAPI + Celery 的 A 股公告/研报分块、向量化与知识库构建，支撑大规模金融文本检索场景。",
+        "description": "基于 FastAPI + Celery 的公告/研报分块、向量化与知识库构建，支撑大规模行业文本检索场景。",
         "tags": ["Celery", "向量库", "分块", "Docker"],
         "icon": "📚",
         "accent": "#b49bc8",
@@ -140,6 +125,21 @@
           "多库并行向量化任务",
           "Docker Compose 生产部署"
         ]
+      },
+      {
+        "id": "rerank_system",
+        "title": "检索重排序系统",
+        "subtitle": "RAG 精度提升 · 生产 API",
+        "description": "面向研报/公告召回结果的重排序服务：语义 Rerank + Embedding 相似度、MMR 去重，融合时效与权威度加权，召回日志写入 PostgreSQL 可追溯。",
+        "tags": ["FastAPI", "Rerank", "MMR", "PostgreSQL"],
+        "icon": "🎯",
+        "accent": "#f59e0b",
+        "status": "production",
+        "highlights": [
+          "10+ 种语义得分算法与 Qwen Rerank 分支",
+          "MMR 去重 + 时效/权威度加权融合排序",
+          "Uvicorn 多进程部署与召回日志落库"
+        ]
       }
     ]
   },
@@ -148,7 +148,7 @@
       {
         "id": "enterprise-ai",
         "title": "企业级 AI 落地",
-        "description": "金融机构投研场景的智能体与多模型应用",
+        "description": "企业投研与知识问答场景的智能体与多模型应用",
         "items": [
           {
             "id": "multi_llm_analysis",
@@ -197,7 +197,7 @@
             "id": "multi_source_chunk",
             "title": "多源文档分块向量化",
             "subtitle": "生产级数据管线",
-            "description": "多来源文档 chunk + vectorize，部署于生产 GPU 环境，支撑 flash news 等场景。",
+            "description": "多来源文档 chunk + vectorize，部署于生产 GPU 环境，支撑实时资讯等场景。",
             "tags": ["Chunk", "Vectorize"],
             "icon": "🔗",
             "accent": "#10b981"
@@ -212,9 +212,9 @@
             "accent": "#3b82f6"
           },
           {
-            "id": "finance_chat_openapi",
-            "title": "金融对话 OpenAPI 服务",
-            "subtitle": "对话式金融问答",
+            "id": "enterprise_chat_openapi",
+            "title": "企业对话 OpenAPI 服务",
+            "subtitle": "对话式知识问答",
             "description": "面向企业业务的 Chat OpenAPI，配套日志、数据库与发布流水线运维体系。",
             "tags": ["OpenAPI", "Chat"],
             "icon": "💬",
@@ -257,8 +257,8 @@
           {
             "id": "pdf_watermark",
             "title": "研报 PDF 去水印",
-            "subtitle": "多机构模板库",
-            "description": "按可配置机构模板（字体/关键词/位置规则）批量去除研报水印。",
+            "subtitle": "多规则模板库",
+            "description": "按可配置水印规则模板（字体/关键词/位置规则）批量去除研报 PDF 水印。",
             "tags": ["水印", "批处理"],
             "icon": "💧",
             "accent": "#a855f7"
@@ -307,7 +307,7 @@
             "accent": "#64748b"
           },
           {
-            "id": "multi_agent_zyyx",
+            "id": "multi_agent_collab",
             "title": "Multi-Agent 协作",
             "subtitle": "多智能体系统",
             "description": "多 Agent 协作模式设计与实现探索。",
@@ -353,7 +353,7 @@
             "id": "email_auto_crawl",
             "title": "Outlook 邮件 & PDF 抽取",
             "subtitle": "RPA · PyInstaller",
-            "description": "自动抓取 Outlook 邮件附件、解析机构研报 PDF、输出结构化 Excel。",
+            "description": "自动抓取 Outlook 邮件附件、解析研报 PDF、输出结构化 Excel。",
             "tags": ["RPA", "PDF"],
             "icon": "📬",
             "accent": "#78716c"
@@ -368,8 +368,8 @@
     "items": [
       {
         "period": "2024 — 至今",
-        "title": "金融 AI · 智能体 & RAG",
-        "description": "主导/参与金融机构与资管客户的智能体、研报向量库、召回重排与多 LLM 分析等项目，从 POC 到可监控的生产服务。",
+        "title": "企业 AI · 智能体 & RAG",
+        "description": "主导/参与企业侧智能体、研报向量库、召回重排与多 LLM 分析等项目，从 POC 到可监控的生产服务。",
         "tags": ["智能体", "RAG", "FastAPI", "Docker"]
       },
       {
@@ -403,7 +403,7 @@
         "icon": "🤖"
       },
       {
-        "title": "金融文本 & 知识库",
+        "title": "行业文本 & 知识库",
         "description": "研报/公告分块向量化、召回重排、图表召回、资讯打标",
         "tags": ["向量库", "研报", "召回"],
         "icon": "📊"
@@ -438,10 +438,10 @@
         "icon": "🤖"
       },
       {
-        "title": "金融文本 RAG 系统",
+        "title": "行业文档 RAG 系统",
         "description": "研报/公告入库、分块策略、召回重排与评测",
         "technologies": ["向量库", "Rerank", "ETL"],
-        "badge": "金融",
+        "badge": "RAG",
         "icon": "📈"
       },
       {
@@ -476,8 +476,8 @@
         },
         {
           "icon": "🏢",
-          "type": "企业与机构客户",
-          "description": "金融投研、知识库类 AI 落地与系统集成"
+          "type": "企业客户",
+          "description": "知识库、智能问答与 AI 系统集成落地"
         },
         {
           "icon": "👥",
