@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body class="spotify-body">
+<body class="site-body">
 <div id="app" class="app-shell" v-cloak>
     <aside class="sidebar" :class="{ open: sidebarOpen }" aria-label="主导航">
         <div class="sidebar-brand">
@@ -47,6 +47,13 @@
             <button type="button" class="mobile-menu-btn" @click="sidebarOpen = !sidebarOpen" aria-label="菜单">
                 <i class="fas fa-bars"></i>
             </button>
+            <div class="top-bar-brand">
+                <span class="brand-avatar">{{ config.profile.avatar }}</span>
+                <div class="brand-meta">
+                    <strong>{{ config.profile.name }}</strong>
+                    <span class="status-dot">{{ config.profile.tagline }}</span>
+                </div>
+            </div>
             <div class="search-pill" role="search">
                 <i class="fas fa-search"></i>
                 <span>{{ config.ui.searchPlaceholder }}</span>
@@ -57,28 +64,37 @@
         </header>
 
         <!-- Hero -->
-        <section id="home" class="hero-banner" :style="heroGradientStyle">
-            <div class="hero-content">
-                <p class="hero-eyebrow">{{ timeGreeting }}</p>
-                <h1 class="hero-title">{{ config.profile.heroTitle }}</h1>
-                <p class="hero-subtitle" v-html="config.profile.greeting.description"></p>
-                <div class="hero-chips">
-                    <span v-for="chip in config.profile.heroChips" :key="chip" class="hero-chip">{{ chip }}</span>
+        <section id="home" class="hero-banner">
+            <div class="hero-bg" :style="heroGradientStyle" aria-hidden="true"></div>
+            <div class="hero-inner">
+                <div class="hero-profile">
+                    <div class="hero-avatar-ring">
+                        <span class="hero-avatar">{{ config.profile.avatar }}</span>
+                    </div>
+                    <div class="hero-status-badge">{{ config.profile.status }}</div>
                 </div>
-                <div class="hero-actions">
-                    <button type="button" class="btn-primary" @click="scrollToSection('showcase')">
-                        <i class="fas fa-play"></i>
-                        {{ config.ui.heroCtaPrimary }}
-                    </button>
-                    <button type="button" class="btn-secondary" @click="scrollToSection('contact')">
-                        {{ config.ui.heroCtaSecondary }}
-                    </button>
+                <div class="hero-content">
+                    <p class="hero-eyebrow">{{ timeGreeting }}</p>
+                    <h1 class="hero-title">{{ config.profile.heroTitle }}</h1>
+                    <p class="hero-subtitle" v-html="config.profile.greeting.description"></p>
+                    <div class="hero-chips">
+                        <span v-for="chip in config.profile.heroChips" :key="chip" class="hero-chip">{{ chip }}</span>
+                    </div>
+                    <div class="hero-actions">
+                        <button type="button" class="btn-primary" @click="scrollToSection('showcase')">
+                            <i class="fas fa-arrow-right"></i>
+                            {{ config.ui.heroCtaPrimary }}
+                        </button>
+                        <button type="button" class="btn-secondary" @click="scrollToSection('services')">
+                            {{ config.ui.heroCtaSecondary }}
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-stats">
-                <div v-for="stat in config.profile.stats" :key="stat.label" class="hero-stat">
-                    <span class="hero-stat-num">{{ stat.number }}</span>
-                    <span class="hero-stat-label">{{ stat.label }}</span>
+                <div class="hero-stats">
+                    <div v-for="stat in config.profile.stats" :key="stat.label" class="hero-stat">
+                        <span class="hero-stat-num">{{ stat.number }}</span>
+                        <span class="hero-stat-label">{{ stat.label }}</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -89,6 +105,7 @@
                 <h2>{{ config.featured.title }}</h2>
                 <p>{{ config.featured.subtitle }}</p>
             </div>
+            <div class="media-row-wrap">
             <div class="media-row">
                 <article
                     v-for="project in config.featured.items"
@@ -113,9 +130,10 @@
                     </div>
                 </article>
             </div>
+            </div>
         </section>
 
-        <!-- Project categories (Spotify rows) -->
+        <!-- Project categories -->
         <section
             v-for="row in config.projectShowcase.rows"
             :key="row.id"
@@ -126,6 +144,7 @@
                 <h2>{{ row.title }}</h2>
                 <p>{{ row.description }}</p>
             </div>
+            <div class="media-row-wrap">
             <div class="media-row">
                 <article
                     v-for="project in row.items"
@@ -145,6 +164,7 @@
                         </div>
                     </div>
                 </article>
+            </div>
             </div>
         </section>
 
@@ -230,51 +250,21 @@
                 </div>
             </div>
         </section>
-
-        <!-- Contact -->
-        <section id="contact" class="content-section contact-block">
-            <div class="section-head">
-                <h2>{{ config.contact.title }}</h2>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-card contact-card--hero">
-                    <span class="intro-icon">{{ config.contact.intro.icon }}</span>
-                    <h3>{{ config.contact.intro.title }}</h3>
-                    <p>{{ config.contact.intro.description }}</p>
-                </div>
-                <div class="contact-card" v-if="config.contact.methods && config.contact.methods.length">
-                    <h4>{{ config.ui.contactMethodsTitle }}</h4>
-                    <div v-for="method in config.contact.methods" :key="method.type" class="contact-line">
-                        <span>{{ method.icon }} {{ method.label }}</span>
-                        <button v-if="method.copy" type="button" class="link-btn" @click="copyToClipboard(method.value, method.type)">{{ method.value }}</button>
-                        <a v-else :href="method.link" target="_blank" rel="noopener" class="link-btn">{{ method.value }}</a>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <span>{{ config.contact.availability.icon }}</span>
-                    <h4>{{ config.contact.availability.title }}</h4>
-                    <p>
-                        {{ config.contact.availability.labels.usuallyWithin }}
-                        <strong>{{ config.contact.availability.responseTime }}</strong>
-                        {{ config.contact.availability.labels.response }}
-                    </p>
-                    <p class="muted">{{ config.contact.availability.labels.timezoneLabel }}: {{ config.contact.availability.timezone }}</p>
-                </div>
-                <div class="contact-card">
-                    <span>{{ config.contact.collaboration.icon }}</span>
-                    <h4>{{ config.contact.collaboration.title }}</h4>
-                    <div class="collab-chips">
-                        <span v-for="type in config.contact.collaboration.types" :key="type.text" class="hero-chip">
-                            {{ type.icon }} {{ type.text }}
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-chips">
-                <span v-for="highlight in config.contact.footer.highlights" :key="highlight">{{ highlight }}</span>
-            </div>
-        </section>
     </main>
+
+    <nav class="mobile-bottom-nav" aria-label="快捷导航">
+        <a
+            v-for="item in config.ui.nav"
+            :key="'mb-' + item.id"
+            :href="'#' + item.id"
+            class="mobile-nav-item"
+            :class="{ active: activeSection === item.id }"
+            @click.prevent="scrollToSection(item.id)"
+        >
+            <i :class="item.icon"></i>
+            <span>{{ item.label }}</span>
+        </a>
+    </nav>
 
     <div class="sidebar-overlay" :class="{ open: sidebarOpen }" @click="sidebarOpen = false"></div>
 

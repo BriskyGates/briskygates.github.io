@@ -5,7 +5,7 @@
     "labelSuffix": ": ",
     "searchPlaceholder": "Explore skills, projects, and collaboration…",
     "heroCtaPrimary": "View featured work",
-    "heroCtaSecondary": "Get in touch",
+    "heroCtaSecondary": "View services",
     "contactMethodsTitle": "Contact",
     "languageToggle": {
       "buttonText": "中文",
@@ -22,8 +22,7 @@
       { "id": "projects", "label": "Projects", "icon": "fas fa-layer-group" },
       { "id": "experience", "label": "Experience", "icon": "fas fa-route" },
       { "id": "skills", "label": "Skills", "icon": "fas fa-bolt" },
-      { "id": "services", "label": "Services", "icon": "fas fa-briefcase" },
-      { "id": "contact", "label": "Contact", "icon": "fas fa-paper-plane" }
+      { "id": "services", "label": "Services", "icon": "fas fa-briefcase" }
     ],
     "projectStatus": {
       "production": "Live",
@@ -75,7 +74,7 @@
       "icon": "📍",
       "text": "Shanghai, China · UTC+8"
     },
-    "heroGradient": ["#1db954", "#1ed760", "#509bf5"]
+    "heroGradient": ["#0c4a6e", "#1e3a5f", "#312e81"]
   },
   "featured": {
     "title": "Featured Work",

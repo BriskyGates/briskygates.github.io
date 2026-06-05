@@ -27,7 +27,7 @@ const html = `<!DOCTYPE html>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body class="spotify-body">
+<body class="site-body">
 ${app}
     <script>window.siteConfig = null;</script>
     <script src="/vendor/vue.global.js"></script>

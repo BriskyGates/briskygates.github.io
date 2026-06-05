@@ -5,7 +5,7 @@
     "labelSuffix": "：",
     "searchPlaceholder": "探索技能、项目与合作方式…",
     "heroCtaPrimary": "浏览代表作",
-    "heroCtaSecondary": "聊聊合作",
+    "heroCtaSecondary": "看看服务",
     "contactMethodsTitle": "联系方式",
     "languageToggle": {
       "buttonText": "EN",
@@ -22,8 +22,7 @@
       { "id": "projects", "label": "项目库", "icon": "fas fa-layer-group" },
       { "id": "experience", "label": "履历", "icon": "fas fa-route" },
       { "id": "skills", "label": "技能", "icon": "fas fa-bolt" },
-      { "id": "services", "label": "服务", "icon": "fas fa-briefcase" },
-      { "id": "contact", "label": "联系", "icon": "fas fa-paper-plane" }
+      { "id": "services", "label": "服务", "icon": "fas fa-briefcase" }
     ],
     "projectStatus": {
       "production": "已上线",
@@ -75,7 +74,7 @@
       "icon": "📍",
       "text": "上海，中国 · UTC+8"
     },
-    "heroGradient": ["#1db954", "#1ed760", "#509bf5"]
+    "heroGradient": ["#0c4a6e", "#1e3a5f", "#312e81"]
   },
   "featured": {
     "title": "精选代表作",
