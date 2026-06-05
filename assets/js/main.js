@@ -86,10 +86,72 @@ function renderWithVue(config) {
                 config: config || {},
                 currentLang: currentLang,
                 showToast: false,
-                toastMessage: ''
+                toastMessage: '',
+                activeSection: 'home',
+                sidebarOpen: false,
+                _scrollSpyHandler: null
             };
         },
+        computed: {
+            timeGreeting() {
+                const greetings = this.config?.ui?.greetings;
+                const hour = new Date().getHours();
+                if (!greetings) {
+                    return this.config?.profile?.greeting?.text || '';
+                }
+                if (hour >= 5 && hour < 12) {
+                    return greetings.morning;
+                }
+                if (hour >= 12 && hour < 18) {
+                    return greetings.afternoon;
+                }
+                if (hour >= 18 && hour < 23) {
+                    return greetings.evening;
+                }
+                return greetings.night;
+            },
+            heroGradientStyle() {
+                const colors = this.config?.profile?.heroGradient || ['#1db954', '#1ed760', '#509bf5'];
+                const [a, b, c] = colors;
+                return {
+                    background: `linear-gradient(135deg, ${a} 0%, ${b} 45%, ${c} 100%)`
+                };
+            }
+        },
+        mounted() {
+            this._scrollSpyHandler = () => this.updateActiveSection();
+            window.addEventListener('scroll', this._scrollSpyHandler, { passive: true });
+            this.$nextTick(() => this.updateActiveSection());
+        },
+        unmounted() {
+            if (this._scrollSpyHandler) {
+                window.removeEventListener('scroll', this._scrollSpyHandler);
+            }
+        },
         methods: {
+            scrollToSection(id) {
+                this.sidebarOpen = false;
+                const el = document.getElementById(id);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    this.activeSection = id;
+                }
+            },
+            updateActiveSection() {
+                const nav = this.config?.ui?.nav;
+                if (!nav || !nav.length) {
+                    return;
+                }
+                const offset = 120;
+                let current = nav[0].id;
+                for (const item of nav) {
+                    const el = document.getElementById(item.id);
+                    if (el && el.getBoundingClientRect().top <= offset) {
+                        current = item.id;
+                    }
+                }
+                this.activeSection = current;
+            },
             async switchLanguage() {
                 await switchLanguage();
             },
@@ -98,6 +160,7 @@ function renderWithVue(config) {
                     return status;
                 }
                 const statusMap = {
+                    production: this.config.ui.projectStatus.production,
                     active: this.config.ui.projectStatus.active,
                     testing: this.config.ui.projectStatus.testing,
                     development: this.config.ui.projectStatus.development,

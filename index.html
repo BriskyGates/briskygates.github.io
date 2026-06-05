@@ -4,198 +4,273 @@ title: 阿布的个人主页
 description: Python 全栈工程师 | AI 解决方案架构师
 ---
 
-{% comment %} 
-  使用 {% raw %} 防止 Jekyll 处理 Vue.js 的 {{ }} 模板语法。
-  整个 #app 容器都被包裹，因为所有内容都是 Vue 动态渲染的。
-{% endcomment %}
 {% raw %}
-<div id="app" v-cloak>
-    <!-- 语言切换按钮 -->
-    <div class="top-bar">
-        <div class="language-toggle">
-            <button id="langToggle" class="lang-btn" type="button" @click="switchLanguage" :title="config.ui.languageToggle.tooltip">
+<div id="app" class="app-shell" v-cloak>
+    <aside class="sidebar" :class="{ open: sidebarOpen }" aria-label="主导航">
+        <div class="sidebar-brand">
+            <span class="brand-mark">{{ config.profile.avatar }}</span>
+            <div class="brand-text">
+                <strong>{{ config.profile.name }}</strong>
+                <span>{{ config.profile.tagline }}</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a
+                v-for="item in config.ui.nav"
+                :key="item.id"
+                :href="'#' + item.id"
+                class="nav-item"
+                :class="{ active: activeSection === item.id }"
+                @click.prevent="scrollToSection(item.id)"
+            >
+                <i :class="item.icon"></i>
+                <span>{{ item.label }}</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <button type="button" class="lang-btn" @click="switchLanguage" :title="config.ui.languageToggle.tooltip">
                 <i class="fas fa-globe"></i>
-                <span class="lang-text">{{ config.ui.languageToggle.buttonText }}</span>
+                <span>{{ config.ui.languageToggle.buttonText }}</span>
             </button>
         </div>
-    </div>
+    </aside>
 
-    <!-- 个人资料区域 -->
-    <section id="profile" class="section profile-section">
-        <div class="profile-header">
-            <div class="avatar">{{ config.profile.avatar }}</div>
-            <div class="status-badge">{{ config.profile.status }}</div>
-        </div>
-        <h1 class="section-title">{{ config.profile.title }}</h1>
-        <div class="greeting">
-            <p class="greeting-text">{{ config.profile.greeting.text }}</p>
-            <div class="greeting-desc" v-html="config.profile.greeting.description"></div>
-        </div>
-        <div class="roles">
-            <div v-for="role in config.profile.roles" :key="role.label" :class="['role-card', role.type]">
-                <span class="role-label">{{ role.label }}{{ config.ui.labelSuffix }}</span>
-                <span class="role-value">{{ role.value }}</span>
+    <main class="main-view">
+        <header class="top-bar">
+            <button type="button" class="mobile-menu-btn" @click="sidebarOpen = !sidebarOpen" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="search-pill" role="search">
+                <i class="fas fa-search"></i>
+                <span>{{ config.ui.searchPlaceholder }}</span>
             </div>
-        </div>
-        <div class="stats">
-            <div v-for="stat in config.profile.stats" :key="stat.label" class="stat-item">
-                <div class="stat-number">{{ stat.number }}</div>
-                <div class="stat-label">{{ stat.label }}</div>
-            </div>
-        </div>
-        <div class="location">
-            <span class="location-icon">{{ config.profile.location.icon }}</span>
-            <span class="location-text">{{ config.profile.location.text }}</span>
-        </div>
-    </section>
+            <button type="button" class="lang-btn lang-btn--compact" @click="switchLanguage">
+                {{ config.ui.languageToggle.buttonText }}
+            </button>
+        </header>
 
-    <!-- 技能区域 -->
-    <section id="skills" class="section skills-section">
-        <h2 class="section-title">{{ config.skills.title }}</h2>
-        <p class="section-motto" v-html="config.skills.motto"></p>
-        <div class="skills-grid">
-            <div v-for="skill in config.skills.items" :key="skill.title" class="skill-card">
-                <div class="skill-icon">{{ skill.icon }}</div>
-                <h3 class="skill-title">{{ skill.title }}</h3>
-                <p class="skill-description">{{ skill.description }}</p>
-                <div class="skill-tags">
-                    <span v-for="tag in skill.tags" :key="tag" class="tag">{{ tag }}</span>
+        <!-- Hero -->
+        <section id="home" class="hero-banner" :style="heroGradientStyle">
+            <div class="hero-content">
+                <p class="hero-eyebrow">{{ timeGreeting }}</p>
+                <h1 class="hero-title">{{ config.profile.heroTitle }}</h1>
+                <p class="hero-subtitle" v-html="config.profile.greeting.description"></p>
+                <div class="hero-chips">
+                    <span v-for="chip in config.profile.heroChips" :key="chip" class="hero-chip">{{ chip }}</span>
+                </div>
+                <div class="hero-actions">
+                    <button type="button" class="btn-primary" @click="scrollToSection('showcase')">
+                        <i class="fas fa-play"></i>
+                        {{ config.ui.heroCtaPrimary }}
+                    </button>
+                    <button type="button" class="btn-secondary" @click="scrollToSection('contact')">
+                        {{ config.ui.heroCtaSecondary }}
+                    </button>
                 </div>
             </div>
-        </div>
-        <div class="skills-summary">
-            <div v-for="item in config.skills.summary" :key="item.text" class="summary-item">
-                <span class="summary-icon">{{ item.icon }}</span>
-                <span class="summary-text">{{ item.text }}</span>
+            <div class="hero-stats">
+                <div v-for="stat in config.profile.stats" :key="stat.label" class="hero-stat">
+                    <span class="hero-stat-num">{{ stat.number }}</span>
+                    <span class="hero-stat-label">{{ stat.label }}</span>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 服务区域 -->
-    <section id="services" class="section services-section">
-        <h2 class="section-title">{{ config.services.title }}</h2>
-        <div class="services-grid">
-            <div v-for="service in config.services.items" :key="service.title" class="service-card">
-                <div class="service-header">
-                    <span class="service-icon">{{ service.icon }}</span>
-                    <span class="service-badge">{{ service.badge }}</span>
-                </div>
-                <h3 class="service-title">{{ service.title }}</h3>
-                <p class="service-description">{{ service.description }}</p>
-                <div class="service-technologies">
-                    <span v-for="tech in service.technologies" :key="tech" class="tech-tag">{{ tech }}</span>
-                </div>
+        <!-- Featured horizontal row -->
+        <section id="showcase" class="content-section" v-if="config.featured && config.featured.items">
+            <div class="section-head">
+                <h2>{{ config.featured.title }}</h2>
+                <p>{{ config.featured.subtitle }}</p>
             </div>
-        </div>
-        
-        <!-- 合作伙伴招募 -->
-        <div class="partners-section">
-            <h3 class="partners-title">{{ config.services.partners.title }}</h3>
-            <div class="partners-grid">
-                <div v-for="partner in config.services.partners.types" :key="partner.type" class="partner-card">
-                    <div class="partner-icon">{{ partner.icon }}</div>
-                    <h4 class="partner-type">{{ partner.type }}</h4>
-                    <p class="partner-description">{{ partner.description }}</p>
-                </div>
-            </div>
-            <p class="partners-note" v-html="config.services.partners.note"></p>
-        </div>
-    </section>
-
-    <!-- 项目区域 -->
-    <section id="projects" class="section projects-section">
-        <div class="projects-header">
-            <h2 class="section-title">{{ config.projects.title }}</h2>
-            <span class="projects-status">{{ config.projects.status }}</span>
-        </div>
-        <div class="projects-grid">
-            <div v-for="project in config.projects.items" :key="project.title" class="project-card">
-                <div class="project-header">
-                    <h3 class="project-title">{{ project.title }}</h3>
-                    <span :class="['project-status', project.status]">
-                        {{ getStatusText(project.status) }}
-                    </span>
-                </div>
-                <p class="project-description">{{ project.description }}</p>
-                <div class="project-tags">
-                    <span v-for="tag in project.tags" :key="tag" class="tag">{{ tag }}</span>
-                </div>
-                <div class="project-highlights">
-                    <h4>{{ config.ui.projectStatus.highlightsLabel }}</h4>
-                    <ul>
-                        <li v-for="highlight in project.highlights" :key="highlight">{{ highlight }}</li>
-                    </ul>
-                </div>
-                <div class="project-progress">
-                    <div class="progress-label">
-                        <span>{{ config.ui.projectStatus.progressLabel }}{{ config.ui.labelSuffix }}</span>
-                        <span class="progress-value">{{ project.progress }}%</span>
+            <div class="media-row">
+                <article
+                    v-for="project in config.featured.items"
+                    :key="project.id"
+                    class="media-card media-card--featured"
+                    :style="{ '--card-accent': project.accent }"
+                >
+                    <div class="media-card-visual">
+                        <span class="media-card-emoji">{{ project.icon }}</span>
+                        <span class="media-card-badge">{{ getStatusText(project.status) }}</span>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" :style="{ width: project.progress + '%' }"></div>
+                    <div class="media-card-body">
+                        <h3>{{ project.title }}</h3>
+                        <p class="media-card-sub">{{ project.subtitle }}</p>
+                        <p class="media-card-desc">{{ project.description }}</p>
+                        <ul class="media-card-highlights" v-if="project.highlights">
+                            <li v-for="h in project.highlights" :key="h">{{ h }}</li>
+                        </ul>
+                        <div class="tag-row">
+                            <span v-for="tag in project.tags" :key="tag" class="tag-pill">{{ tag }}</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Project categories (Spotify rows) -->
+        <section
+            v-for="row in config.projectShowcase.rows"
+            :key="row.id"
+            :id="row.id === 'enterprise-ai' ? 'projects' : undefined"
+            class="content-section"
+        >
+            <div class="section-head section-head--row">
+                <h2>{{ row.title }}</h2>
+                <p>{{ row.description }}</p>
+            </div>
+            <div class="media-row">
+                <article
+                    v-for="project in row.items"
+                    :key="project.id"
+                    class="media-card"
+                    :style="{ '--card-accent': project.accent }"
+                >
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">{{ project.icon }}</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>{{ project.title }}</h3>
+                        <p class="media-card-sub">{{ project.subtitle }}</p>
+                        <p class="media-card-desc">{{ project.description }}</p>
+                        <div class="tag-row">
+                            <span v-for="tag in project.tags" :key="tag" class="tag-pill tag-pill--muted">{{ tag }}</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Experience timeline -->
+        <section id="experience" class="content-section" v-if="config.experience">
+            <div class="section-head">
+                <h2>{{ config.experience.title }}</h2>
+                <p>{{ config.experience.subtitle }}</p>
+            </div>
+            <div class="timeline">
+                <article v-for="(item, idx) in config.experience.items" :key="idx" class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-period">{{ item.period }}</span>
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.description }}</p>
+                        <div class="tag-row">
+                            <span v-for="tag in item.tags" :key="tag" class="tag-pill tag-pill--muted">{{ tag }}</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="content-section">
+            <div class="section-head">
+                <h2>{{ config.skills.title }}</h2>
+                <p class="section-motto" v-html="config.skills.motto"></p>
+            </div>
+            <div class="skills-grid">
+                <article v-for="skill in config.skills.items" :key="skill.title" class="skill-tile">
+                    <span class="skill-tile-icon">{{ skill.icon }}</span>
+                    <h3>{{ skill.title }}</h3>
+                    <p>{{ skill.description }}</p>
+                    <div class="tag-row">
+                        <span v-for="tag in skill.tags" :key="tag" class="tag-pill">{{ tag }}</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="content-section">
+            <div class="section-head">
+                <h2>{{ config.services.title }}</h2>
+            </div>
+            <div class="services-grid">
+                <article v-for="service in config.services.items" :key="service.title" class="service-tile">
+                    <div class="service-tile-top">
+                        <span>{{ service.icon }}</span>
+                        <span class="service-badge">{{ service.badge }}</span>
+                    </div>
+                    <h3>{{ service.title }}</h3>
+                    <p>{{ service.description }}</p>
+                    <div class="tag-row">
+                        <span v-for="tech in service.technologies" :key="tech" class="tag-pill tag-pill--muted">{{ tech }}</span>
+                    </div>
+                </article>
+            </div>
+            <div class="partners-banner" v-if="config.services.partners">
+                <h3>{{ config.services.partners.title }}</h3>
+                <div class="partners-row">
+                    <div v-for="partner in config.services.partners.types" :key="partner.type" class="partner-pill">
+                        <span>{{ partner.icon }}</span>
+                        <div>
+                            <strong>{{ partner.type }}</strong>
+                            <p>{{ partner.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="partners-note" v-html="config.services.partners.note"></p>
+            </div>
+        </section>
+
+        <!-- Philosophy -->
+        <section class="content-section" v-if="config.projects && config.projects.innovation">
+            <div class="philosophy-card">
+                <span>{{ config.projects.innovation.icon }}</span>
+                <div>
+                    <h3>{{ config.projects.innovation.title }}</h3>
+                    <p>{{ config.projects.innovation.text }}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="content-section contact-block">
+            <div class="section-head">
+                <h2>{{ config.contact.title }}</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card contact-card--hero">
+                    <span class="intro-icon">{{ config.contact.intro.icon }}</span>
+                    <h3>{{ config.contact.intro.title }}</h3>
+                    <p>{{ config.contact.intro.description }}</p>
+                </div>
+                <div class="contact-card" v-if="config.contact.methods && config.contact.methods.length">
+                    <h4>{{ config.ui.contactMethodsTitle }}</h4>
+                    <div v-for="method in config.contact.methods" :key="method.type" class="contact-line">
+                        <span>{{ method.icon }} {{ method.label }}</span>
+                        <button v-if="method.copy" type="button" class="link-btn" @click="copyToClipboard(method.value, method.type)">{{ method.value }}</button>
+                        <a v-else :href="method.link" target="_blank" rel="noopener" class="link-btn">{{ method.value }}</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <span>{{ config.contact.availability.icon }}</span>
+                    <h4>{{ config.contact.availability.title }}</h4>
+                    <p>
+                        {{ config.contact.availability.labels.usuallyWithin }}
+                        <strong>{{ config.contact.availability.responseTime }}</strong>
+                        {{ config.contact.availability.labels.response }}
+                    </p>
+                    <p class="muted">{{ config.contact.availability.labels.timezoneLabel }}: {{ config.contact.availability.timezone }}</p>
+                </div>
+                <div class="contact-card">
+                    <span>{{ config.contact.collaboration.icon }}</span>
+                    <h4>{{ config.contact.collaboration.title }}</h4>
+                    <div class="collab-chips">
+                        <span v-for="type in config.contact.collaboration.types" :key="type.text" class="hero-chip">
+                            {{ type.icon }} {{ type.text }}
+                        </span>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="innovation">
-            <span class="innovation-icon">{{ config.projects.innovation.icon }}</span>
-            <h3 class="innovation-title">{{ config.projects.innovation.title }}</h3>
-            <p class="innovation-text">{{ config.projects.innovation.text }}</p>
-        </div>
-    </section>
-
-    <!-- 联系方式区域 -->
-    <section id="contact" class="section contact-section">
-        <h2 class="section-title">{{ config.contact.title }}</h2>
-        <div class="contact-intro">
-            <span class="intro-icon">{{ config.contact.intro.icon }}</span>
-            <h3 class="intro-title">{{ config.contact.intro.title }}</h3>
-            <p class="intro-description">{{ config.contact.intro.description }}</p>
-        </div>
-        
-        <div class="contact-methods" v-if="config.contact.methods && config.contact.methods.length > 0">
-            <div v-for="method in config.contact.methods" :key="method.type" class="contact-method">
-                <span class="method-icon">{{ method.icon }}</span>
-                <span class="method-label">{{ method.label }}</span>
-                <button v-if="method.copy" @click="copyToClipboard(method.value, method.type)" class="copy-btn">
-                    {{ method.value }}
-                </button>
-                <a v-else :href="method.link" target="_blank" class="contact-link">{{ method.value }}</a>
+            <div class="footer-chips">
+                <span v-for="highlight in config.contact.footer.highlights" :key="highlight">{{ highlight }}</span>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <div class="availability">
-            <span class="availability-icon">{{ config.contact.availability.icon }}</span>
-            <h3 class="availability-title">{{ config.contact.availability.title }}</h3>
-            <p class="availability-text">
-                <span>{{ config.contact.availability.labels.usuallyWithin }}</span>
-                <strong>{{ config.contact.availability.responseTime }}</strong>
-                <span>{{ config.contact.availability.labels.response }}</span>
-            </p>
-            <p class="timezone">{{ config.contact.availability.labels.timezoneLabel }}: {{ config.contact.availability.timezone }}</p>
-        </div>
+    <div class="sidebar-overlay" :class="{ open: sidebarOpen }" @click="sidebarOpen = false"></div>
 
-        <div class="collaboration">
-            <span class="collaboration-icon">{{ config.contact.collaboration.icon }}</span>
-            <h3 class="collaboration-title">{{ config.contact.collaboration.title }}</h3>
-            <div class="collaboration-types">
-                <div v-for="type in config.contact.collaboration.types" :key="type.text" class="collaboration-type">
-                    <span class="type-icon">{{ type.icon }}</span>
-                    <span class="type-text">{{ type.text }}</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="contact-footer">
-            <div class="footer-highlights">
-                <span v-for="highlight in config.contact.footer.highlights" :key="highlight" class="highlight-tag">
-                    {{ highlight }}
-                </span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Toast 提示 -->
     <div id="toast" class="toast" v-if="showToast">
         <span>{{ toastMessage }}</span>
     </div>

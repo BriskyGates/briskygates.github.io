@@ -6,30 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ page.title | default: site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
-    
-    <!-- CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <div class="container">
-        {{ content }}
-    </div>
-    
-    <!-- Vue.js - 在配置数据之后加载 -->
+<body class="spotify-body">
+    {{ content }}
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    
-    <!-- 配置数据 - 直接从 assets/data 加载，避免维护两份相同的 JSON 文件 -->
     <script>
-        // 配置数据将通过 fetch 从 assets/data 加载
-        // 详见 main.js 中的加载逻辑
         window.siteConfig = null;
-        console.log('配置将通过 fetch 从 assets/data 加载');
     </script>
-    
-    <!-- JavaScript -->
     <script src="{{ '/assets/js/app-core.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
