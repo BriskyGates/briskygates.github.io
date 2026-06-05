@@ -2,6 +2,7 @@
   "name": "briskygates-homepage",
   "private": true,
   "scripts": {
+    "dev": "node tests/helpers/build-fixture.js && node tests/helpers/serve-fixture.js",
     "test": "node --test tests/*.test.js",
     "pretest:e2e": "node tests/helpers/build-fixture.js",
     "test:e2e": "playwright test",

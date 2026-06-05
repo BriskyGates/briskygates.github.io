@@ -7,7 +7,7 @@ const outputDir = path.join(__dirname, '../fixtures/site');
 const outputPath = path.join(outputDir, 'index.html');
 
 const source = fs.readFileSync(indexPath, 'utf8');
-const match = source.match(/\{% endcomment %\}\s*\{% raw %\}([\s\S]*)\{% endraw %\}/);
+const match = source.match(/\{% raw %\}([\s\S]*)\{% endraw %\}/);
 
 if (!match) {
     throw new Error('index.html 中未找到 {% raw %} 区块');
@@ -21,12 +21,14 @@ const html = `<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Fixture</title>
     <meta name="description" content="test fixture">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;0,9..40,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body>
-    <div class="container">
+<body class="spotify-body">
 ${app}
-    </div>
     <script>window.siteConfig = null;</script>
     <script src="/vendor/vue.global.js"></script>
     <script src="/assets/js/app-core.js"></script>

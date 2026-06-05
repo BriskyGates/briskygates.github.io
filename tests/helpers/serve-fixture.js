@@ -4,7 +4,7 @@ const path = require('node:path');
 
 const ROOT = path.join(__dirname, '../..');
 const FIXTURE = path.join(__dirname, '../fixtures/site/index.html');
-const PORT = Number(process.env.TEST_SERVER_PORT || 4174);
+const PORT = Number(process.env.PORT || process.env.TEST_SERVER_PORT || 4174);
 
 const MIME = {
     '.html': 'text/html; charset=utf-8',
@@ -48,8 +48,21 @@ const server = http.createServer((req, res) => {
     res.end('Not Found');
 });
 
+server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+        process.stderr.write(
+            `\n端口 ${PORT} 已被占用（EADDRINUSE）。\n` +
+            `  → 若本机已在跑 dev，直接打开: http://127.0.0.1:${PORT}\n` +
+            `  → 换端口启动:  $env:PORT=4000; npm run dev\n` +
+            `  → 结束占用进程: Stop-Process -Id (Get-NetTCPConnection -LocalPort ${PORT}).OwningProcess -Force\n\n`
+        );
+        process.exit(1);
+    }
+    throw err;
+});
+
 server.listen(PORT, () => {
-    process.stdout.write(`test server listening on http://127.0.0.1:${PORT}\n`);
+    process.stdout.write(`dev server → http://127.0.0.1:${PORT}\n`);
 });
 
 process.on('SIGTERM', () => server.close());
