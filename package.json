@@ -1,0 +1,14 @@
+{
+  "name": "briskygates-homepage",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "pretest:e2e": "node tests/helpers/build-fixture.js",
+    "test:e2e": "playwright test",
+    "test:all": "npm test && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "vue": "^3.5.13"
+  }
+}

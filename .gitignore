@@ -6,4 +6,6 @@ vendor/
 .bundle/
 Gemfile.lock
 node_modules/
+test-results/
+playwright-report/
 .idea/
