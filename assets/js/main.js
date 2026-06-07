@@ -213,7 +213,7 @@ function renderWithVue(config) {
                 const toastMap = {
                     wechat: this.config.ui.toast.wechatCopied,
                     xianyu: this.config.ui.toast.xianyuCopied,
-                    telegram: this.config.ui.toast.telegramCopied
+                    im: this.config.ui.toast.imCopied
                 };
                 return toastMap[type] || fallback;
             },

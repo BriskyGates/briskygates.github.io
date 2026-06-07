@@ -14,7 +14,7 @@
     "toast": {
       "wechatCopied": "WeChat ID copied to clipboard",
       "xianyuCopied": "Store name copied to clipboard",
-      "telegramCopied": "Telegram ID copied to clipboard"
+      "imCopied": "IM ID copied to clipboard"
     },
     "nav": [
       { "id": "home", "label": "Home", "shortLabel": "Home", "icon": "fas fa-house" },
@@ -49,9 +49,9 @@
     "title": "About",
     "greeting": {
       "text": "Hi, I'm Abu, based in Shanghai",
-      "description": "<strong>Python Full-Stack Engineer</strong> · <strong>AI Solutions Architect</strong><br>Enterprise knowledge bases, document intelligence, Telegram/Lark ecosystems, and production-grade RAG delivery"
+      "description": "<strong>Python Full-Stack Engineer</strong> · <strong>AI Solutions Architect</strong><br>Enterprise knowledge bases, document intelligence, domestic IM/Lark ecosystems, and production-grade RAG delivery"
     },
-    "heroChips": ["RAG & Vector Search", "Phone Agent / Fleet", "Multi-Agent / MCP", "FastAPI Microservices", "Telegram Bots"],
+    "heroChips": ["RAG & Vector Search", "Phone Agent / Fleet", "Multi-Agent / MCP", "FastAPI Microservices", "Domestic IM Bots"],
     "roles": [
       {
         "label": "Core Strength",
@@ -97,9 +97,9 @@
       },
       {
         "id": "group_management_bot",
-        "title": "Telegram Group & Escrow Bot",
+        "title": "IM Group & Escrow Bot",
         "subtitle": "Full Business Bot Stack",
-        "description": "Group automation, private escrow, public reporting, listings, wallet top-up — production Telegram product.",
+        "description": "Group automation, private escrow, public reporting, listings, wallet top-up — production IM product.",
         "tags": ["aiogram", "MySQL", "Redis", "Escrow"],
         "icon": "🤖",
         "accent": "#1db954",
@@ -159,8 +159,8 @@
         "id": "need_radar_bot",
         "title": "AI Lead Radar Bot",
         "subtitle": "Supply-demand match · Push",
-        "description": "Scan Telegram business channels for intent, match complementary supply/demand leads, push keyword subscriptions, with web ops console.",
-        "tags": ["Telegram", "LLM", "Hybrid search"],
+        "description": "Scan IM business channels for intent, match complementary supply/demand leads, push keyword subscriptions, with web ops console.",
+        "tags": ["IM", "LLM", "Hybrid search"],
         "icon": "📡",
         "accent": "#8b5cf6",
         "status": "production",
@@ -394,13 +394,13 @@
       {
         "id": "tg-mobile",
         "title": "Bot Ecosystem & Productivity",
-        "description": "Telegram business bots, hybrid search, and desktop productivity apps",
+        "description": "IM business bots, hybrid search, and desktop productivity apps",
         "items": [
           {
             "id": "group_management_bot",
-            "title": "Telegram Group & Escrow Bot",
+            "title": "IM Group & Escrow Bot",
             "subtitle": "Moderation · Escrow · Wallet",
-            "description": "Group automation, private escrow, public reporting, and wallet top-up — production Telegram business bot.",
+            "description": "Group automation, private escrow, public reporting, and wallet top-up — production IM business bot.",
             "tags": ["aiogram", "MySQL", "Escrow"],
             "icon": "🤖",
             "accent": "#1db954"
@@ -409,17 +409,17 @@
             "id": "need_radar_bot",
             "title": "AI Lead Radar",
             "subtitle": "Scan · Complementary match",
-            "description": "Scan Telegram channels, use LLM intent detection to find business leads, match complementary supply/demand, and push keyword alerts — with web ops console.",
+            "description": "Scan IM channels, use LLM intent detection to find business leads, match complementary supply/demand, and push keyword alerts — with web ops console.",
             "tags": ["Bot", "LLM", "SeekDB"],
             "icon": "📡",
             "accent": "#8b5cf6"
           },
           {
             "id": "tg_ai_search",
-            "title": "Telegram AI Search",
+            "title": "IM AI Search",
             "subtitle": "In-bot search",
-            "description": "Hybrid search inside a Telegram bot: full-text + vector recall with fused ranking over group/channel history.",
-            "tags": ["Telegram", "Hybrid search", "RAG"],
+            "description": "Hybrid search inside an IM bot: full-text + vector recall with fused ranking over group/channel history.",
+            "tags": ["IM", "Hybrid search", "RAG"],
             "icon": "🔎",
             "accent": "#06b6d4"
           },
@@ -442,17 +442,17 @@
           {
             "id": "onchain_token_monitor",
             "title": "On-Chain Token Monitor",
-            "subtitle": "SOL/BSC · TG push",
-            "description": "Monitor newly issued on-chain tokens, poll multiple accounts with Redis dedup, and push alerts to Telegram groups and trading bots.",
-            "tags": ["Web3", "Telegram"],
+            "subtitle": "SOL/BSC · IM push",
+            "description": "Monitor newly issued on-chain tokens, poll multiple accounts with Redis dedup, and push alerts to IM groups and trading bots.",
+            "tags": ["Web3", "IM"],
             "icon": "⛓️",
             "accent": "#facc15"
           },
           {
             "id": "cc_monitor_gmail",
-            "title": "Gmail → Telegram Relay",
+            "title": "Gmail → IM Relay",
             "subtitle": "Email automation",
-            "description": "Watch Gmail inboxes, filter important mail by rules, and async relay to Telegram groups with multi-group routing and state management.",
+            "description": "Watch Gmail inboxes, filter important mail by rules, and async relay to IM groups with multi-group routing and state management.",
             "tags": ["IMAP", "Bot"],
             "icon": "📧",
             "accent": "#ef4444"
@@ -497,7 +497,7 @@
       },
       {
         "period": "2020 — Present",
-        "title": "Telegram / Lark Ecosystem",
+        "title": "Domestic IM / Lark Ecosystem",
         "description": "Escrow bots, email relay, on-chain monitors, bitable sync — high concurrency and state machines.",
         "tags": ["aiogram", "Lark API", "Redis"]
       },
@@ -533,7 +533,7 @@
       },
       {
         "title": "Platform & Automation",
-        "description": "Telegram bots / Lark / email RPA / Celery scheduling",
+        "description": "Domestic IM bots / Lark / email RPA / Celery scheduling",
         "tags": ["Bot", "Lark", "Celery"],
         "icon": "⚡"
       }
@@ -570,7 +570,7 @@
       },
       {
         "title": "Bots & Office Automation",
-        "description": "Telegram/Lark bots, email relay, task scheduling",
+        "description": "Domestic IM/Lark bots, email relay, task scheduling",
         "technologies": ["aiogram", "Lark", "Celery"],
         "badge": "Automation",
         "icon": "📱"

@@ -14,7 +14,7 @@
     "toast": {
       "wechatCopied": "微信号已复制到剪贴板",
       "xianyuCopied": "店铺名称已复制到剪贴板",
-      "telegramCopied": "Telegram 账号已复制到剪贴板"
+      "imCopied": "IM 账号已复制到剪贴板"
     },
     "nav": [
       { "id": "home", "label": "首页", "shortLabel": "首页", "icon": "fas fa-house" },
@@ -49,9 +49,9 @@
     "title": "关于我",
     "greeting": {
       "text": "Hi，我是阿布，常驻上海",
-      "description": "<strong>Python 全栈工程师</strong> · <strong>AI 解决方案架构师</strong><br>深耕企业知识库、行业文档智能、Telegram/飞书生态与 RAG 工程化交付"
+      "description": "<strong>Python 全栈工程师</strong> · <strong>AI 解决方案架构师</strong><br>深耕企业知识库、行业文档智能、国内IM/飞书生态与 RAG 工程化交付"
     },
-    "heroChips": ["RAG & 向量检索", "手机 Agent / 群控", "Multi-Agent / MCP", "FastAPI 微服务", "Telegram Bot"],
+    "heroChips": ["RAG & 向量检索", "手机 Agent / 群控", "Multi-Agent / MCP", "FastAPI 微服务", "国内IM Bot"],
     "roles": [
       {
         "label": "核心能力",
@@ -97,9 +97,9 @@
       },
       {
         "id": "group_management_bot",
-        "title": "Telegram 群管 & 担保交易 Bot",
+        "title": "国内IM 群管 & 担保交易 Bot",
         "subtitle": "复杂业务 Bot 全链路",
-        "description": "群管自动化、专群担保、公群报备、供需发布、充值与客服——生产级 Telegram 商业机器人。",
+        "description": "群管自动化、专群担保、公群报备、供需发布、充值与客服——生产级 国内IM 商业机器人。",
         "tags": ["aiogram", "MySQL", "Redis", "担保交易"],
         "icon": "🤖",
         "accent": "#1db954",
@@ -159,8 +159,8 @@
         "id": "need_radar_bot",
         "title": "AI 商机雷达 Bot",
         "subtitle": "供需互补 · 线索推送",
-        "description": "扫描 Telegram 商业频道，识别供需意图，自动匹配互补线索并推送订阅，附带 Web 运营管理后台。",
-        "tags": ["Telegram", "LLM", "混合检索"],
+        "description": "扫描 国内IM 商业频道，识别供需意图，自动匹配互补线索并推送订阅，附带 Web 运营管理后台。",
+        "tags": ["国内IM", "LLM", "混合检索"],
         "icon": "📡",
         "accent": "#8b5cf6",
         "status": "production",
@@ -394,13 +394,13 @@
       {
         "id": "tg-mobile",
         "title": "Bot 生态 & 效率工具",
-        "description": "Telegram 商业机器人、混合检索与桌面效率应用",
+        "description": "国内IM 商业机器人、混合检索与桌面效率应用",
         "items": [
           {
             "id": "group_management_bot",
-            "title": "Telegram 群管 & 担保交易 Bot",
+            "title": "国内IM 群管 & 担保交易 Bot",
             "subtitle": "群管 · 担保 · 充值",
-            "description": "群管自动化、专群担保、公群报备与充值客服，生产级 Telegram 商业机器人。",
+            "description": "群管自动化、专群担保、公群报备与充值客服，生产级 国内IM 商业机器人。",
             "tags": ["aiogram", "MySQL", "担保交易"],
             "icon": "🤖",
             "accent": "#1db954"
@@ -409,17 +409,17 @@
             "id": "need_radar_bot",
             "title": "AI 商机雷达",
             "subtitle": "线索扫描 · 互补匹配",
-            "description": "扫描 Telegram 频道消息，用大模型识别商业意图，匹配供需互补线索并支持关键词订阅推送，附带 Web 运营后台。",
+            "description": "扫描 国内IM 频道消息，用大模型识别商业意图，匹配供需互补线索并支持关键词订阅推送，附带 Web 运营后台。",
             "tags": ["Bot", "LLM", "SeekDB"],
             "icon": "📡",
             "accent": "#8b5cf6"
           },
           {
             "id": "tg_ai_search",
-            "title": "Telegram AI 搜索",
-            "subtitle": "Telegram 内嵌搜索",
-            "description": "Telegram Bot 内的混合检索：全文与向量双路召回，融合排序后返回群组/频道历史中的相关内容。",
-            "tags": ["Telegram", "混合检索", "RAG"],
+            "title": "国内IM AI 搜索",
+            "subtitle": "国内IM 内嵌搜索",
+            "description": "国内IM Bot 内的混合检索：全文与向量双路召回，融合排序后返回群组/频道历史中的相关内容。",
+            "tags": ["国内IM", "混合检索", "RAG"],
             "icon": "🔎",
             "accent": "#06b6d4"
           },
@@ -442,17 +442,17 @@
           {
             "id": "onchain_token_monitor",
             "title": "链上代币监控推送",
-            "subtitle": "SOL/BSC · TG 推送",
-            "description": "监控链上新发代币，多账户轮询与 Redis 去重后，自动推送到 Telegram 群与交易 Bot。",
-            "tags": ["Web3", "Telegram"],
+            "subtitle": "SOL/BSC · IM 推送",
+            "description": "监控链上新发代币，多账户轮询与 Redis 去重后，自动推送到 国内IM 群与交易 Bot。",
+            "tags": ["Web3", "国内IM"],
             "icon": "⛓️",
             "accent": "#facc15"
           },
           {
             "id": "cc_monitor_gmail",
-            "title": "Gmail → Telegram 转发",
+            "title": "Gmail → 国内IM 转发",
             "subtitle": "邮件自动化",
-            "description": "监听 Gmail 收件箱，按规则过滤重要邮件并异步转发到 Telegram 群，支持多群路由与状态管理。",
+            "description": "监听 Gmail 收件箱，按规则过滤重要邮件并异步转发到 国内IM 群，支持多群路由与状态管理。",
             "tags": ["IMAP", "Bot"],
             "icon": "📧",
             "accent": "#ef4444"
@@ -497,7 +497,7 @@
       },
       {
         "period": "2020 — 至今",
-        "title": "Telegram / 飞书生态",
+        "title": "国内IM / 飞书生态",
         "description": "群管担保 Bot、邮件转发、链上监控、飞书多维表格等业务 Bot 与自动化系统，熟悉高并发与状态机设计。",
         "tags": ["aiogram", "飞书 API", "Redis"]
       },
@@ -533,7 +533,7 @@
       },
       {
         "title": "平台集成 & 自动化",
-        "description": "Telegram Bot / 飞书 / 邮件 RPA / Celery 任务调度",
+        "description": "国内IM Bot / 飞书 / 邮件 RPA / Celery 任务调度",
         "tags": ["Bot", "飞书", "Celery"],
         "icon": "⚡"
       }
@@ -570,7 +570,7 @@
       },
       {
         "title": "Bot & 办公自动化",
-        "description": "Telegram/飞书机器人、邮件转发、任务调度",
+        "description": "国内IM/飞书机器人、邮件转发、任务调度",
         "technologies": ["aiogram", "飞书", "Celery"],
         "badge": "自动化",
         "icon": "📱"
