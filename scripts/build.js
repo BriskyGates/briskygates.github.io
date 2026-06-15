@@ -27,14 +27,10 @@ function replaceBetweenMarkers(source, startMarker, endMarker, replacement) {
     return `${before}\n${replacement}\n${after}`;
 }
 
-function patchSiteConfigScript(source, config) {
-    const json = JSON.stringify(config);
-    const pattern = /<script id="site-config-data" type="application\/json">[\s\S]*?<\/script>/;
-    const block = `<script id="site-config-data" type="application/json">${json}</script>`;
-    if (!pattern.test(source)) {
-        throw new Error('index.html 中未找到 site-config-data 脚本块');
-    }
-    return source.replace(pattern, block);
+function removeInlineConfig(source) {
+    return source
+        .replace(/<script id="site-config-data" type="application\/json">[\s\S]*?<\/script>\s*/g, '')
+        .replace(/<script>window\.siteConfig = JSON\.parse\(document\.getElementById\('site-config-data'\)\.textContent\);<\/script>\s*/g, '');
 }
 
 function main() {
@@ -44,10 +40,10 @@ function main() {
     const prerendered = renderAppShell(zhConfig);
     const indexPath = path.join(root, 'index.html');
     let indexHtml = fs.readFileSync(indexPath, 'utf8');
+    indexHtml = removeInlineConfig(indexHtml);
     indexHtml = replaceBetweenMarkers(indexHtml, PRERENDER_START, PRERENDER_END, prerendered);
-    indexHtml = patchSiteConfigScript(indexHtml, zhConfig);
     fs.writeFileSync(indexPath, indexHtml);
-    console.log('Updated index.html prerender + inline config');
+    console.log('Updated index.html slim prerender');
 
     const llmsFullZh = generateLlmsFull(zhConfig, 'zh');
     const llmsFullEn = generateLlmsFull(enConfig, 'en');
