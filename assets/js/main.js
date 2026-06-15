@@ -81,6 +81,7 @@ function renderWithVue(config) {
     }
 
     vueApp = createApp({
+        template: '#vue-app-template',
         data() {
             return {
                 config: config || {},

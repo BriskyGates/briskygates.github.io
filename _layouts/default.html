@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ page.title | default: site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
+    <link rel="alternate" type="text/plain" href="{{ '/llms.txt' | relative_url }}" title="LLM site summary">
+    {% include json-ld.html %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet">
@@ -16,9 +18,6 @@
 <body class="site-body">
     {{ content }}
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-        window.siteConfig = null;
-    </script>
     <script src="{{ '/assets/js/app-core.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
