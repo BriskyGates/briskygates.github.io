@@ -70,9 +70,11 @@ npm run build
 ```
 
 该命令会：
-- 将中文内容预渲染进 `index.html`（无需执行 JavaScript 即可抓取正文）
+- 将中文内容**精简预渲染**进 `index.html`（Hero + 文本摘要，供爬虫读取；完整 UI 仍由 Vue 异步加载 JSON）
 - 生成 `llms-full.txt` / `llms-full.en.txt` 纯文本履历
 - 生成 `_includes/json-ld.html` 结构化数据
+
+站点使用**本地托管的 Vue**（`assets/vendor/`）与**系统字体**，避免 Google Fonts / unpkg 在国内拖慢首屏。`homeConfig.json` 独立缓存，不再内联进 HTML。
 
 站点根目录还提供 [`llms.txt`](llms.txt)，供 LLM / 爬虫发现机器可读数据源。推送到 `main` 后，GitHub Actions 会在配置变更时自动执行 `npm run build` 并提交生成文件。
 
