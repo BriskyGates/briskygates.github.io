@@ -78,6 +78,18 @@ npm run build
 
 站点根目录还提供 [`llms.txt`](llms.txt)，供 LLM / 爬虫发现机器可读数据源。推送到 `main` 后，GitHub Actions 会在配置变更时自动执行 `npm run build` 并提交生成文件。
 
+## 搜索引擎收录
+
+站点已配置 canonical、Open Graph、结构化数据、`robots.txt` 与 `sitemap.xml`。推送后按以下步骤提交 Google：
+
+1. 打开 [Google Search Console](https://search.google.com/search-console)，添加资源 `https://briskygates.github.io`
+2. 选择 **HTML 标签** 验证，将 `content` 值填入 `_config.yml` 的 `google_site_verification`，提交并推送
+3. 在 Search Console → **站点地图** 提交：`https://briskygates.github.io/sitemap.xml`
+4. 使用 **网址检查** 对首页点击「请求编入索引」
+5. 在 GitHub Profile README 等处添加本站链接，帮助 Google 发现站点
+
+验证收录：在 Google 搜索 `site:briskygates.github.io`（新站通常需数天至数周）。
+
 ## 运行测试
 
 ```bash

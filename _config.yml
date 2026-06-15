@@ -1,8 +1,13 @@
 # Jekyll 配置文件
-title: 阿布的个人主页
-description: Python 全栈工程师 | AI 解决方案架构师
+title: 阿布 · AI 全栈工程师
+description: Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能
 url: https://briskygates.github.io
 baseurl: ""
+author: 阿布
+lang: zh-CN
+
+# Google Search Console 验证（在 Search Console 获取 meta 内容后填入，留空则不输出）
+google_site_verification: ""
 
 # 构建设置
 markdown: kramdown
@@ -14,7 +19,7 @@ plugins:
 # 主题设置（使用空白主题，自定义样式）
 theme: null
 
-# 排除文件
+# 排除文件（避免无关页面进入 sitemap）
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -23,6 +28,14 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - DEPLOY.md
+  - README.md
+  - tests/
+  - scripts/
+  - package.json
+  - package-lock.json
+  - playwright.config.js
+  - .github/
 
 # 包含文件
 include:
@@ -34,3 +47,7 @@ defaults:
       path: ""
     values:
       layout: default
+  - scope:
+      path: "assets"
+    values:
+      sitemap: false

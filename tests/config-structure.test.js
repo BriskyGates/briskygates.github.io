@@ -117,3 +117,20 @@ test('default.html 按顺序加载 app-core.js 与 main.js', () => {
     assert.ok(coreIndex > -1 && mainIndex > -1);
     assert.ok(coreIndex < mainIndex);
 });
+
+test('SEO 模板包含 canonical 与 Open Graph 标签', () => {
+    const layout = fs.readFileSync(path.join(ROOT, '_layouts/default.html'), 'utf8');
+    const seoHead = fs.readFileSync(path.join(ROOT, '_includes/seo-head.html'), 'utf8');
+    assert.match(layout, /seo-head\.html/);
+    assert.match(seoHead, /rel="canonical"/);
+    assert.match(seoHead, /property="og:title"/);
+    assert.match(seoHead, /name="twitter:card"/);
+});
+
+test('robots.txt 指向 sitemap 且 _config 排除测试目录', () => {
+    const robots = fs.readFileSync(path.join(ROOT, 'robots.txt'), 'utf8');
+    const config = fs.readFileSync(path.join(ROOT, '_config.yml'), 'utf8');
+    assert.match(robots, /Sitemap: https:\/\/briskygates\.github\.io\/sitemap\.xml/);
+    assert.match(config, /- tests\//);
+    assert.match(config, /- DEPLOY\.md/);
+});

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="? · AI hå">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1118"/>
+      <stop offset="100%" stop-color="#08090d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="180" cy="315" r="72" fill="#1a1d28" stroke="#3d7cff" stroke-width="4"/>
+  <text x="180" y="330" text-anchor="middle" font-family="system-ui, sans-serif" font-size="56" fill="#e8eaed">?</text>
+  <text x="300" y="280" font-family="system-ui, sans-serif" font-size="52" font-weight="700" fill="#f5f7fa">? · AI hå</text>
+  <text x="300" y="340" font-family="system-ui, sans-serif" font-size="28" fill="#9aa0a6">Python h | RAG · Agent · ‡czý</text>
+  <text x="300" y="400" font-family="system-ui, sans-serif" font-size="22" fill="#6b7280">briskygates.github.io</text>
+</svg>
