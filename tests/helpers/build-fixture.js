@@ -7,13 +7,19 @@ const outputDir = path.join(__dirname, '../fixtures/site');
 const outputPath = path.join(outputDir, 'index.html');
 
 const source = fs.readFileSync(indexPath, 'utf8');
-const match = source.match(/\{% raw %\}([\s\S]*)\{% endraw %\}/);
+const templateMatch = source.match(/<template id="vue-app-template">[\s\S]*?\{% raw %\}([\s\S]*)\{% endraw %\}[\s\S]*?<\/template>/);
 
-if (!match) {
-    throw new Error('index.html 中未找到 {% raw %} 区块');
+if (!templateMatch) {
+    throw new Error('index.html 中未找到 vue-app-template {% raw %} 区块');
 }
 
-const app = match[1].trim();
+const appTemplate = templateMatch[1].trim();
+const prerenderMatch = source.match(/<!-- PRERENDER:START -->([\s\S]*?)<!-- PRERENDER:END -->/);
+const prerender = prerenderMatch ? prerenderMatch[1].trim() : '';
+
+const configPath = path.join(root, 'assets/data/homeConfig.json');
+const siteConfig = fs.readFileSync(configPath, 'utf8').trim();
+
 const html = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -28,8 +34,14 @@ const html = `<!DOCTYPE html>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body class="site-body">
-${app}
-    <script>window.siteConfig = null;</script>
+<template id="vue-app-template">
+${appTemplate}
+</template>
+<div id="app" class="app-shell">
+${prerender}
+</div>
+    <script id="site-config-data" type="application/json">${siteConfig}</script>
+    <script>window.siteConfig = JSON.parse(document.getElementById('site-config-data').textContent);</script>
     <script src="/vendor/vue.global.js"></script>
     <script src="/assets/js/app-core.js"></script>
     <script src="/assets/js/main.js"></script>

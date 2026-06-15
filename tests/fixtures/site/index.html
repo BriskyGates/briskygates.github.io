@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body class="site-body">
-<div id="app" class="app-shell" v-cloak>
+<template id="vue-app-template">
+<div class="app-shell-inner" v-cloak>
     <aside class="sidebar" :class="{ open: sidebarOpen }" aria-label="主导航">
         <div class="sidebar-brand">
             <span class="brand-mark">{{ config.profile.avatar }}</span>
@@ -269,7 +270,1433 @@
         <span>{{ toastMessage }}</span>
     </div>
 </div>
-    <script>window.siteConfig = null;</script>
+</template>
+<div id="app" class="app-shell">
+<aside class="sidebar" aria-label="主导航">
+        <div class="sidebar-brand">
+            <span class="brand-mark">🐶</span>
+            <div class="brand-text">
+                <strong>阿布</strong>
+                <span>上海 · 在线</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#home" class="nav-item">
+                <i class="fas fa-house"></i>
+                <span>首页</span>
+            </a>
+            <a href="#showcase" class="nav-item">
+                <i class="fas fa-fire"></i>
+                <span>代表作</span>
+            </a>
+            <a href="#projects" class="nav-item">
+                <i class="fas fa-layer-group"></i>
+                <span>项目库</span>
+            </a>
+            <a href="#experience" class="nav-item">
+                <i class="fas fa-route"></i>
+                <span>履历</span>
+            </a>
+            <a href="#skills" class="nav-item">
+                <i class="fas fa-bolt"></i>
+                <span>技能</span>
+            </a>
+            <a href="#services" class="nav-item">
+                <i class="fas fa-briefcase"></i>
+                <span>服务</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <button type="button" class="lang-btn" title="切换到英文 / Switch to English">
+                <i class="fas fa-globe"></i>
+                <span>EN</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-view">
+        <header class="top-bar">
+            <div class="top-bar-brand">
+                <span class="brand-avatar">🐶</span>
+                <div class="brand-meta">
+                    <strong>阿布</strong>
+                    <span class="status-dot">上海 · 在线</span>
+                </div>
+            </div>
+            <div class="search-pill" role="search">
+                <i class="fas fa-search"></i>
+                <span>探索技能、项目与合作方式…</span>
+            </div>
+            <button type="button" class="lang-btn lang-btn--compact">EN</button>
+        </header>
+
+        <section id="home" class="hero-banner">
+            <div class="hero-inner">
+                <div class="hero-profile">
+                    <div class="hero-avatar-ring">
+                        <span class="hero-avatar">🐶</span>
+                    </div>
+                    <div class="hero-status-badge">可接项目</div>
+                </div>
+                <div class="hero-content">
+                    <p class="hero-eyebrow">早上好</p>
+                    <h1 class="hero-title">用工程化 AI，把复杂业务做成可上线的产品</h1>
+                    <p class="hero-subtitle"><strong>Python 全栈工程师</strong> · <strong>AI 解决方案架构师</strong><br>深耕企业知识库、行业文档智能、国内IM/飞书生态与 RAG 工程化交付</p>
+                    <div class="hero-chips"><span class="hero-chip">RAG &amp; 向量检索</span><span class="hero-chip">手机 Agent / 群控</span><span class="hero-chip">Multi-Agent / MCP</span><span class="hero-chip">FastAPI 微服务</span><span class="hero-chip">国内IM Bot</span></div>
+                    <div class="hero-actions">
+                        <button type="button" class="btn-primary">浏览代表作</button>
+                        <button type="button" class="btn-secondary">看看服务</button>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">6+</span>
+                        <span class="hero-stat-label">年实战</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">80+</span>
+                        <span class="hero-stat-label">自研仓库</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">15+</span>
+                        <span class="hero-stat-label">AI 核心项目</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">全栈</span>
+                        <span class="hero-stat-label">交付闭环</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="showcase" class="content-section">
+            <div class="section-head">
+                <h2>精选代表作</h2>
+                <p>按业务场景精选，覆盖 RAG、Agent、Bot 与文档智能</p>
+            </div>
+            <div class="media-row-wrap">
+            <div class="media-row">
+                
+                <article class="media-card media-card--featured">
+                    <div class="media-card-visual">
+                        <span class="media-card-emoji">🧠</span>
+                        <span class="media-card-badge">已上线</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>多 LLM 题型分析引擎</h3>
+                        <p class="media-card-sub">评估模式 × 生成模式</p>
+                        <p class="media-card-desc">面向教育评测的多模型题型引擎：自动识别证明题、图表题等 8 类题型，评估与生成双模式分流，支持多轮复核。</p>
+                        <ul class="media-card-highlights"><li>8 类题型自动路由与差异化处理</li><li>证明题评估 vs 标准题生成双模式</li><li>可复核链路与完整题型元数据</li></ul>
+                        <div class="tag-row"><span class="tag-pill">Multi-LLM</span><span class="tag-pill">题型引擎</span><span class="tag-pill">Pipeline</span></div>
+                    </div>
+                </article>
+                <article class="media-card media-card--featured">
+                    <div class="media-card-visual">
+                        <span class="media-card-emoji">🤖</span>
+                        <span class="media-card-badge">已上线</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>国内IM 群管 &amp; 担保交易 Bot</h3>
+                        <p class="media-card-sub">复杂业务 Bot 全链路</p>
+                        <p class="media-card-desc">群管自动化、专群担保、公群报备、供需发布、充值与客服——生产级 国内IM 商业机器人。</p>
+                        <ul class="media-card-highlights"><li>进群验证 / 反垃圾 / 定时消息</li><li>专群担保与财务确认收款</li><li>完整用户手册与生产部署</li></ul>
+                        <div class="tag-row"><span class="tag-pill">aiogram</span><span class="tag-pill">MySQL</span><span class="tag-pill">Redis</span><span class="tag-pill">担保交易</span></div>
+                    </div>
+                </article>
+                <article class="media-card media-card--featured">
+                    <div class="media-card-visual">
+                        <span class="media-card-emoji">📚</span>
+                        <span class="media-card-badge">已上线</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>研报 &amp; 公告向量知识库</h3>
+                        <p class="media-card-sub">RAG 数据管线 · GPU 集群</p>
+                        <p class="media-card-desc">面向研报与上市公司公告的 RAG 数据管线：文档分块、向量化入库与知识库维护，支撑大规模行业文本检索。</p>
+                        <ul class="media-card-highlights"><li>公告/研报自动分块与入库</li><li>多库并行向量化任务调度</li><li>Docker Compose 生产部署</li></ul>
+                        <div class="tag-row"><span class="tag-pill">Celery</span><span class="tag-pill">向量库</span><span class="tag-pill">分块</span><span class="tag-pill">Docker</span></div>
+                    </div>
+                </article>
+                <article class="media-card media-card--featured">
+                    <div class="media-card-visual">
+                        <span class="media-card-emoji">🎯</span>
+                        <span class="media-card-badge">已上线</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>检索重排序系统</h3>
+                        <p class="media-card-sub">RAG 精度提升 · 生产 API</p>
+                        <p class="media-card-desc">对研报/公告召回候选做语义重排与 MMR 去重，融合时效与权威度权重，提升问答 Top-K 引用准确率。</p>
+                        <ul class="media-card-highlights"><li>多种语义打分策略与 Qwen Rerank 分支</li><li>MMR 去重 + 时效/权威度融合排序</li><li>召回日志落库，便于评测与追溯</li></ul>
+                        <div class="tag-row"><span class="tag-pill">FastAPI</span><span class="tag-pill">Rerank</span><span class="tag-pill">MMR</span><span class="tag-pill">PostgreSQL</span></div>
+                    </div>
+                </article>
+                <article class="media-card media-card--featured">
+                    <div class="media-card-visual">
+                        <span class="media-card-emoji">📱</span>
+                        <span class="media-card-badge">已上线</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>Phone AutoGLM 群控平台</h3>
+                        <p class="media-card-sub">视觉 Agent · 云手机 · 业务 API</p>
+                        <p class="media-card-desc">基于 AutoGLM 的手机智能体工程化：自然语言驱动 ADB 操控屏幕，Web 控制台实时调试，REST 接口对接业务系统批量下发任务。</p>
+                        <ul class="media-card-highlights"><li>截图感知 + 多步规划，覆盖 50+ 主流中文 App</li><li>Vue 控制台 SSE 流式执行，MySQL 持久化任务与设备台账</li><li>/api/v1 指令调度、进度轮询与相册素材批量导入</li></ul>
+                        <div class="tag-row"><span class="tag-pill">AutoGLM</span><span class="tag-pill">ADB</span><span class="tag-pill">FastAPI</span><span class="tag-pill">Vue</span></div>
+                    </div>
+                </article>
+                <article class="media-card media-card--featured">
+                    <div class="media-card-visual">
+                        <span class="media-card-emoji">📡</span>
+                        <span class="media-card-badge">已上线</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>AI 商机雷达 Bot</h3>
+                        <p class="media-card-sub">供需互补 · 线索推送</p>
+                        <p class="media-card-desc">扫描 国内IM 商业频道，识别供需意图，自动匹配互补线索并推送订阅，附带 Web 运营管理后台。</p>
+                        <ul class="media-card-highlights"><li>供方/需方语义互补检索</li><li>频道白名单增量抓取与订阅推送</li><li>Web 运营后台（线索/用户/扫描）</li></ul>
+                        <div class="tag-row"><span class="tag-pill">国内IM</span><span class="tag-pill">LLM</span><span class="tag-pill">混合检索</span></div>
+                    </div>
+                </article>
+            </div>
+            </div>
+        </section>
+        
+        <section id="projects" class="content-section">
+            <div class="section-head section-head--row">
+                <h2>企业级 AI 落地</h2>
+                <p>投研问答、多模型分析与金融 NLP 等 B 端 AI 应用</p>
+            </div>
+            <div class="media-row-wrap">
+            <div class="media-row">
+                
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">🧠</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>多 LLM 题型分析引擎</h3>
+                        <p class="media-card-sub">8 类题型 · 双模式</p>
+                        <p class="media-card-desc">自动识别证明题、图表题等题型，评估与生成模式分离，复杂题目走多轮复核流水线。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">Multi-LLM</span><span class="tag-pill tag-pill--muted">题型引擎</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">🎯</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>检索重排序系统</h3>
+                        <p class="media-card-sub">RAG 精度提升</p>
+                        <p class="media-card-desc">对研报/公告召回候选做语义重排与去重，融合时效与来源权重，提升问答引用准确率。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">Rerank</span><span class="tag-pill tag-pill--muted">RAG</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">📈</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>研报图表 &amp; 段落召回</h3>
+                        <p class="media-card-sub">多模态检索</p>
+                        <p class="media-card-desc">研报 PDF 图表与正文段落的多模态召回：分别向量化入库，按语义检索相关图表与文字片段，支撑投研问答中的图表引用与证据检索。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">向量检索</span><span class="tag-pill tag-pill--muted">研报</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">📉</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>ETF 异动监测</h3>
+                        <p class="media-card-sub">量化 · 资讯</p>
+                        <p class="media-card-desc">实时抓取 ETF 行情与资讯异动，计算溢价率、量价等指标并推送展示，辅助投研监控。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">ETF</span><span class="tag-pill tag-pill--muted">量化</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">🏷️</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>金融 NER 识别服务</h3>
+                        <p class="media-card-sub">实体识别 · 时间解析</p>
+                        <p class="media-card-desc">从研报文本识别公司、行业等金融实体，关键词与向量双路召回，附带财报期等时间语义解析 API。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">NER</span><span class="tag-pill tag-pill--muted">FastAPI</span><span class="tag-pill tag-pill--muted">向量召回</span></div>
+                    </div>
+                </article>
+            </div>
+            </div>
+        </section>
+        <section class="content-section">
+            <div class="section-head section-head--row">
+                <h2>RAG &amp; 知识工程</h2>
+                <p>从文档分块、向量化到检索召回的 RAG 全链路</p>
+            </div>
+            <div class="media-row-wrap">
+            <div class="media-row">
+                
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">📚</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>研报 &amp; 公告向量知识库</h3>
+                        <p class="media-card-sub">FastAPI · Celery · GPU</p>
+                        <p class="media-card-desc">研报与公告的自动化分块、向量化与知识库更新，Celery 异步调度，Docker Compose 生产部署。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">Celery</span><span class="tag-pill tag-pill--muted">向量库</span><span class="tag-pill tag-pill--muted">Docker</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">🔗</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>多源文档分块向量化</h3>
+                        <p class="media-card-sub">生产级数据管线</p>
+                        <p class="media-card-desc">多来源文档自动分块与向量化，部署于生产 GPU 环境，支撑实时资讯等大规模入库场景。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">分块</span><span class="tag-pill tag-pill--muted">向量化</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">🔍</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>Qwen3 Embedding 召回</h3>
+                        <p class="media-card-sub">PostgreSQL 向量检索</p>
+                        <p class="media-card-desc">基于 Qwen3 Embedding 的 PostgreSQL 向量召回服务，面向研报/公告语义检索场景。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">Qwen3</span><span class="tag-pill tag-pill--muted">PostgreSQL</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">💬</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>企业对话 OpenAPI 服务</h3>
+                        <p class="media-card-sub">对话式知识问答</p>
+                        <p class="media-card-desc">企业知识库对话式问答 OpenAPI，对接向量检索与 LLM 生成，含调用日志与版本发布运维。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">OpenAPI</span><span class="tag-pill tag-pill--muted">Chat</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">🏷️</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>公告标题智能打标</h3>
+                        <p class="media-card-sub">NLP 分类</p>
+                        <p class="media-card-desc">对上市公司公告标题自动打标签与分类，用于资讯聚合、主题筛选与推送。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">NLP</span><span class="tag-pill tag-pill--muted">分类</span></div>
+                    </div>
+                </article>
+            </div>
+            </div>
+        </section>
+        <section class="content-section">
+            <div class="section-head section-head--row">
+                <h2>文档智能</h2>
+                <p>PDF 解析、OCR、去水印与结构化抽取</p>
+            </div>
+            <div class="media-row-wrap">
+            <div class="media-row">
+                
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">📄</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>PDF2XML 结构化解析</h3>
+                        <p class="media-card-sub">PDFlib TET · FastAPI</p>
+                        <p class="media-card-desc">高精度解析 PDF 文本、表格与字体坐标，输出结构化数据，作为下游分块与检索的文档底座。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">PDF</span><span class="tag-pill tag-pill--muted">FastAPI</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">✂️</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>PDF 智能分块</h3>
+                        <p class="media-card-sub">研报 / 公告双模式</p>
+                        <p class="media-card-desc">针对研报与公告 PDF 的智能分块：识别有线/无线表格并输出 Markdown，保留文档逻辑结构。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">分块</span><span class="tag-pill tag-pill--muted">表格识别</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">💧</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>研报 PDF 去水印</h3>
+                        <p class="media-card-sub">多规则模板库</p>
+                        <p class="media-card-desc">按可配置规则（字体、关键词、位置）批量去除研报 PDF 水印，保障下游 OCR 与分块质量。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">水印</span><span class="tag-pill tag-pill--muted">批处理</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">👁️</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>PaddleOCR-VL 服务</h3>
+                        <p class="media-card-sub">上传即解析</p>
+                        <p class="media-card-desc">上传 PDF 或图片即可 OCR 与版面理解，封装为 FastAPI 服务，适用于扫描件、图片公告等弱文本场景。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">OCR</span><span class="tag-pill tag-pill--muted">VL</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">📑</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>PDF 目录挖掘服务</h3>
+                        <p class="media-card-sub">三级降级策略</p>
+                        <p class="media-card-desc">从研报 PDF 提取章节目录：优先读书签，失败则解析目录页，再降级到版面分析，保障 TOC 抽取成功率。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">PDF</span><span class="tag-pill tag-pill--muted">目录</span><span class="tag-pill tag-pill--muted">版面分析</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">🖼️</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>GPU 版面检测 API</h3>
+                        <p class="media-card-sub">高并发 · 异步落库</p>
+                        <p class="media-card-desc">文档图片版面元素检测：识别标题、段落、图表等区域，同步返回并异步落库，供分块与 OCR 下游使用。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">FastAPI</span><span class="tag-pill tag-pill--muted">版面检测</span><span class="tag-pill tag-pill--muted">GPU</span></div>
+                    </div>
+                </article>
+            </div>
+            </div>
+        </section>
+        <section class="content-section">
+            <div class="section-head section-head--row">
+                <h2>Agent &amp; 端侧智能</h2>
+                <p>手机视觉 Agent、MCP 工具编排与多智能体协作</p>
+            </div>
+            <div class="media-row-wrap">
+            <div class="media-row">
+                
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">📱</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>Phone AutoGLM 群控平台</h3>
+                        <p class="media-card-sub">云手机 · 业务 API</p>
+                        <p class="media-card-desc">基于 AutoGLM 的云手机群控平台：Web 控制台调试任务，REST API 提供指令下发、进度查询与相册素材导入。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">AutoGLM</span><span class="tag-pill tag-pill--muted">ADB</span><span class="tag-pill tag-pill--muted">群控</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">⚡</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>Dynamic MCP · 代码执行</h3>
+                        <p class="media-card-sub">代码执行 · 动态工具</p>
+                        <p class="media-card-desc">Agent 在沙箱中写代码并按需加载 MCP 工具，内置 Excel 自然语言查询，减少无效工具调用。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">MCP</span><span class="tag-pill tag-pill--muted">Code Act</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">🔧</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>MCP 智能工具编排</h3>
+                        <p class="media-card-sub">多工具协同</p>
+                        <p class="media-card-desc">根据用户问题自动选择并编排多个 MCP 工具，支持上下文感知的多轮对话，最多 5 轮并行调用。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">JSON-RPC</span><span class="tag-pill tag-pill--muted">编排</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">🌐</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>AI MCP 中间件服务</h3>
+                        <p class="media-card-sub">业务系统桥接</p>
+                        <p class="media-card-desc">统一 MCP 协议中间层，让业务系统通过标准 API 接入 LLM 工具生态，无需逐一对接模型能力。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">MCP</span><span class="tag-pill tag-pill--muted">API</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">🤝</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>Multi-Agent 协作</h3>
+                        <p class="media-card-sub">多智能体系统</p>
+                        <p class="media-card-desc">多智能体分工协作：任务拆分、角色路由与结果汇总，用于复杂流程自动化与对话式工作流。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">Multi-Agent</span></div>
+                    </div>
+                </article>
+            </div>
+            </div>
+        </section>
+        <section class="content-section">
+            <div class="section-head section-head--row">
+                <h2>Bot 生态 &amp; 效率工具</h2>
+                <p>国内IM 商业机器人、混合检索与桌面效率应用</p>
+            </div>
+            <div class="media-row-wrap">
+            <div class="media-row">
+                
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">🤖</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>国内IM 群管 &amp; 担保交易 Bot</h3>
+                        <p class="media-card-sub">群管 · 担保 · 充值</p>
+                        <p class="media-card-desc">群管自动化、专群担保、公群报备与充值客服，生产级 国内IM 商业机器人。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">aiogram</span><span class="tag-pill tag-pill--muted">MySQL</span><span class="tag-pill tag-pill--muted">担保交易</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">📡</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>AI 商机雷达</h3>
+                        <p class="media-card-sub">线索扫描 · 互补匹配</p>
+                        <p class="media-card-desc">扫描 国内IM 频道消息，用大模型识别商业意图，匹配供需互补线索并支持关键词订阅推送，附带 Web 运营后台。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">Bot</span><span class="tag-pill tag-pill--muted">LLM</span><span class="tag-pill tag-pill--muted">SeekDB</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">🔎</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>国内IM AI 搜索</h3>
+                        <p class="media-card-sub">国内IM 内嵌搜索</p>
+                        <p class="media-card-desc">国内IM Bot 内的混合检索：全文与向量双路召回，融合排序后返回群组/频道历史中的相关内容。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">国内IM</span><span class="tag-pill tag-pill--muted">混合检索</span><span class="tag-pill tag-pill--muted">RAG</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">📋</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>Smart Clipboard 智能剪贴板</h3>
+                        <p class="media-card-sub">Windows 桌面 · AI 增强</p>
+                        <p class="media-card-desc">监听剪贴板并智能过滤/改写复制内容，Rust 保证低延迟，支持托盘热键与多厂商 AI 扩展。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">Tauri</span><span class="tag-pill tag-pill--muted">Rust</span><span class="tag-pill tag-pill--muted">桌面工具</span></div>
+                    </div>
+                </article>
+            </div>
+            </div>
+        </section>
+        <section class="content-section">
+            <div class="section-head section-head--row">
+                <h2>平台 &amp; 自动化</h2>
+                <p>Bot、监控、邮件与办公集成</p>
+            </div>
+            <div class="media-row-wrap">
+            <div class="media-row">
+                
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">⛓️</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>链上代币监控推送</h3>
+                        <p class="media-card-sub">SOL/BSC · IM 推送</p>
+                        <p class="media-card-desc">监控链上新发代币，多账户轮询与 Redis 去重后，自动推送到 国内IM 群与交易 Bot。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">Web3</span><span class="tag-pill tag-pill--muted">国内IM</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">📧</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>Gmail → 国内IM 转发</h3>
+                        <p class="media-card-sub">邮件自动化</p>
+                        <p class="media-card-desc">监听 Gmail 收件箱，按规则过滤重要邮件并异步转发到 国内IM 群，支持多群路由与状态管理。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">IMAP</span><span class="tag-pill tag-pill--muted">Bot</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">🚀</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>飞书多维表格订单同步</h3>
+                        <p class="media-card-sub">办公自动化</p>
+                        <p class="media-card-desc">飞书多维表格与内部订单系统双向同步，订单状态、客户信息等字段自动更新，减少人工录入。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">飞书</span><span class="tag-pill tag-pill--muted">自动化</span></div>
+                    </div>
+                </article>
+                <article class="media-card">
+                    <div class="media-card-visual media-card-visual--sm">
+                        <span class="media-card-emoji">📬</span>
+                    </div>
+                    <div class="media-card-body">
+                        <h3>Outlook 邮件 &amp; PDF 抽取</h3>
+                        <p class="media-card-sub">RPA · PyInstaller</p>
+                        <p class="media-card-desc">自动收取 Outlook 邮件附件中的研报 PDF，解析正文与表格并导出结构化 Excel，用于 RPA 批量入库。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">RPA</span><span class="tag-pill tag-pill--muted">PDF</span></div>
+                    </div>
+                </article>
+            </div>
+            </div>
+        </section>
+        
+        <section id="experience" class="content-section">
+            <div class="section-head">
+                <h2>能力履历</h2>
+                <p>技术栈与业务场景的真实交集</p>
+            </div>
+            <div class="timeline">
+                
+                <article class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-period">2024 — 至今</span>
+                        <h3>企业 AI · 智能体 &amp; RAG</h3>
+                        <p>主导/参与企业侧智能体、手机 Agent 群控、研报向量库、召回重排与多 LLM 分析等项目，从 POC 到可监控的生产服务。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">智能体</span><span class="tag-pill tag-pill--muted">RAG</span><span class="tag-pill tag-pill--muted">AutoGLM</span><span class="tag-pill tag-pill--muted">FastAPI</span></div>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-period">2022 — 2024</span>
+                        <h3>文档智能管线</h3>
+                        <p>构建 PDF 分块、去水印、OCR-VL、PDF2XML 等工具链，支撑海量研报/公告的结构化与入库。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">PDF</span><span class="tag-pill tag-pill--muted">OCR</span><span class="tag-pill tag-pill--muted">ETL</span></div>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-period">2020 — 至今</span>
+                        <h3>国内IM / 飞书生态</h3>
+                        <p>群管担保 Bot、邮件转发、链上监控、飞书多维表格等业务 Bot 与自动化系统，熟悉高并发与状态机设计。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">aiogram</span><span class="tag-pill tag-pill--muted">飞书 API</span><span class="tag-pill tag-pill--muted">Redis</span></div>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-period">持续</span>
+                        <h3>MCP &amp; Agent 工程化</h3>
+                        <p>探索 MCP 工具编排、代码执行范式与 Text2SQL，将 LLM 能力嵌入可审计、可复现的工程流程。</p>
+                        <div class="tag-row"><span class="tag-pill tag-pill--muted">MCP</span><span class="tag-pill tag-pill--muted">Agent</span><span class="tag-pill tag-pill--muted">Text2SQL</span></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <section id="skills" class="content-section">
+            <div class="section-head">
+                <h2>核心技术</h2>
+                <p class="section-motto">不只会调模型——<strong>更擅长把 AI 嵌进现有业务系统</strong>，交付可运维、可扩展的方案</p>
+            </div>
+            <div class="skills-grid">
+                
+                <article class="skill-tile">
+                    <span class="skill-tile-icon">🤖</span>
+                    <h3>AI 应用工程化</h3>
+                    <p>RAG 架构 / 手机 Agent / LLM 部署 / Multi-Agent / MCP 工具链</p>
+                    <div class="tag-row"><span class="tag-pill">RAG</span><span class="tag-pill">Agent</span><span class="tag-pill">AutoGLM</span><span class="tag-pill">MCP</span></div>
+                </article>
+                <article class="skill-tile">
+                    <span class="skill-tile-icon">📊</span>
+                    <h3>行业文本 &amp; 知识库</h3>
+                    <p>研报/公告分块向量化、召回重排、图表召回、资讯打标</p>
+                    <div class="tag-row"><span class="tag-pill">向量库</span><span class="tag-pill">研报</span><span class="tag-pill">召回</span></div>
+                </article>
+                <article class="skill-tile">
+                    <span class="skill-tile-icon">📄</span>
+                    <h3>文档智能</h3>
+                    <p>PDF 解析 / OCR-VL / 去水印 / 表格识别 / 结构化抽取</p>
+                    <div class="tag-row"><span class="tag-pill">PDF</span><span class="tag-pill">OCR</span><span class="tag-pill">Pipeline</span></div>
+                </article>
+                <article class="skill-tile">
+                    <span class="skill-tile-icon">⚡</span>
+                    <h3>平台集成 &amp; 自动化</h3>
+                    <p>国内IM Bot / 飞书 / 邮件 RPA / Celery 任务调度</p>
+                    <div class="tag-row"><span class="tag-pill">Bot</span><span class="tag-pill">飞书</span><span class="tag-pill">Celery</span></div>
+                </article>
+            </div>
+        </section>
+        
+        <section id="services" class="content-section">
+            <div class="section-head">
+                <h2>可提供的合作</h2>
+            </div>
+            <div class="services-grid">
+                
+                <article class="service-tile">
+                    <div class="service-tile-top">
+                        <span>🤖</span>
+                        <span class="service-badge">企业级</span>
+                    </div>
+                    <h3>企业 AI 智能体</h3>
+                    <p>知识库问答、工作流智能体、私有化部署与 API 监控</p>
+                    <div class="tag-row"><span class="tag-pill tag-pill--muted">RAG</span><span class="tag-pill tag-pill--muted">Agent</span><span class="tag-pill tag-pill--muted">FastAPI</span></div>
+                </article>
+                <article class="service-tile">
+                    <div class="service-tile-top">
+                        <span>📈</span>
+                        <span class="service-badge">RAG</span>
+                    </div>
+                    <h3>行业文档 RAG 系统</h3>
+                    <p>研报/公告入库、分块策略、召回重排与评测</p>
+                    <div class="tag-row"><span class="tag-pill tag-pill--muted">向量库</span><span class="tag-pill tag-pill--muted">Rerank</span><span class="tag-pill tag-pill--muted">ETL</span></div>
+                </article>
+                <article class="service-tile">
+                    <div class="service-tile-top">
+                        <span>📄</span>
+                        <span class="service-badge">文档智能</span>
+                    </div>
+                    <h3>文档处理管线</h3>
+                    <p>PDF 解析、OCR、去水印、批量结构化</p>
+                    <div class="tag-row"><span class="tag-pill tag-pill--muted">PDF</span><span class="tag-pill tag-pill--muted">OCR</span><span class="tag-pill tag-pill--muted">Python</span></div>
+                </article>
+                <article class="service-tile">
+                    <div class="service-tile-top">
+                        <span>📱</span>
+                        <span class="service-badge">自动化</span>
+                    </div>
+                    <h3>Bot &amp; 办公自动化</h3>
+                    <p>国内IM/飞书机器人、邮件转发、任务调度</p>
+                    <div class="tag-row"><span class="tag-pill tag-pill--muted">aiogram</span><span class="tag-pill tag-pill--muted">飞书</span><span class="tag-pill tag-pill--muted">Celery</span></div>
+                </article>
+                <article class="service-tile">
+                    <div class="service-tile-top">
+                        <span>📚</span>
+                        <span class="service-badge">顾问</span>
+                    </div>
+                    <h3>Python 技术顾问</h3>
+                    <p>架构评审、性能优化、疑难问题攻坚</p>
+                    <div class="tag-row"><span class="tag-pill tag-pill--muted">架构</span><span class="tag-pill tag-pill--muted">Code Review</span></div>
+                </article>
+            </div>
+            
+            <div class="partners-banner">
+                <h3>期待这样的伙伴</h3>
+                <div class="partners-row">
+                    
+                    <div class="partner-pill">
+                        <span>🚀</span>
+                        <div>
+                            <strong>AI 创业团队</strong>
+                            <p>从 MVP 到产品化，补齐后端与 AI 工程能力</p>
+                        </div>
+                    </div>
+                    <div class="partner-pill">
+                        <span>🏢</span>
+                        <div>
+                            <strong>企业客户</strong>
+                            <p>知识库、智能问答与 AI 系统集成落地</p>
+                        </div>
+                    </div>
+                    <div class="partner-pill">
+                        <span>👥</span>
+                        <div>
+                            <strong>技术合伙人</strong>
+                            <p>一起打磨有商业价值的 Agent / RAG 产品</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="partners-note">欢迎<strong>项目合作</strong>或<strong>长期技术顾问</strong>，先用 30 分钟对齐需求再开工 💬</p>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <div class="philosophy-card">
+                <span>💡</span>
+                <div>
+                    <h3>技术理念</h3>
+                    <p>AI 的价值在落地——可观测、可回滚、可维护。用扎实的 Python 工程能力，把模型能力变成业务里真正在跑的系统。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <nav class="mobile-bottom-nav" aria-label="快捷导航">
+        <a href="#home" class="mobile-nav-item">
+            <i class="fas fa-house"></i>
+            <span>首页</span>
+        </a>
+        <a href="#showcase" class="mobile-nav-item">
+            <i class="fas fa-fire"></i>
+            <span>作品</span>
+        </a>
+        <a href="#projects" class="mobile-nav-item">
+            <i class="fas fa-layer-group"></i>
+            <span>项目</span>
+        </a>
+        <a href="#experience" class="mobile-nav-item">
+            <i class="fas fa-route"></i>
+            <span>履历</span>
+        </a>
+        <a href="#skills" class="mobile-nav-item">
+            <i class="fas fa-bolt"></i>
+            <span>技能</span>
+        </a>
+        <a href="#services" class="mobile-nav-item">
+            <i class="fas fa-briefcase"></i>
+            <span>服务</span>
+        </a>
+    </nav>
+</div>
+    <script id="site-config-data" type="application/json">{
+  "ui": {
+    "pageTitle": "阿布 · AI 全栈工程师",
+    "pageDescription": "Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能",
+    "labelSuffix": "：",
+    "searchPlaceholder": "探索技能、项目与合作方式…",
+    "heroCtaPrimary": "浏览代表作",
+    "heroCtaSecondary": "看看服务",
+    "contactMethodsTitle": "联系方式",
+    "languageToggle": {
+      "buttonText": "EN",
+      "tooltip": "切换到英文 / Switch to English"
+    },
+    "toast": {
+      "wechatCopied": "微信号已复制到剪贴板",
+      "xianyuCopied": "店铺名称已复制到剪贴板",
+      "imCopied": "IM 账号已复制到剪贴板"
+    },
+    "nav": [
+      { "id": "home", "label": "首页", "shortLabel": "首页", "icon": "fas fa-house" },
+      { "id": "showcase", "label": "代表作", "shortLabel": "作品", "icon": "fas fa-fire" },
+      { "id": "projects", "label": "项目库", "shortLabel": "项目", "icon": "fas fa-layer-group" },
+      { "id": "experience", "label": "履历", "shortLabel": "履历", "icon": "fas fa-route" },
+      { "id": "skills", "label": "技能", "shortLabel": "技能", "icon": "fas fa-bolt" },
+      { "id": "services", "label": "服务", "shortLabel": "服务", "icon": "fas fa-briefcase" }
+    ],
+    "projectStatus": {
+      "production": "已上线",
+      "active": "持续迭代",
+      "testing": "测试中",
+      "development": "开发中",
+      "planned": "规划中",
+      "highlightsLabel": "亮点",
+      "progressLabel": "进度"
+    },
+    "greetings": {
+      "morning": "早上好",
+      "afternoon": "下午好",
+      "evening": "晚上好",
+      "night": "夜深了，还在写代码？"
+    }
+  },
+  "profile": {
+    "name": "阿布",
+    "avatar": "🐶",
+    "tagline": "上海 · 在线",
+    "status": "可接项目",
+    "heroTitle": "用工程化 AI，把复杂业务做成可上线的产品",
+    "title": "关于我",
+    "greeting": {
+      "text": "Hi，我是阿布，常驻上海",
+      "description": "<strong>Python 全栈工程师</strong> · <strong>AI 解决方案架构师</strong><br>深耕企业知识库、行业文档智能、国内IM/飞书生态与 RAG 工程化交付"
+    },
+    "heroChips": ["RAG & 向量检索", "手机 Agent / 群控", "Multi-Agent / MCP", "FastAPI 微服务", "国内IM Bot"],
+    "roles": [
+      {
+        "label": "核心能力",
+        "value": "从 0 到 1 搭建企业级 AI 应用：架构设计 → 开发交付 → 上线运维",
+        "type": "primary"
+      },
+      {
+        "label": "合作方向",
+        "value": "企业客户 · 产品/技术团队 · 创业公司与中小企业",
+        "type": "secondary"
+      }
+    ],
+    "stats": [
+      { "number": "6+", "label": "年实战" },
+      { "number": "80+", "label": "自研仓库" },
+      { "number": "15+", "label": "AI 核心项目" },
+      { "number": "全栈", "label": "交付闭环" }
+    ],
+    "location": {
+      "icon": "📍",
+      "text": "上海，中国 · UTC+8"
+    },
+    "heroGradient": ["#0c4a6e", "#1e3a5f", "#312e81"]
+  },
+  "featured": {
+    "title": "精选代表作",
+    "subtitle": "按业务场景精选，覆盖 RAG、Agent、Bot 与文档智能",
+    "items": [
+      {
+        "id": "multi_llm_analysis",
+        "title": "多 LLM 题型分析引擎",
+        "subtitle": "评估模式 × 生成模式",
+        "description": "面向教育评测的多模型题型引擎：自动识别证明题、图表题等 8 类题型，评估与生成双模式分流，支持多轮复核。",
+        "tags": ["Multi-LLM", "题型引擎", "Pipeline"],
+        "icon": "🧠",
+        "accent": "#e91429",
+        "status": "production",
+        "highlights": [
+          "8 类题型自动路由与差异化处理",
+          "证明题评估 vs 标准题生成双模式",
+          "可复核链路与完整题型元数据"
+        ]
+      },
+      {
+        "id": "group_management_bot",
+        "title": "国内IM 群管 & 担保交易 Bot",
+        "subtitle": "复杂业务 Bot 全链路",
+        "description": "群管自动化、专群担保、公群报备、供需发布、充值与客服——生产级 国内IM 商业机器人。",
+        "tags": ["aiogram", "MySQL", "Redis", "担保交易"],
+        "icon": "🤖",
+        "accent": "#1db954",
+        "status": "production",
+        "highlights": [
+          "进群验证 / 反垃圾 / 定时消息",
+          "专群担保与财务确认收款",
+          "完整用户手册与生产部署"
+        ]
+      },
+      {
+        "id": "fastapi_celery_kb",
+        "title": "研报 & 公告向量知识库",
+        "subtitle": "RAG 数据管线 · GPU 集群",
+        "description": "面向研报与上市公司公告的 RAG 数据管线：文档分块、向量化入库与知识库维护，支撑大规模行业文本检索。",
+        "tags": ["Celery", "向量库", "分块", "Docker"],
+        "icon": "📚",
+        "accent": "#b49bc8",
+        "status": "production",
+        "highlights": [
+          "公告/研报自动分块与入库",
+          "多库并行向量化任务调度",
+          "Docker Compose 生产部署"
+        ]
+      },
+      {
+        "id": "rerank_system",
+        "title": "检索重排序系统",
+        "subtitle": "RAG 精度提升 · 生产 API",
+        "description": "对研报/公告召回候选做语义重排与 MMR 去重，融合时效与权威度权重，提升问答 Top-K 引用准确率。",
+        "tags": ["FastAPI", "Rerank", "MMR", "PostgreSQL"],
+        "icon": "🎯",
+        "accent": "#f59e0b",
+        "status": "production",
+        "highlights": [
+          "多种语义打分策略与 Qwen Rerank 分支",
+          "MMR 去重 + 时效/权威度融合排序",
+          "召回日志落库，便于评测与追溯"
+        ]
+      },
+      {
+        "id": "phone_autoglm",
+        "title": "Phone AutoGLM 群控平台",
+        "subtitle": "视觉 Agent · 云手机 · 业务 API",
+        "description": "基于 AutoGLM 的手机智能体工程化：自然语言驱动 ADB 操控屏幕，Web 控制台实时调试，REST 接口对接业务系统批量下发任务。",
+        "tags": ["AutoGLM", "ADB", "FastAPI", "Vue"],
+        "icon": "📱",
+        "accent": "#059669",
+        "status": "production",
+        "highlights": [
+          "截图感知 + 多步规划，覆盖 50+ 主流中文 App",
+          "Vue 控制台 SSE 流式执行，MySQL 持久化任务与设备台账",
+          "/api/v1 指令调度、进度轮询与相册素材批量导入"
+        ]
+      },
+      {
+        "id": "need_radar_bot",
+        "title": "AI 商机雷达 Bot",
+        "subtitle": "供需互补 · 线索推送",
+        "description": "扫描 国内IM 商业频道，识别供需意图，自动匹配互补线索并推送订阅，附带 Web 运营管理后台。",
+        "tags": ["国内IM", "LLM", "混合检索"],
+        "icon": "📡",
+        "accent": "#8b5cf6",
+        "status": "production",
+        "highlights": [
+          "供方/需方语义互补检索",
+          "频道白名单增量抓取与订阅推送",
+          "Web 运营后台（线索/用户/扫描）"
+        ]
+      }
+    ]
+  },
+  "projectShowcase": {
+    "rows": [
+      {
+        "id": "enterprise-ai",
+        "title": "企业级 AI 落地",
+        "description": "投研问答、多模型分析与金融 NLP 等 B 端 AI 应用",
+        "items": [
+          {
+            "id": "multi_llm_analysis",
+            "title": "多 LLM 题型分析引擎",
+            "subtitle": "8 类题型 · 双模式",
+            "description": "自动识别证明题、图表题等题型，评估与生成模式分离，复杂题目走多轮复核流水线。",
+            "tags": ["Multi-LLM", "题型引擎"],
+            "icon": "🧠",
+            "accent": "#ff6b6b"
+          },
+          {
+            "id": "rerank_system",
+            "title": "检索重排序系统",
+            "subtitle": "RAG 精度提升",
+            "description": "对研报/公告召回候选做语义重排与去重，融合时效与来源权重，提升问答引用准确率。",
+            "tags": ["Rerank", "RAG"],
+            "icon": "🎯",
+            "accent": "#f59e0b"
+          },
+          {
+            "id": "report_recall",
+            "title": "研报图表 & 段落召回",
+            "subtitle": "多模态检索",
+            "description": "研报 PDF 图表与正文段落的多模态召回：分别向量化入库，按语义检索相关图表与文字片段，支撑投研问答中的图表引用与证据检索。",
+            "tags": ["向量检索", "研报"],
+            "icon": "📈",
+            "accent": "#06b6d4"
+          },
+          {
+            "id": "etf_unusual",
+            "title": "ETF 异动监测",
+            "subtitle": "量化 · 资讯",
+            "description": "实时抓取 ETF 行情与资讯异动，计算溢价率、量价等指标并推送展示，辅助投研监控。",
+            "tags": ["ETF", "量化"],
+            "icon": "📉",
+            "accent": "#8b5cf6"
+          },
+          {
+            "id": "temp_ner",
+            "title": "金融 NER 识别服务",
+            "subtitle": "实体识别 · 时间解析",
+            "description": "从研报文本识别公司、行业等金融实体，关键词与向量双路召回，附带财报期等时间语义解析 API。",
+            "tags": ["NER", "FastAPI", "向量召回"],
+            "icon": "🏷️",
+            "accent": "#f472b6"
+          }
+        ]
+      },
+      {
+        "id": "rag-knowledge",
+        "title": "RAG & 知识工程",
+        "description": "从文档分块、向量化到检索召回的 RAG 全链路",
+        "items": [
+          {
+            "id": "fastapi_celery_kb",
+            "title": "研报 & 公告向量知识库",
+            "subtitle": "FastAPI · Celery · GPU",
+            "description": "研报与公告的自动化分块、向量化与知识库更新，Celery 异步调度，Docker Compose 生产部署。",
+            "tags": ["Celery", "向量库", "Docker"],
+            "icon": "📚",
+            "accent": "#b49bc8"
+          },
+          {
+            "id": "multi_source_chunk",
+            "title": "多源文档分块向量化",
+            "subtitle": "生产级数据管线",
+            "description": "多来源文档自动分块与向量化，部署于生产 GPU 环境，支撑实时资讯等大规模入库场景。",
+            "tags": ["分块", "向量化"],
+            "icon": "🔗",
+            "accent": "#10b981"
+          },
+          {
+            "id": "qwen3_pg_recall",
+            "title": "Qwen3 Embedding 召回",
+            "subtitle": "PostgreSQL 向量检索",
+            "description": "基于 Qwen3 Embedding 的 PostgreSQL 向量召回服务，面向研报/公告语义检索场景。",
+            "tags": ["Qwen3", "PostgreSQL"],
+            "icon": "🔍",
+            "accent": "#3b82f6"
+          },
+          {
+            "id": "enterprise_chat_openapi",
+            "title": "企业对话 OpenAPI 服务",
+            "subtitle": "对话式知识问答",
+            "description": "企业知识库对话式问答 OpenAPI，对接向量检索与 LLM 生成，含调用日志与版本发布运维。",
+            "tags": ["OpenAPI", "Chat"],
+            "icon": "💬",
+            "accent": "#ec4899"
+          },
+          {
+            "id": "announcement_tagging",
+            "title": "公告标题智能打标",
+            "subtitle": "NLP 分类",
+            "description": "对上市公司公告标题自动打标签与分类，用于资讯聚合、主题筛选与推送。",
+            "tags": ["NLP", "分类"],
+            "icon": "🏷️",
+            "accent": "#f97316"
+          }
+        ]
+      },
+      {
+        "id": "doc-intelligence",
+        "title": "文档智能",
+        "description": "PDF 解析、OCR、去水印与结构化抽取",
+        "items": [
+          {
+            "id": "pdf2xml",
+            "title": "PDF2XML 结构化解析",
+            "subtitle": "PDFlib TET · FastAPI",
+            "description": "高精度解析 PDF 文本、表格与字体坐标，输出结构化数据，作为下游分块与检索的文档底座。",
+            "tags": ["PDF", "FastAPI"],
+            "icon": "📄",
+            "accent": "#6366f1"
+          },
+          {
+            "id": "pdf_chunker",
+            "title": "PDF 智能分块",
+            "subtitle": "研报 / 公告双模式",
+            "description": "针对研报与公告 PDF 的智能分块：识别有线/无线表格并输出 Markdown，保留文档逻辑结构。",
+            "tags": ["分块", "表格识别"],
+            "icon": "✂️",
+            "accent": "#14b8a6"
+          },
+          {
+            "id": "pdf_watermark",
+            "title": "研报 PDF 去水印",
+            "subtitle": "多规则模板库",
+            "description": "按可配置规则（字体、关键词、位置）批量去除研报 PDF 水印，保障下游 OCR 与分块质量。",
+            "tags": ["水印", "批处理"],
+            "icon": "💧",
+            "accent": "#a855f7"
+          },
+          {
+            "id": "paddle_ocr_vl",
+            "title": "PaddleOCR-VL 服务",
+            "subtitle": "上传即解析",
+            "description": "上传 PDF 或图片即可 OCR 与版面理解，封装为 FastAPI 服务，适用于扫描件、图片公告等弱文本场景。",
+            "tags": ["OCR", "VL"],
+            "icon": "👁️",
+            "accent": "#22c55e"
+          },
+          {
+            "id": "extract_pdf_toc",
+            "title": "PDF 目录挖掘服务",
+            "subtitle": "三级降级策略",
+            "description": "从研报 PDF 提取章节目录：优先读书签，失败则解析目录页，再降级到版面分析，保障 TOC 抽取成功率。",
+            "tags": ["PDF", "目录", "版面分析"],
+            "icon": "📑",
+            "accent": "#a78bfa"
+          },
+          {
+            "id": "gpu_rapid_layout",
+            "title": "GPU 版面检测 API",
+            "subtitle": "高并发 · 异步落库",
+            "description": "文档图片版面元素检测：识别标题、段落、图表等区域，同步返回并异步落库，供分块与 OCR 下游使用。",
+            "tags": ["FastAPI", "版面检测", "GPU"],
+            "icon": "🖼️",
+            "accent": "#f59e0b"
+          }
+        ]
+      },
+      {
+        "id": "agent-mcp",
+        "title": "Agent & 端侧智能",
+        "description": "手机视觉 Agent、MCP 工具编排与多智能体协作",
+        "items": [
+          {
+            "id": "phone_autoglm",
+            "title": "Phone AutoGLM 群控平台",
+            "subtitle": "云手机 · 业务 API",
+            "description": "基于 AutoGLM 的云手机群控平台：Web 控制台调试任务，REST API 提供指令下发、进度查询与相册素材导入。",
+            "tags": ["AutoGLM", "ADB", "群控"],
+            "icon": "📱",
+            "accent": "#059669"
+          },
+          {
+            "id": "dynamic_mcp",
+            "title": "Dynamic MCP · 代码执行",
+            "subtitle": "代码执行 · 动态工具",
+            "description": "Agent 在沙箱中写代码并按需加载 MCP 工具，内置 Excel 自然语言查询，减少无效工具调用。",
+            "tags": ["MCP", "Code Act"],
+            "icon": "⚡",
+            "accent": "#1db954"
+          },
+          {
+            "id": "mcp_json_rpc",
+            "title": "MCP 智能工具编排",
+            "subtitle": "多工具协同",
+            "description": "根据用户问题自动选择并编排多个 MCP 工具，支持上下文感知的多轮对话，最多 5 轮并行调用。",
+            "tags": ["JSON-RPC", "编排"],
+            "icon": "🔧",
+            "accent": "#0ea5e9"
+          },
+          {
+            "id": "ai_mcp_middleware",
+            "title": "AI MCP 中间件服务",
+            "subtitle": "业务系统桥接",
+            "description": "统一 MCP 协议中间层，让业务系统通过标准 API 接入 LLM 工具生态，无需逐一对接模型能力。",
+            "tags": ["MCP", "API"],
+            "icon": "🌐",
+            "accent": "#64748b"
+          },
+          {
+            "id": "multi_agent_collab",
+            "title": "Multi-Agent 协作",
+            "subtitle": "多智能体系统",
+            "description": "多智能体分工协作：任务拆分、角色路由与结果汇总，用于复杂流程自动化与对话式工作流。",
+            "tags": ["Multi-Agent"],
+            "icon": "🤝",
+            "accent": "#d946ef"
+          }
+        ]
+      },
+      {
+        "id": "tg-mobile",
+        "title": "Bot 生态 & 效率工具",
+        "description": "国内IM 商业机器人、混合检索与桌面效率应用",
+        "items": [
+          {
+            "id": "group_management_bot",
+            "title": "国内IM 群管 & 担保交易 Bot",
+            "subtitle": "群管 · 担保 · 充值",
+            "description": "群管自动化、专群担保、公群报备与充值客服，生产级 国内IM 商业机器人。",
+            "tags": ["aiogram", "MySQL", "担保交易"],
+            "icon": "🤖",
+            "accent": "#1db954"
+          },
+          {
+            "id": "need_radar_bot",
+            "title": "AI 商机雷达",
+            "subtitle": "线索扫描 · 互补匹配",
+            "description": "扫描 国内IM 频道消息，用大模型识别商业意图，匹配供需互补线索并支持关键词订阅推送，附带 Web 运营后台。",
+            "tags": ["Bot", "LLM", "SeekDB"],
+            "icon": "📡",
+            "accent": "#8b5cf6"
+          },
+          {
+            "id": "tg_ai_search",
+            "title": "国内IM AI 搜索",
+            "subtitle": "国内IM 内嵌搜索",
+            "description": "国内IM Bot 内的混合检索：全文与向量双路召回，融合排序后返回群组/频道历史中的相关内容。",
+            "tags": ["国内IM", "混合检索", "RAG"],
+            "icon": "🔎",
+            "accent": "#06b6d4"
+          },
+          {
+            "id": "smart_clipboard",
+            "title": "Smart Clipboard 智能剪贴板",
+            "subtitle": "Windows 桌面 · AI 增强",
+            "description": "监听剪贴板并智能过滤/改写复制内容，Rust 保证低延迟，支持托盘热键与多厂商 AI 扩展。",
+            "tags": ["Tauri", "Rust", "桌面工具"],
+            "icon": "📋",
+            "accent": "#818cf8"
+          }
+        ]
+      },
+      {
+        "id": "platform-auto",
+        "title": "平台 & 自动化",
+        "description": "Bot、监控、邮件与办公集成",
+        "items": [
+          {
+            "id": "onchain_token_monitor",
+            "title": "链上代币监控推送",
+            "subtitle": "SOL/BSC · IM 推送",
+            "description": "监控链上新发代币，多账户轮询与 Redis 去重后，自动推送到 国内IM 群与交易 Bot。",
+            "tags": ["Web3", "国内IM"],
+            "icon": "⛓️",
+            "accent": "#facc15"
+          },
+          {
+            "id": "cc_monitor_gmail",
+            "title": "Gmail → 国内IM 转发",
+            "subtitle": "邮件自动化",
+            "description": "监听 Gmail 收件箱，按规则过滤重要邮件并异步转发到 国内IM 群，支持多群路由与状态管理。",
+            "tags": ["IMAP", "Bot"],
+            "icon": "📧",
+            "accent": "#ef4444"
+          },
+          {
+            "id": "lark_sync",
+            "title": "飞书多维表格订单同步",
+            "subtitle": "办公自动化",
+            "description": "飞书多维表格与内部订单系统双向同步，订单状态、客户信息等字段自动更新，减少人工录入。",
+            "tags": ["飞书", "自动化"],
+            "icon": "🚀",
+            "accent": "#3370ff"
+          },
+          {
+            "id": "email_auto_crawl",
+            "title": "Outlook 邮件 & PDF 抽取",
+            "subtitle": "RPA · PyInstaller",
+            "description": "自动收取 Outlook 邮件附件中的研报 PDF，解析正文与表格并导出结构化 Excel，用于 RPA 批量入库。",
+            "tags": ["RPA", "PDF"],
+            "icon": "📬",
+            "accent": "#78716c"
+          }
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "title": "能力履历",
+    "subtitle": "技术栈与业务场景的真实交集",
+    "items": [
+      {
+        "period": "2024 — 至今",
+        "title": "企业 AI · 智能体 & RAG",
+        "description": "主导/参与企业侧智能体、手机 Agent 群控、研报向量库、召回重排与多 LLM 分析等项目，从 POC 到可监控的生产服务。",
+        "tags": ["智能体", "RAG", "AutoGLM", "FastAPI"]
+      },
+      {
+        "period": "2022 — 2024",
+        "title": "文档智能管线",
+        "description": "构建 PDF 分块、去水印、OCR-VL、PDF2XML 等工具链，支撑海量研报/公告的结构化与入库。",
+        "tags": ["PDF", "OCR", "ETL"]
+      },
+      {
+        "period": "2020 — 至今",
+        "title": "国内IM / 飞书生态",
+        "description": "群管担保 Bot、邮件转发、链上监控、飞书多维表格等业务 Bot 与自动化系统，熟悉高并发与状态机设计。",
+        "tags": ["aiogram", "飞书 API", "Redis"]
+      },
+      {
+        "period": "持续",
+        "title": "MCP & Agent 工程化",
+        "description": "探索 MCP 工具编排、代码执行范式与 Text2SQL，将 LLM 能力嵌入可审计、可复现的工程流程。",
+        "tags": ["MCP", "Agent", "Text2SQL"]
+      }
+    ]
+  },
+  "skills": {
+    "title": "核心技术",
+    "motto": "不只会调模型——<strong>更擅长把 AI 嵌进现有业务系统</strong>，交付可运维、可扩展的方案",
+    "items": [
+      {
+        "title": "AI 应用工程化",
+        "description": "RAG 架构 / 手机 Agent / LLM 部署 / Multi-Agent / MCP 工具链",
+        "tags": ["RAG", "Agent", "AutoGLM", "MCP"],
+        "icon": "🤖"
+      },
+      {
+        "title": "行业文本 & 知识库",
+        "description": "研报/公告分块向量化、召回重排、图表召回、资讯打标",
+        "tags": ["向量库", "研报", "召回"],
+        "icon": "📊"
+      },
+      {
+        "title": "文档智能",
+        "description": "PDF 解析 / OCR-VL / 去水印 / 表格识别 / 结构化抽取",
+        "tags": ["PDF", "OCR", "Pipeline"],
+        "icon": "📄"
+      },
+      {
+        "title": "平台集成 & 自动化",
+        "description": "国内IM Bot / 飞书 / 邮件 RPA / Celery 任务调度",
+        "tags": ["Bot", "飞书", "Celery"],
+        "icon": "⚡"
+      }
+    ],
+    "summary": [
+      { "icon": "🏗️", "text": "全栈架构" },
+      { "icon": "🧠", "text": "AI 工程化" },
+      { "icon": "🚀", "text": "敏捷交付" }
+    ]
+  },
+  "services": {
+    "title": "可提供的合作",
+    "items": [
+      {
+        "title": "企业 AI 智能体",
+        "description": "知识库问答、工作流智能体、私有化部署与 API 监控",
+        "technologies": ["RAG", "Agent", "FastAPI"],
+        "badge": "企业级",
+        "icon": "🤖"
+      },
+      {
+        "title": "行业文档 RAG 系统",
+        "description": "研报/公告入库、分块策略、召回重排与评测",
+        "technologies": ["向量库", "Rerank", "ETL"],
+        "badge": "RAG",
+        "icon": "📈"
+      },
+      {
+        "title": "文档处理管线",
+        "description": "PDF 解析、OCR、去水印、批量结构化",
+        "technologies": ["PDF", "OCR", "Python"],
+        "badge": "文档智能",
+        "icon": "📄"
+      },
+      {
+        "title": "Bot & 办公自动化",
+        "description": "国内IM/飞书机器人、邮件转发、任务调度",
+        "technologies": ["aiogram", "飞书", "Celery"],
+        "badge": "自动化",
+        "icon": "📱"
+      },
+      {
+        "title": "Python 技术顾问",
+        "description": "架构评审、性能优化、疑难问题攻坚",
+        "technologies": ["架构", "Code Review"],
+        "badge": "顾问",
+        "icon": "📚"
+      }
+    ],
+    "partners": {
+      "title": "期待这样的伙伴",
+      "types": [
+        {
+          "icon": "🚀",
+          "type": "AI 创业团队",
+          "description": "从 MVP 到产品化，补齐后端与 AI 工程能力"
+        },
+        {
+          "icon": "🏢",
+          "type": "企业客户",
+          "description": "知识库、智能问答与 AI 系统集成落地"
+        },
+        {
+          "icon": "👥",
+          "type": "技术合伙人",
+          "description": "一起打磨有商业价值的 Agent / RAG 产品"
+        }
+      ],
+      "note": "欢迎<strong>项目合作</strong>或<strong>长期技术顾问</strong>，先用 30 分钟对齐需求再开工 💬"
+    }
+  },
+  "projects": {
+    "title": "技术理念",
+    "status": "",
+    "items": [],
+    "innovation": {
+      "icon": "💡",
+      "title": "技术理念",
+      "text": "AI 的价值在落地——可观测、可回滚、可维护。用扎实的 Python 工程能力，把模型能力变成业务里真正在跑的系统。"
+    }
+  },
+  "contact": {
+    "title": "合作交流",
+    "intro": {
+      "icon": "✨",
+      "title": "有想法？一起把它做成产品",
+      "description": "无论是智能体、RAG、文档管线还是 Bot，欢迎带着场景来聊——我会诚实评估可行性并给出落地路径。"
+    },
+    "methods": [],
+    "availability": {
+      "icon": "⏰",
+      "title": "响应时间",
+      "responseTime": "2–4 小时",
+      "timezone": "UTC+8（北京时间）",
+      "labels": {
+        "usuallyWithin": "工作日通常在",
+        "response": "内回复",
+        "timezoneLabel": "时区"
+      }
+    },
+    "collaboration": {
+      "icon": "🤝",
+      "title": "合作方式",
+      "types": [
+        { "icon": "💼", "text": "项目外包" },
+        { "icon": "🎓", "text": "技术顾问" },
+        { "icon": "🚀", "text": "创业合伙" }
+      ]
+    },
+    "footer": {
+      "highlights": ["开放沟通", "工程优先", "结果导向"]
+    }
+  }
+}</script>
+    <script>window.siteConfig = JSON.parse(document.getElementById('site-config-data').textContent);</script>
     <script src="/vendor/vue.global.js"></script>
     <script src="/assets/js/app-core.js"></script>
     <script src="/assets/js/main.js"></script>
