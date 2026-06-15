@@ -63,7 +63,18 @@ bundle exec jekyll serve
 - `assets/data/homeConfig.json` — 中文内容
 - `assets/data/homeConfig.en.json` — 英文内容
 
-编辑对应文件后提交即可更新网站内容。
+编辑对应文件后提交即可更新网站内容。修改配置后请运行预渲染构建，以便爬虫与 AI 工具能读取页面正文：
+
+```bash
+npm run build
+```
+
+该命令会：
+- 将中文内容预渲染进 `index.html`（无需执行 JavaScript 即可抓取正文）
+- 生成 `llms-full.txt` / `llms-full.en.txt` 纯文本履历
+- 生成 `_includes/json-ld.html` 结构化数据
+
+站点根目录还提供 [`llms.txt`](llms.txt)，供 LLM / 爬虫发现机器可读数据源。推送到 `main` 后，GitHub Actions 会在配置变更时自动执行 `npm run build` 并提交生成文件。
 
 ## 运行测试
 
@@ -90,8 +101,13 @@ npm test
 │   └── js/
 │       ├── app-core.js      # 核心逻辑（可测试）
 │       └── main.js          # 页面入口脚本
-├── tests/                   # 测试用例
-├── index.html               # 主页
+├── _includes/
+│   └── json-ld.html         # 结构化数据（npm run build 生成）
+├── scripts/
+│   └── build.js             # SEO 预渲染构建
+├── llms.txt                 # AI / 爬虫站点索引
+├── llms-full.txt            # 中文纯文本履历（构建生成）
+├── llms-full.en.txt         # 英文纯文本履历（构建生成）
 ├── Gemfile                  # Ruby 依赖
 └── README.md                # 项目说明
 ```
