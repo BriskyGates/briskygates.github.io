@@ -1,0 +1,33 @@
+# 阿布 · AI 全栈工程师
+
+> Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能
+
+阿布（BriskyGates）是一名常驻上海的 Python 全栈工程师与 AI 解决方案架构师，专注企业知识库、行业文档智能、国内 IM/飞书生态与 RAG 工程化交付。
+
+## 核心能力
+
+- RAG 架构与向量检索、召回重排
+- 手机 Agent / AutoGLM 群控、Multi-Agent / MCP 工具编排
+- 文档智能：PDF 解析、OCR-VL、去水印、版面分析与结构化抽取
+- 企业级 Bot：国内 IM 群管、担保交易、飞书办公自动化
+- FastAPI 微服务、Celery 任务调度、生产级部署与运维
+
+## 完整内容（机器可读）
+
+- [中文完整履历（纯文本）](/llms-full.txt)
+- [英文完整履历（纯文本）](/llms-full.en.txt)
+- [中文站点配置 JSON](/assets/data/homeConfig.json)
+- [英文站点配置 JSON](/assets/data/homeConfig.en.json)
+- [个人主页](https://briskygates.github.io)
+
+## 合作方向
+
+- 企业 AI 智能体与知识库问答
+- 行业文档 RAG 系统（研报/公告）
+- 文档处理管线（PDF/OCR/ETL）
+- Bot 与办公自动化
+- Python 技术顾问
+
+## Optional
+
+- [English summary](/llms-full.en.txt)

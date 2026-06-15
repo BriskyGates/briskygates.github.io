@@ -1,0 +1,310 @@
+# Abu · AI Full-Stack Engineer
+
+> Python Full-Stack | Enterprise AI | RAG · Agent · Document Intelligence
+
+## 个人简介
+
+- 姓名: Abu
+- 状态: Available
+- 标语: Shanghai · Online
+- 定位: Engineering AI into products that actually ship
+- 介绍: Python Full-Stack Engineer · AI Solutions Architect Enterprise knowledge bases, document intelligence, domestic IM/Lark ecosystems, and production-grade RAG delivery
+- 技术关键词: RAG & Vector Search, Phone Agent / Fleet, Multi-Agent / MCP, FastAPI Microservices, Domestic IM Bots
+- 数据: 6+ Years · 80+ Repos · 15+ AI Projects · Full-Stack Delivery
+
+## Featured Work
+
+Curated by scenario — RAG, agents, bots, and document intelligence
+
+### Multi-LLM Question Analysis Engine
+- 副标题: Eval Mode × Generation Mode
+- 描述: Multi-model engine for education & assessment: routes 8 question types (proof, chart, etc.) through separate eval vs generation pipelines with multi-round review.
+- 标签: Multi-LLM, Type Engine, Pipeline
+- 亮点:
+  - Auto-routing for 8 question types
+  - Proof evaluation vs standard generation
+  - Review chain with full question metadata
+
+### IM Group & Escrow Bot
+- 副标题: Full Business Bot Stack
+- 描述: Group automation, private escrow, public reporting, listings, wallet top-up — production IM product.
+- 标签: aiogram, MySQL, Redis, Escrow
+- 亮点:
+  - Join verification / anti-spam / scheduled posts
+  - Escrow groups & payment confirmation
+  - User manual & production deployment
+
+### Research Report Vector KB
+- 副标题: RAG Pipeline · GPU Cluster
+- 描述: RAG pipeline for research reports and filings: chunking, embedding, and knowledge-base maintenance at scale.
+- 标签: Celery, Vector DB, Chunking, Docker
+- 亮点:
+  - Auto chunking & ingest for filings/reports
+  - Parallel vectorization job scheduling
+  - Docker Compose production deploy
+
+### Retrieval Reranker
+- 副标题: RAG Precision · Production API
+- 描述: Semantic reranking and MMR dedup for report/filing recall, with time and authority weighting to improve Q&A citation accuracy.
+- 标签: FastAPI, Rerank, MMR, PostgreSQL
+- 亮点:
+  - Multiple scoring strategies & Qwen rerank branch
+  - MMR dedup with time/authority fusion
+  - Recall logs for eval and traceability
+
+### Phone AutoGLM Fleet Platform
+- 副标题: Vision Agent · Cloud Phones · Business API
+- 描述: Production AutoGLM stack: natural-language ADB control, web console for live debugging, and REST APIs for business systems to dispatch tasks at scale.
+- 标签: AutoGLM, ADB, FastAPI, Vue
+- 亮点:
+  - Screenshot perception + multi-step planning for 50+ Chinese apps
+  - Vue console with SSE streaming; MySQL task & device registry
+  - /api/v1 command dispatch, progress polling & album media import
+
+### AI Lead Radar Bot
+- 副标题: Supply-demand match · Push
+- 描述: Scan IM business channels for intent, match complementary supply/demand leads, push keyword subscriptions, with web ops console.
+- 标签: IM, LLM, Hybrid search
+- 亮点:
+  - Buyer/seller complementary semantic search
+  - Whitelist channels with subscription push
+  - Web ops console (leads/users/scans)
+
+## 项目库
+
+### Enterprise AI
+Research Q&A, multi-model analysis, and financial NLP for B2B
+
+### Multi-LLM Question Engine
+- 副标题: 8 types · Dual mode
+- 描述: Auto-routes proof, chart, and other question types; separate eval vs generation with multi-round review for complex items.
+- 标签: Multi-LLM, Engine
+
+### Retrieval Reranker
+- 副标题: RAG precision
+- 描述: Semantic reranking and dedup for report/filing candidates, with time and source weighting to improve Q&A citations.
+- 标签: Rerank, RAG
+
+### Report Figure & Passage Recall
+- 副标题: Multimodal retrieval
+- 描述: Multimodal recall for research PDFs: figures and passages embedded separately, semantic search for relevant charts and excerpts in research Q&A.
+- 标签: Vector, Research
+
+### ETF Anomaly Monitor
+- 副标题: Quant · News
+- 描述: Real-time ETF price and news anomaly monitoring with premium, volume, and other metrics for research alerts.
+- 标签: ETF, Quant
+
+### Financial NER Service
+- 副标题: NER · Time parsing
+- 描述: Extract companies, sectors, and other entities from research text via keyword + vector recall, plus fiscal-period time parsing API.
+- 标签: NER, FastAPI, Vector
+
+### RAG & Knowledge
+End-to-end RAG: chunking, embedding, and retrieval
+
+### Research Report Vector KB
+- 副标题: FastAPI · Celery · GPU
+- 描述: Automated chunking, embedding, and KB updates for reports and filings — Celery async jobs, Docker Compose deploy.
+- 标签: Celery, Vector DB, Docker
+
+### Multi-Source Doc Chunk & Embed
+- 副标题: Production pipeline
+- 描述: Automated chunking and embedding for multi-source documents on production GPU infra, powering large-scale ingest for real-time news feeds.
+- 标签: Chunk, Vectorize
+
+### Qwen3 Embedding Recall
+- 副标题: PostgreSQL vector search
+- 描述: PostgreSQL vector recall with Qwen3 embeddings for research report and filing semantic search.
+- 标签: Qwen3, PostgreSQL
+
+### Enterprise Chat OpenAPI Service
+- 副标题: Knowledge Q&A API
+- 描述: Enterprise knowledge-base Q&A OpenAPI wired to vector retrieval and LLM generation, with call logs and release ops.
+- 标签: OpenAPI, Chat
+
+### Filing Title Tagging
+- 副标题: NLP classification
+- 描述: Auto-tag and classify filing titles for news aggregation, topic filtering, and push alerts.
+- 标签: NLP, Classification
+
+### Document Intelligence
+PDF parse, OCR, watermark removal, structuring
+
+### PDF2XML Parser
+- 副标题: PDFlib TET · FastAPI
+- 描述: High-precision PDF text, table, and font-geometry parsing to structured output — foundation for downstream chunking and retrieval.
+- 标签: PDF, FastAPI
+
+### Smart PDF Chunking
+- 副标题: Report / filing modes
+- 描述: Smart chunking for report and filing PDFs: ruled/stateless table detection with Markdown output, preserving document structure.
+- 标签: Chunking, Tables
+
+### Report Watermark Removal
+- 副标题: Multi-rule templates
+- 描述: Batch watermark removal via configurable font/keyword/position rules, improving downstream OCR and chunking quality.
+- 标签: Watermark, Batch
+
+### PaddleOCR-VL Service
+- 副标题: Upload & parse
+- 描述: Upload PDFs or images for OCR and layout understanding via FastAPI — for scans, image filings, and other weak-text sources.
+- 标签: OCR, VL
+
+### PDF TOC Mining Service
+- 副标题: Three-tier fallback
+- 描述: Extract TOC from research PDFs: bookmarks first, then TOC page parsing, then layout analysis as fallback.
+- 标签: PDF, TOC, Layout
+
+### GPU Layout Detection API
+- 副标题: High concurrency
+- 描述: Layout element detection on document images — titles, paragraphs, figures — with sync response and async persistence for downstream chunking/OCR.
+- 标签: FastAPI, Layout, GPU
+
+### Agents & On-Device AI
+Mobile vision agents, MCP orchestration, and multi-agent systems
+
+### Phone AutoGLM Fleet Platform
+- 副标题: Cloud phones · Business API
+- 描述: AutoGLM-based cloud phone fleet: web console for task debugging, REST APIs for command dispatch, progress polling, and album media import.
+- 标签: AutoGLM, ADB, Fleet
+
+### Dynamic MCP · Code Act
+- 副标题: Code act · Dynamic tools
+- 描述: Agents write code in a sandbox and load MCP tools on demand — includes natural-language Excel query, reducing wasted tool calls.
+- 标签: MCP, Code Act
+
+### MCP Tool Orchestration
+- 副标题: Multi-tool flows
+- 描述: Auto-select and orchestrate multiple MCP tools from user questions, with context-aware multi-turn dialogue up to 5 parallel rounds.
+- 标签: JSON-RPC, Orchestration
+
+### AI MCP Middleware Service
+- 副标题: Business bridge
+- 描述: Unified MCP middleware so business systems connect to LLM tool ecosystems via standard APIs — no per-capability custom wiring.
+- 标签: MCP, API
+
+### Multi-Agent Collaboration
+- 副标题: Multi-agent systems
+- 描述: Multi-agent collaboration: task splitting, role routing, and result aggregation for complex workflows and conversational automation.
+- 标签: Multi-Agent
+
+### Bot Ecosystem & Productivity
+IM business bots, hybrid search, and desktop productivity apps
+
+### IM Group & Escrow Bot
+- 副标题: Moderation · Escrow · Wallet
+- 描述: Group automation, private escrow, public reporting, and wallet top-up — production IM business bot.
+- 标签: aiogram, MySQL, Escrow
+
+### AI Lead Radar
+- 副标题: Scan · Complementary match
+- 描述: Scan IM channels, use LLM intent detection to find business leads, match complementary supply/demand, and push keyword alerts — with web ops console.
+- 标签: Bot, LLM, SeekDB
+
+### IM AI Search
+- 副标题: In-bot search
+- 描述: Hybrid search inside an IM bot: full-text + vector recall with fused ranking over group/channel history.
+- 标签: IM, Hybrid search, RAG
+
+### Smart Clipboard
+- 副标题: Windows desktop · AI
+- 描述: Monitors clipboard and intelligently filters/rewrites copied content — Rust for low latency, tray hotkeys, multi-vendor AI plugins.
+- 标签: Tauri, Rust, Desktop
+
+### Platform & Automation
+Bots, monitoring, email, office integration
+
+### On-Chain Token Monitor
+- 副标题: SOL/BSC · IM push
+- 描述: Monitor newly issued on-chain tokens, poll multiple accounts with Redis dedup, and push alerts to IM groups and trading bots.
+- 标签: Web3, IM
+
+### Gmail → IM Relay
+- 副标题: Email automation
+- 描述: Watch Gmail inboxes, filter important mail by rules, and async relay to IM groups with multi-group routing and state management.
+- 标签: IMAP, Bot
+
+### Lark Bitable Order Sync
+- 副标题: Office automation
+- 描述: Bidirectional sync between Lark bitable and internal order systems — auto-updates order status, customer fields, and cuts manual entry.
+- 标签: Lark, Automation
+
+### Outlook Mail & PDF Extract
+- 副标题: RPA · PyInstaller
+- 描述: Auto-fetch research PDF attachments from Outlook, parse text and tables, and export structured Excel for RPA batch ingest.
+- 标签: RPA, PDF
+
+## Experience
+
+Where engineering meets real business scenarios
+
+### 2024 — Present — Enterprise AI · Agents & RAG
+Led/contributed to enterprise agents, phone agent fleet control, research vector KBs, rerank/recall, and multi-LLM analysis — from POC to monitored production.
+标签: Agents, RAG, AutoGLM, FastAPI
+
+### 2022 — 2024 — Document Intelligence
+Built PDF chunking, watermark removal, OCR-VL, PDF2XML pipelines for massive research/filing corpora.
+标签: PDF, OCR, ETL
+
+### 2020 — Present — Domestic IM / Lark Ecosystem
+Escrow bots, email relay, on-chain monitors, bitable sync — high concurrency and state machines.
+标签: aiogram, Lark API, Redis
+
+### Ongoing — MCP & Agent Engineering
+MCP orchestration, code-act patterns, Text2SQL — auditable, reproducible LLM workflows.
+标签: MCP, Agent, Text2SQL
+
+## Core Skills
+
+Not just prompting — embedding AI into existing systems with operable, scalable delivery
+
+### AI Application Engineering
+RAG / phone agents / LLM deploy / multi-agent / MCP toolchains
+标签: RAG, Agent, AutoGLM, MCP
+
+### Domain Text & Knowledge
+Report/filing chunking, recall, rerank, figure retrieval, news tagging
+标签: Vector DB, Research, Recall
+
+### Document Intelligence
+PDF parse / OCR-VL / watermark / table detection / structuring
+标签: PDF, OCR, Pipeline
+
+### Platform & Automation
+Domestic IM bots / Lark / email RPA / Celery scheduling
+标签: Bot, Lark, Celery
+
+## What I Offer
+
+### Enterprise AI Agents [Enterprise]
+Knowledge Q&A, workflow agents, private deploy, API monitoring
+技术: RAG, Agent, FastAPI
+
+### Document RAG Systems [RAG]
+Report/filing ingest, chunk strategy, recall/rerank & eval
+技术: Vector DB, Rerank, ETL
+
+### Document Pipelines [Doc AI]
+PDF parse, OCR, watermark removal, batch structuring
+技术: PDF, OCR, Python
+
+### Bots & Office Automation [Automation]
+Domestic IM/Lark bots, email relay, task scheduling
+技术: aiogram, Lark, Celery
+
+### Python Consulting [Advisor]
+Architecture review, performance, hard problems
+技术: Architecture, Code Review
+
+## Technical Philosophy
+
+AI value is in production — observable, rollback-friendly, maintainable. Solid Python engineering turns models into systems that actually run in your business.
+
+## 机器可读数据源
+
+- 站点: https://briskygates.github.io
+- 中文配置 JSON: https://briskygates.github.io/assets/data/homeConfig.json
+- 英文配置 JSON: https://briskygates.github.io/assets/data/homeConfig.en.json
+- llms.txt: https://briskygates.github.io/llms.txt
+- 语言: en
