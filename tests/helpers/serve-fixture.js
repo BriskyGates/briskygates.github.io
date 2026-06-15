@@ -34,8 +34,10 @@ const server = http.createServer((req, res) => {
         return;
     }
 
-    if (url === '/vendor/vue.global.js') {
-        sendFile(res, path.join(ROOT, 'node_modules/vue/dist/vue.global.js'));
+    if (url === '/vendor/vue.global.js' || url === '/assets/vendor/vue.global.prod.js') {
+        const vuePath = path.join(ROOT, 'assets/vendor/vue.global.prod.js');
+        const fallback = path.join(ROOT, 'node_modules/vue/dist/vue.global.prod.js');
+        sendFile(res, fs.existsSync(vuePath) ? vuePath : fallback);
         return;
     }
 

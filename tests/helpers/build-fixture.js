@@ -17,9 +17,6 @@ const appTemplate = templateMatch[1].trim();
 const prerenderMatch = source.match(/<!-- PRERENDER:START -->([\s\S]*?)<!-- PRERENDER:END -->/);
 const prerender = prerenderMatch ? prerenderMatch[1].trim() : '';
 
-const configPath = path.join(root, 'assets/data/homeConfig.json');
-const siteConfig = fs.readFileSync(configPath, 'utf8').trim();
-
 const html = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -27,9 +24,6 @@ const html = `<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Test Fixture</title>
     <meta name="description" content="test fixture">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;0,9..40,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
@@ -40,11 +34,10 @@ ${appTemplate}
 <div id="app" class="app-shell">
 ${prerender}
 </div>
-    <script id="site-config-data" type="application/json">${siteConfig}</script>
-    <script>window.siteConfig = JSON.parse(document.getElementById('site-config-data').textContent);</script>
-    <script src="/vendor/vue.global.js"></script>
-    <script src="/assets/js/app-core.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script>window.siteConfig = null;</script>
+    <script defer src="/assets/vendor/vue.global.prod.js"></script>
+    <script defer src="/assets/js/app-core.js"></script>
+    <script defer src="/assets/js/main.js"></script>
 </body>
 </html>
 `;
