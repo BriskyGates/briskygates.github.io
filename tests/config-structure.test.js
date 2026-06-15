@@ -130,7 +130,10 @@ test('SEO 模板包含 canonical 与 Open Graph 标签', () => {
 test('robots.txt 指向 sitemap 且 _config 排除测试目录', () => {
     const robots = fs.readFileSync(path.join(ROOT, 'robots.txt'), 'utf8');
     const config = fs.readFileSync(path.join(ROOT, '_config.yml'), 'utf8');
+    const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
     assert.match(robots, /Sitemap: https:\/\/briskygates\.github\.io\/sitemap\.xml/);
+    assert.match(sitemap, /<loc>https:\/\/briskygates\.github\.io\/<\/loc>/);
+    assert.doesNotMatch(sitemap, /googleba2439275fc52107/);
     assert.match(config, /- tests\//);
     assert.match(config, /- DEPLOY\.md/);
 });

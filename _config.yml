@@ -14,7 +14,6 @@ markdown: kramdown
 highlighter: rouge
 plugins:
   - jekyll-feed
-  - jekyll-sitemap
 
 # 主题设置（使用空白主题，自定义样式）
 theme: null
