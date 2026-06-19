@@ -17,12 +17,42 @@
       "imCopied": "IM ID copied to clipboard"
     },
     "nav": [
-      { "id": "home", "label": "Home", "shortLabel": "Home", "icon": "fas fa-house" },
-      { "id": "showcase", "label": "Featured", "shortLabel": "Work", "icon": "fas fa-fire" },
-      { "id": "projects", "label": "Projects", "shortLabel": "Projects", "icon": "fas fa-layer-group" },
-      { "id": "experience", "label": "Experience", "shortLabel": "Exp", "icon": "fas fa-route" },
-      { "id": "skills", "label": "Skills", "shortLabel": "Skills", "icon": "fas fa-bolt" },
-      { "id": "services", "label": "Services", "shortLabel": "Services", "icon": "fas fa-briefcase" }
+      {
+        "id": "home",
+        "label": "Home",
+        "shortLabel": "Home",
+        "icon": "fas fa-house"
+      },
+      {
+        "id": "showcase",
+        "label": "Featured",
+        "shortLabel": "Work",
+        "icon": "fas fa-fire"
+      },
+      {
+        "id": "projects",
+        "label": "Projects",
+        "shortLabel": "Projects",
+        "icon": "fas fa-layer-group"
+      },
+      {
+        "id": "experience",
+        "label": "Experience",
+        "shortLabel": "Exp",
+        "icon": "fas fa-route"
+      },
+      {
+        "id": "skills",
+        "label": "Skills",
+        "shortLabel": "Skills",
+        "icon": "fas fa-bolt"
+      },
+      {
+        "id": "services",
+        "label": "Services",
+        "shortLabel": "Services",
+        "icon": "fas fa-briefcase"
+      }
     ],
     "projectStatus": {
       "production": "Live",
@@ -45,17 +75,23 @@
     "avatar": "🐶",
     "tagline": "Shanghai · Online",
     "status": "Available",
-    "heroTitle": "Engineering AI into products that actually ship",
+    "heroTitle": "Turning AI from Tech Demos into Real Production Power",
     "title": "About",
     "greeting": {
       "text": "Hi, I'm Abu, based in Shanghai",
-      "description": "<strong>Python Full-Stack Engineer</strong> · <strong>AI Solutions Architect</strong><br>Enterprise knowledge bases, document intelligence, domestic IM/Lark ecosystems, and production-grade RAG delivery"
+      "description": "As an <strong>AI Full-Stack Engineer</strong>, I bridge the gap between LLMs and real-world business needs.<br>Specializing in transforming complex RAG, Agents, and multimodal tech into stable, scalable enterprise applications."
     },
-    "heroChips": ["RAG & Vector Search", "Phone Agent / Fleet", "Multi-Agent / MCP", "FastAPI Microservices", "Domestic IM Bots"],
+    "heroChips": [
+      "LLM Productionization",
+      "Enterprise RAG Architecture",
+      "Multi-Agent Collaboration",
+      "High-Concurrency Microservices",
+      "Workflow Automation"
+    ],
     "roles": [
       {
         "label": "Core Strength",
-        "value": "End-to-end enterprise AI: architecture → delivery → production ops",
+        "value": "Building Enterprise AI Apps from 0 to 1: Requirements → Architecture → Development → Ops",
         "type": "primary"
       },
       {
@@ -65,16 +101,32 @@
       }
     ],
     "stats": [
-      { "number": "6+", "label": "Years" },
-      { "number": "80+", "label": "Repos" },
-      { "number": "15+", "label": "AI Projects" },
-      { "number": "Full-Stack", "label": "Delivery" }
+      {
+        "number": "6+",
+        "label": "Years"
+      },
+      {
+        "number": "80+",
+        "label": "Repos"
+      },
+      {
+        "number": "15+",
+        "label": "AI Projects"
+      },
+      {
+        "number": "Full-Stack",
+        "label": "Delivery"
+      }
     ],
     "location": {
       "icon": "📍",
       "text": "Shanghai, China · UTC+8"
     },
-    "heroGradient": ["#0c4a6e", "#1e3a5f", "#312e81"]
+    "heroGradient": [
+      "#0c4a6e",
+      "#1e3a5f",
+      "#312e81"
+    ]
   },
   "featured": {
     "title": "Featured Work",
@@ -82,92 +134,120 @@
     "items": [
       {
         "id": "multi_llm_analysis",
-        "title": "Multi-LLM Question Analysis Engine",
-        "subtitle": "Eval Mode × Generation Mode",
-        "description": "Multi-model engine for education & assessment: routes 8 question types (proof, chart, etc.) through separate eval vs generation pipelines with multi-round review.",
-        "tags": ["Multi-LLM", "Type Engine", "Pipeline"],
+        "title": "Multi-LLM Education Evaluation Engine",
+        "subtitle": "Precision Parsing · Smart Verification",
+        "description": "An automated evaluation system for complex education scenarios. By intelligently routing 8 types of complex questions to optimal LLMs and integrating multi-round validation workflows, it significantly boosts the accuracy and efficiency of educational material parsing.",
+        "tags": [
+          "Multi-LLM",
+          "Type Engine",
+          "Pipeline"
+        ],
         "icon": "🧠",
         "accent": "#e91429",
         "status": "production",
         "highlights": [
-          "Auto-routing for 8 question types",
-          "Proof evaluation vs standard generation",
-          "Review chain with full question metadata"
+          "Built an automated recognition and routing engine for 8 question types",
+          "Innovatively decoupled evaluation and generation pipelines for rigorous answers",
+          "Designed a multi-round verification workflow for precise parsing of complex questions"
         ]
       },
       {
         "id": "group_management_bot",
-        "title": "IM Group & Escrow Bot",
-        "subtitle": "Full Business Bot Stack",
-        "description": "Group automation, private escrow, public reporting, listings, wallet top-up — production IM product.",
-        "tags": ["aiogram", "MySQL", "Redis", "Escrow"],
+        "title": "Community Ops & Escrow Trading Engine",
+        "subtitle": "High Concurrency · Business Closed-Loop",
+        "description": "A tailored automation management and trading platform for massive commercial communities. Deeply integrates smart risk control, fund escrow, automated profit splitting, and ticketing systems to support highly concurrent commercial operations.",
+        "tags": [
+          "aiogram",
+          "MySQL",
+          "Redis",
+          "Escrow"
+        ],
         "icon": "🤖",
         "accent": "#1db954",
         "status": "production",
         "highlights": [
-          "Join verification / anti-spam / scheduled posts",
-          "Escrow groups & payment confirmation",
-          "User manual & production deployment"
+          "Automated governance from group entry verification, anti-spam to risk control",
+          "Built a highly reliable escrow and financial reconciliation system for VIP groups",
+          "Provided a comprehensive admin console to close the commercial workflow loop"
         ]
       },
       {
         "id": "fastapi_celery_kb",
-        "title": "Research Report Vector KB",
-        "subtitle": "RAG Pipeline · GPU Cluster",
-        "description": "RAG pipeline for research reports and filings: chunking, embedding, and knowledge-base maintenance at scale.",
-        "tags": ["Celery", "Vector DB", "Chunking", "Docker"],
+        "title": "Enterprise RAG Data Pipeline",
+        "subtitle": "Async Concurrency · Automated Flow",
+        "description": "A knowledge engineering pipeline designed for massive financial long-form documents. Enables fully automated scheduling from smart document parsing and high-dimensional semantic chunking to high-performance vector ingestion, providing a real-time, precise knowledge base for LLMs.",
+        "tags": [
+          "Celery",
+          "Vector DB",
+          "Chunking",
+          "Docker"
+        ],
         "icon": "📚",
         "accent": "#b49bc8",
         "status": "production",
         "highlights": [
-          "Auto chunking & ingest for filings/reports",
-          "Parallel vectorization job scheduling",
-          "Docker Compose production deploy"
+          "Automated structural and high-quality semantic chunking of reports and announcements",
+          "Built a multi-node parallel asynchronous task scheduling cluster with Celery",
+          "Provided scalable production deployment solutions via Docker Compose"
         ]
       },
       {
         "id": "rerank_system",
-        "title": "Retrieval Reranker",
-        "subtitle": "RAG Precision · Production API",
-        "description": "Semantic reranking and MMR dedup for report/filing recall, with time and authority weighting to improve Q&A citation accuracy.",
-        "tags": ["FastAPI", "Rerank", "MMR", "PostgreSQL"],
+        "title": "High-Precision Semantic Reranking Engine",
+        "subtitle": "Multi-dimensional Fusion · Intent Alignment",
+        "description": "Breaking the accuracy bottleneck of standard RAG retrieval. Introduces multi-dimensional semantic reranking strategies, dynamically scoring by document recency and source authority with MMR diversity deduplication, ensuring LLMs generate answers based on the optimal context.",
+        "tags": [
+          "FastAPI",
+          "Rerank",
+          "MMR",
+          "PostgreSQL"
+        ],
         "icon": "🎯",
         "accent": "#f59e0b",
         "status": "production",
         "highlights": [
-          "Multiple scoring strategies & Qwen rerank branch",
-          "MMR dedup with time/authority fusion",
-          "Recall logs for eval and traceability"
+          "Flexibly integrated multiple deep semantic scoring models and custom reranking strategies",
+          "Innovatively fused recency and authority into a comprehensive ranking algorithm",
+          "Provided full query quality evaluation and retrieval tracing logs"
         ]
       },
       {
         "id": "phone_autoglm",
-        "title": "Phone AutoGLM Fleet Platform",
-        "subtitle": "Vision Agent · Cloud Phones · Business API",
-        "description": "Production AutoGLM stack: natural-language ADB control, web console for live debugging, and REST APIs for business systems to dispatch tasks at scale.",
-        "tags": ["AutoGLM", "ADB", "FastAPI", "Vue"],
+        "title": "Mobile Agent Orchestration Hub",
+        "subtitle": "Visual Perception · Batch Automation",
+        "description": "A mobile automation scheduling system powered by multimodal visual LLMs. Translates natural language into precise terminal operation commands, enabling parallel task dispatching and status monitoring across multiple devices, drastically reducing the cost of cross-app repetitive operations.",
+        "tags": [
+          "AutoGLM",
+          "ADB",
+          "FastAPI",
+          "Vue"
+        ],
         "icon": "📱",
         "accent": "#059669",
         "status": "production",
         "highlights": [
-          "Screenshot perception + multi-step planning for 50+ Chinese apps",
-          "Vue console with SSE streaming; MySQL task & device registry",
-          "/api/v1 command dispatch, progress polling & album media import"
+          "Deeply integrated screen visual perception with multi-step complex operation planning",
+          "Provided a visual Web console for task orchestration and device monitoring",
+          "Offered standardized business APIs to easily integrate mobile operations into workflows"
         ]
       },
       {
         "id": "need_radar_bot",
-        "title": "AI Lead Radar Bot",
-        "subtitle": "Supply-demand match · Push",
-        "description": "Scan IM business channels for intent, match complementary supply/demand leads, push keyword subscriptions, with web ops console.",
-        "tags": ["IM", "LLM", "Hybrid search"],
+        "title": "Intelligent Lead Generation Radar",
+        "subtitle": "Intent Analysis · Supply-Demand Matching",
+        "description": "A 24/7 intelligent business opportunity mining platform. Uses LLMs to deeply understand supply and demand intents from massive unstructured texts, precisely matches complementary resources, and delivers high-quality leads in real-time via an automated subscription engine.",
+        "tags": [
+          "IM",
+          "LLM",
+          "Hybrid search"
+        ],
         "icon": "📡",
         "accent": "#8b5cf6",
         "status": "production",
         "highlights": [
-          "Buyer/seller complementary semantic search",
-          "Whitelist channels with subscription push",
-          "Web ops console (leads/users/scans)"
+          "Utilized LLMs for precise supply/demand intent extraction and semantic alignment",
+          "Built an incremental scraping and high-availability subscription pushing engine",
+          "Provided a full-featured admin backend for comprehensive lead lifecycle management"
         ]
       }
     ]
@@ -176,15 +256,18 @@
     "rows": [
       {
         "id": "enterprise-ai",
-        "title": "Enterprise AI",
-        "description": "Research Q&A, multi-model analysis, and financial NLP for B2B",
+        "title": "Enterprise AI Solutions",
+        "description": "Transforming cutting-edge model capabilities into production systems that solve actual business pain points",
         "items": [
           {
             "id": "multi_llm_analysis",
-            "title": "Multi-LLM Question Engine",
+            "title": "Multi-LLM Education Parsing Engine",
             "subtitle": "8 types · Dual mode",
-            "description": "Auto-routes proof, chart, and other question types; separate eval vs generation with multi-round review for complex items.",
-            "tags": ["Multi-LLM", "Engine"],
+            "description": "Built a complex question recognition routing network, separated evaluation and generation stages, supporting multi-round automatic verification for rigorous parsing.",
+            "tags": [
+              "Multi-LLM",
+              "Engine"
+            ],
             "icon": "🧠",
             "accent": "#ff6b6b"
           },
@@ -193,34 +276,47 @@
             "title": "Retrieval Reranker",
             "subtitle": "RAG precision",
             "description": "Semantic reranking and dedup for report/filing candidates, with time and source weighting to improve Q&A citations.",
-            "tags": ["Rerank", "RAG"],
+            "tags": [
+              "Rerank",
+              "RAG"
+            ],
             "icon": "🎯",
             "accent": "#f59e0b"
           },
           {
             "id": "report_recall",
-            "title": "Report Figure & Passage Recall",
+            "title": "Multimodal Report Retrieval",
             "subtitle": "Multimodal retrieval",
-            "description": "Multimodal recall for research PDFs: figures and passages embedded separately, semantic search for relevant charts and excerpts in research Q&A.",
-            "tags": ["Vector", "Research"],
+            "description": "Achieved dual-track vector storage for inline charts and text in PDFs, precisely responding to advanced retrieval needs for chart data and text evidence in investment research.",
+            "tags": [
+              "Vector",
+              "Research"
+            ],
             "icon": "📈",
             "accent": "#06b6d4"
           },
           {
             "id": "etf_unusual",
-            "title": "ETF Anomaly Monitor",
+            "title": "Intraday ETF Quant Monitoring",
             "subtitle": "Quant · News",
-            "description": "Real-time ETF price and news anomaly monitoring with premium, volume, and other metrics for research alerts.",
-            "tags": ["ETF", "Quant"],
+            "description": "Built a millisecond-level market and news anomaly monitoring engine, automatically evaluating risks across multidimensional quant indicators to assist investment decisions.",
+            "tags": [
+              "ETF",
+              "Quant"
+            ],
             "icon": "📉",
             "accent": "#8b5cf6"
           },
           {
             "id": "temp_ner",
-            "title": "Financial NER Service",
+            "title": "High-Precision Financial NER",
             "subtitle": "NER · Time parsing",
-            "description": "Extract companies, sectors, and other entities from research text via keyword + vector recall, plus fiscal-period time parsing API.",
-            "tags": ["NER", "FastAPI", "Vector"],
+            "description": "Provided customized financial entity extraction for research reports, combining knowledge graph retrieval and financial cycle logic parsing to enhance semantic understanding of business data.",
+            "tags": [
+              "NER",
+              "FastAPI",
+              "Vector"
+            ],
             "icon": "🏷️",
             "accent": "#f472b6"
           }
@@ -228,51 +324,67 @@
       },
       {
         "id": "rag-knowledge",
-        "title": "RAG & Knowledge",
-        "description": "End-to-end RAG: chunking, embedding, and retrieval",
+        "title": "RAG & Knowledge Engineering Infrastructure",
+        "description": "Building the full RAG pipeline from document parsing, high-quality chunking to precise retrieval",
         "items": [
           {
             "id": "fastapi_celery_kb",
-            "title": "Research Report Vector KB",
+            "title": "Massive Long-Doc Async Ingestion",
             "subtitle": "FastAPI · Celery · GPU",
-            "description": "Automated chunking, embedding, and KB updates for reports and filings — Celery async jobs, Docker Compose deploy.",
-            "tags": ["Celery", "Vector DB", "Docker"],
+            "description": "An asynchronous distributed document processing system based on Celery and Docker, supporting automated ingestion and vectorization orchestration of reports.",
+            "tags": [
+              "Celery",
+              "Vector DB",
+              "Docker"
+            ],
             "icon": "📚",
             "accent": "#b49bc8"
           },
           {
             "id": "multi_source_chunk",
-            "title": "Multi-Source Doc Chunk & Embed",
+            "title": "Adaptive Multi-Format Chunking",
             "subtitle": "Production pipeline",
-            "description": "Automated chunking and embedding for multi-source documents on production GPU infra, powering large-scale ingest for real-time news feeds.",
-            "tags": ["Chunk", "Vectorize"],
+            "description": "Built an automated high-dimensional chunking service supporting various formats, deployed in GPU production to smoothly support massive streaming information ingestion.",
+            "tags": [
+              "Chunk",
+              "Vectorize"
+            ],
             "icon": "🔗",
             "accent": "#10b981"
           },
           {
             "id": "qwen3_pg_recall",
-            "title": "Qwen3 Embedding Recall",
+            "title": "Qwen3 Vector Retrieval Platform",
             "subtitle": "PostgreSQL vector search",
-            "description": "PostgreSQL vector recall with Qwen3 embeddings for research report and filing semantic search.",
-            "tags": ["Qwen3", "PostgreSQL"],
+            "description": "Enterprise-grade vector retrieval microservice based on cutting-edge Embedding models and PGVector, deeply optimizing semantic hit rates for vertical industry texts.",
+            "tags": [
+              "Qwen3",
+              "PostgreSQL"
+            ],
             "icon": "🔍",
             "accent": "#3b82f6"
           },
           {
             "id": "enterprise_chat_openapi",
-            "title": "Enterprise Chat OpenAPI Service",
+            "title": "Enterprise Conversational Q&A Gateway",
             "subtitle": "Knowledge Q&A API",
-            "description": "Enterprise knowledge-base Q&A OpenAPI wired to vector retrieval and LLM generation, with call logs and release ops.",
-            "tags": ["OpenAPI", "Chat"],
+            "description": "Provided standardized conversational RAG OpenAPI interfaces, encapsulating underlying complex retrieval and LLM generation logic with complete authentication and auditing.",
+            "tags": [
+              "OpenAPI",
+              "Chat"
+            ],
             "icon": "💬",
             "accent": "#ec4899"
           },
           {
             "id": "announcement_tagging",
-            "title": "Filing Title Tagging",
+            "title": "Financial News Smart Tagging",
             "subtitle": "NLP classification",
-            "description": "Auto-tag and classify filing titles for news aggregation, topic filtering, and push alerts.",
-            "tags": ["NLP", "Classification"],
+            "description": "Used NLP models for automated tag extraction and classification of massive corporate announcements, providing data support for downstream information aggregation and push.",
+            "tags": [
+              "NLP",
+              "Classification"
+            ],
             "icon": "🏷️",
             "accent": "#f97316"
           }
@@ -280,60 +392,80 @@
       },
       {
         "id": "doc-intelligence",
-        "title": "Document Intelligence",
-        "description": "PDF parse, OCR, watermark removal, structuring",
+        "title": "Multimodal Document Intelligence",
+        "description": "Solving precise structured extraction for complex layouts, scanned copies, and multimodal documents",
         "items": [
           {
             "id": "pdf2xml",
-            "title": "PDF2XML Parser",
+            "title": "High-Precision PDF Structuring Engine",
             "subtitle": "PDFlib TET · FastAPI",
-            "description": "High-precision PDF text, table, and font-geometry parsing to structured output — foundation for downstream chunking and retrieval.",
-            "tags": ["PDF", "FastAPI"],
+            "description": "Utilized low-level libraries to reversely parse PDF coordinates with high precision, extracting text, tables, and logical hierarchy as the purest structured data source for RAG.",
+            "tags": [
+              "PDF",
+              "FastAPI"
+            ],
             "icon": "📄",
             "accent": "#6366f1"
           },
           {
             "id": "pdf_chunker",
-            "title": "Smart PDF Chunking",
+            "title": "Report Smart Semantic Chunking",
             "subtitle": "Report / filing modes",
-            "description": "Smart chunking for report and filing PDFs: ruled/stateless table detection with Markdown output, preserving document structure.",
-            "tags": ["Chunking", "Tables"],
+            "description": "Intelligent chunking algorithms specifically optimized for financial layouts, effectively recognizing various table formats and outputting high-quality Markdown while preserving business context.",
+            "tags": [
+              "Chunking",
+              "Tables"
+            ],
             "icon": "✂️",
             "accent": "#14b8a6"
           },
           {
             "id": "pdf_watermark",
-            "title": "Report Watermark Removal",
+            "title": "Smart PDF Watermark Removal",
             "subtitle": "Multi-rule templates",
-            "description": "Batch watermark removal via configurable font/keyword/position rules, improving downstream OCR and chunking quality.",
-            "tags": ["Watermark", "Batch"],
+            "description": "Based on configurable rule bases and visual coordinate matching, enabling batch watermark removal for reports to significantly raise the baseline accuracy of subsequent OCR.",
+            "tags": [
+              "Watermark",
+              "Batch"
+            ],
             "icon": "💧",
             "accent": "#a855f7"
           },
           {
             "id": "paddle_ocr_vl",
-            "title": "PaddleOCR-VL Service",
+            "title": "Multimodal OCR Visual Service",
             "subtitle": "Upload & parse",
-            "description": "Upload PDFs or images for OCR and layout understanding via FastAPI — for scans, image filings, and other weak-text sources.",
-            "tags": ["OCR", "VL"],
+            "description": "Encapsulated advanced OCR and layout understanding models into high-concurrency APIs, providing out-of-the-box structured extraction for scanned copies and complex images.",
+            "tags": [
+              "OCR",
+              "VL"
+            ],
             "icon": "👁️",
             "accent": "#22c55e"
           },
           {
             "id": "extract_pdf_toc",
-            "title": "PDF TOC Mining Service",
+            "title": "Deep Report TOC Extraction",
             "subtitle": "Three-tier fallback",
-            "description": "Extract TOC from research PDFs: bookmarks first, then TOC page parsing, then layout analysis as fallback.",
-            "tags": ["PDF", "TOC", "Layout"],
+            "description": "Designed a three-level fallback strategy from bookmark extraction to page parsing to layout understanding, maximally boosting the TOC reconstruction success rate of complex reports.",
+            "tags": [
+              "PDF",
+              "TOC",
+              "Layout"
+            ],
             "icon": "📑",
             "accent": "#a78bfa"
           },
           {
             "id": "gpu_rapid_layout",
-            "title": "GPU Layout Detection API",
+            "title": "Ultra-Fast GPU Layout Detection",
             "subtitle": "High concurrency",
-            "description": "Layout element detection on document images — titles, paragraphs, figures — with sync response and async persistence for downstream chunking/OCR.",
-            "tags": ["FastAPI", "Layout", "GPU"],
+            "description": "Layout element recognition API accelerated by GPU inference clusters, supporting high-concurrency asynchronous ingestion to efficiently dismantle charts, tables, and paragraphs.",
+            "tags": [
+              "FastAPI",
+              "Layout",
+              "GPU"
+            ],
             "icon": "🖼️",
             "accent": "#f59e0b"
           }
@@ -341,51 +473,66 @@
       },
       {
         "id": "agent-mcp",
-        "title": "Agents & On-Device AI",
-        "description": "Mobile vision agents, MCP orchestration, and multi-agent systems",
+        "title": "Agents & Automation",
+        "description": "Building agent networks capable of perceiving complex environments, autonomous planning, and toolchain orchestration",
         "items": [
           {
             "id": "phone_autoglm",
             "title": "Phone AutoGLM Fleet Platform",
             "subtitle": "Cloud phones · Business API",
             "description": "AutoGLM-based cloud phone fleet: web console for task debugging, REST APIs for command dispatch, progress polling, and album media import.",
-            "tags": ["AutoGLM", "ADB", "Fleet"],
+            "tags": [
+              "AutoGLM",
+              "ADB",
+              "Fleet"
+            ],
             "icon": "📱",
             "accent": "#059669"
           },
           {
             "id": "dynamic_mcp",
-            "title": "Dynamic MCP · Code Act",
+            "title": "Sandboxed Code Execution & Tool Proxy",
             "subtitle": "Code act · Dynamic tools",
-            "description": "Agents write code in a sandbox and load MCP tools on demand — includes natural-language Excel query, reducing wasted tool calls.",
-            "tags": ["MCP", "Code Act"],
+            "description": "Empowered LLMs to dynamically write and execute code in isolated sandboxes and mount tools on demand, effectively solving the generalization challenges of static toolchains.",
+            "tags": [
+              "MCP",
+              "Code Act"
+            ],
             "icon": "⚡",
             "accent": "#1db954"
           },
           {
             "id": "mcp_json_rpc",
-            "title": "MCP Tool Orchestration",
+            "title": "MCP Service Orchestration Engine",
             "subtitle": "Multi-tool flows",
-            "description": "Auto-select and orchestrate multiple MCP tools from user questions, with context-aware multi-turn dialogue up to 5 parallel rounds.",
-            "tags": ["JSON-RPC", "Orchestration"],
+            "description": "Intelligently planning multi-tool invocation links based on natural language instructions, supporting context-aware complex intent decomposition and concurrent task execution.",
+            "tags": [
+              "JSON-RPC",
+              "Orchestration"
+            ],
             "icon": "🔧",
             "accent": "#0ea5e9"
           },
           {
             "id": "ai_mcp_middleware",
-            "title": "AI MCP Middleware Service",
+            "title": "Enterprise Model Capability Gateway",
             "subtitle": "Business bridge",
-            "description": "Unified MCP middleware so business systems connect to LLM tool ecosystems via standard APIs — no per-capability custom wiring.",
-            "tags": ["MCP", "API"],
+            "description": "Built a unified AI tool scheduling middleware, shielding the complexity of business systems directly connecting to LLMs, achieving centralized control and routing of AI API assets.",
+            "tags": [
+              "MCP",
+              "API"
+            ],
             "icon": "🌐",
             "accent": "#64748b"
           },
           {
             "id": "multi_agent_collab",
-            "title": "Multi-Agent Collaboration",
+            "title": "Complex Multi-Agent Collaboration",
             "subtitle": "Multi-agent systems",
-            "description": "Multi-agent collaboration: task splitting, role routing, and result aggregation for complex workflows and conversational automation.",
-            "tags": ["Multi-Agent"],
+            "description": "Designed multi-role Agent collaborative networks, realizing autonomous decomposition, multi-round routing, and automated execution loops for complex tasks, empowering workflow reconstruction.",
+            "tags": [
+              "Multi-Agent"
+            ],
             "icon": "🤝",
             "accent": "#d946ef"
           }
@@ -393,42 +540,58 @@
       },
       {
         "id": "tg-mobile",
-        "title": "Bot Ecosystem & Productivity",
-        "description": "IM business bots, hybrid search, and desktop productivity apps",
+        "title": "Community Bots & Ecosystem Apps",
+        "description": "Deeply integrating IM ecosystems with hybrid search to build high-conversion, highly sticky commercial productivity tools",
         "items": [
           {
             "id": "group_management_bot",
-            "title": "IM Group & Escrow Bot",
+            "title": "Community Ops & Monetization Hub",
             "subtitle": "Moderation · Escrow · Wallet",
-            "description": "Group automation, private escrow, public reporting, and wallet top-up — production IM business bot.",
-            "tags": ["aiogram", "MySQL", "Escrow"],
+            "description": "All-in-one community operations solution covering anti-fraud risk control, escrow trading, and smart customer service, deeply empowering the efficient conversion of private traffic.",
+            "tags": [
+              "aiogram",
+              "MySQL",
+              "Escrow"
+            ],
             "icon": "🤖",
             "accent": "#1db954"
           },
           {
             "id": "need_radar_bot",
-            "title": "AI Lead Radar",
+            "title": "Community Lead Insight Radar",
             "subtitle": "Scan · Complementary match",
-            "description": "Scan IM channels, use LLM intent detection to find business leads, match complementary supply/demand, and push keyword alerts — with web ops console.",
-            "tags": ["Bot", "LLM", "SeekDB"],
+            "description": "24/7 full-volume monitoring of community dynamics, extracting business intents with LLMs to accurately capture complementary opportunities and deliver real-time targeted alerts.",
+            "tags": [
+              "Bot",
+              "LLM",
+              "SeekDB"
+            ],
             "icon": "📡",
             "accent": "#8b5cf6"
           },
           {
             "id": "tg_ai_search",
-            "title": "IM AI Search",
+            "title": "Community History Smart Search",
             "subtitle": "In-bot search",
-            "description": "Hybrid search inside an IM bot: full-text + vector recall with fused ranking over group/channel history.",
-            "tags": ["IM", "Hybrid search", "RAG"],
+            "description": "Dual-track retrieval system fusing full-text search and vector similarity, deeply mining and precisely locating valuable information in massive community chat histories.",
+            "tags": [
+              "IM",
+              "Hybrid search",
+              "RAG"
+            ],
             "icon": "🔎",
             "accent": "#06b6d4"
           },
           {
             "id": "smart_clipboard",
-            "title": "Smart Clipboard",
+            "title": "AI-Enhanced Smart Clipboard",
             "subtitle": "Windows desktop · AI",
-            "description": "Monitors clipboard and intelligently filters/rewrites copied content — Rust for low latency, tray hotkeys, multi-vendor AI plugins.",
-            "tags": ["Tauri", "Rust", "Desktop"],
+            "description": "Desktop productivity tool built with Rust for extreme performance, tracking and reshaping clipboard content with LLMs in real-time, seamlessly bridging various workflows.",
+            "tags": [
+              "Tauri",
+              "Rust",
+              "Desktop"
+            ],
             "icon": "📋",
             "accent": "#818cf8"
           }
@@ -436,42 +599,54 @@
       },
       {
         "id": "platform-auto",
-        "title": "Platform & Automation",
-        "description": "Bots, monitoring, email, office integration",
+        "title": "Backend Systems & Ops Orchestration",
+        "description": "Providing stable and reliable infrastructure for monitoring, asynchronous scheduling, and data flow",
         "items": [
           {
             "id": "onchain_token_monitor",
-            "title": "On-Chain Token Monitor",
+            "title": "High-Freq On-chain Asset Monitor",
             "subtitle": "SOL/BSC · IM push",
-            "description": "Monitor newly issued on-chain tokens, poll multiple accounts with Redis dedup, and push alerts to IM groups and trading bots.",
-            "tags": ["Web3", "IM"],
+            "description": "Built low-latency on-chain data listening nodes, combined with Redis caching for high-speed deduplication and analysis, pushing core trading intelligence in milliseconds.",
+            "tags": [
+              "Web3",
+              "IM"
+            ],
             "icon": "⛓️",
             "accent": "#facc15"
           },
           {
             "id": "cc_monitor_gmail",
-            "title": "Gmail → IM Relay",
+            "title": "Email Intel Automated Routing",
             "subtitle": "Email automation",
-            "description": "Watch Gmail inboxes, filter important mail by rules, and async relay to IM groups with multi-group routing and state management.",
-            "tags": ["IMAP", "Bot"],
+            "description": "Real-time monitoring of core inboxes, extracting high-value email information via custom rules and delivering across platforms, bridging the information silo between Email and IM.",
+            "tags": [
+              "IMAP",
+              "Bot"
+            ],
             "icon": "📧",
             "accent": "#ef4444"
           },
           {
             "id": "lark_sync",
-            "title": "Lark Bitable Order Sync",
+            "title": "Enterprise Data Synergy Pipeline",
             "subtitle": "Office automation",
-            "description": "Bidirectional sync between Lark bitable and internal order systems — auto-updates order status, customer fields, and cuts manual entry.",
-            "tags": ["Lark", "Automation"],
+            "description": "Breaking the data barrier between Lark multidimensional tables and backend systems, achieving bi-directional real-time sync of order statuses and client info, eliminating manual reconciliation costs.",
+            "tags": [
+              "Lark",
+              "Automation"
+            ],
             "icon": "🚀",
             "accent": "#3370ff"
           },
           {
             "id": "email_auto_crawl",
-            "title": "Outlook Mail & PDF Extract",
+            "title": "Report Attachment RPA Crawler",
             "subtitle": "RPA · PyInstaller",
-            "description": "Auto-fetch research PDF attachments from Outlook, parse text and tables, and export structured Excel for RPA batch ingest.",
-            "tags": ["RPA", "PDF"],
+            "description": "Automated polling of emails to extract key data tables from attached reports, outputting standard structured ledgers, vastly improving financial data ingestion efficiency.",
+            "tags": [
+              "RPA",
+              "PDF"
+            ],
             "icon": "📬",
             "accent": "#78716c"
           }
@@ -481,67 +656,110 @@
   },
   "experience": {
     "title": "Experience",
-    "subtitle": "Where engineering meets real business scenarios",
+    "subtitle": "Full-stack engineering capabilities honed in complex business scenarios",
     "items": [
       {
         "period": "2024 — Present",
-        "title": "Enterprise AI · Agents & RAG",
-        "description": "Led/contributed to enterprise agents, phone agent fleet control, research vector KBs, rerank/recall, and multi-LLM analysis — from POC to monitored production.",
-        "tags": ["Agents", "RAG", "AutoGLM", "FastAPI"]
+        "title": "Enterprise AI Architecture & Dev",
+        "description": "Deeply led the design and implementation of enterprise agents, complex RAG architectures, and multimodal applications. Accumulated full-cycle tuning experience from POC to high-availability production systems.",
+        "tags": [
+          "Agents",
+          "RAG",
+          "AutoGLM",
+          "FastAPI"
+        ]
       },
       {
         "period": "2022 — 2024",
-        "title": "Document Intelligence",
-        "description": "Built PDF chunking, watermark removal, OCR-VL, PDF2XML pipelines for massive research/filing corpora.",
-        "tags": ["PDF", "OCR", "ETL"]
+        "title": "Document Intelligence & Data Pipelines",
+        "description": "Led the construction of a million-level financial document parsing pipeline, overcoming core challenges like complex PDF layouts, deep OCR, and high-priority chunking strategies to build a high-quality data foundation.",
+        "tags": [
+          "PDF",
+          "OCR",
+          "ETL"
+        ]
       },
       {
         "period": "2020 — Present",
-        "title": "Domestic IM / Lark Ecosystem",
-        "description": "Escrow bots, email relay, on-chain monitors, bitable sync — high concurrency and state machines.",
-        "tags": ["aiogram", "Lark API", "Redis"]
+        "title": "High-Concurrency IM Bots & Backends",
+        "description": "Designed and implemented high-concurrency commercial ecosystem bots and ops monitoring hubs, proficient in async frameworks and caching queues to guarantee absolute stability of core trading flows.",
+        "tags": [
+          "aiogram",
+          "Lark API",
+          "Redis"
+        ]
       },
       {
         "period": "Ongoing",
         "title": "MCP & Agent Engineering",
         "description": "MCP orchestration, code-act patterns, Text2SQL — auditable, reproducible LLM workflows.",
-        "tags": ["MCP", "Agent", "Text2SQL"]
+        "tags": [
+          "MCP",
+          "Agent",
+          "Text2SQL"
+        ]
       }
     ]
   },
   "skills": {
     "title": "Core Skills",
-    "motto": "Not just prompting — <strong>embedding AI into existing systems</strong> with operable, scalable delivery",
+    "motto": "Not just an LLM prompter—<strong>dedicated to seamlessly integrating AI into enterprise systems</strong> to provide stable, scalable engineering architectures.",
     "items": [
       {
         "title": "AI Application Engineering",
         "description": "RAG / phone agents / LLM deploy / multi-agent / MCP toolchains",
-        "tags": ["RAG", "Agent", "AutoGLM", "MCP"],
+        "tags": [
+          "RAG",
+          "Agent",
+          "AutoGLM",
+          "MCP"
+        ],
         "icon": "🤖"
       },
       {
         "title": "Domain Text & Knowledge",
         "description": "Report/filing chunking, recall, rerank, figure retrieval, news tagging",
-        "tags": ["Vector DB", "Research", "Recall"],
+        "tags": [
+          "Vector DB",
+          "Research",
+          "Recall"
+        ],
         "icon": "📊"
       },
       {
         "title": "Document Intelligence",
         "description": "PDF parse / OCR-VL / watermark / table detection / structuring",
-        "tags": ["PDF", "OCR", "Pipeline"],
+        "tags": [
+          "PDF",
+          "OCR",
+          "Pipeline"
+        ],
         "icon": "📄"
       },
       {
         "title": "Platform & Automation",
         "description": "Domestic IM bots / Lark / email RPA / Celery scheduling",
-        "tags": ["Bot", "Lark", "Celery"],
+        "tags": [
+          "Bot",
+          "Lark",
+          "Celery"
+        ],
         "icon": "⚡"
       }
     ],
     "summary": [
-      { "icon": "🏗️", "text": "Full-Stack" },
-      { "icon": "🧠", "text": "AI Engineering" },
-      { "icon": "🚀", "text": "Agile Delivery" }
+      {
+        "icon": "🏗️",
+        "text": "Full-Stack"
+      },
+      {
+        "icon": "🧠",
+        "text": "AI Engineering"
+      },
+      {
+        "icon": "🚀",
+        "text": "Agile Delivery"
+      }
     ]
   },
   "services": {
@@ -550,35 +768,54 @@
       {
         "title": "Enterprise AI Agents",
         "description": "Knowledge Q&A, workflow agents, private deploy, API monitoring",
-        "technologies": ["RAG", "Agent", "FastAPI"],
+        "technologies": [
+          "RAG",
+          "Agent",
+          "FastAPI"
+        ],
         "badge": "Enterprise",
         "icon": "🤖"
       },
       {
         "title": "Document RAG Systems",
         "description": "Report/filing ingest, chunk strategy, recall/rerank & eval",
-        "technologies": ["Vector DB", "Rerank", "ETL"],
+        "technologies": [
+          "Vector DB",
+          "Rerank",
+          "ETL"
+        ],
         "badge": "RAG",
         "icon": "📈"
       },
       {
         "title": "Document Pipelines",
         "description": "PDF parse, OCR, watermark removal, batch structuring",
-        "technologies": ["PDF", "OCR", "Python"],
+        "technologies": [
+          "PDF",
+          "OCR",
+          "Python"
+        ],
         "badge": "Doc AI",
         "icon": "📄"
       },
       {
         "title": "Bots & Office Automation",
         "description": "Domestic IM/Lark bots, email relay, task scheduling",
-        "technologies": ["aiogram", "Lark", "Celery"],
+        "technologies": [
+          "aiogram",
+          "Lark",
+          "Celery"
+        ],
         "badge": "Automation",
         "icon": "📱"
       },
       {
         "title": "Python Consulting",
         "description": "Architecture review, performance, hard problems",
-        "technologies": ["Architecture", "Code Review"],
+        "technologies": [
+          "Architecture",
+          "Code Review"
+        ],
         "badge": "Advisor",
         "icon": "📚"
       }
@@ -638,13 +875,26 @@
       "icon": "🤝",
       "title": "Collaboration",
       "types": [
-        { "icon": "💼", "text": "Projects" },
-        { "icon": "🎓", "text": "Advisory" },
-        { "icon": "🚀", "text": "Co-founder" }
+        {
+          "icon": "💼",
+          "text": "Projects"
+        },
+        {
+          "icon": "🎓",
+          "text": "Advisory"
+        },
+        {
+          "icon": "🚀",
+          "text": "Co-founder"
+        }
       ]
     },
     "footer": {
-      "highlights": ["Open comms", "Engineering-first", "Outcome-driven"]
+      "highlights": [
+        "Open comms",
+        "Engineering-first",
+        "Outcome-driven"
+      ]
     }
   }
 }
