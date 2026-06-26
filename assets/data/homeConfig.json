@@ -52,6 +52,12 @@
         "label": "服务",
         "shortLabel": "服务",
         "icon": "fas fa-briefcase"
+      },
+      {
+        "id": "contact",
+        "label": "联系",
+        "shortLabel": "联系",
+        "icon": "fas fa-envelope"
       }
     ],
     "projectStatus": {
@@ -895,6 +901,32 @@
         "工程优先",
         "结果导向"
       ]
+    },
+    "form": {
+      "title": "发送消息",
+      "subtitle": "留下你的联系方式，我会尽快回复",
+      "fields": {
+        "name": {
+          "label": "你的名字",
+          "placeholder": "怎么称呼？"
+        },
+        "contact": {
+          "label": "联系方式",
+          "placeholder": "微信 / 邮箱 / 手机号"
+        },
+        "topic": {
+          "label": "想聊什么",
+          "placeholder": "合作方向 / 项目需求 / 技术交流…"
+        },
+        "message": {
+          "label": "详细描述",
+          "placeholder": "简单说说你的场景和需求，我会更精准地回复…"
+        }
+      },
+      "submit": "发送消息",
+      "submitting": "发送中…",
+      "success": "消息已送达！我会尽快回复你",
+      "error": "发送失败，请稍后重试或直接联系我"
     }
   }
 }

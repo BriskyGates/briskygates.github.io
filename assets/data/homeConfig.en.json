@@ -52,6 +52,12 @@
         "label": "Services",
         "shortLabel": "Services",
         "icon": "fas fa-briefcase"
+      },
+      {
+        "id": "contact",
+        "label": "Contact",
+        "shortLabel": "Contact",
+        "icon": "fas fa-envelope"
       }
     ],
     "projectStatus": {
@@ -895,6 +901,32 @@
         "Engineering-first",
         "Outcome-driven"
       ]
+    },
+    "form": {
+      "title": "Send a Message",
+      "subtitle": "Leave your contact info and I'll get back to you soon",
+      "fields": {
+        "name": {
+          "label": "Your Name",
+          "placeholder": "What should I call you?"
+        },
+        "contact": {
+          "label": "Contact Info",
+          "placeholder": "WeChat / Email / Phone"
+        },
+        "topic": {
+          "label": "Topic",
+          "placeholder": "Collaboration / Project needs / Tech discussion…"
+        },
+        "message": {
+          "label": "Details",
+          "placeholder": "Briefly describe your scenario and needs, I'll respond more precisely…"
+        }
+      },
+      "submit": "Send Message",
+      "submitting": "Sending…",
+      "success": "Message delivered! I'll get back to you soon",
+      "error": "Failed to send, please try again or contact me directly"
     }
   }
 }

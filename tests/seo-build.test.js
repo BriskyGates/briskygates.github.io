@@ -19,7 +19,7 @@ test('renderAppShell: 输出真实姓名而非 Vue 占位符', () => {
 
 test('renderAppShell: 包含代表作与技能区块', () => {
     const html = renderAppShell(zhConfig);
-    assert.match(html, /多 LLM 题型分析引擎/);
+    assert.match(html, /多模型驱动的教育解析引擎/);
     assert.match(html, /核心技术/);
     assert.match(html, /id="showcase"/);
 });
@@ -27,7 +27,7 @@ test('renderAppShell: 包含代表作与技能区块', () => {
 test('generateLlmsFull: 生成可读的纯文本履历', () => {
     const text = generateLlmsFull(zhConfig, 'zh');
     assert.match(text, /^# 阿布/m);
-    assert.match(text, /RAG & 向量检索/);
+    assert.match(text, /大模型应用落地/);
     assert.match(text, /homeConfig\.json/);
 });
 

@@ -231,6 +231,89 @@ description: Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能
             </div>
         </section>
 
+        <!-- Contact Form -->
+        <section id="contact" class="content-section" v-if="config.contact && config.contact.form">
+            <div class="section-head">
+                <h2>{{ config.contact.form.title }}</h2>
+                <p>{{ config.contact.form.subtitle }}</p>
+            </div>
+            <div class="contact-layout">
+                <div class="contact-intro-card">
+                    <div class="contact-intro-icon">{{ config.contact.intro.icon }}</div>
+                    <h3>{{ config.contact.intro.title }}</h3>
+                    <p>{{ config.contact.intro.description }}</p>
+                    <div class="contact-meta-row">
+                        <div class="contact-meta-item">
+                            <span class="contact-meta-icon">{{ config.contact.availability.icon }}</span>
+                            <div>
+                                <strong>{{ config.contact.availability.title }}</strong>
+                                <p>{{ config.contact.availability.labels.usuallyWithin }} {{ config.contact.availability.responseTime }} {{ config.contact.availability.response }}</p>
+                                <span class="contact-meta-sub">{{ config.contact.availability.labels.timezoneLabel }}{{ config.ui.labelSuffix }}{{ config.contact.availability.timezone }}</span>
+                            </div>
+                        </div>
+                        <div class="contact-meta-item">
+                            <span class="contact-meta-icon">{{ config.contact.collaboration.icon }}</span>
+                            <div>
+                                <strong>{{ config.contact.collaboration.title }}</strong>
+                                <div class="contact-collab-tags">
+                                    <span v-for="type in config.contact.collaboration.types" :key="type.text" class="tag-pill">{{ type.icon }} {{ type.text }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" @submit.prevent="submitContactForm">
+                    <div class="form-field">
+                        <label :for="'contact-name'">{{ config.contact.form.fields.name.label }}</label>
+                        <input
+                            id="contact-name"
+                            v-model="contactForm.name"
+                            type="text"
+                            :placeholder="config.contact.form.fields.name.placeholder"
+                            required
+                        />
+                    </div>
+                    <div class="form-field">
+                        <label :for="'contact-info'">{{ config.contact.form.fields.contact.label }}</label>
+                        <input
+                            id="contact-info"
+                            v-model="contactForm.contact"
+                            type="text"
+                            :placeholder="config.contact.form.fields.contact.placeholder"
+                            required
+                        />
+                    </div>
+                    <div class="form-field">
+                        <label :for="'contact-topic'">{{ config.contact.form.fields.topic.label }}</label>
+                        <input
+                            id="contact-topic"
+                            v-model="contactForm.topic"
+                            type="text"
+                            :placeholder="config.contact.form.fields.topic.placeholder"
+                            required
+                        />
+                    </div>
+                    <div class="form-field">
+                        <label :for="'contact-message'">{{ config.contact.form.fields.message.label }}</label>
+                        <textarea
+                            id="contact-message"
+                            v-model="contactForm.message"
+                            :placeholder="config.contact.form.fields.message.placeholder"
+                            rows="4"
+                            required
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit" :disabled="contactSending">
+                        <i class="fas fa-paper-plane"></i>
+                        {{ contactSending ? config.contact.form.submitting : config.contact.form.submit }}
+                    </button>
+                    <p v-if="contactFeedback" class="form-feedback" :class="contactFeedbackType">
+                        {{ contactFeedback }}
+                    </p>
+                </form>
+            </div>
+        </section>
+
         <!-- Philosophy -->
         <section class="content-section" v-if="config.projects && config.projects.innovation">
             <div class="philosophy-card">
@@ -291,6 +374,9 @@ description: Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能
             </a>
             <a href="#services" class="nav-item">
                 <span>服务</span>
+            </a>
+            <a href="#contact" class="nav-item">
+                <span>联系</span>
             </a>
         </nav>
     </aside>

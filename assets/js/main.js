@@ -10,6 +10,8 @@ const {
     getDefaultToastMessage
 } = window.SiteAppCore;
 
+const FEISHU_WEBHOOK = 'https://open.feishu.cn/open-apis/bot/v2/hook/95c6e7c8-7469-442c-bcb4-4217417cbdd6';
+
 let currentLang = 'zh';
 let currentConfig = null;
 let vueAppInstance = null;
@@ -90,7 +92,16 @@ function renderWithVue(config) {
                 toastMessage: '',
                 activeSection: 'home',
                 sidebarOpen: false,
-                _scrollSpyHandler: null
+                _scrollSpyHandler: null,
+                contactForm: {
+                    name: '',
+                    contact: '',
+                    topic: '',
+                    message: ''
+                },
+                contactSending: false,
+                contactFeedback: '',
+                contactFeedbackType: ''
             };
         },
         computed: {
@@ -224,6 +235,87 @@ function renderWithVue(config) {
                 setTimeout(() => {
                     this.showToast = false;
                 }, 2000);
+            },
+            async submitContactForm() {
+                const cfg = this.config?.contact?.form;
+                if (!cfg) return;
+                this.contactSending = true;
+                this.contactFeedback = '';
+                this.contactFeedbackType = '';
+
+                const now = new Date();
+                const timeStr = now.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
+                const lang = navigator.language || 'zh-CN';
+
+                const cardPayload = {
+                    msg_type: 'interactive',
+                    card: {
+                        header: {
+                            title: {
+                                tag: 'plain_text',
+                                content: '📬 个人网站联系人模块 · 新留言'
+                            },
+                            template: 'blue'
+                        },
+                        elements: [
+                            {
+                                tag: 'div',
+                                fields: [
+                                    { is_short: true, text: { tag: 'lark_md', content: `**👤 称呼**\n${this._esc(this.contactForm.name)}` } },
+                                    { is_short: true, text: { tag: 'lark_md', content: `**📞 联系方式**\n${this._esc(this.contactForm.contact)}` } }
+                                ]
+                            },
+                            {
+                                tag: 'div',
+                                text: { tag: 'lark_md', content: `**💬 话题**\n${this._esc(this.contactForm.topic)}` }
+                            },
+                            {
+                                tag: 'hr'
+                            },
+                            {
+                                tag: 'div',
+                                text: { tag: 'lark_md', content: `**📝 详细描述**\n${this._esc(this.contactForm.message)}` }
+                            },
+                            {
+                                tag: 'hr'
+                            },
+                            {
+                                tag: 'note',
+                                elements: [
+                                    { tag: 'plain_text', content: `🔑 个人网站联系人模块  ·  ⏰ ${timeStr}  ·  🌐 ${lang}` }
+                                ]
+                            }
+                        ]
+                    }
+                };
+
+                try {
+                    const res = await fetch(FEISHU_WEBHOOK, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(cardPayload)
+                    });
+                    const result = await res.json();
+                    if (res.ok && result.code === 0) {
+                        this.contactFeedback = cfg.success;
+                        this.contactFeedbackType = 'success';
+                        this.contactForm = { name: '', contact: '', topic: '', message: '' };
+                    } else {
+                        throw new Error(result.msg || 'webhook error');
+                    }
+                } catch (err) {
+                    console.error('Contact form submit error:', err);
+                    this.contactFeedback = cfg.error;
+                    this.contactFeedbackType = 'error';
+                } finally {
+                    this.contactSending = false;
+                }
+            },
+            _esc(text) {
+                if (!text) return '';
+                return String(text).replace(/[&<>"']/g, function (m) {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+                });
             }
         }
     });
