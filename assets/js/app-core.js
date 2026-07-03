@@ -4,20 +4,26 @@
 (function (global) {
     'use strict';
 
+    const SUPPORTED_LANGS = ['zh', 'zh-Hant', 'plain', 'en'];
+
     function getBasePath(pathname) {
         return pathname && pathname.includes('/briskygates.github.io')
             ? '/briskygates.github.io'
             : '';
     }
 
+    function isSupportedLang(lang) {
+        return SUPPORTED_LANGS.includes(lang);
+    }
+
     function detectCurrentLanguage(search, savedLang, hasSiteConfig) {
         const urlParams = new URLSearchParams(search || '');
         const langParam = urlParams.get('lang');
-        if (langParam === 'en' || langParam === 'zh') {
+        if (isSupportedLang(langParam)) {
             return langParam;
         }
 
-        if (savedLang === 'en' || savedLang === 'zh') {
+        if (isSupportedLang(savedLang)) {
             return savedLang;
         }
 
@@ -29,34 +35,73 @@
     }
 
     function getConfigPathForLang(lang) {
-        return lang === 'en'
-            ? '/assets/data/homeConfig.en.json'
-            : '/assets/data/homeConfig.json';
+        if (lang === 'en') {
+            return '/assets/data/homeConfig.en.json';
+        }
+        if (lang === 'plain') {
+            return '/assets/data/homeConfig.plain.json';
+        }
+        if (lang === 'zh-Hant') {
+            return '/assets/data/homeConfig.zh-Hant.json';
+        }
+        return '/assets/data/homeConfig.json';
+    }
+
+    function getNextLang(lang) {
+        const index = SUPPORTED_LANGS.indexOf(lang);
+        if (index === -1) {
+            return 'zh';
+        }
+        return SUPPORTED_LANGS[(index + 1) % SUPPORTED_LANGS.length];
     }
 
     function getOppositeLang(lang) {
-        return lang === 'zh' ? 'en' : 'zh';
+        return getNextLang(lang);
     }
 
     function getLanguageToggleMeta(lang) {
-        if (lang === 'en') {
-            return { buttonText: '中文', tooltip: 'Switch to Chinese / 切换到中文' };
+        const next = getNextLang(lang);
+        if (next === 'zh-Hant') {
+            return { buttonText: '繁體', tooltip: '切換到繁體中文' };
         }
-        return { buttonText: 'EN', tooltip: 'Switch to English / 切换到英文' };
+        if (next === 'plain') {
+            return lang === 'zh-Hant'
+                ? { buttonText: '白话', tooltip: '切換到大白話版本' }
+                : { buttonText: '白话', tooltip: '切换到大白话版本' };
+        }
+        if (next === 'en') {
+            return { buttonText: 'EN', tooltip: 'Switch to English / 切换到英文' };
+        }
+        return { buttonText: '中文', tooltip: 'Switch to Chinese / 切换到简体中文' };
     }
 
     function getDocumentLang(lang) {
-        return lang === 'en' ? 'en' : 'zh-CN';
+        if (lang === 'en') {
+            return 'en';
+        }
+        if (lang === 'zh-Hant') {
+            return 'zh-TW';
+        }
+        return 'zh-CN';
     }
 
     function getDefaultToastMessage(lang) {
-        return lang === 'en' ? 'Copied to clipboard' : '已复制到剪贴板';
+        if (lang === 'en') {
+            return 'Copied to clipboard';
+        }
+        if (lang === 'zh-Hant') {
+            return '已複製到剪貼簿';
+        }
+        return '已复制到剪贴板';
     }
 
     const api = {
+        SUPPORTED_LANGS,
         getBasePath,
+        isSupportedLang,
         detectCurrentLanguage,
         getConfigPathForLang,
+        getNextLang,
         getOppositeLang,
         getLanguageToggleMeta,
         getDocumentLang,

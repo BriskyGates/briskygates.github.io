@@ -1,0 +1,932 @@
+{
+  "ui": {
+    "pageTitle": "阿布 · AI 全棧工程師",
+    "pageDescription": "Python 全棧 | 企業級 AI 落地 | RAG · Agent · 文檔智能",
+    "labelSuffix": "：",
+    "searchPlaceholder": "探索技能、項目與合作方式…",
+    "heroCtaPrimary": "瀏覽代表作",
+    "heroCtaSecondary": "看看服務",
+    "contactMethodsTitle": "聯繫方式",
+    "languageToggle": {
+      "buttonText": "白话",
+      "tooltip": "切換到大白話版本"
+    },
+    "toast": {
+      "wechatCopied": "微信號已複製到剪貼板",
+      "xianyuCopied": "店鋪名稱已複製到剪貼板",
+      "imCopied": "IM 賬號已複製到剪貼板"
+    },
+    "nav": [
+      {
+        "id": "home",
+        "label": "首頁",
+        "shortLabel": "首頁",
+        "icon": "fas fa-house"
+      },
+      {
+        "id": "showcase",
+        "label": "代表作",
+        "shortLabel": "作品",
+        "icon": "fas fa-fire"
+      },
+      {
+        "id": "projects",
+        "label": "項目庫",
+        "shortLabel": "項目",
+        "icon": "fas fa-layer-group"
+      },
+      {
+        "id": "experience",
+        "label": "履歷",
+        "shortLabel": "履歷",
+        "icon": "fas fa-route"
+      },
+      {
+        "id": "skills",
+        "label": "技能",
+        "shortLabel": "技能",
+        "icon": "fas fa-bolt"
+      },
+      {
+        "id": "services",
+        "label": "服務",
+        "shortLabel": "服務",
+        "icon": "fas fa-briefcase"
+      },
+      {
+        "id": "contact",
+        "label": "聯繫",
+        "shortLabel": "聯繫",
+        "icon": "fas fa-envelope"
+      }
+    ],
+    "projectStatus": {
+      "production": "已上線",
+      "active": "持續迭代",
+      "testing": "測試中",
+      "development": "開發中",
+      "planned": "規劃中",
+      "highlightsLabel": "亮點",
+      "progressLabel": "進度"
+    },
+    "greetings": {
+      "morning": "早上好",
+      "afternoon": "下午好",
+      "evening": "晚上好",
+      "night": "夜深了，還在寫代碼？"
+    }
+  },
+  "profile": {
+    "name": "阿布",
+    "avatar": "🐶",
+    "tagline": "上海 · 在線",
+    "status": "可接項目",
+    "heroTitle": "讓 AI 跨越技術演示，落地為真實的生產力",
+    "title": "關於我",
+    "greeting": {
+      "text": "Hi，我是阿布，常駐上海",
+      "description": "作為 <strong>AI 全棧開發工程師</strong>，我致力於填補大模型與實際業務之間的鴻溝。<br>擅長將複雜的 RAG、Agent 與多模態技術，轉化為穩定、可擴展的企業級應用。"
+    },
+    "heroChips": [
+      "大模型應用落地",
+      "企業級 RAG 架構",
+      "多智能體 (Agent) 協作",
+      "高併發微服務",
+      "業務流程自動化"
+    ],
+    "roles": [
+      {
+        "label": "核心能力",
+        "value": "從 0 到 1 搭建企業級 AI 應用：需求解析 → 架構設計 → 研發交付 → 上線運維",
+        "type": "primary"
+      },
+      {
+        "label": "合作方向",
+        "value": "企業客戶 · 產品/技術團隊 · 創業公司與中小企業",
+        "type": "secondary"
+      }
+    ],
+    "stats": [
+      {
+        "number": "6+",
+        "label": "年實戰"
+      },
+      {
+        "number": "80+",
+        "label": "自研倉庫"
+      },
+      {
+        "number": "15+",
+        "label": "AI 核心項目"
+      },
+      {
+        "number": "全棧",
+        "label": "交付閉環"
+      }
+    ],
+    "location": {
+      "icon": "📍",
+      "text": "上海，中國 · UTC+8"
+    },
+    "heroGradient": [
+      "#0c4a6e",
+      "#1e3a5f",
+      "#312e81"
+    ]
+  },
+  "featured": {
+    "title": "精選代表作",
+    "subtitle": "按業務場景精選，覆蓋 RAG、Agent、Bot 與文檔智能",
+    "items": [
+      {
+        "id": "multi_llm_analysis",
+        "title": "多模型驅動的教育解析引擎",
+        "subtitle": "精準解析 · 智能複核",
+        "description": "面向複雜教育場景的自動化評估系統。通過智能路由分發，針對 8 類複雜題型調用最優大模型，結合多輪校驗工作流，大幅提升教輔解析的準確度與效率。",
+        "tags": [
+          "Multi-LLM",
+          "題型引擎",
+          "Pipeline"
+        ],
+        "icon": "🧠",
+        "accent": "#e91429",
+        "status": "production",
+        "highlights": [
+          "構建 8 類題型的自動化識別與路由分發引擎",
+          "創新性拆分評估與生成雙鏈路，保障解答嚴謹性",
+          "設計多輪複核流水線，實現複雜題型的精準解析"
+        ]
+      },
+      {
+        "id": "group_management_bot",
+        "title": "社群運營與擔保交易引擎",
+        "subtitle": "高併發 · 業務閉環",
+        "description": "為龐大商業社群量身定製的自動化管理與交易平臺。深度集成智能風控、資金擔保、自動分賬與工單客服系統，支撐高併發場景下社群的高效商業化運轉。",
+        "tags": [
+          "aiogram",
+          "MySQL",
+          "Redis",
+          "擔保交易"
+        ],
+        "icon": "🤖",
+        "accent": "#1db954",
+        "status": "production",
+        "highlights": [
+          "實現從入群驗證、反垃圾到風控管理的自動化治理",
+          "構建高可靠的專群資金擔保與財務對賬系統",
+          "提供完整的運營端控制台，實現商業流轉閉環"
+        ]
+      },
+      {
+        "id": "fastapi_celery_kb",
+        "title": "海量金融文檔 RAG 數據管線",
+        "subtitle": "高併發異步 · 自動化流轉",
+        "description": "專為金融級海量長文檔打造的知識工程流水線。實現從文檔智能解析、語義高維分塊到高性能向量入庫的全自動調度，為大模型提供實時、精準的行業知識底座。",
+        "tags": [
+          "Celery",
+          "向量庫",
+          "分塊",
+          "Docker"
+        ],
+        "icon": "📚",
+        "accent": "#b49bc8",
+        "status": "production",
+        "highlights": [
+          "實現研報與公告的自動化結構、高質量語義分塊",
+          "基於 Celery 構建多節點並行的異步任務調度集群",
+          "通過 Docker Compose 提供易於擴展的生產級部署方案"
+        ]
+      },
+      {
+        "id": "rerank_system",
+        "title": "高精度語義檢索重排序引擎",
+        "subtitle": "多維融合 · 意圖對齊",
+        "description": "突破基礎 RAG 檢索的準確率瓶頸。引入多維度語義重排策略，結合文檔時效性、來源權威性進行動態打分與 MMR 多樣性去重，確保大模型始終基於最優上下文生成回答。",
+        "tags": [
+          "FastAPI",
+          "Rerank",
+          "MMR",
+          "PostgreSQL"
+        ],
+        "icon": "🎯",
+        "accent": "#f59e0b",
+        "status": "production",
+        "highlights": [
+          "靈活集成多種深度語義打分模型與定製化重排策略",
+          "創新融合時效與權威度的綜合排序算法",
+          "提供完整的查詢質量評估與召回鏈路追蹤日誌"
+        ]
+      },
+      {
+        "id": "phone_autoglm",
+        "title": "移動端智能體群控中樞",
+        "subtitle": "視覺感知 · 批量自動化",
+        "description": "基於多模態視覺大模型的移動端自動化調度系統。將自然語言轉化為精準的終端操作指令，實現多設備的並行任務下發與狀態監控，大幅降低跨應用重複操作的業務成本。",
+        "tags": [
+          "AutoGLM",
+          "ADB",
+          "FastAPI",
+          "Vue"
+        ],
+        "icon": "📱",
+        "accent": "#059669",
+        "status": "production",
+        "highlights": [
+          "深度結合屏幕視覺感知與多步複雜操作規劃",
+          "提供可視化 Web 控制台進行任務編排與設備監控",
+          "提供標準化業務接口，輕鬆將移動端操作接入企業工作流"
+        ]
+      },
+      {
+        "id": "need_radar_bot",
+        "title": "智能商業線索挖掘雷達",
+        "subtitle": "意圖分析 · 供需匹配",
+        "description": "24小時不間斷的智能商機挖掘平臺。利用大模型深度理解海量非結構化文本中的供需意圖，精準計算匹配互補資源，並通過自動化訂閱引擎完成高質量商機的實時觸達。",
+        "tags": [
+          "國內IM",
+          "LLM",
+          "混合檢索"
+        ],
+        "icon": "📡",
+        "accent": "#8b5cf6",
+        "status": "production",
+        "highlights": [
+          "利用大模型構建精準的供方/需方意圖提取與語義對齊",
+          "構建基於白名單規則的增量抓取與高可用訂閱推送引擎",
+          "提供全功能運營管理後臺，實現線索全生命週期管理"
+        ]
+      }
+    ]
+  },
+  "projectShowcase": {
+    "rows": [
+      {
+        "id": "enterprise-ai",
+        "title": "企業級 AI 解決方案",
+        "description": "將前沿模型能力轉化為切實解決業務痛點的生產系統",
+        "items": [
+          {
+            "id": "multi_llm_analysis",
+            "title": "多模型教育解析引擎",
+            "subtitle": "8 類題型 · 雙模式",
+            "description": "構建複雜題型識別分流網絡，分離評估與生成環節，支持多輪自動複核以確保解析嚴謹性。",
+            "tags": [
+              "Multi-LLM",
+              "題型引擎"
+            ],
+            "icon": "🧠",
+            "accent": "#ff6b6b"
+          },
+          {
+            "id": "rerank_system",
+            "title": "檢索重排序系統",
+            "subtitle": "RAG 精度提升",
+            "description": "對研報/公告召回候選做語義重排與去重，融合時效與來源權重，提升問答引用準確率。",
+            "tags": [
+              "Rerank",
+              "RAG"
+            ],
+            "icon": "🎯",
+            "accent": "#f59e0b"
+          },
+          {
+            "id": "report_recall",
+            "title": "研報圖文多模態召回",
+            "subtitle": "多模態檢索",
+            "description": "實現 PDF 文檔內聯圖表與正文的雙路向量化存儲，精準響應投研問答中對圖表數據和文本證據的高階檢索需求。",
+            "tags": [
+              "向量檢索",
+              "研報"
+            ],
+            "icon": "📈",
+            "accent": "#06b6d4"
+          },
+          {
+            "id": "etf_unusual",
+            "title": "ETF 盤中異動量化監測",
+            "subtitle": "量化 · 資訊",
+            "description": "構建毫秒級行情與資訊異動監測引擎，多維量化指標自動評估風險，通過實時預警輔助投研決策。",
+            "tags": [
+              "ETF",
+              "量化"
+            ],
+            "icon": "📉",
+            "accent": "#8b5cf6"
+          },
+          {
+            "id": "temp_ner",
+            "title": "高精度金融實體識別 (NER)",
+            "subtitle": "實體識別 · 時間解析",
+            "description": "針對研報文本提供定製化的金融實體提取服務，結合知識圖譜召回與財報週期邏輯解析，強化業務數據的語義理解。",
+            "tags": [
+              "NER",
+              "FastAPI",
+              "向量召回"
+            ],
+            "icon": "🏷️",
+            "accent": "#f472b6"
+          }
+        ]
+      },
+      {
+        "id": "rag-knowledge",
+        "title": "RAG 與知識工程基建",
+        "description": "構建從文檔解析、高質量分塊到精準召回的 RAG 全鏈路底座",
+        "items": [
+          {
+            "id": "fastapi_celery_kb",
+            "title": "海量長文檔異步入庫集群",
+            "subtitle": "FastAPI · Celery · GPU",
+            "description": "基於 Celery 與 Docker 構建的異步分佈式文檔處理系統，支撐研報與公告的自動化入庫與向量化編排。",
+            "tags": [
+              "Celery",
+              "向量庫",
+              "Docker"
+            ],
+            "icon": "📚",
+            "accent": "#b49bc8"
+          },
+          {
+            "id": "multi_source_chunk",
+            "title": "全格式文檔自適應分塊管線",
+            "subtitle": "生產級數據管線",
+            "description": "構建兼容多格式來源的自動化高維分塊服務，部署於 GPU 生產環境，平穩支撐大規模資訊信息的流式清洗與入庫。",
+            "tags": [
+              "分塊",
+              "向量化"
+            ],
+            "icon": "🔗",
+            "accent": "#10b981"
+          },
+          {
+            "id": "qwen3_pg_recall",
+            "title": "Qwen3 向量化檢索中臺",
+            "subtitle": "PostgreSQL 向量檢索",
+            "description": "基於前沿 Embedding 模型與 PGVector 架構的企業級向量召回微服務，深度優化垂直行業文本的語義命中率。",
+            "tags": [
+              "Qwen3",
+              "PostgreSQL"
+            ],
+            "icon": "🔍",
+            "accent": "#3b82f6"
+          },
+          {
+            "id": "enterprise_chat_openapi",
+            "title": "企業級對話問答網關",
+            "subtitle": "對話式知識問答",
+            "description": "提供標準化的對話式 RAG OpenAPI 接口，封裝底層的複雜檢索與大模型生成邏輯，提供完整的鑑權與調用日誌審計。",
+            "tags": [
+              "OpenAPI",
+              "Chat"
+            ],
+            "icon": "💬",
+            "accent": "#ec4899"
+          },
+          {
+            "id": "announcement_tagging",
+            "title": "金融資訊智能打標分類",
+            "subtitle": "NLP 分類",
+            "description": "利用 NLP 模型對海量上市公司公告與資訊進行自動化標籤提取與歸類，為下游的信息聚合與個性化推送提供數據支撐。",
+            "tags": [
+              "NLP",
+              "分類"
+            ],
+            "icon": "🏷️",
+            "accent": "#f97316"
+          }
+        ]
+      },
+      {
+        "id": "doc-intelligence",
+        "title": "多模態文檔智能解析",
+        "description": "解決複雜版面、掃描件、多模態文檔的精準結構化提取難題",
+        "items": [
+          {
+            "id": "pdf2xml",
+            "title": "高精度 PDF 結構化解析引擎",
+            "subtitle": "PDFlib TET · FastAPI",
+            "description": "運用底層庫高精度逆向解析 PDF 座標，提煉文本、表格與邏輯層級，為下游 RAG 檢索提供最純淨的結構化數據源。",
+            "tags": [
+              "PDF",
+              "FastAPI"
+            ],
+            "icon": "📄",
+            "accent": "#6366f1"
+          },
+          {
+            "id": "pdf_chunker",
+            "title": "研報/公告智能語義分塊",
+            "subtitle": "研報 / 公告雙模式",
+            "description": "專門針對金融排版優化的智能分塊算法，有效識別多形態表格並輸出高質量 Markdown，最大程度保留文檔的業務邏輯語境。",
+            "tags": [
+              "分塊",
+              "表格識別"
+            ],
+            "icon": "✂️",
+            "accent": "#14b8a6"
+          },
+          {
+            "id": "pdf_watermark",
+            "title": "智能 PDF 淨水處理引擎",
+            "subtitle": "多規則模板庫",
+            "description": "基於可配置規則庫與視覺座標匹配，實現研報批量去水印處理，顯著提升後續 OCR 識別與文本提取的準確率基線。",
+            "tags": [
+              "水印",
+              "批處理"
+            ],
+            "icon": "💧",
+            "accent": "#a855f7"
+          },
+          {
+            "id": "paddle_ocr_vl",
+            "title": "多模態 OCR 視覺解析服務",
+            "subtitle": "上傳即解析",
+            "description": "將先進的 OCR 與版面理解模型封裝為高併發 API，提供開箱即用的掃描件與複雜圖片信息的結構化提取能力。",
+            "tags": [
+              "OCR",
+              "VL"
+            ],
+            "icon": "👁️",
+            "accent": "#22c55e"
+          },
+          {
+            "id": "extract_pdf_toc",
+            "title": "研報目錄層級深度挖掘",
+            "subtitle": "三級降級策略",
+            "description": "設計書籤提取、目錄頁解析到版面理解的三級降級兜底策略，極致提升複雜金融研報的結構化目錄還原成功率。",
+            "tags": [
+              "PDF",
+              "目錄",
+              "版面分析"
+            ],
+            "icon": "📑",
+            "accent": "#a78bfa"
+          },
+          {
+            "id": "gpu_rapid_layout",
+            "title": "GPU 版面元素極速檢測",
+            "subtitle": "高併發 · 異步落庫",
+            "description": "基於 GPU 推理集群加速的版面元素識別 API，支持高併發異步落庫，高效拆解圖、表、段落等文檔區塊。",
+            "tags": [
+              "FastAPI",
+              "版面檢測",
+              "GPU"
+            ],
+            "icon": "🖼️",
+            "accent": "#f59e0b"
+          }
+        ]
+      },
+      {
+        "id": "agent-mcp",
+        "title": "Agent 智能體與自動化",
+        "description": "打造感知複雜環境、自主規劃並調度工具鏈的智能體網絡",
+        "items": [
+          {
+            "id": "phone_autoglm",
+            "title": "Phone AutoGLM 群控平臺",
+            "subtitle": "雲手機 · 業務 API",
+            "description": "基於 AutoGLM 的雲手機群控平臺：Web 控制台調試任務，REST API 提供指令下發、進度查詢與相冊素材導入。",
+            "tags": [
+              "AutoGLM",
+              "ADB",
+              "群控"
+            ],
+            "icon": "📱",
+            "accent": "#059669"
+          },
+          {
+            "id": "dynamic_mcp",
+            "title": "沙箱化代碼執行與工具代理",
+            "subtitle": "代碼執行 · 動態工具",
+            "description": "賦能大模型在隔離沙箱中動態編寫執行代碼並按需掛載工具，有效解決靜態工具鏈的泛化難題。",
+            "tags": [
+              "MCP",
+              "Code Act"
+            ],
+            "icon": "⚡",
+            "accent": "#1db954"
+          },
+          {
+            "id": "mcp_json_rpc",
+            "title": "MCP 服務流編排引擎",
+            "subtitle": "多工具協同",
+            "description": "根據自然語言指令智能規劃多工具調用鏈路，支持上下文感知的複雜意圖拆解與多併發任務執行。",
+            "tags": [
+              "JSON-RPC",
+              "編排"
+            ],
+            "icon": "🔧",
+            "accent": "#0ea5e9"
+          },
+          {
+            "id": "ai_mcp_middleware",
+            "title": "企業級模型能力聚合網關",
+            "subtitle": "業務系統橋接",
+            "description": "構建統一的 AI 工具調度中間層，屏蔽各業務系統直連大模型的複雜性，實現 AI 接口資產的集中化管控與路由。",
+            "tags": [
+              "MCP",
+              "API"
+            ],
+            "icon": "🌐",
+            "accent": "#64748b"
+          },
+          {
+            "id": "multi_agent_collab",
+            "title": "複雜業務多智能體協同",
+            "subtitle": "多智能體系統",
+            "description": "設計多角色 Agent 協同網絡，實現複雜任務的自主拆解、多輪路由與自動化執行閉環，賦能複雜業務工作流重構。",
+            "tags": [
+              "Multi-Agent"
+            ],
+            "icon": "🤝",
+            "accent": "#d946ef"
+          }
+        ]
+      },
+      {
+        "id": "tg-mobile",
+        "title": "社群機器人與生態應用",
+        "description": "深度整合 IM 生態與混合檢索能力，打造高轉化、高粘性的商業效率工具",
+        "items": [
+          {
+            "id": "group_management_bot",
+            "title": "社群管理與商業變現中樞",
+            "subtitle": "群管 · 擔保 · 充值",
+            "description": "一體化社群運營解決方案，涵蓋反作弊風控、擔保交易與智能客服，深度賦能私域流量的高效轉化與商業變現。",
+            "tags": [
+              "aiogram",
+              "MySQL",
+              "擔保交易"
+            ],
+            "icon": "🤖",
+            "accent": "#1db954"
+          },
+          {
+            "id": "need_radar_bot",
+            "title": "社群商業線索洞察雷達",
+            "subtitle": "線索掃描 · 互補匹配",
+            "description": "7x24小時全量監聽社群動態，以 LLM 提取商業意圖，實現互補商機的精準捕捉與定向實時觸達。",
+            "tags": [
+              "Bot",
+              "LLM",
+              "SeekDB"
+            ],
+            "icon": "📡",
+            "accent": "#8b5cf6"
+          },
+          {
+            "id": "tg_ai_search",
+            "title": "社群歷史內容智能檢索引擎",
+            "subtitle": "國內IM 內嵌搜索",
+            "description": "融合全文檢索與向量相似度的雙路召回系統，深度挖掘並精準定位海量社群聊天記錄中的有價值信息。",
+            "tags": [
+              "國內IM",
+              "混合檢索",
+              "RAG"
+            ],
+            "icon": "🔎",
+            "accent": "#06b6d4"
+          },
+          {
+            "id": "smart_clipboard",
+            "title": "AI 增強智能剪貼板",
+            "subtitle": "Windows 桌面 · AI 增強",
+            "description": "基於 Rust 極致性能打造的桌面級效率輔助工具，實時監聽並調用大模型重塑剪貼板內容，無縫銜接各類工作流。",
+            "tags": [
+              "Tauri",
+              "Rust",
+              "桌面工具"
+            ],
+            "icon": "📋",
+            "accent": "#818cf8"
+          }
+        ]
+      },
+      {
+        "id": "platform-auto",
+        "title": "業務後臺與運維中樞",
+        "description": "提供穩定可靠的監控、異步調度與數據流轉基礎設施",
+        "items": [
+          {
+            "id": "onchain_token_monitor",
+            "title": "資產交易高頻監控預警",
+            "subtitle": "實時監聽 · IM 推送",
+            "description": "搭建低延遲交易數據監聽節點，結合 Redis 緩存實現高速去重與研判，毫秒級推送核心交易情報。",
+            "tags": [
+              "Web3",
+              "國內IM"
+            ],
+            "icon": "⛓️",
+            "accent": "#facc15"
+          },
+          {
+            "id": "cc_monitor_gmail",
+            "title": "郵件情報自動化分發引擎",
+            "subtitle": "郵件自動化",
+            "description": "實時監聽核心郵箱，通過定製化規則萃取高價值郵件信息並跨平臺路由投遞，打通郵件到 IM 的信息孤島。",
+            "tags": [
+              "IMAP",
+              "Bot"
+            ],
+            "icon": "📧",
+            "accent": "#ef4444"
+          },
+          {
+            "id": "lark_sync",
+            "title": "企業辦公協同數據管道",
+            "subtitle": "辦公自動化",
+            "description": "打通飛書多維表格與後端業務系統的數據壁壘，實現訂單狀態、客商信息的雙向實時同步更新，消除人工對賬成本。",
+            "tags": [
+              "飛書",
+              "自動化"
+            ],
+            "icon": "🚀",
+            "accent": "#3370ff"
+          },
+          {
+            "id": "email_auto_crawl",
+            "title": "研報附件 RPA 自動化採集",
+            "subtitle": "RPA · PyInstaller",
+            "description": "自動化輪詢郵箱並萃取附件研報中的關鍵數據表格，輸出標準結構化臺賬，極大提升金融投研數據入庫效率。",
+            "tags": [
+              "RPA",
+              "PDF"
+            ],
+            "icon": "📬",
+            "accent": "#78716c"
+          }
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "title": "能力履歷",
+    "subtitle": "在複雜的業務場景中，磨練出的全棧工程實力",
+    "items": [
+      {
+        "period": "2024 — 至今",
+        "title": "企業 AI 架構設計與研發",
+        "description": "深度主導企業級智能體、複雜 RAG 架構、多模態應用的設計與落地。積累了從 POC 概念驗證到高可用生產系統的全鏈路調優經驗。",
+        "tags": [
+          "智能體",
+          "RAG",
+          "AutoGLM",
+          "FastAPI"
+        ]
+      },
+      {
+        "period": "2022 — 2024",
+        "title": "文檔智能與非結構化數據處理",
+        "description": "主導構建百萬級金融文檔解析管線，攻克 PDF 複雜版面、深度 OCR 識別、高優分塊策略等核心難題，奠定高質量數據底座。",
+        "tags": [
+          "PDF",
+          "OCR",
+          "ETL"
+        ]
+      },
+      {
+        "period": "2020 — 至今",
+        "title": "高併發 IM 機器人與後臺架構",
+        "description": "設計並實現高併發的商業生態機器人與運維監控中樞，熟練應用異步框架與緩存隊列，保障核心交易流的絕對穩定性。",
+        "tags": [
+          "aiogram",
+          "飛書 API",
+          "Redis"
+        ]
+      },
+      {
+        "period": "持續",
+        "title": "MCP & Agent 工程化",
+        "description": "探索 MCP 工具編排、代碼執行範式與 Text2SQL，將 LLM 能力嵌入可審計、可復現的工程流程。",
+        "tags": [
+          "MCP",
+          "Agent",
+          "Text2SQL"
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "核心技術",
+    "motto": "不僅精於大模型的調度，<strong>更專注於將 AI 技術無縫融合入企業系統</strong>，提供穩定、可擴展的工程落地架構。",
+    "items": [
+      {
+        "title": "AI 應用工程化",
+        "description": "RAG 架構 / 手機 Agent / LLM 部署 / Multi-Agent / MCP 工具鏈",
+        "tags": [
+          "RAG",
+          "Agent",
+          "AutoGLM",
+          "MCP"
+        ],
+        "icon": "🤖"
+      },
+      {
+        "title": "行業文本 & 知識庫",
+        "description": "研報/公告分塊向量化、召回重排、圖表召回、資訊打標",
+        "tags": [
+          "向量庫",
+          "研報",
+          "召回"
+        ],
+        "icon": "📊"
+      },
+      {
+        "title": "文檔智能",
+        "description": "PDF 解析 / OCR-VL / 去水印 / 表格識別 / 結構化抽取",
+        "tags": [
+          "PDF",
+          "OCR",
+          "Pipeline"
+        ],
+        "icon": "📄"
+      },
+      {
+        "title": "平臺集成 & 自動化",
+        "description": "國內IM Bot / 飛書 / 郵件 RPA / Celery 任務調度",
+        "tags": [
+          "Bot",
+          "飛書",
+          "Celery"
+        ],
+        "icon": "⚡"
+      }
+    ],
+    "summary": [
+      {
+        "icon": "🏗️",
+        "text": "全棧架構"
+      },
+      {
+        "icon": "🧠",
+        "text": "AI 工程化"
+      },
+      {
+        "icon": "🚀",
+        "text": "敏捷交付"
+      }
+    ]
+  },
+  "services": {
+    "title": "可提供的合作",
+    "items": [
+      {
+        "title": "企業 AI 智能體",
+        "description": "知識庫問答、工作流智能體、私有化部署與 API 監控",
+        "technologies": [
+          "RAG",
+          "Agent",
+          "FastAPI"
+        ],
+        "badge": "企業級",
+        "icon": "🤖"
+      },
+      {
+        "title": "行業文檔 RAG 系統",
+        "description": "研報/公告入庫、分塊策略、召回重排與評測",
+        "technologies": [
+          "向量庫",
+          "Rerank",
+          "ETL"
+        ],
+        "badge": "RAG",
+        "icon": "📈"
+      },
+      {
+        "title": "文檔處理管線",
+        "description": "PDF 解析、OCR、去水印、批量結構化",
+        "technologies": [
+          "PDF",
+          "OCR",
+          "Python"
+        ],
+        "badge": "文檔智能",
+        "icon": "📄"
+      },
+      {
+        "title": "Bot & 辦公自動化",
+        "description": "國內IM/飛書機器人、郵件轉發、任務調度",
+        "technologies": [
+          "aiogram",
+          "飛書",
+          "Celery"
+        ],
+        "badge": "自動化",
+        "icon": "📱"
+      },
+      {
+        "title": "Python 技術顧問",
+        "description": "架構評審、性能優化、疑難問題攻堅",
+        "technologies": [
+          "架構",
+          "Code Review"
+        ],
+        "badge": "顧問",
+        "icon": "📚"
+      }
+    ],
+    "partners": {
+      "title": "期待這樣的夥伴",
+      "types": [
+        {
+          "icon": "🚀",
+          "type": "AI 創業團隊",
+          "description": "從 MVP 到產品化，補齊後端與 AI 工程能力"
+        },
+        {
+          "icon": "🏢",
+          "type": "企業客戶",
+          "description": "知識庫、智能問答與 AI 系統集成落地"
+        },
+        {
+          "icon": "👥",
+          "type": "技術合夥人",
+          "description": "一起打磨有商業價值的 Agent / RAG 產品"
+        }
+      ],
+      "note": "歡迎<strong>項目合作</strong>或<strong>長期技術顧問</strong>，先用 30 分鐘對齊需求再開工 💬"
+    }
+  },
+  "projects": {
+    "title": "技術理念",
+    "status": "",
+    "items": [],
+    "innovation": {
+      "icon": "💡",
+      "title": "技術理念",
+      "text": "AI 的價值在落地——可觀測、可回滾、可維護。用紮實的 Python 工程能力，把模型能力變成業務裡真正在跑的系統。"
+    }
+  },
+  "contact": {
+    "title": "合作交流",
+    "intro": {
+      "icon": "✨",
+      "title": "有想法？一起把它做成產品",
+      "description": "無論是智能體、RAG、文檔管線還是 Bot，歡迎帶著場景來聊——我會誠實評估可行性並給出落地路徑。"
+    },
+    "methods": [],
+    "availability": {
+      "icon": "⏰",
+      "title": "響應時間",
+      "responseTime": "2–4 小時",
+      "timezone": "UTC+8（北京時間）",
+      "labels": {
+        "usuallyWithin": "工作日通常在",
+        "response": "內回覆",
+        "timezoneLabel": "時區"
+      }
+    },
+    "collaboration": {
+      "icon": "🤝",
+      "title": "合作方式",
+      "types": [
+        {
+          "icon": "💼",
+          "text": "項目外包"
+        },
+        {
+          "icon": "🎓",
+          "text": "技術顧問"
+        },
+        {
+          "icon": "🚀",
+          "text": "創業合夥"
+        }
+      ]
+    },
+    "footer": {
+      "highlights": [
+        "開放溝通",
+        "工程優先",
+        "結果導向"
+      ]
+    },
+    "form": {
+      "title": "發送消息",
+      "subtitle": "留下你的聯繫方式，我會盡快回復",
+      "fields": {
+        "name": {
+          "label": "你的名字",
+          "placeholder": "怎麼稱呼？"
+        },
+        "contact": {
+          "label": "聯繫方式",
+          "placeholder": "微信 / 郵箱 / 手機號"
+        },
+        "topic": {
+          "label": "想聊什麼",
+          "placeholder": "合作方向 / 項目需求 / 技術交流…"
+        },
+        "message": {
+          "label": "詳細描述",
+          "placeholder": "簡單說說你的場景和需求，我會更精準地回覆…"
+        }
+      },
+      "submit": "發送消息",
+      "submitting": "發送中…",
+      "success": "消息已送達！我會盡快回復你",
+      "error": "發送失敗，請稍後重試或直接聯繫我"
+    }
+  }
+}

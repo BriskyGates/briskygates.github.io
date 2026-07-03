@@ -360,7 +360,11 @@ async function switchLanguage() {
         console.error('语言切换失败:', error);
         const message = currentLang === 'en'
             ? `Language switch failed: ${error.message}`
-            : `语言切换失败: ${error.message}`;
+            : currentLang === 'zh-Hant'
+                ? `語言切換失敗：${error.message}`
+                : currentLang === 'plain'
+                    ? `切换失败：${error.message}`
+                    : `语言切换失败: ${error.message}`;
         alert(message);
     }
 }
@@ -378,9 +382,9 @@ async function initApp(config) {
     );
 
     try {
-        const data = currentLang === 'en'
-            ? await loadConfigForLanguage('en')
-            : config;
+        const data = currentLang === 'zh'
+            ? config
+            : await loadConfigForLanguage(currentLang);
         await applyLanguage(currentLang, data);
     } catch (error) {
         console.warn('无法加载目标语言配置，使用默认配置:', error);

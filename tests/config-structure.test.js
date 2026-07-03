@@ -10,6 +10,12 @@ const zhConfig = JSON.parse(
 const enConfig = JSON.parse(
     fs.readFileSync(path.join(ROOT, 'assets/data/homeConfig.en.json'), 'utf8')
 );
+const plainConfig = JSON.parse(
+    fs.readFileSync(path.join(ROOT, 'assets/data/homeConfig.plain.json'), 'utf8')
+);
+const hantConfig = JSON.parse(
+    fs.readFileSync(path.join(ROOT, 'assets/data/homeConfig.zh-Hant.json'), 'utf8')
+);
 
 const REQUIRED_UI_KEYS = [
     'pageTitle',
@@ -52,22 +58,29 @@ function collectKeys(obj, prefix = '') {
     });
 }
 
-test('中英文配置文件均可解析为 JSON', () => {
+test('各语言配置文件均可解析为 JSON', () => {
     assert.ok(zhConfig.profile);
     assert.ok(enConfig.profile);
+    assert.ok(plainConfig.profile);
+    assert.ok(hantConfig.profile);
 });
 
-test('中英文配置文件顶层结构一致', () => {
-    assert.deepEqual(Object.keys(zhConfig).sort(), Object.keys(enConfig).sort());
+test('各语言配置文件顶层结构一致', () => {
+    const zhKeys = Object.keys(zhConfig).sort();
+    assert.deepEqual(zhKeys, Object.keys(enConfig).sort());
+    assert.deepEqual(zhKeys, Object.keys(plainConfig).sort());
+    assert.deepEqual(zhKeys, Object.keys(hantConfig).sort());
     TOP_LEVEL_KEYS.forEach(key => {
         assert.ok(key in zhConfig, `中文配置缺少 ${key}`);
         assert.ok(key in enConfig, `英文配置缺少 ${key}`);
+        assert.ok(key in plainConfig, `大白话配置缺少 ${key}`);
+        assert.ok(key in hantConfig, `繁体配置缺少 ${key}`);
     });
 });
 
 test('ui 区块包含国际化所需字段', () => {
-    [zhConfig, enConfig].forEach((config, index) => {
-        const label = index === 0 ? '中文' : '英文';
+    [zhConfig, enConfig, plainConfig, hantConfig].forEach((config, index) => {
+        const label = ['简体', '英文', '大白话', '繁体'][index];
         REQUIRED_UI_KEYS.forEach(key => {
             assert.ok(config.ui[key], `${label}配置 ui.${key} 缺失`);
         });
@@ -81,20 +94,29 @@ test('ui 区块包含国际化所需字段', () => {
 });
 
 test('languageToggle 按钮文案与目标语言匹配', () => {
-    assert.equal(zhConfig.ui.languageToggle.buttonText, 'EN');
+    assert.equal(zhConfig.ui.languageToggle.buttonText, '繁體');
+    assert.equal(hantConfig.ui.languageToggle.buttonText, '白话');
+    assert.equal(plainConfig.ui.languageToggle.buttonText, 'EN');
     assert.equal(enConfig.ui.languageToggle.buttonText, '中文');
 });
 
-test('项目、技能、服务条目数量在中英文配置中一致', () => {
-    assert.equal(zhConfig.skills.items.length, enConfig.skills.items.length);
-    assert.equal(zhConfig.services.items.length, enConfig.services.items.length);
-    assert.equal(zhConfig.projects.items.length, enConfig.projects.items.length);
+test('项目、技能、服务条目数量在各语言配置中一致', () => {
+    const configs = [zhConfig, enConfig, plainConfig, hantConfig];
+    configs.forEach(config => {
+        assert.equal(config.skills.items.length, zhConfig.skills.items.length);
+        assert.equal(config.services.items.length, zhConfig.services.items.length);
+        assert.equal(config.projects.items.length, zhConfig.projects.items.length);
+    });
 });
 
-test('中英文配置嵌套 key 结构一致', () => {
+test('各语言配置嵌套 key 结构一致', () => {
     const zhKeys = collectKeys(zhConfig).sort();
     const enKeys = collectKeys(enConfig).sort();
+    const plainKeys = collectKeys(plainConfig).sort();
+    const hantKeys = collectKeys(hantConfig).sort();
     assert.deepEqual(zhKeys, enKeys);
+    assert.deepEqual(zhKeys, plainKeys);
+    assert.deepEqual(zhKeys, hantKeys);
 });
 
 test('index.html 使用配置驱动渲染且无硬编码亮点文案', () => {

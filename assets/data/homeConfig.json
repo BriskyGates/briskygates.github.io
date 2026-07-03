@@ -8,8 +8,8 @@
     "heroCtaSecondary": "看看服务",
     "contactMethodsTitle": "联系方式",
     "languageToggle": {
-      "buttonText": "EN",
-      "tooltip": "切换到英文 / Switch to English"
+      "buttonText": "繁體",
+      "tooltip": "切換到繁體中文"
     },
     "toast": {
       "wechatCopied": "微信号已复制到剪贴板",
