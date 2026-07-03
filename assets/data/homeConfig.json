@@ -611,7 +611,7 @@
           {
             "id": "onchain_token_monitor",
             "title": "资产交易高频监控预警",
-            "subtitle": "SOL/BSC · IM 推送",
+            "subtitle": "实时监听 · IM 推送",
             "description": "搭建低延迟交易数据监听节点，结合 Redis 缓存实现高速去重与研判，毫秒级推送核心交易情报。",
             "tags": [
               "Web3",

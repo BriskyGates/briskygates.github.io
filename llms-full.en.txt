@@ -216,7 +216,7 @@ Deeply integrating IM ecosystems with hybrid search to build high-conversion, hi
 Providing stable and reliable infrastructure for monitoring, asynchronous scheduling, and data flow
 
 ### High-Freq Asset Trading Monitor
-- 副标题: SOL/BSC · IM push
+- 副标题: Real-time monitor · IM push
 - 描述: Built low-latency trading data listening nodes, combined with Redis caching for high-speed deduplication and analysis, pushing core trading intelligence in milliseconds.
 - 标签: Web3, IM
 
