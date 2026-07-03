@@ -125,7 +125,7 @@ showcase_updates = {
     "need_radar_bot": {"title": "社群商业线索洞察雷达", "description": "7x24小时全量监听社群动态，以 LLM 提取商业意图，实现互补商机的精准捕捉与定向实时触达。"},
     "tg_ai_search": {"title": "社群历史内容智能检索引擎", "description": "融合全文检索与向量相似度的双路召回系统，深度挖掘并精准定位海量社群聊天记录中的有价值信息。"},
     "smart_clipboard": {"title": "AI 增强智能剪贴板", "description": "基于 Rust 极致性能打造的桌面级效率辅助工具，实时监听并调用大模型重塑剪贴板内容，无缝衔接各类工作流。"},
-    "onchain_token_monitor": {"title": "链上资产高频监控预警", "description": "搭建低延迟链上数据监听节点，结合 Redis 缓存实现高速去重与研判，毫秒级推送核心交易情报。"},
+    "onchain_token_monitor": {"title": "资产交易高频监控预警", "description": "搭建低延迟交易数据监听节点，结合 Redis 缓存实现高速去重与研判，毫秒级推送核心交易情报。"},
     "cc_monitor_gmail": {"title": "邮件情报自动化分发引擎", "description": "实时监听核心邮箱，通过定制化规则萃取高价值邮件信息并跨平台路由投递，打通邮件到 IM 的信息孤岛。"},
     "lark_sync": {"title": "企业办公协同数据管道", "description": "打通飞书多维表格与后端业务系统的数据壁垒，实现订单状态、客商信息的双向实时同步更新，消除人工对账成本。"},
     "email_auto_crawl": {"title": "研报附件 RPA 自动化采集", "description": "自动化轮询邮箱并萃取附件研报中的关键数据表格，输出标准结构化台账，极大提升金融投研数据入库效率。"}

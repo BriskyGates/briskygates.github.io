@@ -215,9 +215,9 @@ Deeply integrating IM ecosystems with hybrid search to build high-conversion, hi
 ### Backend Systems & Ops Orchestration
 Providing stable and reliable infrastructure for monitoring, asynchronous scheduling, and data flow
 
-### High-Freq On-chain Asset Monitor
+### High-Freq Asset Trading Monitor
 - 副标题: SOL/BSC · IM push
-- 描述: Built low-latency on-chain data listening nodes, combined with Redis caching for high-speed deduplication and analysis, pushing core trading intelligence in milliseconds.
+- 描述: Built low-latency trading data listening nodes, combined with Redis caching for high-speed deduplication and analysis, pushing core trading intelligence in milliseconds.
 - 标签: Web3, IM
 
 ### Email Intel Automated Routing

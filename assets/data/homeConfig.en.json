@@ -610,9 +610,9 @@
         "items": [
           {
             "id": "onchain_token_monitor",
-            "title": "High-Freq On-chain Asset Monitor",
+            "title": "High-Freq Asset Trading Monitor",
             "subtitle": "SOL/BSC · IM push",
-            "description": "Built low-latency on-chain data listening nodes, combined with Redis caching for high-speed deduplication and analysis, pushing core trading intelligence in milliseconds.",
+            "description": "Built low-latency trading data listening nodes, combined with Redis caching for high-speed deduplication and analysis, pushing core trading intelligence in milliseconds.",
             "tags": [
               "Web3",
               "IM"
