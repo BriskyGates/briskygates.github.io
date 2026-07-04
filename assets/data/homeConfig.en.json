@@ -163,7 +163,7 @@
         "subtitle": "High Concurrency · Business Closed-Loop",
         "description": "A tailored automation management and trading platform for massive commercial communities. Deeply integrates smart risk control, fund escrow, automated profit splitting, and ticketing systems to support highly concurrent commercial operations.",
         "tags": [
-          "aiogram",
+          "Bot",
           "MySQL",
           "Redis",
           "Escrow"
@@ -555,7 +555,7 @@
             "subtitle": "Moderation · Escrow · Wallet",
             "description": "All-in-one community operations solution covering anti-fraud risk control, escrow trading, and smart customer service, deeply empowering the efficient conversion of private traffic.",
             "tags": [
-              "aiogram",
+              "Bot",
               "MySQL",
               "Escrow"
             ],
@@ -690,7 +690,7 @@
         "title": "High-Concurrency IM Bots & Backends",
         "description": "Designed and implemented high-concurrency commercial ecosystem bots and ops monitoring hubs, proficient in async frameworks and caching queues to guarantee absolute stability of core trading flows.",
         "tags": [
-          "aiogram",
+          "Bot",
           "Lark API",
           "Redis"
         ]
@@ -808,7 +808,7 @@
         "title": "Bots & Office Automation",
         "description": "Domestic IM/Lark bots, email relay, task scheduling",
         "technologies": [
-          "aiogram",
+          "Bot",
           "Lark",
           "Celery"
         ],

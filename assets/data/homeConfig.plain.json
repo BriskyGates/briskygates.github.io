@@ -161,9 +161,9 @@
         "id": "group_management_bot",
         "title": "社群管理 + 担保交易机器人",
         "subtitle": "管群 · 收钱 · 分账",
-        "description": "大群用的 Telegram 机器人：自动管群、防骗子、担保交易、客服工单，一套搞定。",
+        "description": "大群用的社群机器人：自动管群、防骗子、担保交易、客服工单，一套搞定。",
         "tags": [
-          "aiogram",
+          "Bot",
           "MySQL",
           "Redis",
           "担保交易"
@@ -547,7 +547,7 @@
       {
         "id": "tg-mobile",
         "title": "机器人和 IM 应用",
-        "description": "Telegram 机器人、搜索、桌面小工具",
+        "description": "社群机器人、搜索、桌面小工具",
         "items": [
           {
             "id": "group_management_bot",
@@ -555,7 +555,7 @@
             "subtitle": "管群变现",
             "description": "管群、担保交易、客服，私域变现一条龙。",
             "tags": [
-              "aiogram",
+              "Bot",
               "MySQL",
               "担保交易"
             ],
@@ -686,7 +686,7 @@
       {
         "period": "2020 — 至今",
         "title": "机器人和后台",
-        "description": "高并发的 Telegram 机器人和监控系统，交易流程要稳。",
+        "description": "高并发的社群机器人和监控系统，交易流程要稳。",
         "tags": [
           "机器人",
           "飞书",
@@ -738,7 +738,7 @@
       },
       {
         "title": "集成 & 自动化",
-        "description": "Telegram 机器人 / 飞书 / 邮件自动化 / 任务队列",
+        "description": "社群机器人 / 飞书 / 邮件自动化 / 任务队列",
         "tags": [
           "Bot",
           "飞书"
@@ -796,7 +796,7 @@
       },
       {
         "title": "机器人和办公自动化",
-        "description": "Telegram/飞书机器人、邮件转发、定时任务",
+        "description": "社群/飞书机器人、邮件转发、定时任务",
         "technologies": [
           "Bot",
           "飞书"

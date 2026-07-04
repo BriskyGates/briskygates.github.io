@@ -1,4 +1,4 @@
-{
+﻿{
   "ui": {
     "pageTitle": "阿布 · AI 全栈工程师",
     "pageDescription": "Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能",
@@ -163,7 +163,7 @@
         "subtitle": "高并发 · 业务闭环",
         "description": "为庞大商业社群量身定制的自动化管理与交易平台。深度集成智能风控、资金担保、自动分账与工单客服系统，支撑高并发场景下社群的高效商业化运转。",
         "tags": [
-          "aiogram",
+          "Bot",
           "MySQL",
           "Redis",
           "担保交易"
@@ -555,7 +555,7 @@
             "subtitle": "群管 · 担保 · 充值",
             "description": "一体化社群运营解决方案，涵盖反作弊风控、担保交易与智能客服，深度赋能私域流量的高效转化与商业变现。",
             "tags": [
-              "aiogram",
+              "Bot",
               "MySQL",
               "担保交易"
             ],
@@ -690,7 +690,7 @@
         "title": "高并发 IM 机器人与后台架构",
         "description": "设计并实现高并发的商业生态机器人与运维监控中枢，熟练应用异步框架与缓存队列，保障核心交易流的绝对稳定性。",
         "tags": [
-          "aiogram",
+          "Bot",
           "飞书 API",
           "Redis"
         ]
@@ -808,7 +808,7 @@
         "title": "Bot & 办公自动化",
         "description": "国内IM/飞书机器人、邮件转发、任务调度",
         "technologies": [
-          "aiogram",
+          "Bot",
           "飞书",
           "Celery"
         ],
