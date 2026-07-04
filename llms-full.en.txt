@@ -28,7 +28,7 @@ Curated by scenario — RAG, agents, bots, and document intelligence
 ### Community Ops & Escrow Trading Engine
 - 副标题: High Concurrency · Business Closed-Loop
 - 描述: A tailored automation management and trading platform for massive commercial communities. Deeply integrates smart risk control, fund escrow, automated profit splitting, and ticketing systems to support highly concurrent commercial operations.
-- 标签: aiogram, MySQL, Redis, Escrow
+- 标签: Bot, MySQL, Redis, Escrow
 - 亮点:
   - Automated governance from group entry verification, anti-spam to risk control
   - Built a highly reliable escrow and financial reconciliation system for VIP groups
@@ -195,7 +195,7 @@ Deeply integrating IM ecosystems with hybrid search to build high-conversion, hi
 ### Community Ops & Monetization Hub
 - 副标题: Moderation · Escrow · Wallet
 - 描述: All-in-one community operations solution covering anti-fraud risk control, escrow trading, and smart customer service, deeply empowering the efficient conversion of private traffic.
-- 标签: aiogram, MySQL, Escrow
+- 标签: Bot, MySQL, Escrow
 
 ### Community Lead Insight Radar
 - 副标题: Scan · Complementary match
@@ -249,7 +249,7 @@ Led the construction of a million-level financial document parsing pipeline, ove
 
 ### 2020 — Present — High-Concurrency IM Bots & Backends
 Designed and implemented high-concurrency commercial ecosystem bots and ops monitoring hubs, proficient in async frameworks and caching queues to guarantee absolute stability of core trading flows.
-标签: aiogram, Lark API, Redis
+标签: Bot, Lark API, Redis
 
 ### Ongoing — MCP & Agent Engineering
 MCP orchestration, code-act patterns, Text2SQL — auditable, reproducible LLM workflows.
@@ -291,7 +291,7 @@ PDF parse, OCR, watermark removal, batch structuring
 
 ### Bots & Office Automation [Automation]
 Domestic IM/Lark bots, email relay, task scheduling
-技术: aiogram, Lark, Celery
+技术: Bot, Lark, Celery
 
 ### Python Consulting [Advisor]
 Architecture review, performance, hard problems

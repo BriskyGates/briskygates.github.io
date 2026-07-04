@@ -158,6 +158,18 @@ test('SEO 模板包含 canonical 与 Open Graph 标签', () => {
     assert.match(seoHead, /name="twitter:card"/);
 });
 
+test('语言配置文件不含 UTF-8 BOM', () => {
+    const configDir = path.join(__dirname, '../assets/data');
+    fs.readdirSync(configDir)
+        .filter(name => name.endsWith('.json'))
+        .forEach(name => {
+            const filePath = path.join(configDir, name);
+            const bytes = fs.readFileSync(filePath);
+            const hasBom = bytes[0] === 0xef && bytes[1] === 0xbb && bytes[2] === 0xbf;
+            assert.ok(!hasBom, `${name} 不应包含 UTF-8 BOM`);
+        });
+});
+
 test('robots.txt 指向 sitemap 且 _config 排除测试目录', () => {
     const robots = fs.readFileSync(path.join(ROOT, 'robots.txt'), 'utf8');
     const config = fs.readFileSync(path.join(ROOT, '_config.yml'), 'utf8');

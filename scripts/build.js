@@ -13,7 +13,8 @@ const PRERENDER_END = '<!-- PRERENDER:END -->';
 const SITE_URL = 'https://briskygates.github.io';
 
 function readJson(relativePath) {
-    return JSON.parse(fs.readFileSync(path.join(root, relativePath), 'utf8'));
+    const raw = fs.readFileSync(path.join(root, relativePath), 'utf8').replace(/^\uFEFF/, '');
+    return JSON.parse(raw);
 }
 
 function replaceBetweenMarkers(source, startMarker, endMarker, replacement) {
