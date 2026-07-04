@@ -1,6 +1,9 @@
 {
   "name": "briskygates-homepage",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "postinstall": "node scripts/vendor-vue.js",
     "build": "node scripts/build.js",

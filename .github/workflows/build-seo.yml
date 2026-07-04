@@ -7,6 +7,10 @@ on:
       - 'assets/data/**'
       - 'scripts/**'
       - 'index.html'
+      - 'tests/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/**'
   workflow_dispatch:
 
 permissions:
@@ -20,10 +24,11 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
           cache: npm
 
       - run: npm ci
+      - run: npm test
       - run: npm run build
 
       - name: Commit generated SEO files
