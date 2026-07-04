@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const ROOT = path.join(__dirname, '..');
+const core = require('../assets/js/app-core.js');
 const zhConfig = JSON.parse(
     fs.readFileSync(path.join(ROOT, 'assets/data/homeConfig.json'), 'utf8')
 );
@@ -93,11 +94,17 @@ test('ui 区块包含国际化所需字段', () => {
     });
 });
 
-test('languageToggle 按钮文案与目标语言匹配', () => {
-    assert.equal(zhConfig.ui.languageToggle.buttonText, '繁體');
-    assert.equal(hantConfig.ui.languageToggle.buttonText, '白话');
-    assert.equal(plainConfig.ui.languageToggle.buttonText, 'EN');
-    assert.equal(enConfig.ui.languageToggle.buttonText, '中文');
+test('languageToggle 包含无障碍提示文案', () => {
+    [zhConfig, enConfig, plainConfig, hantConfig].forEach((config, index) => {
+        const label = ['简体', '英文', '大白话', '繁体'][index];
+        assert.ok(config.ui.languageToggle.tooltip, `${label}配置 ui.languageToggle.tooltip 缺失`);
+    });
+});
+
+test('语言选项列表包含四种语言且默认简体中文排第一', () => {
+    assert.deepEqual(core.LANGUAGE_OPTIONS.map(option => option.code), ['zh', 'zh-Hant', 'plain', 'en']);
+    assert.equal(core.getLanguageLabel('zh'), '简体中文');
+    assert.equal(core.getLanguageLabel('en'), 'English');
 });
 
 test('项目、技能、服务条目数量在各语言配置中一致', () => {
@@ -123,13 +130,15 @@ test('index.html 使用配置驱动渲染且无硬编码亮点文案', () => {
     const indexHtml = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
     assert.doesNotMatch(indexHtml, /亮点：/);
     assert.match(indexHtml, /getStatusText/);
-    assert.match(indexHtml, /@click="switchLanguage"/);
+    assert.match(indexHtml, /selectLanguage/);
+    assert.match(indexHtml, /lang-dropdown/);
 });
 
 test('main.js 不再使用 DOMContentLoaded 绑定 langToggle', () => {
     const mainJs = fs.readFileSync(path.join(ROOT, 'assets/js/main.js'), 'utf8');
     assert.doesNotMatch(mainJs, /langToggle\.addEventListener/);
-    assert.match(mainJs, /switchLanguage\(\)/);
+    assert.match(mainJs, /setLanguage\(/);
+    assert.match(mainJs, /selectLanguage/);
 });
 
 test('default.html 按顺序加载 app-core.js 与 main.js', () => {

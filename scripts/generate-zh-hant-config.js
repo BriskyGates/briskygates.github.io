@@ -28,8 +28,7 @@ const zh = JSON.parse(fs.readFileSync(path.join(root, 'assets/data/homeConfig.js
 const hant = convertValue(zh);
 
 hant.ui.languageToggle = {
-    buttonText: '白话',
-    tooltip: '切換到大白話版本'
+    tooltip: '選擇語言'
 };
 
 fs.writeFileSync(

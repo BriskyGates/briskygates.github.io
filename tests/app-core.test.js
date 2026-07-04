@@ -54,23 +54,17 @@ test('getOppositeLang: 与 getNextLang 行为一致', () => {
     assert.equal(core.getOppositeLang('en'), 'zh');
 });
 
-test('getLanguageToggleMeta: 按钮文案指向下一种语言', () => {
-    assert.deepEqual(core.getLanguageToggleMeta('zh'), {
-        buttonText: '繁體',
-        tooltip: '切換到繁體中文'
-    });
-    assert.deepEqual(core.getLanguageToggleMeta('zh-Hant'), {
-        buttonText: '白话',
-        tooltip: '切換到大白話版本'
-    });
-    assert.deepEqual(core.getLanguageToggleMeta('plain'), {
-        buttonText: 'EN',
-        tooltip: 'Switch to English / 切换到英文'
-    });
-    assert.deepEqual(core.getLanguageToggleMeta('en'), {
-        buttonText: '中文',
-        tooltip: 'Switch to Chinese / 切换到简体中文'
-    });
+test('getLanguageOptions: 返回完整语言列表', () => {
+    assert.deepEqual(core.getLanguageOptions(), core.LANGUAGE_OPTIONS);
+    assert.equal(core.getLanguageOptions().length, 4);
+});
+
+test('getLanguageLabel: 返回对应语言的展示名称', () => {
+    assert.equal(core.getLanguageLabel('zh'), '简体中文');
+    assert.equal(core.getLanguageLabel('zh-Hant'), '繁體中文');
+    assert.equal(core.getLanguageLabel('plain'), '大白话');
+    assert.equal(core.getLanguageLabel('en'), 'English');
+    assert.equal(core.getLanguageLabel('invalid'), '简体中文');
 });
 
 test('getDocumentLang: 返回正确的 html lang 属性值', () => {

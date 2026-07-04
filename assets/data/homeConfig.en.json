@@ -8,8 +8,7 @@
     "heroCtaSecondary": "View services",
     "contactMethodsTitle": "Contact",
     "languageToggle": {
-      "buttonText": "中文",
-      "tooltip": "Switch to Chinese / 切换到中文"
+      "tooltip": "Choose language"
     },
     "toast": {
       "wechatCopied": "WeChat ID copied to clipboard",

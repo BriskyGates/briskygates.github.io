@@ -13,7 +13,7 @@ Object.assign(zh.ui, {
     heroCtaPrimary: '看代表作',
     heroCtaSecondary: '看能做什么',
     contactMethodsTitle: '怎么联系',
-    languageToggle: { buttonText: 'EN', tooltip: '切换到英文' },
+    languageToggle: { tooltip: '选语言' },
     toast: {
         wechatCopied: '微信号已复制',
         xianyuCopied: '店铺名已复制',

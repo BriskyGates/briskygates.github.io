@@ -6,6 +6,13 @@
 
     const SUPPORTED_LANGS = ['zh', 'zh-Hant', 'plain', 'en'];
 
+    const LANGUAGE_OPTIONS = [
+        { code: 'zh', label: '简体中文' },
+        { code: 'zh-Hant', label: '繁體中文' },
+        { code: 'plain', label: '大白话' },
+        { code: 'en', label: 'English' }
+    ];
+
     function getBasePath(pathname) {
         return pathname && pathname.includes('/briskygates.github.io')
             ? '/briskygates.github.io'
@@ -59,6 +66,15 @@
         return getNextLang(lang);
     }
 
+    function getLanguageOptions() {
+        return LANGUAGE_OPTIONS;
+    }
+
+    function getLanguageLabel(lang) {
+        const option = LANGUAGE_OPTIONS.find(entry => entry.code === lang);
+        return option ? option.label : LANGUAGE_OPTIONS[0].label;
+    }
+
     function getLanguageToggleMeta(lang) {
         const next = getNextLang(lang);
         if (next === 'zh-Hant') {
@@ -97,12 +113,15 @@
 
     const api = {
         SUPPORTED_LANGS,
+        LANGUAGE_OPTIONS,
         getBasePath,
         isSupportedLang,
         detectCurrentLanguage,
         getConfigPathForLang,
         getNextLang,
         getOppositeLang,
+        getLanguageOptions,
+        getLanguageLabel,
         getLanguageToggleMeta,
         getDocumentLang,
         getDefaultToastMessage

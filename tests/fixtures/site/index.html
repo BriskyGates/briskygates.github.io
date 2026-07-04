@@ -33,10 +33,35 @@
             </a>
         </nav>
         <div class="sidebar-footer">
-            <button type="button" class="lang-btn" @click="switchLanguage" :title="config.ui.languageToggle.tooltip">
-                <i class="fas fa-globe"></i>
-                <span>{{ config.ui.languageToggle.buttonText }}</span>
-            </button>
+            <div class="lang-dropdown" :class="{ 'lang-dropdown--open': langMenuOpen && langMenuSource === 'sidebar' }">
+                <button
+                    type="button"
+                    class="lang-btn"
+                    @click.stop="toggleLangMenu('sidebar')"
+                    :aria-label="config.ui.languageToggle.tooltip"
+                    aria-haspopup="listbox"
+                    :aria-expanded="langMenuOpen && langMenuSource === 'sidebar'"
+                >
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <span class="lang-btn__label">{{ currentLanguageLabel }}</span>
+                    <i class="fas fa-chevron-down lang-btn__chevron" aria-hidden="true"></i>
+                </button>
+                <ul v-show="langMenuOpen && langMenuSource === 'sidebar'" class="lang-menu" role="listbox" :aria-label="config.ui.languageToggle.tooltip">
+                    <li v-for="opt in languageOptions" :key="opt.code" role="presentation">
+                        <button
+                            type="button"
+                            class="lang-menu__item"
+                            :class="{ 'lang-menu__item--active': currentLang === opt.code }"
+                            role="option"
+                            :aria-selected="currentLang === opt.code"
+                            @click="selectLanguage(opt.code)"
+                        >
+                            <span>{{ opt.label }}</span>
+                            <i v-if="currentLang === opt.code" class="fas fa-check lang-menu__check" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </aside>
 
@@ -53,9 +78,35 @@
                 <i class="fas fa-search"></i>
                 <span>{{ config.ui.searchPlaceholder }}</span>
             </div>
-            <button type="button" class="lang-btn lang-btn--compact" @click="switchLanguage">
-                {{ config.ui.languageToggle.buttonText }}
-            </button>
+            <div class="lang-dropdown lang-dropdown--compact" :class="{ 'lang-dropdown--open': langMenuOpen && langMenuSource === 'compact' }">
+                <button
+                    type="button"
+                    class="lang-btn lang-btn--compact"
+                    @click.stop="toggleLangMenu('compact')"
+                    :aria-label="config.ui.languageToggle.tooltip"
+                    aria-haspopup="listbox"
+                    :aria-expanded="langMenuOpen && langMenuSource === 'compact'"
+                >
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <span class="lang-btn__label">{{ currentLanguageLabel }}</span>
+                    <i class="fas fa-chevron-down lang-btn__chevron" aria-hidden="true"></i>
+                </button>
+                <ul v-show="langMenuOpen && langMenuSource === 'compact'" class="lang-menu" role="listbox" :aria-label="config.ui.languageToggle.tooltip">
+                    <li v-for="opt in languageOptions" :key="opt.code" role="presentation">
+                        <button
+                            type="button"
+                            class="lang-menu__item"
+                            :class="{ 'lang-menu__item--active': currentLang === opt.code }"
+                            role="option"
+                            :aria-selected="currentLang === opt.code"
+                            @click="selectLanguage(opt.code)"
+                        >
+                            <span>{{ opt.label }}</span>
+                            <i v-if="currentLang === opt.code" class="fas fa-check lang-menu__check" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </header>
 
         <!-- Hero -->

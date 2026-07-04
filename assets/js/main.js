@@ -5,9 +5,11 @@ const {
     getBasePath,
     detectCurrentLanguage,
     getConfigPathForLang,
-    getOppositeLang,
     getDocumentLang,
-    getDefaultToastMessage
+    getDefaultToastMessage,
+    getLanguageOptions,
+    getLanguageLabel,
+    isSupportedLang
 } = window.SiteAppCore;
 
 const FEISHU_WEBHOOK = 'https://open.feishu.cn/open-apis/bot/v2/hook/95c6e7c8-7469-442c-bcb4-4217417cbdd6';
@@ -70,6 +72,8 @@ function renderWithVue(config) {
     if (vueAppInstance) {
         vueAppInstance.config = config;
         vueAppInstance.currentLang = currentLang;
+        vueAppInstance.langMenuOpen = false;
+        vueAppInstance.langMenuSource = null;
         updatePageMeta(config);
         return;
     }
@@ -92,7 +96,11 @@ function renderWithVue(config) {
                 toastMessage: '',
                 activeSection: 'home',
                 sidebarOpen: false,
+                langMenuOpen: false,
+                langMenuSource: null,
                 _scrollSpyHandler: null,
+                _langMenuOutsideHandler: null,
+                _langMenuEscapeHandler: null,
                 contactForm: {
                     name: '',
                     contact: '',
@@ -136,16 +144,44 @@ function renderWithVue(config) {
                 }
                 const item = nav.find(entry => entry.id === this.activeSection);
                 return item?.label || '';
+            },
+            languageOptions() {
+                return getLanguageOptions();
+            },
+            currentLanguageLabel() {
+                return getLanguageLabel(this.currentLang);
             }
         },
         mounted() {
             this._scrollSpyHandler = () => this.updateActiveSection();
             window.addEventListener('scroll', this._scrollSpyHandler, { passive: true });
             this.$nextTick(() => this.updateActiveSection());
+
+            this._langMenuOutsideHandler = (event) => {
+                if (!this.langMenuOpen) {
+                    return;
+                }
+                if (!event.target.closest('.lang-dropdown')) {
+                    this.langMenuOpen = false;
+                }
+            };
+            this._langMenuEscapeHandler = (event) => {
+                if (event.key === 'Escape' && this.langMenuOpen) {
+                    this.langMenuOpen = false;
+                }
+            };
+            document.addEventListener('click', this._langMenuOutsideHandler);
+            document.addEventListener('keydown', this._langMenuEscapeHandler);
         },
         unmounted() {
             if (this._scrollSpyHandler) {
                 window.removeEventListener('scroll', this._scrollSpyHandler);
+            }
+            if (this._langMenuOutsideHandler) {
+                document.removeEventListener('click', this._langMenuOutsideHandler);
+            }
+            if (this._langMenuEscapeHandler) {
+                document.removeEventListener('keydown', this._langMenuEscapeHandler);
             }
         },
         methods: {
@@ -181,8 +217,22 @@ function renderWithVue(config) {
                 }
                 this.activeSection = current;
             },
-            async switchLanguage() {
-                await switchLanguage();
+            toggleLangMenu(source) {
+                if (this.langMenuOpen && this.langMenuSource === source) {
+                    this.langMenuOpen = false;
+                    this.langMenuSource = null;
+                    return;
+                }
+                this.langMenuSource = source;
+                this.langMenuOpen = true;
+            },
+            closeLangMenu() {
+                this.langMenuOpen = false;
+                this.langMenuSource = null;
+            },
+            async selectLanguage(lang) {
+                this.closeLangMenu();
+                await setLanguage(lang);
             },
             getStatusText(status) {
                 if (!this.config || !this.config.ui || !this.config.ui.projectStatus) {
@@ -350,8 +400,10 @@ async function applyLanguage(lang, config, options = {}) {
     }
 }
 
-async function switchLanguage() {
-    const newLang = getOppositeLang(currentLang);
+async function setLanguage(newLang) {
+    if (!isSupportedLang(newLang) || newLang === currentLang) {
+        return;
+    }
 
     try {
         const data = await loadConfigForLanguage(newLang);
