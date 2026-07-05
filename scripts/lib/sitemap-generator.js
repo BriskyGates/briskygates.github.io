@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * 生成 Jekyll 兼容的 sitemap.xml（带 front matter，避免 GitHub Pages 渲染 500）
+ * 生成纯静态 sitemap.xml（无 Jekyll front matter，经 include 原样发布）
  */
 function generateSitemap(siteUrl, entries) {
     const today = new Date().toISOString().slice(0, 10);
@@ -15,12 +15,7 @@ function generateSitemap(siteUrl, entries) {
   </url>`;
     }).join('\n');
 
-    return `---
-layout: null
-permalink: /sitemap.xml
-sitemap: false
----
-<?xml version="1.0" encoding="UTF-8"?>
+    return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urlBlocks}
 </urlset>

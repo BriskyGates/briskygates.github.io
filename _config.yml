@@ -36,9 +36,14 @@ exclude:
   - playwright.config.js
   - .github/
 
-# 包含文件
+# 包含文件（纯静态，不经 Jekyll 模板渲染）
 include:
   - _pages
+  - sitemap.xml
+  - robots.txt
+  - llms.txt
+  - llms-full.txt
+  - llms-full.en.txt
 
 # 默认设置
 defaults:
