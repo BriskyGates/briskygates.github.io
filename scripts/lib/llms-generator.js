@@ -133,4 +133,31 @@ function generateLlmsFull(config, lang = 'zh') {
     return lines.join('\n').trim() + '\n';
 }
 
-module.exports = { generateLlmsFull };
+/**
+ * 生成 README.md（GitHub 仓库首页展示，内容与 llms-full 同源）
+ */
+function generateReadme(config) {
+    const ui = config.ui || {};
+    const profile = config.profile || {};
+    const siteUrl = 'https://briskygates.github.io';
+    const header = [
+        `[🌐 在线主页](${siteUrl}) · [部署与开发文档](DEPLOY.md)`,
+        '',
+        `<!-- 本文件由 npm run build 根据 assets/data/homeConfig.json 自动生成，请勿手改 -->`,
+        ''
+    ].join('\n');
+    const body = generateLlmsFull(config, 'zh');
+    const footer = [
+        '',
+        '---',
+        '',
+        `**${profile.name || '阿布'}** · ${ui.pageDescription || ''}`,
+        '',
+        `- 站点：${siteUrl}`,
+        `- 仓库：https://github.com/briskygates/briskygates.github.io`,
+        `- 修改内容请编辑 \`assets/data/homeConfig.json\`，然后执行 \`npm run build\` 并推送`
+    ].join('\n');
+    return header + body + footer;
+}
+
+module.exports = { generateLlmsFull, generateReadme };

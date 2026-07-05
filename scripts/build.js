@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { renderAppShell } = require('./lib/static-renderer');
-const { generateLlmsFull } = require('./lib/llms-generator');
+const { generateLlmsFull, generateReadme } = require('./lib/llms-generator');
 const { renderJsonLdScript } = require('./lib/jsonld-generator');
 
 const root = path.join(__dirname, '..');
@@ -50,7 +50,8 @@ function main() {
     const llmsFullEn = generateLlmsFull(enConfig, 'en');
     fs.writeFileSync(path.join(root, 'llms-full.txt'), llmsFullZh);
     fs.writeFileSync(path.join(root, 'llms-full.en.txt'), llmsFullEn);
-    console.log('Generated llms-full.txt, llms-full.en.txt');
+    fs.writeFileSync(path.join(root, 'README.md'), generateReadme(zhConfig));
+    console.log('Generated llms-full.txt, llms-full.en.txt, README.md');
 
     const includesDir = path.join(root, '_includes');
     fs.mkdirSync(includesDir, { recursive: true });
