@@ -1,0 +1,920 @@
+{
+  "ui": {
+    "pageTitle": "Abu · I Build AI Systems",
+    "pageDescription": "Python dev who ships AI that actually works in production",
+    "labelSuffix": ": ",
+    "searchPlaceholder": "Search projects, skills, how we can work together…",
+    "heroCtaPrimary": "See featured work",
+    "heroCtaSecondary": "See what I do",
+    "contactMethodsTitle": "Get in touch",
+    "languageToggle": {
+      "tooltip": "Pick a language"
+    },
+    "toast": {
+      "wechatCopied": "WeChat ID copied",
+      "xianyuCopied": "Store name copied",
+      "imCopied": "Account copied"
+    },
+    "nav": [
+      {
+        "id": "home",
+        "label": "Home",
+        "shortLabel": "Home",
+        "icon": "fas fa-house"
+      },
+      {
+        "id": "showcase",
+        "label": "Featured",
+        "shortLabel": "Work",
+        "icon": "fas fa-fire"
+      },
+      {
+        "id": "projects",
+        "label": "Projects",
+        "shortLabel": "Projects",
+        "icon": "fas fa-layer-group"
+      },
+      {
+        "id": "experience",
+        "label": "Experience",
+        "shortLabel": "Exp",
+        "icon": "fas fa-route"
+      },
+      {
+        "id": "skills",
+        "label": "Skills",
+        "shortLabel": "Skills",
+        "icon": "fas fa-bolt"
+      },
+      {
+        "id": "services",
+        "label": "Services",
+        "shortLabel": "Services",
+        "icon": "fas fa-briefcase"
+      },
+      {
+        "id": "contact",
+        "label": "Contact",
+        "shortLabel": "Contact",
+        "icon": "fas fa-envelope"
+      }
+    ],
+    "projectStatus": {
+      "production": "Live",
+      "active": "Maintained",
+      "testing": "Testing",
+      "development": "In progress",
+      "planned": "Planned",
+      "highlightsLabel": "Highlights",
+      "progressLabel": "Progress"
+    },
+    "greetings": {
+      "morning": "Good morning",
+      "afternoon": "Good afternoon",
+      "evening": "Good evening",
+      "night": "Still up working?"
+    }
+  },
+  "profile": {
+    "name": "Abu",
+    "avatar": "🐶",
+    "tagline": "Shanghai · Online",
+    "status": "Open to work",
+    "heroTitle": "Help companies use AI for real — not just demos",
+    "title": "About me",
+    "greeting": {
+      "text": "Hi, I'm Abu, based in Shanghai",
+      "description": "I'm an <strong>AI full-stack engineer</strong> — I help companies turn large language models into systems that run, scale, and stay maintainable.<br>Knowledge bases, AI assistants, document processing, bots — that's my wheelhouse."
+    },
+    "heroChips": [
+      "AI in production",
+      "Knowledge bases",
+      "AI assistants",
+      "Document AI",
+      "Automation"
+    ],
+    "roles": [
+      {
+        "label": "What I do",
+        "value": "Idea to launch: talk requirements → design architecture → build → deploy & maintain",
+        "type": "primary"
+      },
+      {
+        "label": "Good fit for",
+        "value": "Companies, startups, and teams that need AI but lack in-house tech",
+        "type": "secondary"
+      }
+    ],
+    "stats": [
+      {
+        "number": "6+",
+        "label": "Years"
+      },
+      {
+        "number": "80+",
+        "label": "Projects"
+      },
+      {
+        "number": "15+",
+        "label": "AI builds"
+      },
+      {
+        "number": "Full-stack",
+        "label": "End to end"
+      }
+    ],
+    "location": {
+      "icon": "📍",
+      "text": "Shanghai, China · UTC+8"
+    },
+    "heroGradient": [
+      "#0c4a6e",
+      "#1e3a5f",
+      "#312e81"
+    ]
+  },
+  "featured": {
+    "title": "Featured work",
+    "subtitle": "A few projects that best show what I can do",
+    "items": [
+      {
+        "id": "multi_llm_analysis",
+        "title": "AI homework grading & problem solving",
+        "subtitle": "Many question types · auto-check",
+        "description": "Built for education: picks the right AI per question type, then double-checks answers to cut down errors.",
+        "tags": [
+          "Multi-LLM",
+          "Type Engine",
+          "Pipeline"
+        ],
+        "icon": "🧠",
+        "accent": "#e91429",
+        "status": "production",
+        "highlights": [
+          "8 question types auto-detected",
+          "Answer and scoring done separately for reliability",
+          "Multi-round review for hard problems"
+        ]
+      },
+      {
+        "id": "group_management_bot",
+        "title": "Community bot + escrow trading",
+        "subtitle": "Group ops · payments · splits",
+        "description": "Telegram bot for large groups: moderation, scam prevention, escrow trades, support tickets — all in one.",
+        "tags": [
+          "Bot",
+          "MySQL",
+          "Redis",
+          "Escrow"
+        ],
+        "icon": "🤖",
+        "accent": "#1db954",
+        "status": "production",
+        "highlights": [
+          "Join verification, anti-spam, risk controls",
+          "Escrow trades and financial reconciliation",
+          "Admin dashboard at a glance"
+        ]
+      },
+      {
+        "id": "fastapi_celery_kb",
+        "title": "Financial document knowledge pipeline",
+        "subtitle": "Lots of docs · auto-ingest",
+        "description": "Splits long reports and filings into chunks, turns them into vectors, and stores them for AI Q&A.",
+        "tags": [
+          "Celery",
+          "Vector DB",
+          "Chunking",
+          "Docker"
+        ],
+        "icon": "📚",
+        "accent": "#b49bc8",
+        "status": "production",
+        "highlights": [
+          "Reports and filings auto-chunked",
+          "Parallel processing across machines",
+          "One-click Docker deploy"
+        ]
+      },
+      {
+        "id": "rerank_system",
+        "title": "Search result reranker",
+        "subtitle": "Helps AI cite the right sources",
+        "description": "After a knowledge base search returns hits, this re-ranks them so the most relevant and recent come first.",
+        "tags": [
+          "FastAPI",
+          "Rerank",
+          "MMR",
+          "PostgreSQL"
+        ],
+        "icon": "🎯",
+        "accent": "#f59e0b",
+        "status": "production",
+        "highlights": [
+          "Multiple ranking strategies",
+          "Weighs freshness and source trust",
+          "Logs to audit search quality"
+        ]
+      },
+      {
+        "id": "phone_autoglm",
+        "title": "Bulk phone automation",
+        "subtitle": "Sees the screen · taps for you",
+        "description": "AI reads phone screens and runs tasks you describe — many phones at once, less repetitive manual work.",
+        "tags": [
+          "AutoGLM",
+          "ADB",
+          "FastAPI",
+          "Vue"
+        ],
+        "icon": "📱",
+        "accent": "#059669",
+        "status": "production",
+        "highlights": [
+          "Screen-based complex actions",
+          "Web console for task management",
+          "API to plug into workflows"
+        ]
+      },
+      {
+        "id": "need_radar_bot",
+        "title": "Lead-finding bot",
+        "subtitle": "Listens to chats · spots demand",
+        "description": "Watches group messages 24/7, uses AI to spot buyers and sellers, and pushes matched leads.",
+        "tags": [
+          "IM",
+          "LLM",
+          "Hybrid search"
+        ],
+        "icon": "📡",
+        "accent": "#8b5cf6",
+        "status": "production",
+        "highlights": [
+          "AI understands buy/sell intent",
+          "Incremental crawl + push alerts",
+          "Dashboard for all leads"
+        ]
+      }
+    ]
+  },
+  "projectShowcase": {
+    "rows": [
+      {
+        "id": "enterprise-ai",
+        "title": "Enterprise AI apps",
+        "description": "AI built to run in real business systems",
+        "items": [
+          {
+            "id": "multi_llm_analysis",
+            "title": "AI education problem solver",
+            "subtitle": "8 question types",
+            "description": "Different AI per type, with a review pass after.",
+            "tags": [
+              "Multi-LLM",
+              "Engine"
+            ],
+            "icon": "🧠",
+            "accent": "#ff6b6b"
+          },
+          {
+            "id": "rerank_system",
+            "title": "Search reranking",
+            "subtitle": "Better Q&A",
+            "description": "Re-orders search hits so citations are more reliable.",
+            "tags": [
+              "Rerank",
+              "RAG"
+            ],
+            "icon": "🎯",
+            "accent": "#f59e0b"
+          },
+          {
+            "id": "report_recall",
+            "title": "Report image + text search",
+            "subtitle": "Charts and text",
+            "description": "Stores charts and text separately so both are searchable.",
+            "tags": [
+              "Vector",
+              "Research"
+            ],
+            "icon": "📈",
+            "accent": "#06b6d4"
+          },
+          {
+            "id": "etf_unusual",
+            "title": "ETF anomaly alerts",
+            "subtitle": "Market watch",
+            "description": "Watches markets and pushes when something looks off.",
+            "tags": [
+              "ETF",
+              "Quant"
+            ],
+            "icon": "📉",
+            "accent": "#8b5cf6"
+          },
+          {
+            "id": "temp_ner",
+            "title": "Financial entity extraction",
+            "subtitle": "Companies, dates",
+            "description": "Pulls company names, dates, and key facts from reports.",
+            "tags": [
+              "NER",
+              "FastAPI",
+              "Vector"
+            ],
+            "icon": "🏷️",
+            "accent": "#f472b6"
+          }
+        ]
+      },
+      {
+        "id": "rag-knowledge",
+        "title": "Knowledge bases & search",
+        "description": "Docs in → chunk → findable → accurate answers",
+        "items": [
+          {
+            "id": "fastapi_celery_kb",
+            "title": "Bulk document ingest",
+            "subtitle": "Async pipeline",
+            "description": "Queues large doc batches for chunking and vectorization.",
+            "tags": [
+              "Celery",
+              "Vector DB",
+              "Docker"
+            ],
+            "icon": "📚",
+            "accent": "#b49bc8"
+          },
+          {
+            "id": "multi_source_chunk",
+            "title": "Multi-format chunking",
+            "subtitle": "One pipeline",
+            "description": "Same flow for docs from different sources.",
+            "tags": [
+              "Chunk",
+              "Vectorize"
+            ],
+            "icon": "🔗",
+            "accent": "#10b981"
+          },
+          {
+            "id": "qwen3_pg_recall",
+            "title": "Vector search service",
+            "subtitle": "PostgreSQL",
+            "description": "Semantic search with a vector database.",
+            "tags": [
+              "Qwen3",
+              "PostgreSQL"
+            ],
+            "icon": "🔍",
+            "accent": "#3b82f6"
+          },
+          {
+            "id": "enterprise_chat_openapi",
+            "title": "Enterprise Q&A API",
+            "subtitle": "Ready to use",
+            "description": "Search + Q&A wrapped as an API for other systems.",
+            "tags": [
+              "OpenAPI",
+              "Chat"
+            ],
+            "icon": "💬",
+            "accent": "#ec4899"
+          },
+          {
+            "id": "announcement_tagging",
+            "title": "Filing auto-tagging",
+            "subtitle": "Sort & label",
+            "description": "Tags huge volumes of filings for downstream use.",
+            "tags": [
+              "NLP",
+              "Classification"
+            ],
+            "icon": "🏷️",
+            "accent": "#f97316"
+          }
+        ]
+      },
+      {
+        "id": "doc-intelligence",
+        "title": "Document processing",
+        "description": "PDFs, scans, messy layouts — structured output",
+        "items": [
+          {
+            "id": "pdf2xml",
+            "title": "PDF structured parsing",
+            "subtitle": "Text & tables",
+            "description": "Turns PDFs into clean structured data.",
+            "tags": [
+              "PDF",
+              "FastAPI"
+            ],
+            "icon": "📄",
+            "accent": "#6366f1"
+          },
+          {
+            "id": "pdf_chunker",
+            "title": "Report smart chunking",
+            "subtitle": "Keeps context",
+            "description": "Splits by paragraphs and tables without losing meaning.",
+            "tags": [
+              "Chunking",
+              "Tables"
+            ],
+            "icon": "✂️",
+            "accent": "#14b8a6"
+          },
+          {
+            "id": "pdf_watermark",
+            "title": "PDF watermark removal",
+            "subtitle": "Batch jobs",
+            "description": "Batch-remove watermarks so OCR works better.",
+            "tags": [
+              "Watermark",
+              "Batch"
+            ],
+            "icon": "💧",
+            "accent": "#a855f7"
+          },
+          {
+            "id": "paddle_ocr_vl",
+            "title": "Image OCR service",
+            "subtitle": "Upload & parse",
+            "description": "Upload scans or complex images and get text structure back.",
+            "tags": [
+              "OCR",
+              "VL"
+            ],
+            "icon": "👁️",
+            "accent": "#22c55e"
+          },
+          {
+            "id": "extract_pdf_toc",
+            "title": "PDF table of contents",
+            "subtitle": "Multi fallback",
+            "description": "Tries hard to restore report outline structure.",
+            "tags": [
+              "PDF",
+              "TOC",
+              "Layout"
+            ],
+            "icon": "📑",
+            "accent": "#a78bfa"
+          },
+          {
+            "id": "gpu_rapid_layout",
+            "title": "Layout element detection",
+            "subtitle": "GPU speed",
+            "description": "Quickly finds figures, tables, and blocks in docs.",
+            "tags": [
+              "FastAPI",
+              "Layout",
+              "GPU"
+            ],
+            "icon": "🖼️",
+            "accent": "#f59e0b"
+          }
+        ]
+      },
+      {
+        "id": "agent-mcp",
+        "title": "AI assistants & automation",
+        "description": "AI plans steps and calls tools to finish tasks",
+        "items": [
+          {
+            "id": "phone_autoglm",
+            "title": "Phone fleet control",
+            "subtitle": "Cloud phones",
+            "description": "Web UI to manage many phones; API for tasks and status.",
+            "tags": [
+              "AutoGLM",
+              "ADB",
+              "Fleet"
+            ],
+            "icon": "📱",
+            "accent": "#059669"
+          },
+          {
+            "id": "dynamic_mcp",
+            "title": "AI writes code to use tools",
+            "subtitle": "Sandboxed",
+            "description": "AI writes and runs code in isolation for flexibility.",
+            "tags": [
+              "MCP",
+              "Code Act"
+            ],
+            "icon": "⚡",
+            "accent": "#1db954"
+          },
+          {
+            "id": "mcp_json_rpc",
+            "title": "Multi-tool orchestration",
+            "subtitle": "Auto chaining",
+            "description": "You ask in plain language; AI plans which tools to call.",
+            "tags": [
+              "JSON-RPC",
+              "Orchestration"
+            ],
+            "icon": "🔧",
+            "accent": "#0ea5e9"
+          },
+          {
+            "id": "ai_mcp_middleware",
+            "title": "Unified AI gateway",
+            "subtitle": "Central control",
+            "description": "One entry point for business systems to call AI.",
+            "tags": [
+              "MCP",
+              "API"
+            ],
+            "icon": "🌐",
+            "accent": "#64748b"
+          },
+          {
+            "id": "multi_agent_collab",
+            "title": "Multiple AIs working together",
+            "subtitle": "Split the work",
+            "description": "Hard tasks split across AI roles that coordinate.",
+            "tags": [
+              "Multi-Agent"
+            ],
+            "icon": "🤝",
+            "accent": "#d946ef"
+          }
+        ]
+      },
+      {
+        "id": "tg-mobile",
+        "title": "Bots & messaging apps",
+        "description": "Telegram bots, search, desktop utilities",
+        "items": [
+          {
+            "id": "group_management_bot",
+            "title": "Community ops bot",
+            "subtitle": "Groups & revenue",
+            "description": "Moderation, escrow, support — monetize private communities.",
+            "tags": [
+              "Bot",
+              "MySQL",
+              "Escrow"
+            ],
+            "icon": "🤖",
+            "accent": "#1db954"
+          },
+          {
+            "id": "need_radar_bot",
+            "title": "Lead radar",
+            "subtitle": "Chat mining",
+            "description": "Listens to groups, finds buy/sell intent, pushes leads.",
+            "tags": [
+              "Bot",
+              "LLM",
+              "SeekDB"
+            ],
+            "icon": "📡",
+            "accent": "#8b5cf6"
+          },
+          {
+            "id": "tg_ai_search",
+            "title": "Chat history search",
+            "subtitle": "Full-text + semantic",
+            "description": "Find useful info fast in huge chat logs.",
+            "tags": [
+              "IM",
+              "Hybrid search",
+              "RAG"
+            ],
+            "icon": "🔎",
+            "accent": "#06b6d4"
+          },
+          {
+            "id": "smart_clipboard",
+            "title": "AI clipboard",
+            "subtitle": "Windows desktop",
+            "description": "AI rewrites and tidies text when you copy.",
+            "tags": [
+              "Tauri",
+              "Rust",
+              "Desktop"
+            ],
+            "icon": "📋",
+            "accent": "#818cf8"
+          }
+        ]
+      },
+      {
+        "id": "platform-auto",
+        "title": "Backend & ops",
+        "description": "Monitoring, scheduling, data sync infrastructure",
+        "items": [
+          {
+            "id": "onchain_token_monitor",
+            "title": "On-chain trade monitor",
+            "subtitle": "Live alerts",
+            "description": "Watches on-chain activity and pings IM on anomalies.",
+            "tags": [
+              "Web3",
+              "IM"
+            ],
+            "icon": "⛓️",
+            "accent": "#facc15"
+          },
+          {
+            "id": "cc_monitor_gmail",
+            "title": "Email auto-forward",
+            "subtitle": "Email → IM",
+            "description": "Important emails extracted and sent to chat tools.",
+            "tags": [
+              "IMAP",
+              "Bot"
+            ],
+            "icon": "📧",
+            "accent": "#ef4444"
+          },
+          {
+            "id": "lark_sync",
+            "title": "Lark data sync",
+            "subtitle": "Sheet integration",
+            "description": "Two-way sync between Lark sheets and backend systems.",
+            "tags": [
+              "Lark",
+              "Automation"
+            ],
+            "icon": "🚀",
+            "accent": "#3370ff"
+          },
+          {
+            "id": "email_auto_crawl",
+            "title": "Inbox report crawler",
+            "subtitle": "RPA",
+            "description": "Collects email attachments and pulls table data into storage.",
+            "tags": [
+              "RPA",
+              "PDF"
+            ],
+            "icon": "📬",
+            "accent": "#78716c"
+          }
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "title": "What I have done",
+    "subtitle": "Main areas I have worked in recently",
+    "items": [
+      {
+        "period": "2024 — present",
+        "title": "Enterprise AI systems",
+        "description": "AI assistants, knowledge Q&A, multimodal apps — from demo to production.",
+        "tags": [
+          "AI assistants",
+          "Knowledge bases",
+          "Phone automation"
+        ]
+      },
+      {
+        "period": "2022 — 2024",
+        "title": "Document processing",
+        "description": "Millions of financial PDFs: messy layouts, OCR, chunking — clean data for AI.",
+        "tags": [
+          "PDF",
+          "OCR"
+        ]
+      },
+      {
+        "period": "2020 — present",
+        "title": "Bots & backends",
+        "description": "High-traffic Telegram bots and monitoring; trading flows that must stay up.",
+        "tags": [
+          "Bots",
+          "Lark",
+          "Redis"
+        ]
+      },
+      {
+        "period": "Ongoing",
+        "title": "AI tooling",
+        "description": "AI calling tools, writing code, querying databases — auditable, repeatable flows.",
+        "tags": [
+          "MCP",
+          "Agent"
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "What I know",
+    "motto": "Not just tuning models — <strong>embedding AI into existing systems</strong> so it stays stable and scales.",
+    "items": [
+      {
+        "title": "AI applications",
+        "description": "Knowledge Q&A / phone automation / model deploy / multi-agent / tool use",
+        "tags": [
+          "RAG",
+          "Agent",
+          "MCP"
+        ],
+        "icon": "🤖"
+      },
+      {
+        "title": "Finance text & knowledge",
+        "description": "Report chunking, search ranking, chart retrieval, news classification",
+        "tags": [
+          "Vector DB",
+          "Reports"
+        ],
+        "icon": "📊"
+      },
+      {
+        "title": "Document processing",
+        "description": "PDF parsing / OCR / watermark removal / table recognition",
+        "tags": [
+          "PDF",
+          "OCR"
+        ],
+        "icon": "📄"
+      },
+      {
+        "title": "Integration & automation",
+        "description": "Telegram bots / Lark / email automation / job queues",
+        "tags": [
+          "Bot",
+          "Lark"
+        ],
+        "icon": "⚡"
+      }
+    ],
+    "summary": [
+      {
+        "icon": "🏗️",
+        "text": "Full-stack"
+      },
+      {
+        "icon": "🧠",
+        "text": "AI in production"
+      },
+      {
+        "icon": "🚀",
+        "text": "Fast delivery"
+      }
+    ]
+  },
+  "services": {
+    "title": "How I can help",
+    "items": [
+      {
+        "title": "Enterprise AI assistant",
+        "description": "Knowledge Q&A, workflow automation, private deploy",
+        "technologies": [
+          "RAG",
+          "Agent"
+        ],
+        "badge": "Enterprise",
+        "icon": "🤖"
+      },
+      {
+        "title": "Document knowledge base",
+        "description": "Report ingest, search tuning, quality evaluation",
+        "technologies": [
+          "Vector DB",
+          "Rerank"
+        ],
+        "badge": "Knowledge",
+        "icon": "📈"
+      },
+      {
+        "title": "Document processing",
+        "description": "PDF parsing, OCR, watermark removal, batch structure",
+        "technologies": [
+          "PDF",
+          "OCR"
+        ],
+        "badge": "Docs",
+        "icon": "📄"
+      },
+      {
+        "title": "Bots & office automation",
+        "description": "Telegram/Lark bots, email forwarding, scheduled jobs",
+        "technologies": [
+          "Bot",
+          "Lark"
+        ],
+        "badge": "Automation",
+        "icon": "📱"
+      },
+      {
+        "title": "Technical advisor",
+        "description": "Architecture review, performance tuning, hard problems",
+        "technologies": [
+          "Architecture",
+          "Code review"
+        ],
+        "badge": "Advisor",
+        "icon": "📚"
+      }
+    ],
+    "partners": {
+      "title": "Good partners look like",
+      "types": [
+        {
+          "icon": "🚀",
+          "type": "Startups",
+          "description": "From MVP to product — need backend or AI help"
+        },
+        {
+          "icon": "🏢",
+          "type": "Enterprises",
+          "description": "Want knowledge bases, AI Q&A, or AI integration"
+        },
+        {
+          "icon": "👥",
+          "type": "Tech partners",
+          "description": "Build AI products with real business value together"
+        }
+      ],
+      "note": "Happy to talk <strong>project work</strong> or <strong>ongoing advisory</strong> — 30 minutes to align first 💬"
+    }
+  },
+  "projects": {
+    "title": "Philosophy",
+    "status": "",
+    "items": [],
+    "innovation": {
+      "icon": "💡",
+      "title": "How I think",
+      "text": "AI only matters if it runs in production — observable, rollback-friendly, maintainable. Solid engineering turns models into systems your business actually uses."
+    }
+  },
+  "contact": {
+    "title": "Let's Talk",
+    "intro": {
+      "icon": "✨",
+      "title": "Got an idea? Let us talk execution",
+      "description": "AI assistants, knowledge bases, document AI, bots — all fair game. I will be straight about what is feasible and how."
+    },
+    "methods": [],
+    "availability": {
+      "icon": "⏰",
+      "title": "Response Time",
+      "responseTime": "2–4 hours",
+      "timezone": "UTC+8 (Beijing)",
+      "labels": {
+        "usuallyWithin": "Weekdays usually within",
+        "response": "to reply",
+        "timezoneLabel": "Timezone"
+      }
+    },
+    "collaboration": {
+      "icon": "🤝",
+      "title": "Collaboration",
+      "types": [
+        {
+          "icon": "💼",
+          "text": "Projects"
+        },
+        {
+          "icon": "🎓",
+          "text": "Advisory"
+        },
+        {
+          "icon": "🚀",
+          "text": "Co-founder"
+        }
+      ]
+    },
+    "footer": {
+      "highlights": [
+        "Open comms",
+        "Engineering-first",
+        "Outcome-driven"
+      ]
+    },
+    "form": {
+      "title": "Leave a message",
+      "subtitle": "Drop your contact info and I will reply soon",
+      "fields": {
+        "name": {
+          "label": "Your name",
+          "placeholder": "How to address you"
+        },
+        "contact": {
+          "label": "Contact",
+          "placeholder": "WeChat / email / phone"
+        },
+        "topic": {
+          "label": "Topic",
+          "placeholder": "What you want to discuss…"
+        },
+        "message": {
+          "label": "Details",
+          "placeholder": "Briefly describe your scenario and needs so I can reply usefully…"
+        }
+      },
+      "submit": "Send",
+      "submitting": "Sending…",
+      "success": "Got it — I will reply soon",
+      "error": "Send failed — try again later or contact me directly"
+    }
+  }
+}

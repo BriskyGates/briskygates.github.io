@@ -1,0 +1,920 @@
+{
+  "ui": {
+    "pageTitle": "阿布 · 幫人做 AI 系統",
+    "pageDescription": "寫 Python，把 AI 做出來、部署好、真能用",
+    "labelSuffix": "：",
+    "searchPlaceholder": "搜項目、技能、怎麼合作…",
+    "heroCtaPrimary": "看代表作",
+    "heroCtaSecondary": "看能做什麼",
+    "contactMethodsTitle": "怎麼聯繫",
+    "languageToggle": {
+      "tooltip": "選語言"
+    },
+    "toast": {
+      "wechatCopied": "微信號已複製",
+      "xianyuCopied": "店鋪名已複製",
+      "imCopied": "賬號已複製"
+    },
+    "nav": [
+      {
+        "id": "home",
+        "label": "首頁",
+        "shortLabel": "首頁",
+        "icon": "fas fa-house"
+      },
+      {
+        "id": "showcase",
+        "label": "代表作",
+        "shortLabel": "作品",
+        "icon": "fas fa-fire"
+      },
+      {
+        "id": "projects",
+        "label": "項目",
+        "shortLabel": "項目",
+        "icon": "fas fa-layer-group"
+      },
+      {
+        "id": "experience",
+        "label": "經歷",
+        "shortLabel": "經歷",
+        "icon": "fas fa-route"
+      },
+      {
+        "id": "skills",
+        "label": "技能",
+        "shortLabel": "技能",
+        "icon": "fas fa-bolt"
+      },
+      {
+        "id": "services",
+        "label": "服務",
+        "shortLabel": "服務",
+        "icon": "fas fa-briefcase"
+      },
+      {
+        "id": "contact",
+        "label": "聯繫",
+        "shortLabel": "聯繫",
+        "icon": "fas fa-envelope"
+      }
+    ],
+    "projectStatus": {
+      "production": "已上線",
+      "active": "在維護",
+      "testing": "測試中",
+      "development": "開發中",
+      "planned": "計劃中",
+      "highlightsLabel": "亮點",
+      "progressLabel": "進度"
+    },
+    "greetings": {
+      "morning": "早上好",
+      "afternoon": "下午好",
+      "evening": "晚上好",
+      "night": "夜深了還在忙？"
+    }
+  },
+  "profile": {
+    "name": "阿布",
+    "avatar": "🐶",
+    "tagline": "上海 · 在線",
+    "status": "可接活",
+    "heroTitle": "幫企業把 AI 真正用起來，不只是做演示",
+    "title": "關於我",
+    "greeting": {
+      "text": "你好，我是阿布，在上海",
+      "description": "我是 <strong>AI 全棧工程師</strong>，簡單說就是：幫企業把大模型做成能跑、能維護的系統。<br>擅長知識庫問答、智能助手、文檔處理、機器人這些方向。"
+    },
+    "heroChips": [
+      "AI 落地",
+      "知識庫問答",
+      "智能助手",
+      "文檔處理",
+      "自動化"
+    ],
+    "roles": [
+      {
+        "label": "我能做什麼",
+        "value": "從想法到上線：聊需求 → 搭架構 → 寫代碼 → 部署運維",
+        "type": "primary"
+      },
+      {
+        "label": "適合誰",
+        "value": "企業、創業團隊、有 AI 需求但缺技術的人",
+        "type": "secondary"
+      }
+    ],
+    "stats": [
+      {
+        "number": "6+",
+        "label": "年經驗"
+      },
+      {
+        "number": "80+",
+        "label": "項目"
+      },
+      {
+        "number": "15+",
+        "label": "AI 項目"
+      },
+      {
+        "number": "全棧",
+        "label": "一條龍"
+      }
+    ],
+    "location": {
+      "icon": "📍",
+      "text": "上海，中國 · UTC+8"
+    },
+    "heroGradient": [
+      "#0c4a6e",
+      "#1e3a5f",
+      "#312e81"
+    ]
+  },
+  "featured": {
+    "title": "精選作品",
+    "subtitle": "挑了幾個最能代表我能力的項目",
+    "items": [
+      {
+        "id": "multi_llm_analysis",
+        "title": "AI 自動批改作業/解析題目",
+        "subtitle": "多種題型 · 自動檢查",
+        "description": "教培場景用的：不同題型自動選合適的 AI 來解答，還會複查一遍，減少錯題。",
+        "tags": [
+          "Multi-LLM",
+          "題型引擎",
+          "Pipeline"
+        ],
+        "icon": "🧠",
+        "accent": "#e91429",
+        "status": "production",
+        "highlights": [
+          "8 種題型自動識別",
+          "解答和評分分開做，更靠譜",
+          "多輪檢查，複雜題也能搞定"
+        ]
+      },
+      {
+        "id": "group_management_bot",
+        "title": "社群管理 + 擔保交易機器人",
+        "subtitle": "管群 · 收錢 · 分賬",
+        "description": "大群用的社群機器人：自動管群、防騙子、擔保交易、客服工單，一套搞定。",
+        "tags": [
+          "Bot",
+          "MySQL",
+          "Redis",
+          "擔保交易"
+        ],
+        "icon": "🤖",
+        "accent": "#1db954",
+        "status": "production",
+        "highlights": [
+          "入群驗證、反垃圾、風控",
+          "擔保交易和財務對賬",
+          "運營後臺一目瞭然"
+        ]
+      },
+      {
+        "id": "fastapi_celery_kb",
+        "title": "金融文檔知識庫流水線",
+        "subtitle": "大量文檔 · 自動入庫",
+        "description": "把研報、公告等長文檔自動拆開、轉成向量、存進知識庫，給 AI 問答當資料庫。",
+        "tags": [
+          "Celery",
+          "向量庫",
+          "分塊",
+          "Docker"
+        ],
+        "icon": "📚",
+        "accent": "#b49bc8",
+        "status": "production",
+        "highlights": [
+          "研報公告自動切塊",
+          "多臺機器並行處理",
+          "Docker 一鍵部署"
+        ]
+      },
+      {
+        "id": "rerank_system",
+        "title": "搜索答案更準的排序器",
+        "subtitle": "讓 AI 引用對的資料",
+        "description": "知識庫搜出來一堆結果後，再智能排序，把最相關、最新的排前面，AI 回答更準。",
+        "tags": [
+          "FastAPI",
+          "Rerank",
+          "MMR",
+          "PostgreSQL"
+        ],
+        "icon": "🎯",
+        "accent": "#f59e0b",
+        "status": "production",
+        "highlights": [
+          "多種排序策略可選",
+          "考慮時效和來源可信度",
+          "有日誌可查搜得好不好"
+        ]
+      },
+      {
+        "id": "phone_autoglm",
+        "title": "手機批量自動操作",
+        "subtitle": "看屏幕 · 自動點",
+        "description": "AI 能「看」手機屏幕，按你說的去點、去操作，多臺手機一起跑，省人工重複勞動。",
+        "tags": [
+          "AutoGLM",
+          "ADB",
+          "FastAPI",
+          "Vue"
+        ],
+        "icon": "📱",
+        "accent": "#059669",
+        "status": "production",
+        "highlights": [
+          "看屏幕做複雜操作",
+          "網頁控制台管任務",
+          "提供 API 接入業務流程"
+        ]
+      },
+      {
+        "id": "need_radar_bot",
+        "title": "自動挖商機的機器人",
+        "subtitle": "聽群聊 · 找需求",
+        "description": "24 小時盯著群消息，用 AI 判斷誰在找貨、誰在出貨，自動匹配推送商機。",
+        "tags": [
+          "國內IM",
+          "LLM",
+          "混合檢索"
+        ],
+        "icon": "📡",
+        "accent": "#8b5cf6",
+        "status": "production",
+        "highlights": [
+          "AI 理解買賣意圖",
+          "增量抓取 + 推送",
+          "後臺管理全部線索"
+        ]
+      }
+    ]
+  },
+  "projectShowcase": {
+    "rows": [
+      {
+        "id": "enterprise-ai",
+        "title": "企業 AI 應用",
+        "description": "把 AI 做成真正能用的業務系統",
+        "items": [
+          {
+            "id": "multi_llm_analysis",
+            "title": "AI 教育題目解析",
+            "subtitle": "8 種題型",
+            "description": "不同題型走不同 AI，解答完還會複查。",
+            "tags": [
+              "Multi-LLM",
+              "題型引擎"
+            ],
+            "icon": "🧠",
+            "accent": "#ff6b6b"
+          },
+          {
+            "id": "rerank_system",
+            "title": "搜索結果重排序",
+            "subtitle": "讓問答更準",
+            "description": "搜出來的資料再排個序，引用更靠譜。",
+            "tags": [
+              "Rerank",
+              "RAG"
+            ],
+            "icon": "🎯",
+            "accent": "#f59e0b"
+          },
+          {
+            "id": "report_recall",
+            "title": "研報圖文一起搜",
+            "subtitle": "圖和字都能找",
+            "description": "PDF 裡的圖表和文字分別存，問的時候都能搜到。",
+            "tags": [
+              "向量檢索",
+              "研報"
+            ],
+            "icon": "📈",
+            "accent": "#06b6d4"
+          },
+          {
+            "id": "etf_unusual",
+            "title": "ETF 異動提醒",
+            "subtitle": "行情監控",
+            "description": "盯盤發現異常就推送，輔助投研決策。",
+            "tags": [
+              "ETF",
+              "量化"
+            ],
+            "icon": "📉",
+            "accent": "#8b5cf6"
+          },
+          {
+            "id": "temp_ner",
+            "title": "金融實體識別",
+            "subtitle": "認公司、認時間",
+            "description": "從研報裡自動提取公司名、時間等關鍵信息。",
+            "tags": [
+              "NER",
+              "FastAPI",
+              "向量召回"
+            ],
+            "icon": "🏷️",
+            "accent": "#f472b6"
+          }
+        ]
+      },
+      {
+        "id": "rag-knowledge",
+        "title": "知識庫 & 搜索",
+        "description": "文檔進來 → 切塊 → 搜得到 → 答得準",
+        "items": [
+          {
+            "id": "fastapi_celery_kb",
+            "title": "文檔批量入庫",
+            "subtitle": "異步處理",
+            "description": "大量文檔排隊處理，自動切塊和向量化。",
+            "tags": [
+              "Celery",
+              "向量庫",
+              "Docker"
+            ],
+            "icon": "📚",
+            "accent": "#b49bc8"
+          },
+          {
+            "id": "multi_source_chunk",
+            "title": "各種格式文檔切塊",
+            "subtitle": "統一管線",
+            "description": "不同來源的文檔用同一套流程切塊入庫。",
+            "tags": [
+              "分塊",
+              "向量化"
+            ],
+            "icon": "🔗",
+            "accent": "#10b981"
+          },
+          {
+            "id": "qwen3_pg_recall",
+            "title": "向量搜索服務",
+            "subtitle": "PostgreSQL",
+            "description": "用向量數據庫做語義搜索，找相似內容。",
+            "tags": [
+              "Qwen3",
+              "PostgreSQL"
+            ],
+            "icon": "🔍",
+            "accent": "#3b82f6"
+          },
+          {
+            "id": "enterprise_chat_openapi",
+            "title": "企業問答 API",
+            "subtitle": "開箱即用",
+            "description": "封裝好搜索+問答，別的系統直接調接口。",
+            "tags": [
+              "OpenAPI",
+              "Chat"
+            ],
+            "icon": "💬",
+            "accent": "#ec4899"
+          },
+          {
+            "id": "announcement_tagging",
+            "title": "公告自動打標籤",
+            "subtitle": "分類整理",
+            "description": "海量公告自動分類打標，方便下游使用。",
+            "tags": [
+              "NLP",
+              "分類"
+            ],
+            "icon": "🏷️",
+            "accent": "#f97316"
+          }
+        ]
+      },
+      {
+        "id": "doc-intelligence",
+        "title": "文檔處理",
+        "description": "PDF、掃描件、複雜排版都能結構化提取",
+        "items": [
+          {
+            "id": "pdf2xml",
+            "title": "PDF 結構化解析",
+            "subtitle": "提取文字表格",
+            "description": "把 PDF 拆成乾淨的結構化數據，給後續流程用。",
+            "tags": [
+              "PDF",
+              "FastAPI"
+            ],
+            "icon": "📄",
+            "accent": "#6366f1"
+          },
+          {
+            "id": "pdf_chunker",
+            "title": "研報智能切塊",
+            "subtitle": "保留邏輯",
+            "description": "按段落和表格智能切分，不丟上下文。",
+            "tags": [
+              "分塊",
+              "表格識別"
+            ],
+            "icon": "✂️",
+            "accent": "#14b8a6"
+          },
+          {
+            "id": "pdf_watermark",
+            "title": "PDF 去水印",
+            "subtitle": "批量處理",
+            "description": "研報批量去水印，後面 OCR 更準。",
+            "tags": [
+              "水印",
+              "批處理"
+            ],
+            "icon": "💧",
+            "accent": "#a855f7"
+          },
+          {
+            "id": "paddle_ocr_vl",
+            "title": "圖片 OCR 服務",
+            "subtitle": "上傳即解析",
+            "description": "掃描件、複雜圖片上傳就能提取文字結構。",
+            "tags": [
+              "OCR",
+              "VL"
+            ],
+            "icon": "👁️",
+            "accent": "#22c55e"
+          },
+          {
+            "id": "extract_pdf_toc",
+            "title": "PDF 目錄提取",
+            "subtitle": "多級兜底",
+            "description": "儘量把研報目錄結構還原出來。",
+            "tags": [
+              "PDF",
+              "目錄",
+              "版面分析"
+            ],
+            "icon": "📑",
+            "accent": "#a78bfa"
+          },
+          {
+            "id": "gpu_rapid_layout",
+            "title": "版面元素檢測",
+            "subtitle": "GPU 加速",
+            "description": "快速識別文檔裡的圖、表、段落位置。",
+            "tags": [
+              "FastAPI",
+              "版面檢測",
+              "GPU"
+            ],
+            "icon": "🖼️",
+            "accent": "#f59e0b"
+          }
+        ]
+      },
+      {
+        "id": "agent-mcp",
+        "title": "智能助手 & 自動化",
+        "description": "AI 能自己規劃步驟、調用工具完成任務",
+        "items": [
+          {
+            "id": "phone_autoglm",
+            "title": "手機群控平臺",
+            "subtitle": "雲手機",
+            "description": "網頁管多臺手機，API 下發任務查進度。",
+            "tags": [
+              "AutoGLM",
+              "ADB",
+              "群控"
+            ],
+            "icon": "📱",
+            "accent": "#059669"
+          },
+          {
+            "id": "dynamic_mcp",
+            "title": "AI 寫代碼調工具",
+            "subtitle": "沙箱執行",
+            "description": "AI 在隔離環境裡寫代碼、調工具，更靈活。",
+            "tags": [
+              "MCP",
+              "Code Act"
+            ],
+            "icon": "⚡",
+            "accent": "#1db954"
+          },
+          {
+            "id": "mcp_json_rpc",
+            "title": "多工具編排",
+            "subtitle": "自動串聯",
+            "description": "你說一句話，AI 自動規劃調哪些工具、什麼順序。",
+            "tags": [
+              "JSON-RPC",
+              "編排"
+            ],
+            "icon": "🔧",
+            "accent": "#0ea5e9"
+          },
+          {
+            "id": "ai_mcp_middleware",
+            "title": "AI 能力統一網關",
+            "subtitle": "集中管理",
+            "description": "各業務系統通過統一入口調 AI，好管好用。",
+            "tags": [
+              "MCP",
+              "API"
+            ],
+            "icon": "🌐",
+            "accent": "#64748b"
+          },
+          {
+            "id": "multi_agent_collab",
+            "title": "多個 AI 協作",
+            "subtitle": "分工幹活",
+            "description": "複雜任務拆給多個 AI 角色，自動配合完成。",
+            "tags": [
+              "Multi-Agent"
+            ],
+            "icon": "🤝",
+            "accent": "#d946ef"
+          }
+        ]
+      },
+      {
+        "id": "tg-mobile",
+        "title": "機器人和 IM 應用",
+        "description": "社群機器人、搜索、桌面小工具",
+        "items": [
+          {
+            "id": "group_management_bot",
+            "title": "社群運營機器人",
+            "subtitle": "管群變現",
+            "description": "管群、擔保交易、客服，私域變現一條龍。",
+            "tags": [
+              "Bot",
+              "MySQL",
+              "擔保交易"
+            ],
+            "icon": "🤖",
+            "accent": "#1db954"
+          },
+          {
+            "id": "need_radar_bot",
+            "title": "商機挖掘雷達",
+            "subtitle": "聽群找單",
+            "description": "監聽群消息，AI 找買賣需求並推送。",
+            "tags": [
+              "Bot",
+              "LLM",
+              "SeekDB"
+            ],
+            "icon": "📡",
+            "accent": "#8b5cf6"
+          },
+          {
+            "id": "tg_ai_search",
+            "title": "群聊歷史搜索",
+            "subtitle": "全文+語義",
+            "description": "在大量聊天記錄裡快速找到有用信息。",
+            "tags": [
+              "國內IM",
+              "混合檢索",
+              "RAG"
+            ],
+            "icon": "🔎",
+            "accent": "#06b6d4"
+          },
+          {
+            "id": "smart_clipboard",
+            "title": "AI 剪貼板",
+            "subtitle": "Windows 桌面",
+            "description": "複製內容時 AI 自動幫你改寫、整理。",
+            "tags": [
+              "Tauri",
+              "Rust",
+              "桌面工具"
+            ],
+            "icon": "📋",
+            "accent": "#818cf8"
+          }
+        ]
+      },
+      {
+        "id": "platform-auto",
+        "title": "後臺和運維",
+        "description": "監控、調度、數據同步這些基礎設施",
+        "items": [
+          {
+            "id": "onchain_token_monitor",
+            "title": "鏈上交易監控",
+            "subtitle": "實時推送",
+            "description": "盯鏈上交易，異常就推到 IM。",
+            "tags": [
+              "Web3",
+              "國內IM"
+            ],
+            "icon": "⛓️",
+            "accent": "#facc15"
+          },
+          {
+            "id": "cc_monitor_gmail",
+            "title": "郵件自動轉發",
+            "subtitle": "郵件→IM",
+            "description": "重要郵件自動提取內容發到聊天工具。",
+            "tags": [
+              "IMAP",
+              "Bot"
+            ],
+            "icon": "📧",
+            "accent": "#ef4444"
+          },
+          {
+            "id": "lark_sync",
+            "title": "飛書數據同步",
+            "subtitle": "表格對接",
+            "description": "飛書表格和後端系統雙向同步，少手工對賬。",
+            "tags": [
+              "飛書",
+              "自動化"
+            ],
+            "icon": "🚀",
+            "accent": "#3370ff"
+          },
+          {
+            "id": "email_auto_crawl",
+            "title": "郵箱研報自動採集",
+            "subtitle": "RPA",
+            "description": "自動收郵件附件、提取表格數據入庫。",
+            "tags": [
+              "RPA",
+              "PDF"
+            ],
+            "icon": "📬",
+            "accent": "#78716c"
+          }
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "title": "做過什麼",
+    "subtitle": "這幾年主要在這些方向幹活",
+    "items": [
+      {
+        "period": "2024 — 至今",
+        "title": "企業 AI 系統",
+        "description": "幫企業做智能助手、知識庫問答、多模態應用，從 demo 到正式上線都做過。",
+        "tags": [
+          "智能助手",
+          "知識庫",
+          "手機自動化"
+        ]
+      },
+      {
+        "period": "2022 — 2024",
+        "title": "文檔處理",
+        "description": "處理百萬級金融 PDF：複雜排版、OCR、切塊，給 AI 準備乾淨數據。",
+        "tags": [
+          "PDF",
+          "OCR"
+        ]
+      },
+      {
+        "period": "2020 — 至今",
+        "title": "機器人和後臺",
+        "description": "高併發的社群機器人和監控系統，交易流程要穩。",
+        "tags": [
+          "機器人",
+          "飛書",
+          "Redis"
+        ]
+      },
+      {
+        "period": "持續",
+        "title": "AI 工具鏈",
+        "description": "研究 AI 調工具、寫代碼、查數據庫，讓流程可審計、可復現。",
+        "tags": [
+          "MCP",
+          "Agent"
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "會什麼",
+    "motto": "不光會調大模型，<strong>更會把 AI 嵌進現有系統</strong>，做得穩、擴得開。",
+    "items": [
+      {
+        "title": "AI 應用",
+        "description": "知識庫問答 / 手機自動化 / 模型部署 / 多智能體 / 工具調用",
+        "tags": [
+          "RAG",
+          "Agent",
+          "MCP"
+        ],
+        "icon": "🤖"
+      },
+      {
+        "title": "金融文本 & 知識庫",
+        "description": "研報公告切塊、搜索排序、圖表檢索、資訊分類",
+        "tags": [
+          "向量庫",
+          "研報"
+        ],
+        "icon": "📊"
+      },
+      {
+        "title": "文檔處理",
+        "description": "PDF 解析 / OCR / 去水印 / 表格識別",
+        "tags": [
+          "PDF",
+          "OCR"
+        ],
+        "icon": "📄"
+      },
+      {
+        "title": "集成 & 自動化",
+        "description": "社群機器人 / 飛書 / 郵件自動化 / 任務隊列",
+        "tags": [
+          "Bot",
+          "飛書"
+        ],
+        "icon": "⚡"
+      }
+    ],
+    "summary": [
+      {
+        "icon": "🏗️",
+        "text": "全棧"
+      },
+      {
+        "icon": "🧠",
+        "text": "AI 落地"
+      },
+      {
+        "icon": "🚀",
+        "text": "快速交付"
+      }
+    ]
+  },
+  "services": {
+    "title": "能幫你做什麼",
+    "items": [
+      {
+        "title": "企業 AI 助手",
+        "description": "知識庫問答、工作流自動化、私有化部署",
+        "technologies": [
+          "RAG",
+          "Agent"
+        ],
+        "badge": "企業",
+        "icon": "🤖"
+      },
+      {
+        "title": "文檔知識庫",
+        "description": "研報公告入庫、搜索優化、效果評測",
+        "technologies": [
+          "向量庫",
+          "Rerank"
+        ],
+        "badge": "知識庫",
+        "icon": "📈"
+      },
+      {
+        "title": "文檔處理",
+        "description": "PDF 解析、OCR、去水印、批量結構化",
+        "technologies": [
+          "PDF",
+          "OCR"
+        ],
+        "badge": "文檔",
+        "icon": "📄"
+      },
+      {
+        "title": "機器人和辦公自動化",
+        "description": "社群/飛書機器人、郵件轉發、定時任務",
+        "technologies": [
+          "Bot",
+          "飛書"
+        ],
+        "badge": "自動化",
+        "icon": "📱"
+      },
+      {
+        "title": "技術顧問",
+        "description": "架構評審、性能優化、疑難問題",
+        "technologies": [
+          "架構",
+          "Code Review"
+        ],
+        "badge": "顧問",
+        "icon": "📚"
+      }
+    ],
+    "partners": {
+      "title": "適合這樣的夥伴",
+      "types": [
+        {
+          "icon": "🚀",
+          "type": "創業團隊",
+          "description": "從 MVP 到產品化，缺後端或 AI 可以找我補"
+        },
+        {
+          "icon": "🏢",
+          "type": "企業",
+          "description": "想做知識庫、智能問答、AI 集成"
+        },
+        {
+          "icon": "👥",
+          "type": "技術合夥人",
+          "description": "一起打磨有商業價值的 AI 產品"
+        }
+      ],
+      "note": "歡迎<strong>項目合作</strong>或<strong>長期顧問</strong>，先聊 30 分鐘對齊需求 💬"
+    }
+  },
+  "projects": {
+    "title": "技術理念",
+    "status": "",
+    "items": [],
+    "innovation": {
+      "icon": "💡",
+      "title": "我的理念",
+      "text": "AI 的價值在於真能用——能監控、能回滾、好維護。用紮實的工程能力，把模型變成業務裡在跑的系統。"
+    }
+  },
+  "contact": {
+    "title": "合作交流",
+    "intro": {
+      "icon": "✨",
+      "title": "有想法？聊聊怎麼落地",
+      "description": "智能助手、知識庫、文檔處理、機器人都可以聊。我會實話實說能不能做、怎麼做。"
+    },
+    "methods": [],
+    "availability": {
+      "icon": "⏰",
+      "title": "響應時間",
+      "responseTime": "2–4 小時",
+      "timezone": "UTC+8（北京時間）",
+      "labels": {
+        "usuallyWithin": "工作日一般",
+        "response": "內回覆",
+        "timezoneLabel": "時區"
+      }
+    },
+    "collaboration": {
+      "icon": "🤝",
+      "title": "合作方式",
+      "types": [
+        {
+          "icon": "💼",
+          "text": "項目外包"
+        },
+        {
+          "icon": "🎓",
+          "text": "技術顧問"
+        },
+        {
+          "icon": "🚀",
+          "text": "創業合夥"
+        }
+      ]
+    },
+    "footer": {
+      "highlights": [
+        "開放溝通",
+        "工程優先",
+        "結果導向"
+      ]
+    },
+    "form": {
+      "title": "留言",
+      "subtitle": "留下聯繫方式，我會盡快回復",
+      "fields": {
+        "name": {
+          "label": "怎麼稱呼",
+          "placeholder": "你的名字"
+        },
+        "contact": {
+          "label": "聯繫方式",
+          "placeholder": "微信 / 郵箱 / 手機"
+        },
+        "topic": {
+          "label": "想聊什麼",
+          "placeholder": "合作方向 / 項目需求…"
+        },
+        "message": {
+          "label": "詳細說說",
+          "placeholder": "簡單描述場景和需求，我好針對性回覆…"
+        }
+      },
+      "submit": "發送",
+      "submitting": "發送中…",
+      "success": "收到了！我會盡快回復",
+      "error": "發送失敗，請稍後重試或直接聯繫我"
+    }
+  }
+}

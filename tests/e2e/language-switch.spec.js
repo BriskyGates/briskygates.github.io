@@ -14,7 +14,7 @@ async function openLangMenu(page) {
 
 async function selectLanguage(page, label) {
     await openLangMenu(page);
-    await page.locator('.sidebar-footer .lang-menu__item', { hasText: label }).click();
+    await page.getByRole('option', { name: label, exact: true }).click();
     await waitForAppReady(page);
 }
 
@@ -60,16 +60,38 @@ test('下拉列表可选择大白话', async ({ page }) => {
 });
 
 test('下拉列表可选择英文', async ({ page }) => {
-    await page.goto('/?lang=plain');
+    await page.goto('/?lang=plain-Hant');
     await waitForAppReady(page);
-
-    await expect(page.locator('.hero-title')).toContainText(/不只是做演示/);
 
     await selectLanguage(page, 'English');
 
-    await expect(page.locator('.hero-title')).toContainText(/Production Power/i);
+    await expect(page.locator('.hero-title')).toContainText(/Production Power|real — not just demos/i);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('English');
     await expect(page).toHaveURL(/lang=en/);
+});
+
+test('下拉列表可选择大白話·繁', async ({ page }) => {
+    await page.goto('/?lang=plain');
+    await waitForAppReady(page);
+
+    await selectLanguage(page, '大白話·繁');
+
+    await expect(page.locator('.hero-title')).toContainText(/不只是做演示|演示/);
+    await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('大白話·繁');
+    await expect(page).toHaveURL(/lang=plain-Hant/);
+    await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
+});
+
+test('下拉列表可选择 Plain English', async ({ page }) => {
+    await page.goto('/?lang=en');
+    await waitForAppReady(page);
+
+    await selectLanguage(page, 'Plain English');
+
+    await expect(page.locator('.hero-title')).toContainText(/not just demos/i);
+    await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('Plain English');
+    await expect(page).toHaveURL(/lang=plain-en/);
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 });
 
 test('下拉列表可切回简体中文', async ({ page }) => {
@@ -99,6 +121,24 @@ test('URL 参数 lang=plain 直接加载大白话', async ({ page }) => {
 
     await expect(page.locator('.hero-title')).toContainText(/不只是做演示/);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('大白话');
+});
+
+test('URL 参数 lang=plain-Hant 直接加载大白話·繁', async ({ page }) => {
+    await page.goto('/?lang=plain-Hant');
+    await waitForAppReady(page);
+
+    await expect(page.locator('.hero-title')).toContainText(/演示/);
+    await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('大白話·繁');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
+});
+
+test('URL 参数 lang=plain-en 直接加载 Plain English', async ({ page }) => {
+    await page.goto('/?lang=plain-en');
+    await waitForAppReady(page);
+
+    await expect(page.locator('.hero-title')).toContainText(/not just demos/i);
+    await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('Plain English');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 });
 
 test('URL 参数 lang=zh-Hant 直接加载繁体中文', async ({ page }) => {

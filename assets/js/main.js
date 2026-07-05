@@ -410,9 +410,9 @@ async function setLanguage(newLang) {
         await applyLanguage(newLang, data, { scrollToTop: true });
     } catch (error) {
         console.error('语言切换失败:', error);
-        const message = currentLang === 'en'
+        const message = currentLang === 'en' || currentLang === 'plain-en'
             ? `Language switch failed: ${error.message}`
-            : currentLang === 'zh-Hant'
+            : currentLang === 'zh-Hant' || currentLang === 'plain-Hant'
                 ? `語言切換失敗：${error.message}`
                 : currentLang === 'plain'
                     ? `切换失败：${error.message}`

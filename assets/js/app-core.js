@@ -4,13 +4,15 @@
 (function (global) {
     'use strict';
 
-    const SUPPORTED_LANGS = ['zh', 'zh-Hant', 'plain', 'en'];
+    const SUPPORTED_LANGS = ['zh', 'zh-Hant', 'plain', 'plain-Hant', 'en', 'plain-en'];
 
     const LANGUAGE_OPTIONS = [
         { code: 'zh', label: '简体中文' },
         { code: 'zh-Hant', label: '繁體中文' },
         { code: 'plain', label: '大白话' },
-        { code: 'en', label: 'English' }
+        { code: 'plain-Hant', label: '大白話·繁' },
+        { code: 'en', label: 'English' },
+        { code: 'plain-en', label: 'Plain English' }
     ];
 
     function getBasePath(pathname) {
@@ -47,6 +49,12 @@
         }
         if (lang === 'plain') {
             return '/assets/data/homeConfig.plain.json';
+        }
+        if (lang === 'plain-Hant') {
+            return '/assets/data/homeConfig.plain-Hant.json';
+        }
+        if (lang === 'plain-en') {
+            return '/assets/data/homeConfig.plain-en.json';
         }
         if (lang === 'zh-Hant') {
             return '/assets/data/homeConfig.zh-Hant.json';
@@ -85,27 +93,33 @@
                 ? { buttonText: '白话', tooltip: '切換到大白話版本' }
                 : { buttonText: '白话', tooltip: '切换到大白话版本' };
         }
+        if (next === 'plain-Hant') {
+            return { buttonText: '白話', tooltip: '切換到大白話·繁版本' };
+        }
         if (next === 'en') {
             return { buttonText: 'EN', tooltip: 'Switch to English / 切换到英文' };
+        }
+        if (next === 'plain-en') {
+            return { buttonText: 'Plain', tooltip: 'Switch to Plain English' };
         }
         return { buttonText: '中文', tooltip: 'Switch to Chinese / 切换到简体中文' };
     }
 
     function getDocumentLang(lang) {
-        if (lang === 'en') {
+        if (lang === 'en' || lang === 'plain-en') {
             return 'en';
         }
-        if (lang === 'zh-Hant') {
+        if (lang === 'zh-Hant' || lang === 'plain-Hant') {
             return 'zh-TW';
         }
         return 'zh-CN';
     }
 
     function getDefaultToastMessage(lang) {
-        if (lang === 'en') {
+        if (lang === 'en' || lang === 'plain-en') {
             return 'Copied to clipboard';
         }
-        if (lang === 'zh-Hant') {
+        if (lang === 'zh-Hant' || lang === 'plain-Hant') {
             return '已複製到剪貼簿';
         }
         return '已复制到剪贴板';
