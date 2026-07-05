@@ -6,6 +6,7 @@ const path = require('node:path');
 const { renderAppShell } = require('./lib/static-renderer');
 const { generateLlmsFull, generateReadme } = require('./lib/llms-generator');
 const { renderJsonLdScript } = require('./lib/jsonld-generator');
+const { generateSitemap, DEFAULT_ENTRIES } = require('./lib/sitemap-generator');
 
 const root = path.join(__dirname, '..');
 const PRERENDER_START = '<!-- PRERENDER:START -->';
@@ -60,6 +61,12 @@ function main() {
         renderJsonLdScript(zhConfig, SITE_URL)
     );
     console.log('Generated _includes/json-ld.html');
+
+    fs.writeFileSync(
+        path.join(root, 'sitemap.xml'),
+        generateSitemap(SITE_URL, DEFAULT_ENTRIES)
+    );
+    console.log('Generated sitemap.xml');
 }
 
 main();

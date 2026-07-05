@@ -7,7 +7,7 @@ author: 阿布
 lang: zh-CN
 
 # Google Search Console 验证（在 Search Console 获取 meta 内容后填入，留空则不输出）
-google_site_verification: ""
+google_site_verification: "googleba2439275fc52107"
 
 # 构建设置
 markdown: kramdown

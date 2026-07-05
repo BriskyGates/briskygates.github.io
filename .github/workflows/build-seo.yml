@@ -35,7 +35,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html llms-full.txt llms-full.en.txt README.md _includes/json-ld.html
+          git add index.html llms-full.txt llms-full.en.txt README.md sitemap.xml _includes/json-ld.html
           if git diff --staged --quiet; then
             echo "No SEO artifact changes to commit."
           else
