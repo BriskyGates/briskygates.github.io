@@ -1,11 +1,11 @@
 {
   "ui": {
-    "pageTitle": "阿布 · AI 全栈工程师",
-    "pageDescription": "Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能",
+    "pageTitle": "阿布 · 企业 AI 落地工程师",
+    "pageDescription": "专注把 RAG、Agent、文档智能做成可上生产的系统；擅长金融/企业知识库与办公自动化",
     "labelSuffix": "：",
     "searchPlaceholder": "探索技能、项目与合作方式…",
-    "heroCtaPrimary": "浏览代表作",
-    "heroCtaSecondary": "看看服务",
+    "heroCtaPrimary": "发我你的知识库现状",
+    "heroCtaSecondary": "看 3 个落地案例",
     "contactMethodsTitle": "联系方式",
     "languageToggle": {
       "tooltip": "选择语言"
@@ -65,7 +65,7 @@
       "testing": "测试中",
       "development": "开发中",
       "planned": "规划中",
-      "highlightsLabel": "亮点",
+      "highlightsLabel": "我做了什么",
       "progressLabel": "进度"
     },
     "greetings": {
@@ -78,30 +78,30 @@
   "profile": {
     "name": "阿布",
     "avatar": "🐶",
-    "tagline": "上海 · 在线",
+    "tagline": "上海 · 可远程",
     "status": "可接项目",
     "heroTitle": "让 AI 跨越技术演示，落地为真实的生产力",
     "title": "关于我",
     "greeting": {
       "text": "Hi，我是阿布，常驻上海",
-      "description": "作为 <strong>AI 全栈开发工程师</strong>，我致力于填补大模型与实际业务之间的鸿沟。<br>擅长将复杂的 RAG、Agent 与多模态技术，转化为稳定、可扩展的企业级应用。"
+      "description": "我是<strong>企业 AI 落地工程师</strong>——帮技术负责人/业务团队把 RAG、Agent、文档智能做成<strong>可部署、可评测、可运维</strong>的生产系统。<br>如果你卡在知识库不准、文档解析炸、或 Agent 上不了生产，可以把现状发我。"
     },
     "heroChips": [
-      "大模型应用落地",
-      "企业级 RAG 架构",
-      "多智能体 (Agent) 协作",
-      "高并发微服务",
-      "业务流程自动化"
+      "企业/金融文档 RAG",
+      "文档智能解析",
+      "Agent 生产落地",
+      "可观测可回滚",
+      "Bot / 飞书自动化"
     ],
     "roles": [
       {
-        "label": "核心能力",
-        "value": "从 0 到 1 搭建企业级 AI 应用：需求解析 → 架构设计 → 研发交付 → 上线运维",
+        "label": "一句话",
+        "value": "找能把 RAG / Agent / 文档智能真正跑进生产的人，就找阿布",
         "type": "primary"
       },
       {
-        "label": "合作方向",
-        "value": "企业客户 · 产品/技术团队 · 创业公司与中小企业",
+        "label": "适合谁",
+        "value": "技术负责人 · 业务负责人（金融/教育/社群）· 创业团队 CTO",
         "type": "secondary"
       }
     ],
@@ -134,125 +134,67 @@
     ]
   },
   "featured": {
-    "title": "精选代表作",
-    "subtitle": "按业务场景精选，覆盖 RAG、Agent、Bot 与文档智能",
+    "title": "落地案例",
+    "subtitle": "按买方痛点写的 3 个代表作——其余能力见下方项目库",
     "items": [
       {
-        "id": "multi_llm_analysis",
-        "title": "多模型驱动的教育解析引擎",
-        "subtitle": "精准解析 · 智能复核",
-        "description": "面向复杂教育场景的自动化评估系统。通过智能路由分发，针对 8 类复杂题型调用最优大模型，结合多轮校验工作流，大幅提升教辅解析的准确度与效率。",
-        "tags": [
-          "Multi-LLM",
-          "题型引擎",
-          "Pipeline"
-        ],
-        "icon": "🧠",
-        "accent": "#e91429",
-        "status": "production",
-        "highlights": [
-          "构建 8 类题型的自动化识别与路由分发引擎",
-          "创新性拆分评估与生成双链路，保障解答严谨性",
-          "设计多轮复核流水线，实现复杂题型的精准解析"
-        ]
-      },
-      {
-        "id": "group_management_bot",
-        "title": "社群运营与担保交易引擎",
-        "subtitle": "高并发 · 业务闭环",
-        "description": "为庞大商业社群量身定制的自动化管理与交易平台。深度集成智能风控、资金担保、自动分账与工单客服系统，支撑高并发场景下社群的高效商业化运转。",
-        "tags": [
-          "Bot",
-          "MySQL",
-          "Redis",
-          "担保交易"
-        ],
-        "icon": "🤖",
-        "accent": "#1db954",
-        "status": "production",
-        "highlights": [
-          "实现从入群验证、反垃圾到风控管理的自动化治理",
-          "构建高可靠的专群资金担保与财务对账系统",
-          "提供完整的运营端控制台，实现商业流转闭环"
-        ]
-      },
-      {
         "id": "fastapi_celery_kb",
-        "title": "海量金融文档 RAG 数据管线",
-        "subtitle": "高并发异步 · 自动化流转",
-        "description": "专为金融级海量长文档打造的知识工程流水线。实现从文档智能解析、语义高维分块到高性能向量入库的全自动调度，为大模型提供实时、精准的行业知识底座。",
+        "title": "研报/公告很多，知识库却经常引用错段落",
+        "subtitle": "金融文档 RAG · 解析分块 · 重排评测",
+        "description": "某中型投研/资讯团队：文档已入库，问答仍答非所问。目标是可上线的知识库问答，且链路可观测。优先重修解析与分块，再上时效/权威重排，而不是先换更大模型。",
         "tags": [
-          "Celery",
-          "向量库",
+          "RAG",
           "分块",
-          "Docker"
+          "Rerank",
+          "Celery"
         ],
         "icon": "📚",
         "accent": "#b49bc8",
         "status": "production",
         "highlights": [
-          "实现研报与公告的自动化结构、高质量语义分块",
-          "基于 Celery 构建多节点并行的异步任务调度集群",
-          "通过 Docker Compose 提供易于扩展的生产级部署方案"
+          "重建研报/公告解析与语义分块管线，异步并行入库",
+          "增加时效与来源权威重排，并对召回链路做日志评测",
+          "用 Docker Compose 交付可扩展部署，支持交接与回滚"
         ]
       },
       {
-        "id": "rerank_system",
-        "title": "高精度语义检索重排序引擎",
-        "subtitle": "多维融合 · 意图对齐",
-        "description": "突破基础 RAG 检索的准确率瓶颈。引入多维度语义重排策略，结合文档时效性、来源权威性进行动态打分与 MMR 多样性去重，确保大模型始终基于最优上下文生成回答。",
+        "id": "doc_intelligence",
+        "title": "扫描件与复杂版面，把整个 RAG 项目拖进泥潭",
+        "subtitle": "PDF / OCR / 目录 / 去水印",
+        "description": "企业知识库常见卡点：扫描件、表格、水印、目录层级缺失。目标是把脏文档变成可检索的结构化输入。规则+坐标能稳住的先稳住，VL/OCR 按版面复杂度按需上。",
         "tags": [
-          "FastAPI",
-          "Rerank",
-          "MMR",
-          "PostgreSQL"
+          "PDF",
+          "OCR",
+          "版面",
+          "结构化"
         ],
-        "icon": "🎯",
-        "accent": "#f59e0b",
+        "icon": "📄",
+        "accent": "#6366f1",
         "status": "production",
         "highlights": [
-          "灵活集成多种深度语义打分模型与定制化重排策略",
-          "创新融合时效与权威度的综合排序算法",
-          "提供完整的查询质量评估与召回链路追踪日志"
+          "搭建 PDF 结构化解析与表格识别，输出干净 Markdown/结构树",
+          "用多规则净水提升 OCR 基线，目录提取做三级降级兜底",
+          "封装高并发解析 API，方便下游分块与向量化直接接入"
         ]
       },
       {
-        "id": "phone_autoglm",
-        "title": "移动端智能体群控中枢",
-        "subtitle": "视觉感知 · 批量自动化",
-        "description": "基于多模态视觉大模型的移动端自动化调度系统。将自然语言转化为精准的终端操作指令，实现多设备的并行任务下发与状态监控，大幅降低跨应用重复操作的业务成本。",
+        "id": "group_management_bot",
+        "title": "群规模上来后，风控/担保/客服靠人顶不住",
+        "subtitle": "社群 Bot · 担保对账 · 可监控",
+        "description": "商业社群在扩群后，验证、反垃圾、担保交易与客服工单靠人工撑不住。交付重点是稳定性、对账闭环与运营可控，而不是堆功能。",
         "tags": [
-          "AutoGLM",
-          "ADB",
-          "FastAPI",
-          "Vue"
+          "Bot",
+          "风控",
+          "担保交易",
+          "Redis"
         ],
-        "icon": "📱",
-        "accent": "#059669",
+        "icon": "🤖",
+        "accent": "#1db954",
         "status": "production",
         "highlights": [
-          "深度结合屏幕视觉感知与多步复杂操作规划",
-          "提供可视化 Web 控制台进行任务编排与设备监控",
-          "提供标准化业务接口，轻松将移动端操作接入企业工作流"
-        ]
-      },
-      {
-        "id": "need_radar_bot",
-        "title": "智能商业线索挖掘雷达",
-        "subtitle": "意图分析 · 供需匹配",
-        "description": "24小时不间断的智能商机挖掘平台。利用大模型深度理解海量非结构化文本中的供需意图，精准计算匹配互补资源，并通过自动化订阅引擎完成高质量商机的实时触达。",
-        "tags": [
-          "国内IM",
-          "LLM",
-          "混合检索"
-        ],
-        "icon": "📡",
-        "accent": "#8b5cf6",
-        "status": "production",
-        "highlights": [
-          "利用大模型构建精准的供方/需方意图提取与语义对齐",
-          "构建基于白名单规则的增量抓取与高可用订阅推送引擎",
-          "提供全功能运营管理后台，实现线索全生命周期管理"
+          "实现入群验证、反垃圾到风控管理的自动化治理",
+          "构建专群资金担保与财务对账，降低人工差错",
+          "提供运营控制台与工单客服，形成可监控的商业闭环"
         ]
       }
     ]
@@ -262,7 +204,7 @@
       {
         "id": "enterprise-ai",
         "title": "企业级 AI 解决方案",
-        "description": "将前沿模型能力转化为切实解决业务痛点的生产系统",
+        "description": "把模型能力做成可上线的业务系统（更多细节在代表作三案）",
         "items": [
           {
             "id": "multi_llm_analysis",
@@ -330,7 +272,7 @@
       {
         "id": "rag-knowledge",
         "title": "RAG 与知识工程基建",
-        "description": "构建从文档解析、高质量分块到精准召回的 RAG 全链路底座",
+        "description": "从解析、分块到召回重排与问答网关的 RAG 底座",
         "items": [
           {
             "id": "fastapi_celery_kb",
@@ -398,7 +340,7 @@
       {
         "id": "doc-intelligence",
         "title": "多模态文档智能解析",
-        "description": "解决复杂版面、扫描件、多模态文档的精准结构化提取难题",
+        "description": "扫描件、复杂版面、水印与目录——RAG 上游少不了的脏活",
         "items": [
           {
             "id": "pdf2xml",
@@ -661,23 +603,23 @@
   },
   "experience": {
     "title": "能力履历",
-    "subtitle": "在复杂的业务场景中，磨练出的全栈工程实力",
+    "subtitle": "面向生产交付的工程路径，不是 Demo 合集",
     "items": [
       {
         "period": "2024 — 至今",
         "title": "企业 AI 架构设计与研发",
-        "description": "深度主导企业级智能体、复杂 RAG 架构、多模态应用的设计与落地。积累了从 POC 概念验证到高可用生产系统的全链路调优经验。",
+        "description": "主导智能体、复杂 RAG、多模态应用从 POC 到高可用生产：强调评测、观测、回滚与交接，而不是只演示效果。",
         "tags": [
           "智能体",
           "RAG",
-          "AutoGLM",
-          "FastAPI"
+          "FastAPI",
+          "可观测"
         ]
       },
       {
         "period": "2022 — 2024",
         "title": "文档智能与非结构化数据处理",
-        "description": "主导构建百万级金融文档解析管线，攻克 PDF 复杂版面、深度 OCR 识别、高优分块策略等核心难题，奠定高质量数据底座。",
+        "description": "构建百万级金融文档解析管线，攻克复杂版面、OCR、分块策略，把「能搜到」建立在「解析对」之上。",
         "tags": [
           "PDF",
           "OCR",
@@ -687,7 +629,7 @@
       {
         "period": "2020 — 至今",
         "title": "高并发 IM 机器人与后台架构",
-        "description": "设计并实现高并发的商业生态机器人与运维监控中枢，熟练应用异步框架与缓存队列，保障核心交易流的绝对稳定性。",
+        "description": "设计商业社群机器人与运维监控中枢，用异步框架与缓存队列守住交易与客服稳定性。",
         "tags": [
           "Bot",
           "飞书 API",
@@ -697,7 +639,7 @@
       {
         "period": "持续",
         "title": "MCP & Agent 工程化",
-        "description": "探索 MCP 工具编排、代码执行范式与 Text2SQL，将 LLM 能力嵌入可审计、可复现的工程流程。",
+        "description": "把工具编排、代码执行与 Text2SQL 嵌进可审计、可复现的工程流程，避免 Agent 只会演示。",
         "tags": [
           "MCP",
           "Agent",
@@ -707,33 +649,33 @@
     ]
   },
   "skills": {
-    "title": "核心技术",
-    "motto": "不仅精于大模型的调度，<strong>更专注于将 AI 技术无缝融合入企业系统</strong>，提供稳定、可扩展的工程落地架构。",
+    "title": "核心能力",
+    "motto": "不只精于调模型，<strong>更专注把 AI 做成可上生产的系统</strong>——可观测、可回滚、可维护。",
     "items": [
       {
         "title": "AI 应用工程化",
-        "description": "RAG 架构 / 手机 Agent / LLM 部署 / Multi-Agent / MCP 工具链",
+        "description": "RAG 全链路 / Agent 上生产 / LLM 服务化 / Multi-Agent / MCP 工具链",
         "tags": [
           "RAG",
           "Agent",
-          "AutoGLM",
-          "MCP"
+          "MCP",
+          "评测"
         ],
         "icon": "🤖"
       },
       {
         "title": "行业文本 & 知识库",
-        "description": "研报/公告分块向量化、召回重排、图表召回、资讯打标",
+        "description": "研报/公告分块向量化、召回重排、图表召回、资讯打标与问答网关",
         "tags": [
           "向量库",
-          "研报",
-          "召回"
+          "Rerank",
+          "研报"
         ],
         "icon": "📊"
       },
       {
         "title": "文档智能",
-        "description": "PDF 解析 / OCR-VL / 去水印 / 表格识别 / 结构化抽取",
+        "description": "PDF 解析 / OCR-VL / 去水印 / 表格识别 / 目录还原 / 结构化抽取",
         "tags": [
           "PDF",
           "OCR",
@@ -743,7 +685,7 @@
       },
       {
         "title": "平台集成 & 自动化",
-        "description": "国内IM Bot / 飞书 / 邮件 RPA / Celery 任务调度",
+        "description": "国内 IM Bot / 飞书 / 邮件 RPA / Celery 任务调度与对账闭环",
         "tags": [
           "Bot",
           "飞书",
@@ -768,83 +710,82 @@
     ]
   },
   "services": {
-    "title": "可提供的合作",
+    "title": "合作方式",
     "items": [
       {
-        "title": "企业 AI 智能体",
-        "description": "知识库问答、工作流智能体、私有化部署与 API 监控",
+        "title": "15 分钟需求澄清",
+        "description": "先对齐问题类型与是否匹配；你填清场景后约聊。只做归类与建议，不写长方案。",
+        "technologies": [
+          "获客",
+          "过滤匹配"
+        ],
+        "badge": "免费 · 限时",
+        "icon": "💬"
+      },
+      {
+        "title": "知识库 / AI 落地诊断",
+        "description": "现状访谈 + 架构草图 + 风险清单 + 优先级 backlog。先把坑标清楚，再决定要不要上大项目。",
+        "technologies": [
+          "诊断纪要",
+          "路线图"
+        ],
+        "badge": "诊断包",
+        "icon": "🩺"
+      },
+      {
+        "title": "技术顾问包",
+        "description": "架构评审、关键设计拍板、Code Review、排障升级。适合已有团队、缺「做过生产」的人盯方向。",
+        "technologies": [
+          "架构",
+          "Code Review"
+        ],
+        "badge": "按月顾问",
+        "icon": "📚"
+      },
+      {
+        "title": "模块交付",
+        "description": "固定范围交付：文档解析管线、召回重排、RAG 对话网关、飞书/Bot 自动化等，含验收与交接。",
+        "technologies": [
+          "解析",
+          "Rerank",
+          "网关",
+          "Bot"
+        ],
+        "badge": "可报价模块",
+        "icon": "📦"
+      },
+      {
+        "title": "完整项目交付",
+        "description": "端到端：调研 → 实施 → 上线 → 交接。里程碑付款；档期占满时会坦诚说明内容节奏。",
         "technologies": [
           "RAG",
           "Agent",
           "FastAPI"
         ],
-        "badge": "企业级",
-        "icon": "🤖"
-      },
-      {
-        "title": "行业文档 RAG 系统",
-        "description": "研报/公告入库、分块策略、召回重排与评测",
-        "technologies": [
-          "向量库",
-          "Rerank",
-          "ETL"
-        ],
-        "badge": "RAG",
-        "icon": "📈"
-      },
-      {
-        "title": "文档处理管线",
-        "description": "PDF 解析、OCR、去水印、批量结构化",
-        "technologies": [
-          "PDF",
-          "OCR",
-          "Python"
-        ],
-        "badge": "文档智能",
-        "icon": "📄"
-      },
-      {
-        "title": "Bot & 办公自动化",
-        "description": "国内IM/飞书机器人、邮件转发、任务调度",
-        "technologies": [
-          "Bot",
-          "飞书",
-          "Celery"
-        ],
-        "badge": "自动化",
-        "icon": "📱"
-      },
-      {
-        "title": "Python 技术顾问",
-        "description": "架构评审、性能优化、疑难问题攻坚",
-        "technologies": [
-          "架构",
-          "Code Review"
-        ],
-        "badge": "顾问",
-        "icon": "📚"
+        "badge": "端到端",
+        "icon": "🚀"
       }
     ],
     "partners": {
-      "title": "期待这样的伙伴",
+      "title": "这样的伙伴最匹配",
       "types": [
         {
-          "icon": "🚀",
-          "type": "AI 创业团队",
-          "description": "从 MVP 到产品化，补齐后端与 AI 工程能力"
+          "icon": "🏗️",
+          "type": "技术负责人 / 架构师",
+          "description": "Demo 好看上不了生产、RAG 不准、链路不可观测——需要可部署可运维的方案"
         },
         {
           "icon": "🏢",
-          "type": "企业客户",
-          "description": "知识库、智能问答与 AI 系统集成落地"
+          "type": "业务负责人（金融/教育/社群）",
+          "description": "文档多、人工贵、流程断——需要文档管线 / 知识库问答 / Bot 自动化"
         },
         {
-          "icon": "👥",
-          "type": "技术合伙人",
-          "description": "一起打磨有商业价值的 Agent / RAG 产品"
+          "icon": "🚀",
+          "type": "创业团队 CTO",
+          "description": "要快、要稳、要人能顶住——顾问 + 核心模块交付"
         }
       ],
-      "note": "欢迎<strong>项目合作</strong>或<strong>长期技术顾问</strong>，先用 30 分钟对齐需求再开工 💬"
+      "note": "不做纯包装 PPT、不接「三天万能 Agent」表演项目。欢迎先<strong>发知识库/文档现状</strong>，再约 15 分钟澄清 💬"
     }
   },
   "projects": {
@@ -854,15 +795,15 @@
     "innovation": {
       "icon": "💡",
       "title": "技术理念",
-      "text": "AI 的价值在落地——可观测、可回滚、可维护。用扎实的 Python 工程能力，把模型能力变成业务里真正在跑的系统。"
+      "text": "AI 的价值在落地——可观测、可回滚、可维护。我不卖概念，我交付能在业务里真正跑起来的系统。"
     }
   },
   "contact": {
     "title": "合作交流",
     "intro": {
       "icon": "✨",
-      "title": "有想法？一起把它做成产品",
-      "description": "无论是智能体、RAG、文档管线还是 Bot，欢迎带着场景来聊——我会诚实评估可行性并给出落地路径。"
+      "title": "把你的知识库 / Agent 现状发我",
+      "description": "无论是召回不准、文档解析炸、还是 Agent 上不了生产——欢迎带着场景来聊。我会诚实评估可行性，并建议走诊断、顾问还是模块交付。"
     },
     "methods": [],
     "availability": {
@@ -881,29 +822,33 @@
       "title": "合作方式",
       "types": [
         {
-          "icon": "💼",
-          "text": "项目外包"
+          "icon": "🩺",
+          "text": "诊断包"
         },
         {
-          "icon": "🎓",
+          "icon": "📚",
           "text": "技术顾问"
         },
         {
+          "icon": "📦",
+          "text": "模块交付"
+        },
+        {
           "icon": "🚀",
-          "text": "创业合伙"
+          "text": "完整项目"
         }
       ]
     },
     "footer": {
       "highlights": [
-        "开放沟通",
         "工程优先",
-        "结果导向"
+        "结果可验收",
+        "范围先谈清"
       ]
     },
     "form": {
-      "title": "发送消息",
-      "subtitle": "留下你的联系方式，我会尽快回复",
+      "title": "开始合作",
+      "subtitle": "发我现状即可；工作日通常 2–4 小时内回复",
       "fields": {
         "name": {
           "label": "你的名字",
@@ -915,17 +860,17 @@
         },
         "topic": {
           "label": "想聊什么",
-          "placeholder": "合作方向 / 项目需求 / 技术交流…"
+          "placeholder": "知识库不准 / 文档解析 / Agent 上线 / 顾问…"
         },
         "message": {
-          "label": "详细描述",
-          "placeholder": "简单说说你的场景和需求，我会更精准地回复…"
+          "label": "现状简述",
+          "placeholder": "已有什么（文档量、是否入库、卡在哪）、目标与时间约束…"
         }
       },
-      "submit": "发送消息",
+      "submit": "发我现状",
       "submitting": "发送中…",
-      "success": "消息已送达！我会尽快回复你",
-      "error": "发送失败，请稍后重试或直接联系我"
+      "success": "已收到！我会尽快回复并建议下一步",
+      "error": "发送失败，请稍后重试或直接加微信联系"
     }
   }
 }

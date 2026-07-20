@@ -1,11 +1,11 @@
 {
   "ui": {
-    "pageTitle": "阿布 · 幫人做 AI 系統",
-    "pageDescription": "寫 Python，把 AI 做出來、部署好、真能用",
+    "pageTitle": "阿布 · 幫企業把 AI 真正用起來",
+    "pageDescription": "把知識庫、文檔處理、智能助手做成能上線、能維護的系統",
     "labelSuffix": "：",
     "searchPlaceholder": "搜項目、技能、怎麼合作…",
-    "heroCtaPrimary": "看代表作",
-    "heroCtaSecondary": "看能做什麼",
+    "heroCtaPrimary": "發我你的知識庫現狀",
+    "heroCtaSecondary": "看 3 個落地案例",
     "contactMethodsTitle": "怎麼聯繫",
     "languageToggle": {
       "tooltip": "選語言"
@@ -65,7 +65,7 @@
       "testing": "測試中",
       "development": "開發中",
       "planned": "計劃中",
-      "highlightsLabel": "亮點",
+      "highlightsLabel": "我做了什麼",
       "progressLabel": "進度"
     },
     "greetings": {
@@ -78,30 +78,30 @@
   "profile": {
     "name": "阿布",
     "avatar": "🐶",
-    "tagline": "上海 · 在線",
+    "tagline": "上海 · 可遠程",
     "status": "可接活",
     "heroTitle": "幫企業把 AI 真正用起來，不只是做演示",
     "title": "關於我",
     "greeting": {
       "text": "你好，我是阿布，在上海",
-      "description": "我是 <strong>AI 全棧工程師</strong>，簡單說就是：幫企業把大模型做成能跑、能維護的系統。<br>擅長知識庫問答、智能助手、文檔處理、機器人這些方向。"
+      "description": "我是<strong>企業 AI 落地工程師</strong>：幫團隊把知識庫問答、文檔處理、智能助手做成<strong>能部署、能評測、能維護</strong>的系統。<br>如果你卡在「搜不準、解析炸、助手上不了線」，可以把現狀發我。"
     },
     "heroChips": [
-      "AI 落地",
-      "知識庫問答",
-      "智能助手",
+      "企業知識庫",
+      "金融文檔 RAG",
       "文檔處理",
-      "自動化"
+      "助手上生產",
+      "機器人自動化"
     ],
     "roles": [
       {
-        "label": "我能做什麼",
-        "value": "從想法到上線：聊需求 → 搭架構 → 寫代碼 → 部署運維",
+        "label": "一句話",
+        "value": "找能把知識庫 / 助手 / 文檔智能真正做成線上系統的人，就找阿布",
         "type": "primary"
       },
       {
         "label": "適合誰",
-        "value": "企業、創業團隊、有 AI 需求但缺技術的人",
+        "value": "技術負責人 · 業務負責人 · 創業公司 CTO",
         "type": "secondary"
       }
     ],
@@ -134,125 +134,67 @@
     ]
   },
   "featured": {
-    "title": "精選作品",
-    "subtitle": "挑了幾個最能代表我能力的項目",
+    "title": "落地案例",
+    "subtitle": "用買方聽得懂的話說清楚：解決什麼問題、我做了什麼",
     "items": [
       {
-        "id": "multi_llm_analysis",
-        "title": "AI 自動批改作業/解析題目",
-        "subtitle": "多種題型 · 自動檢查",
-        "description": "教培場景用的：不同題型自動選合適的 AI 來解答，還會複查一遍，減少錯題。",
-        "tags": [
-          "Multi-LLM",
-          "題型引擎",
-          "Pipeline"
-        ],
-        "icon": "🧠",
-        "accent": "#e91429",
-        "status": "production",
-        "highlights": [
-          "8 種題型自動識別",
-          "解答和評分分開做，更靠譜",
-          "多輪檢查，複雜題也能搞定"
-        ]
-      },
-      {
-        "id": "group_management_bot",
-        "title": "社群管理 + 擔保交易機器人",
-        "subtitle": "管群 · 收錢 · 分賬",
-        "description": "大群用的社群機器人：自動管群、防騙子、擔保交易、客服工單，一套搞定。",
-        "tags": [
-          "Bot",
-          "MySQL",
-          "Redis",
-          "擔保交易"
-        ],
-        "icon": "🤖",
-        "accent": "#1db954",
-        "status": "production",
-        "highlights": [
-          "入群驗證、反垃圾、風控",
-          "擔保交易和財務對賬",
-          "運營後臺一目瞭然"
-        ]
-      },
-      {
         "id": "fastapi_celery_kb",
-        "title": "金融文檔知識庫流水線",
-        "subtitle": "大量文檔 · 自動入庫",
-        "description": "把研報、公告等長文檔自動拆開、轉成向量、存進知識庫，給 AI 問答當資料庫。",
+        "title": "研報公告一堆，知識庫還老引用錯段落",
+        "subtitle": "金融知識庫 · 切塊 · 重排",
+        "description": "文檔已經入庫了，問答還是答非所問。先把解析和切塊修好，再加上時效/來源排序，而不是先換更大模型。",
         "tags": [
-          "Celery",
-          "向量庫",
+          "RAG",
           "分塊",
-          "Docker"
+          "Rerank",
+          "Celery"
         ],
         "icon": "📚",
         "accent": "#b49bc8",
         "status": "production",
         "highlights": [
-          "研報公告自動切塊",
-          "多臺機器並行處理",
-          "Docker 一鍵部署"
+          "重建解析和語義切塊，異步入庫",
+          "加上時效和權威重排，並留下評測日誌",
+          "Docker 部署，方便交接和回滾"
         ]
       },
       {
-        "id": "rerank_system",
-        "title": "搜索答案更準的排序器",
-        "subtitle": "讓 AI 引用對的資料",
-        "description": "知識庫搜出來一堆結果後，再智能排序，把最相關、最新的排前面，AI 回答更準。",
+        "id": "doc_intelligence",
+        "title": "掃描件和亂版面，把整個知識庫項目拖進泥潭",
+        "subtitle": "PDF / OCR / 目錄 / 去水印",
+        "description": "掃描件、表格、水印、目錄缺失是常見坑。目標是把髒文檔變成能檢索的乾淨結構；能用規則穩住就先用規則。",
         "tags": [
-          "FastAPI",
-          "Rerank",
-          "MMR",
-          "PostgreSQL"
+          "PDF",
+          "OCR",
+          "版面",
+          "結構化"
         ],
-        "icon": "🎯",
-        "accent": "#f59e0b",
+        "icon": "📄",
+        "accent": "#6366f1",
         "status": "production",
         "highlights": [
-          "多種排序策略可選",
-          "考慮時效和來源可信度",
-          "有日誌可查搜得好不好"
+          "PDF 結構解析和表格識別",
+          "去水印提升 OCR，目錄提取多級兜底",
+          "做成高併發解析接口給下游用"
         ]
       },
       {
-        "id": "phone_autoglm",
-        "title": "手機批量自動操作",
-        "subtitle": "看屏幕 · 自動點",
-        "description": "AI 能「看」手機屏幕，按你說的去點、去操作，多臺手機一起跑，省人工重複勞動。",
+        "id": "group_management_bot",
+        "title": "群一大，風控/擔保/客服靠人頂不住",
+        "subtitle": "社群機器人 · 擔保對賬",
+        "description": "商業社群擴起來後，驗證、防騙、擔保交易和客服靠人工撐不住。重點做穩、能對賬、能監控。",
         "tags": [
-          "AutoGLM",
-          "ADB",
-          "FastAPI",
-          "Vue"
+          "Bot",
+          "風控",
+          "擔保交易",
+          "Redis"
         ],
-        "icon": "📱",
-        "accent": "#059669",
+        "icon": "🤖",
+        "accent": "#1db954",
         "status": "production",
         "highlights": [
-          "看屏幕做複雜操作",
-          "網頁控制台管任務",
-          "提供 API 接入業務流程"
-        ]
-      },
-      {
-        "id": "need_radar_bot",
-        "title": "自動挖商機的機器人",
-        "subtitle": "聽群聊 · 找需求",
-        "description": "24 小時盯著群消息，用 AI 判斷誰在找貨、誰在出貨，自動匹配推送商機。",
-        "tags": [
-          "國內IM",
-          "LLM",
-          "混合檢索"
-        ],
-        "icon": "📡",
-        "accent": "#8b5cf6",
-        "status": "production",
-        "highlights": [
-          "AI 理解買賣意圖",
-          "增量抓取 + 推送",
-          "後臺管理全部線索"
+          "入群驗證、反垃圾、風控自動化",
+          "擔保交易和財務對賬",
+          "運營後臺 + 工單客服閉環"
         ]
       }
     ]
@@ -262,7 +204,7 @@
       {
         "id": "enterprise-ai",
         "title": "企業 AI 應用",
-        "description": "把 AI 做成真正能用的業務系統",
+        "description": "把 AI 做成真正能上線的業務系統（詳見上面 3 個案例）",
         "items": [
           {
             "id": "multi_llm_analysis",
@@ -398,7 +340,7 @@
       {
         "id": "doc-intelligence",
         "title": "文檔處理",
-        "description": "PDF、掃描件、複雜排版都能結構化提取",
+        "description": "掃描件、亂版面、水印、目錄——知識庫上游的髒活",
         "items": [
           {
             "id": "pdf2xml",
@@ -661,16 +603,16 @@
   },
   "experience": {
     "title": "做過什麼",
-    "subtitle": "這幾年主要在這些方向幹活",
+    "subtitle": "這些年主要在「能上線」這條線上幹活",
     "items": [
       {
         "period": "2024 — 至今",
         "title": "企業 AI 系統",
-        "description": "幫企業做智能助手、知識庫問答、多模態應用，從 demo 到正式上線都做過。",
+        "description": "幫企業做智能助手、知識庫問答、多模態應用，從試做到正式上線都做過，強調能監控、能回滾。",
         "tags": [
           "智能助手",
           "知識庫",
-          "手機自動化"
+          "可觀測"
         ]
       },
       {
@@ -685,7 +627,7 @@
       {
         "period": "2020 — 至今",
         "title": "機器人和後臺",
-        "description": "高併發的社群機器人和監控系統，交易流程要穩。",
+        "description": "高併發的社群機器人和監控系統，交易和客服流程要穩。",
         "tags": [
           "機器人",
           "飛書",
@@ -705,11 +647,11 @@
   },
   "skills": {
     "title": "會什麼",
-    "motto": "不光會調大模型，<strong>更會把 AI 嵌進現有系統</strong>，做得穩、擴得開。",
+    "motto": "不光會調大模型，<strong>更會把 AI 嵌進現有系統</strong>，做得穩、擴得開、能交接。",
     "items": [
       {
         "title": "AI 應用",
-        "description": "知識庫問答 / 手機自動化 / 模型部署 / 多智能體 / 工具調用",
+        "description": "知識庫問答 / 助手上生產 / 模型服務化 / 多智能體 / 工具調用",
         "tags": [
           "RAG",
           "Agent",
@@ -722,13 +664,14 @@
         "description": "研報公告切塊、搜索排序、圖表檢索、資訊分類",
         "tags": [
           "向量庫",
+          "Rerank",
           "研報"
         ],
         "icon": "📊"
       },
       {
         "title": "文檔處理",
-        "description": "PDF 解析 / OCR / 去水印 / 表格識別",
+        "description": "PDF 解析 / OCR / 去水印 / 表格識別 / 目錄還原",
         "tags": [
           "PDF",
           "OCR"
@@ -761,79 +704,82 @@
     ]
   },
   "services": {
-    "title": "能幫你做什麼",
+    "title": "怎麼合作",
     "items": [
       {
-        "title": "企業 AI 助手",
-        "description": "知識庫問答、工作流自動化、私有化部署",
+        "title": "15 分鐘先聊清楚",
+        "description": "先看問題是不是匹配；你把場景說清，我口頭給建議，不寫長方案。",
         "technologies": [
-          "RAG",
-          "Agent"
+          "澄清",
+          "匹配"
         ],
-        "badge": "企業",
-        "icon": "🤖"
+        "badge": "免費 · 限時",
+        "icon": "💬"
       },
       {
-        "title": "文檔知識庫",
-        "description": "研報公告入庫、搜索優化、效果評測",
+        "title": "知識庫 / AI 落地診斷",
+        "description": "訪談現狀、畫架構草圖、列風險和優先級。先把坑標出來，再決定要不要上大項目。",
         "technologies": [
-          "向量庫",
-          "Rerank"
+          "診斷紀要",
+          "路線圖"
         ],
-        "badge": "知識庫",
-        "icon": "📈"
-      },
-      {
-        "title": "文檔處理",
-        "description": "PDF 解析、OCR、去水印、批量結構化",
-        "technologies": [
-          "PDF",
-          "OCR"
-        ],
-        "badge": "文檔",
-        "icon": "📄"
-      },
-      {
-        "title": "機器人和辦公自動化",
-        "description": "社群/飛書機器人、郵件轉發、定時任務",
-        "technologies": [
-          "Bot",
-          "飛書"
-        ],
-        "badge": "自動化",
-        "icon": "📱"
+        "badge": "診斷包",
+        "icon": "🩺"
       },
       {
         "title": "技術顧問",
-        "description": "架構評審、性能優化、疑難問題",
+        "description": "架構評審、關鍵決策、Code Review、疑難排障。適合已有團隊、缺「做過線上」的人盯方向。",
         "technologies": [
           "架構",
           "Code Review"
         ],
-        "badge": "顧問",
+        "badge": "按月顧問",
         "icon": "📚"
+      },
+      {
+        "title": "模塊交付",
+        "description": "固定範圍：文檔解析、召回重排、問答網關、機器人自動化等，帶驗收和交接。",
+        "technologies": [
+          "解析",
+          "Rerank",
+          "網關",
+          "Bot"
+        ],
+        "badge": "可報價模塊",
+        "icon": "📦"
+      },
+      {
+        "title": "完整項目",
+        "description": "從調研到上線交接一條龍。按里程碑付款；檔期滿了會直說。",
+        "technologies": [
+          "RAG",
+          "Agent",
+          "FastAPI"
+        ],
+        "badge": "端到端",
+        "icon": "🚀"
       }
     ],
     "partners": {
-      "title": "適合這樣的夥伴",
+      "title": "這樣的夥伴最合適",
       "types": [
         {
-          "icon": "🚀",
-          "type": "創業團隊",
-          "description": "從 MVP 到產品化，缺後端或 AI 可以找我補"
+          "icon": "🏗️",
+          "type": "技術負責人",
+          "description": "Demo 好看上不了線、知識庫不準、鏈路沒法監控"
         },
         {
           "icon": "🏢",
-          "type": "企業",
-          "description": "想做知識庫、智能問答、AI 集成"
+          "type": "業務負責人",
+          "description": "文檔多、人工貴、流程斷——需要知識庫或機器人"
         },
         {
-          "icon": "👥",
-          "type": "技術合夥人",
-          "description": "一起打磨有商業價值的 AI 產品"
+          "icon": "🚀",
+          "type": "創業公司 CTO",
+          "description": "要快、要穩，缺人頂核心模塊"
         }
       ],
-      "note": "歡迎<strong>項目合作</strong>或<strong>長期顧問</strong>，先聊 30 分鐘對齊需求 💬"
+      "note": "不做純 PPT 包裝，也不接「三天萬能助手」表演項目。歡迎先<strong>發知識庫/文檔現狀</strong>，再約 15 分鐘聊 💬"
     }
   },
   "projects": {
@@ -843,15 +789,15 @@
     "innovation": {
       "icon": "💡",
       "title": "我的理念",
-      "text": "AI 的價值在於真能用——能監控、能回滾、好維護。用紮實的工程能力，把模型變成業務裡在跑的系統。"
+      "text": "AI 的價值在於真能用——能監控、能回滾、好維護。我不賣概念，我交付業務裡在跑的系統。"
     }
   },
   "contact": {
     "title": "合作交流",
     "intro": {
       "icon": "✨",
-      "title": "有想法？聊聊怎麼落地",
-      "description": "智能助手、知識庫、文檔處理、機器人都可以聊。我會實話實說能不能做、怎麼做。"
+      "title": "把你的知識庫 / 助手現狀發我",
+      "description": "搜不準、解析炸、助手上不了線都可以聊。我會實話實說能不能做，並建議走診斷、顧問還是模塊交付。"
     },
     "methods": [],
     "availability": {
@@ -870,29 +816,33 @@
       "title": "合作方式",
       "types": [
         {
-          "icon": "💼",
-          "text": "項目外包"
+          "icon": "🩺",
+          "text": "診斷包"
         },
         {
-          "icon": "🎓",
+          "icon": "📚",
           "text": "技術顧問"
         },
         {
+          "icon": "📦",
+          "text": "模塊交付"
+        },
+        {
           "icon": "🚀",
-          "text": "創業合夥"
+          "text": "完整項目"
         }
       ]
     },
     "footer": {
       "highlights": [
-        "開放溝通",
         "工程優先",
-        "結果導向"
+        "結果可驗收",
+        "範圍先談清"
       ]
     },
     "form": {
-      "title": "留言",
-      "subtitle": "留下聯繫方式，我會盡快回復",
+      "title": "開始合作",
+      "subtitle": "發我現狀就行；工作日一般 2–4 小時內回覆",
       "fields": {
         "name": {
           "label": "怎麼稱呼",
@@ -904,16 +854,16 @@
         },
         "topic": {
           "label": "想聊什麼",
-          "placeholder": "合作方向 / 項目需求…"
+          "placeholder": "知識庫不準 / 文檔解析 / 助手上線 / 顧問…"
         },
         "message": {
-          "label": "詳細說說",
-          "placeholder": "簡單描述場景和需求，我好針對性回覆…"
+          "label": "現狀簡述",
+          "placeholder": "已有什麼（文檔量、是否入庫、卡在哪）、目標與時間…"
         }
       },
-      "submit": "發送",
+      "submit": "發我現狀",
       "submitting": "發送中…",
-      "success": "收到了！我會盡快回復",
+      "success": "收到了！我會盡快回復並建議下一步",
       "error": "發送失敗，請稍後重試或直接聯繫我"
     }
   }

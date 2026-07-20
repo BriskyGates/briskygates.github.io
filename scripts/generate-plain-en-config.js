@@ -7,11 +7,11 @@ const root = path.join(__dirname, '..');
 const en = JSON.parse(fs.readFileSync(path.join(root, 'assets/data/homeConfig.en.json'), 'utf8'));
 
 Object.assign(en.ui, {
-    pageTitle: 'Abu · I Build AI Systems',
-    pageDescription: 'Python dev who ships AI that actually works in production',
+    pageTitle: 'Abu · I help companies ship AI that works',
+    pageDescription: 'Knowledge bases, document AI, and assistants that actually run in production',
     searchPlaceholder: 'Search projects, skills, how we can work together…',
-    heroCtaPrimary: 'See featured work',
-    heroCtaSecondary: 'See what I do',
+    heroCtaPrimary: 'Send me your knowledge-base status',
+    heroCtaSecondary: 'See 3 production cases',
     contactMethodsTitle: 'Get in touch',
     languageToggle: { tooltip: 'Pick a language' },
     toast: {
@@ -25,7 +25,7 @@ Object.assign(en.ui, {
         testing: 'Testing',
         development: 'In progress',
         planned: 'Planned',
-        highlightsLabel: 'Highlights',
+        highlightsLabel: 'What I did',
         progressLabel: 'Progress'
     },
     greetings: {
@@ -47,18 +47,33 @@ en.ui.nav = [
 ];
 
 Object.assign(en.profile, {
-    tagline: 'Shanghai · Online',
+    tagline: 'Shanghai · Remote OK',
     status: 'Open to work',
     heroTitle: 'Help companies use AI for real — not just demos',
     title: 'About me',
     greeting: {
         text: "Hi, I'm Abu, based in Shanghai",
-        description: "I'm an <strong>AI full-stack engineer</strong> — I help companies turn large language models into systems that run, scale, and stay maintainable.<br>Knowledge bases, AI assistants, document processing, bots — that's my wheelhouse."
+        description:
+            "I'm an <strong>enterprise AI production engineer</strong>: I help teams turn knowledge Q&A, document processing, and assistants into systems that are <strong>deployable, measurable, and maintainable</strong>.<br>If search is wrong, parsing is broken, or assistants will not ship — send me the status quo."
     },
-    heroChips: ['AI in production', 'Knowledge bases', 'AI assistants', 'Document AI', 'Automation'],
+    heroChips: [
+        'Enterprise knowledge bases',
+        'Finance document RAG',
+        'Document processing',
+        'Assistants in production',
+        'Bot automation'
+    ],
     roles: [
-        { label: 'What I do', value: 'Idea to launch: talk requirements → design architecture → build → deploy & maintain', type: 'primary' },
-        { label: 'Good fit for', value: 'Companies, startups, and teams that need AI but lack in-house tech', type: 'secondary' }
+        {
+            label: 'In one line',
+            value: 'Need someone who can actually ship knowledge bases / assistants / document AI? Talk to Abu.',
+            type: 'primary'
+        },
+        {
+            label: 'Good fit for',
+            value: 'Tech leads · Business owners · Startup CTOs',
+            type: 'secondary'
+        }
     ],
     stats: [
         { number: '6+', label: 'Years' },
@@ -68,45 +83,42 @@ Object.assign(en.profile, {
     ]
 });
 
-en.featured.title = 'Featured work';
-en.featured.subtitle = 'A few projects that best show what I can do';
+en.featured.title = 'Production cases';
+en.featured.subtitle = 'Buyer-pain stories: what broke, what I did, what shipped';
 
 const featuredMap = {
-    multi_llm_analysis: {
-        title: 'AI homework grading & problem solving',
-        subtitle: 'Many question types · auto-check',
-        description: 'Built for education: picks the right AI per question type, then double-checks answers to cut down errors.',
-        highlights: ['8 question types auto-detected', 'Answer and scoring done separately for reliability', 'Multi-round review for hard problems']
+    fastapi_celery_kb: {
+        title: 'Lots of reports — the knowledge base still cites the wrong passages',
+        subtitle: 'Finance knowledge base · chunking · rerank',
+        description:
+            'Docs were already ingested; answers still missed the point. Fix parsing and chunking first, then add freshness/authority ranking — not a bigger model.',
+        highlights: [
+            'Rebuilt parsing and semantic chunking with async ingest',
+            'Added freshness and authority rerank with eval logs',
+            'Docker deploy for handoff and rollback'
+        ]
+    },
+    doc_intelligence: {
+        title: 'Scans and messy layouts drag the whole knowledge-base project into the mud',
+        subtitle: 'PDF / OCR / TOC / watermark cleanup',
+        description:
+            'Scans, tables, watermarks, missing TOC are common blockers. Goal: turn dirty docs into clean searchable structure; prefer rules when they hold.',
+        highlights: [
+            'PDF structure parsing and table recognition',
+            'Watermark cleanup for better OCR; multi-tier TOC fallback',
+            'High-concurrency parse APIs for downstream use'
+        ]
     },
     group_management_bot: {
-        title: 'Community bot + escrow trading',
-        subtitle: 'Group ops · payments · splits',
-        description: 'Telegram bot for large groups: moderation, scam prevention, escrow trades, support tickets — all in one.',
-        highlights: ['Join verification, anti-spam, risk controls', 'Escrow trades and financial reconciliation', 'Admin dashboard at a glance']
-    },
-    fastapi_celery_kb: {
-        title: 'Financial document knowledge pipeline',
-        subtitle: 'Lots of docs · auto-ingest',
-        description: 'Splits long reports and filings into chunks, turns them into vectors, and stores them for AI Q&A.',
-        highlights: ['Reports and filings auto-chunked', 'Parallel processing across machines', 'One-click Docker deploy']
-    },
-    rerank_system: {
-        title: 'Search result reranker',
-        subtitle: 'Helps AI cite the right sources',
-        description: 'After a knowledge base search returns hits, this re-ranks them so the most relevant and recent come first.',
-        highlights: ['Multiple ranking strategies', 'Weighs freshness and source trust', 'Logs to audit search quality']
-    },
-    phone_autoglm: {
-        title: 'Bulk phone automation',
-        subtitle: 'Sees the screen · taps for you',
-        description: 'AI reads phone screens and runs tasks you describe — many phones at once, less repetitive manual work.',
-        highlights: ['Screen-based complex actions', 'Web console for task management', 'API to plug into workflows']
-    },
-    need_radar_bot: {
-        title: 'Lead-finding bot',
-        subtitle: 'Listens to chats · spots demand',
-        description: 'Watches group messages 24/7, uses AI to spot buyers and sellers, and pushes matched leads.',
-        highlights: ['AI understands buy/sell intent', 'Incremental crawl + push alerts', 'Dashboard for all leads']
+        title: 'As the group scales, risk / escrow / support cannot stay manual',
+        subtitle: 'Community bot · escrow reconciliation',
+        description:
+            'After growth, verification, anti-spam, escrow trades, and support could not stay manual. Focus: stability, reconciliation, and monitoring.',
+        highlights: [
+            'Join verification, anti-spam, risk automation',
+            'Escrow trades and financial reconciliation',
+            'Ops console + ticketing closed loop'
+        ]
     }
 };
 
@@ -116,12 +128,30 @@ en.featured.items.forEach(item => {
 });
 
 const rowTitles = {
-    'enterprise-ai': { title: 'Enterprise AI apps', description: 'AI built to run in real business systems' },
-    'rag-knowledge': { title: 'Knowledge bases & search', description: 'Docs in → chunk → findable → accurate answers' },
-    'doc-intelligence': { title: 'Document processing', description: 'PDFs, scans, messy layouts — structured output' },
-    'agent-mcp': { title: 'AI assistants & automation', description: 'AI plans steps and calls tools to finish tasks' },
-    'tg-mobile': { title: 'Bots & messaging apps', description: 'Telegram bots, search, desktop utilities' },
-    'platform-auto': { title: 'Backend & ops', description: 'Monitoring, scheduling, data sync infrastructure' }
+    'enterprise-ai': {
+        title: 'Enterprise AI apps',
+        description: 'AI that ships as real business systems (see the 3 cases above)'
+    },
+    'rag-knowledge': {
+        title: 'Knowledge bases and search',
+        description: 'Docs in → chunk → find → answer accurately'
+    },
+    'doc-intelligence': {
+        title: 'Document processing',
+        description: 'Scans, messy layouts, watermarks, TOC — dirty work upstream of RAG'
+    },
+    'agent-mcp': {
+        title: 'Assistants and automation',
+        description: 'AI that plans steps and calls tools to finish the job'
+    },
+    'tg-mobile': {
+        title: 'Bots and IM apps',
+        description: 'Community bots, search, desktop helpers'
+    },
+    'platform-auto': {
+        title: 'Ops and backend',
+        description: 'Monitoring, scheduling, data sync infrastructure'
+    }
 };
 en.projectShowcase.rows.forEach(row => {
     const t = rowTitles[row.id];
@@ -129,35 +159,151 @@ en.projectShowcase.rows.forEach(row => {
 });
 
 const projectMap = {
-    multi_llm_analysis: { title: 'AI education problem solver', subtitle: '8 question types', description: 'Different AI per type, with a review pass after.' },
-    rerank_system: { title: 'Search reranking', subtitle: 'Better Q&A', description: 'Re-orders search hits so citations are more reliable.' },
-    report_recall: { title: 'Report image + text search', subtitle: 'Charts and text', description: 'Stores charts and text separately so both are searchable.' },
-    etf_unusual: { title: 'ETF anomaly alerts', subtitle: 'Market watch', description: 'Watches markets and pushes when something looks off.' },
-    temp_ner: { title: 'Financial entity extraction', subtitle: 'Companies, dates', description: 'Pulls company names, dates, and key facts from reports.' },
-    fastapi_celery_kb: { title: 'Bulk document ingest', subtitle: 'Async pipeline', description: 'Queues large doc batches for chunking and vectorization.' },
-    multi_source_chunk: { title: 'Multi-format chunking', subtitle: 'One pipeline', description: 'Same flow for docs from different sources.' },
-    qwen3_pg_recall: { title: 'Vector search service', subtitle: 'PostgreSQL', description: 'Semantic search with a vector database.' },
-    enterprise_chat_openapi: { title: 'Enterprise Q&A API', subtitle: 'Ready to use', description: 'Search + Q&A wrapped as an API for other systems.' },
-    announcement_tagging: { title: 'Filing auto-tagging', subtitle: 'Sort & label', description: 'Tags huge volumes of filings for downstream use.' },
-    pdf2xml: { title: 'PDF structured parsing', subtitle: 'Text & tables', description: 'Turns PDFs into clean structured data.' },
-    pdf_chunker: { title: 'Report smart chunking', subtitle: 'Keeps context', description: 'Splits by paragraphs and tables without losing meaning.' },
-    pdf_watermark: { title: 'PDF watermark removal', subtitle: 'Batch jobs', description: 'Batch-remove watermarks so OCR works better.' },
-    paddle_ocr_vl: { title: 'Image OCR service', subtitle: 'Upload & parse', description: 'Upload scans or complex images and get text structure back.' },
-    extract_pdf_toc: { title: 'PDF table of contents', subtitle: 'Multi fallback', description: 'Tries hard to restore report outline structure.' },
-    gpu_rapid_layout: { title: 'Layout element detection', subtitle: 'GPU speed', description: 'Quickly finds figures, tables, and blocks in docs.' },
-    phone_autoglm: { title: 'Phone fleet control', subtitle: 'Cloud phones', description: 'Web UI to manage many phones; API for tasks and status.' },
-    dynamic_mcp: { title: 'AI writes code to use tools', subtitle: 'Sandboxed', description: 'AI writes and runs code in isolation for flexibility.' },
-    mcp_json_rpc: { title: 'Multi-tool orchestration', subtitle: 'Auto chaining', description: 'You ask in plain language; AI plans which tools to call.' },
-    ai_mcp_middleware: { title: 'Unified AI gateway', subtitle: 'Central control', description: 'One entry point for business systems to call AI.' },
-    multi_agent_collab: { title: 'Multiple AIs working together', subtitle: 'Split the work', description: 'Hard tasks split across AI roles that coordinate.' },
-    group_management_bot: { title: 'Community ops bot', subtitle: 'Groups & revenue', description: 'Moderation, escrow, support — monetize private communities.' },
-    need_radar_bot: { title: 'Lead radar', subtitle: 'Chat mining', description: 'Listens to groups, finds buy/sell intent, pushes leads.' },
-    tg_ai_search: { title: 'Chat history search', subtitle: 'Full-text + semantic', description: 'Find useful info fast in huge chat logs.' },
-    smart_clipboard: { title: 'AI clipboard', subtitle: 'Windows desktop', description: 'AI rewrites and tidies text when you copy.' },
-    onchain_token_monitor: { title: 'On-chain trade monitor', subtitle: 'Live alerts', description: 'Watches on-chain activity and pings IM on anomalies.' },
-    cc_monitor_gmail: { title: 'Email auto-forward', subtitle: 'Email → IM', description: 'Important emails extracted and sent to chat tools.' },
-    lark_sync: { title: 'Lark data sync', subtitle: 'Sheet integration', description: 'Two-way sync between Lark sheets and backend systems.' },
-    email_auto_crawl: { title: 'Inbox report crawler', subtitle: 'RPA', description: 'Collects email attachments and pulls table data into storage.' }
+    multi_llm_analysis: {
+        title: 'AI education problem solving',
+        subtitle: '8 question types',
+        description: 'Routes question types to different models, then double-checks answers.'
+    },
+    rerank_system: {
+        title: 'Search result reranker',
+        subtitle: 'Better citations',
+        description: 'Re-ranks retrieved docs so answers cite the right sources.'
+    },
+    report_recall: {
+        title: 'Report chart + text search',
+        subtitle: 'Find figures and text',
+        description: 'Stores charts and text separately so both are searchable.'
+    },
+    etf_unusual: {
+        title: 'ETF anomaly alerts',
+        subtitle: 'Market monitoring',
+        description: 'Watches markets and pushes anomalies to support research.'
+    },
+    temp_ner: {
+        title: 'Finance entity extraction',
+        subtitle: 'Companies and dates',
+        description: 'Pulls company names, dates, and key entities from reports.'
+    },
+    fastapi_celery_kb: {
+        title: 'Batch document ingest',
+        subtitle: 'Async processing',
+        description: 'Queues large document volumes for chunking and embedding.'
+    },
+    multi_source_chunk: {
+        title: 'Multi-format chunking',
+        subtitle: 'One pipeline',
+        description: 'Different sources go through one chunking and ingest flow.'
+    },
+    qwen3_pg_recall: {
+        title: 'Vector search service',
+        subtitle: 'PostgreSQL',
+        description: 'Semantic search over a vector database for similar content.'
+    },
+    enterprise_chat_openapi: {
+        title: 'Enterprise Q&A API',
+        subtitle: 'Ready to call',
+        description: 'Wraps search + answer so other systems call one API.'
+    },
+    announcement_tagging: {
+        title: 'Auto-tag filings',
+        subtitle: 'Classify and label',
+        description: 'Auto-labels large volumes of filings for downstream use.'
+    },
+    pdf2xml: {
+        title: 'PDF structure parsing',
+        subtitle: 'Text and tables',
+        description: 'Turns PDFs into clean structured data for later steps.'
+    },
+    pdf_chunker: {
+        title: 'Smart report chunking',
+        subtitle: 'Keep context',
+        description: 'Splits by paragraphs and tables without losing meaning.'
+    },
+    pdf_watermark: {
+        title: 'PDF watermark cleanup',
+        subtitle: 'Batch processing',
+        description: 'Batch-cleans report watermarks so OCR gets cleaner.'
+    },
+    paddle_ocr_vl: {
+        title: 'Image OCR service',
+        subtitle: 'Upload and parse',
+        description: 'Upload scans or complex images to extract structured text.'
+    },
+    extract_pdf_toc: {
+        title: 'PDF TOC extraction',
+        subtitle: 'Multi-tier fallback',
+        description: 'Restores report table-of-contents structure when possible.'
+    },
+    gpu_rapid_layout: {
+        title: 'Layout element detection',
+        subtitle: 'GPU accelerated',
+        description: 'Finds figures, tables, and paragraphs in documents fast.'
+    },
+    phone_autoglm: {
+        title: 'Phone farm control',
+        subtitle: 'Cloud phones',
+        description: 'Web console plus APIs to dispatch tasks across phones.'
+    },
+    dynamic_mcp: {
+        title: 'AI code + tool sandbox',
+        subtitle: 'Sandboxed execution',
+        description: 'Lets AI write code and call tools in an isolated environment.'
+    },
+    mcp_json_rpc: {
+        title: 'Multi-tool orchestration',
+        subtitle: 'Auto chaining',
+        description: 'Plans which tools to call and in what order from one request.'
+    },
+    ai_mcp_middleware: {
+        title: 'Unified AI gateway',
+        subtitle: 'Central control',
+        description: 'One entry point for business systems to call AI safely.'
+    },
+    multi_agent_collab: {
+        title: 'Multi-agent collaboration',
+        subtitle: 'Divide and finish',
+        description: 'Splits hard jobs across agent roles that cooperate.'
+    },
+    group_management_bot: {
+        title: 'Community ops bot',
+        subtitle: 'Moderation and monetization',
+        description: 'Group ops, escrow trades, and support in one loop.'
+    },
+    need_radar_bot: {
+        title: 'Lead mining radar',
+        subtitle: 'Listen and match',
+        description: 'Watches chats, detects buy/sell intent, and pushes matches.'
+    },
+    tg_ai_search: {
+        title: 'Chat history search',
+        subtitle: 'Keyword + semantic',
+        description: 'Finds useful info fast inside large chat histories.'
+    },
+    smart_clipboard: {
+        title: 'AI clipboard',
+        subtitle: 'Windows desktop',
+        description: 'Rewrites or organizes clipboard content with AI as you copy.'
+    },
+    onchain_token_monitor: {
+        title: 'On-chain trade monitor',
+        subtitle: 'Realtime push',
+        description: 'Watches chain activity and pushes anomalies to IM.'
+    },
+    cc_monitor_gmail: {
+        title: 'Email auto-forward',
+        subtitle: 'Email to IM',
+        description: 'Extracts important email content and routes it to chat tools.'
+    },
+    lark_sync: {
+        title: 'Feishu data sync',
+        subtitle: 'Sheet integration',
+        description: 'Two-way sync between Feishu sheets and backend systems.'
+    },
+    email_auto_crawl: {
+        title: 'Email report collector',
+        subtitle: 'RPA',
+        description: 'Pulls email attachments and extracts tables into structured ledgers.'
+    }
 };
 
 en.projectShowcase.rows.forEach(row => {
@@ -168,63 +314,165 @@ en.projectShowcase.rows.forEach(row => {
 });
 
 en.experience.title = 'What I have done';
-en.experience.subtitle = 'Main areas I have worked in recently';
+en.experience.subtitle = 'Years focused on systems that can go live';
 en.experience.items = [
-    { period: '2024 — present', title: 'Enterprise AI systems', description: 'AI assistants, knowledge Q&A, multimodal apps — from demo to production.', tags: ['AI assistants', 'Knowledge bases', 'Phone automation'] },
-    { period: '2022 — 2024', title: 'Document processing', description: 'Millions of financial PDFs: messy layouts, OCR, chunking — clean data for AI.', tags: ['PDF', 'OCR'] },
-    { period: '2020 — present', title: 'Bots & backends', description: 'High-traffic Telegram bots and monitoring; trading flows that must stay up.', tags: ['Bots', 'Lark', 'Redis'] },
-    { period: 'Ongoing', title: 'AI tooling', description: 'AI calling tools, writing code, querying databases — auditable, repeatable flows.', tags: ['MCP', 'Agent'] }
+    {
+        period: '2024 — Present',
+        title: 'Enterprise AI systems',
+        description:
+            'Assistants, knowledge Q&A, multimodal apps — from trial to production, with monitoring and rollback in mind.',
+        tags: ['Assistants', 'Knowledge bases', 'Observability']
+    },
+    {
+        period: '2022 — 2024',
+        title: 'Document processing',
+        description: 'Million-scale finance PDFs: messy layouts, OCR, chunking — clean data for AI.',
+        tags: ['PDF', 'OCR']
+    },
+    {
+        period: '2020 — Present',
+        title: 'Bots and backend',
+        description: 'High-concurrency community bots and monitoring — trading and support must stay stable.',
+        tags: ['Bots', 'Feishu', 'Redis']
+    },
+    {
+        period: 'Ongoing',
+        title: 'AI toolchains',
+        description: 'AI calling tools, writing code, querying databases — auditable and reproducible.',
+        tags: ['MCP', 'Agent']
+    }
 ];
 
-en.skills.title = 'What I know';
-en.skills.motto = 'Not just tuning models — <strong>embedding AI into existing systems</strong> so it stays stable and scales.';
+en.skills.title = 'What I am good at';
+en.skills.motto =
+    'Not just calling models — <strong>embedding AI into real systems</strong> that stay stable, scale, and hand off cleanly.';
 en.skills.items = [
-    { title: 'AI applications', description: 'Knowledge Q&A / phone automation / model deploy / multi-agent / tool use', tags: ['RAG', 'Agent', 'MCP'], icon: '🤖' },
-    { title: 'Finance text & knowledge', description: 'Report chunking, search ranking, chart retrieval, news classification', tags: ['Vector DB', 'Reports'], icon: '📊' },
-    { title: 'Document processing', description: 'PDF parsing / OCR / watermark removal / table recognition', tags: ['PDF', 'OCR'], icon: '📄' },
-    { title: 'Integration & automation', description: 'Telegram bots / Lark / email automation / job queues', tags: ['Bot', 'Lark'], icon: '⚡' }
+    {
+        title: 'AI applications',
+        description: 'Knowledge Q&A / assistants in prod / model services / multi-agent / tool calling',
+        tags: ['RAG', 'Agent', 'MCP'],
+        icon: '🤖'
+    },
+    {
+        title: 'Finance text and knowledge bases',
+        description: 'Report chunking, search ranking, chart recall, news tagging',
+        tags: ['Vectors', 'Rerank', 'Reports'],
+        icon: '📊'
+    },
+    {
+        title: 'Document processing',
+        description: 'PDF parsing / OCR / watermark cleanup / tables / TOC restore',
+        tags: ['PDF', 'OCR'],
+        icon: '📄'
+    },
+    {
+        title: 'Integration and automation',
+        description: 'Community bots / Feishu / email automation / job queues',
+        tags: ['Bot', 'Feishu'],
+        icon: '⚡'
+    }
 ];
 en.skills.summary = [
     { icon: '🏗️', text: 'Full-stack' },
-    { icon: '🧠', text: 'AI in production' },
+    { icon: '🧠', text: 'AI that ships' },
     { icon: '🚀', text: 'Fast delivery' }
 ];
 
-en.services.title = 'How I can help';
+en.services.title = 'How we can work';
 en.services.items = [
-    { title: 'Enterprise AI assistant', description: 'Knowledge Q&A, workflow automation, private deploy', technologies: ['RAG', 'Agent'], badge: 'Enterprise', icon: '🤖' },
-    { title: 'Document knowledge base', description: 'Report ingest, search tuning, quality evaluation', technologies: ['Vector DB', 'Rerank'], badge: 'Knowledge', icon: '📈' },
-    { title: 'Document processing', description: 'PDF parsing, OCR, watermark removal, batch structure', technologies: ['PDF', 'OCR'], badge: 'Docs', icon: '📄' },
-    { title: 'Bots & office automation', description: 'Telegram/Lark bots, email forwarding, scheduled jobs', technologies: ['Bot', 'Lark'], badge: 'Automation', icon: '📱' },
-    { title: 'Technical advisor', description: 'Architecture review, performance tuning, hard problems', technologies: ['Architecture', 'Code review'], badge: 'Advisor', icon: '📚' }
+    {
+        title: '15-min triage call',
+        description: 'Check fit first. You describe the scenario; I give verbal guidance — no long proposal.',
+        technologies: ['Triage', 'Fit check'],
+        badge: 'Free · time-boxed',
+        icon: '💬'
+    },
+    {
+        title: 'Knowledge-base / AI diagnosis',
+        description:
+            'Status interview, architecture sketch, risks and priorities. Mark the pits before a big build.',
+        technologies: ['Diagnosis notes', 'Roadmap'],
+        badge: 'Diagnosis pack',
+        icon: '🩺'
+    },
+    {
+        title: 'Technical advisory',
+        description:
+            'Architecture review, key decisions, code review, hard debugging. For teams that need a production peer.',
+        technologies: ['Architecture', 'Code review'],
+        badge: 'Monthly advisory',
+        icon: '📚'
+    },
+    {
+        title: 'Module delivery',
+        description:
+            'Fixed scope: document parsing, recall rerank, Q&A gateway, bot automation — with acceptance and handoff.',
+        technologies: ['Parsing', 'Rerank', 'Gateway', 'Bot'],
+        badge: 'Priced modules',
+        icon: '📦'
+    },
+    {
+        title: 'Full project',
+        description: 'Discovery to launch and handoff. Milestone payments; I say so when capacity is full.',
+        technologies: ['RAG', 'Agent', 'FastAPI'],
+        badge: 'End-to-end',
+        icon: '🚀'
+    }
 ];
-en.services.partners.title = 'Good partners look like';
+en.services.partners.title = 'Best partners look like';
 en.services.partners.types = [
-    { icon: '🚀', type: 'Startups', description: 'From MVP to product — need backend or AI help' },
-    { icon: '🏢', type: 'Enterprises', description: 'Want knowledge bases, AI Q&A, or AI integration' },
-    { icon: '👥', type: 'Tech partners', description: 'Build AI products with real business value together' }
+    {
+        icon: '🏗️',
+        type: 'Tech leads',
+        description: 'Demos will not ship, knowledge base is inaccurate, pipelines are not monitorable'
+    },
+    {
+        icon: '🏢',
+        type: 'Business owners',
+        description: 'Too many docs, expensive labor, broken workflows — need a knowledge base or bots'
+    },
+    {
+        icon: '🚀',
+        type: 'Startup CTOs',
+        description: 'Need speed and stability; missing owners for the hard modules'
+    }
 ];
-en.services.partners.note = 'Happy to talk <strong>project work</strong> or <strong>ongoing advisory</strong> — 30 minutes to align first 💬';
+en.services.partners.note =
+    'No pure pitch-deck theater, no "3-day universal assistant" stunts. Prefer <strong>sending your KB/doc status</strong>, then a 15-min chat 💬';
 
 en.projects.innovation.title = 'How I think';
-en.projects.innovation.text = 'AI only matters if it runs in production — observable, rollback-friendly, maintainable. Solid engineering turns models into systems your business actually uses.';
+en.projects.innovation.text =
+    'AI only matters if it runs — observable, rollback-friendly, maintainable. I do not sell concepts; I deliver systems the business actually uses.';
 
 Object.assign(en.contact.intro, {
-    title: 'Got an idea? Let us talk execution',
-    description: 'AI assistants, knowledge bases, document AI, bots — all fair game. I will be straight about what is feasible and how.'
+    title: 'Send me your knowledge-base / assistant status',
+    description:
+        'Wrong search, broken parsing, assistants that will not ship — all fair game. I will be straight about fit and suggest diagnosis, advisory, or a module.'
 });
+en.contact.collaboration.types = [
+    { icon: '🩺', text: 'Diagnosis' },
+    { icon: '📚', text: 'Advisory' },
+    { icon: '📦', text: 'Modules' },
+    { icon: '🚀', text: 'Full project' }
+];
 Object.assign(en.contact.form, {
-    title: 'Leave a message',
-    subtitle: 'Drop your contact info and I will reply soon',
+    title: 'Start working together',
+    subtitle: 'Send the status quo; weekday replies usually within 2–4 hours',
     fields: {
         name: { label: 'Your name', placeholder: 'How to address you' },
         contact: { label: 'Contact', placeholder: 'WeChat / email / phone' },
-        topic: { label: 'Topic', placeholder: 'What you want to discuss…' },
-        message: { label: 'Details', placeholder: 'Briefly describe your scenario and needs so I can reply usefully…' }
+        topic: {
+            label: 'Topic',
+            placeholder: 'KB accuracy / doc parsing / assistant launch / advisory…'
+        },
+        message: {
+            label: 'Status brief',
+            placeholder: 'What you have (doc volume, ingested or not, where stuck), goals and timing…'
+        }
     },
-    submit: 'Send',
+    submit: 'Send status',
     submitting: 'Sending…',
-    success: 'Got it — I will reply soon',
+    success: 'Got it — I will reply with a suggested next step',
     error: 'Send failed — try again later or contact me directly'
 });
 en.contact.availability.labels = {
@@ -232,9 +480,7 @@ en.contact.availability.labels = {
     response: 'to reply',
     timezoneLabel: 'Timezone'
 };
+en.contact.footer.highlights = ['Engineering first', 'Acceptance-ready', 'Scope before price'];
 
-fs.writeFileSync(
-    path.join(root, 'assets/data/homeConfig.plain-en.json'),
-    JSON.stringify(en, null, 2) + '\n'
-);
+fs.writeFileSync(path.join(root, 'assets/data/homeConfig.plain-en.json'), JSON.stringify(en, null, 2) + '\n');
 console.log('Generated assets/data/homeConfig.plain-en.json');

@@ -7,11 +7,11 @@ const root = path.join(__dirname, '..');
 const zh = JSON.parse(fs.readFileSync(path.join(root, 'assets/data/homeConfig.json'), 'utf8'));
 
 Object.assign(zh.ui, {
-    pageTitle: '阿布 · 帮人做 AI 系统',
-    pageDescription: '写 Python，把 AI 做出来、部署好、真能用',
+    pageTitle: '阿布 · 帮企业把 AI 真正用起来',
+    pageDescription: '把知识库、文档处理、智能助手做成能上线、能维护的系统',
     searchPlaceholder: '搜项目、技能、怎么合作…',
-    heroCtaPrimary: '看代表作',
-    heroCtaSecondary: '看能做什么',
+    heroCtaPrimary: '发我你的知识库现状',
+    heroCtaSecondary: '看 3 个落地案例',
     contactMethodsTitle: '怎么联系',
     languageToggle: { tooltip: '选语言' },
     toast: {
@@ -25,7 +25,7 @@ Object.assign(zh.ui, {
         testing: '测试中',
         development: '开发中',
         planned: '计划中',
-        highlightsLabel: '亮点',
+        highlightsLabel: '我做了什么',
         progressLabel: '进度'
     },
     greetings: {
@@ -47,18 +47,27 @@ zh.ui.nav = [
 ];
 
 Object.assign(zh.profile, {
-    tagline: '上海 · 在线',
+    tagline: '上海 · 可远程',
     status: '可接活',
     heroTitle: '帮企业把 AI 真正用起来，不只是做演示',
     title: '关于我',
     greeting: {
         text: '你好，我是阿布，在上海',
-        description: '我是 <strong>AI 全栈工程师</strong>，简单说就是：帮企业把大模型做成能跑、能维护的系统。<br>擅长知识库问答、智能助手、文档处理、机器人这些方向。'
+        description:
+            '我是<strong>企业 AI 落地工程师</strong>：帮团队把知识库问答、文档处理、智能助手做成<strong>能部署、能评测、能维护</strong>的系统。<br>如果你卡在「搜不准、解析炸、助手上不了线」，可以把现状发我。'
     },
-    heroChips: ['AI 落地', '知识库问答', '智能助手', '文档处理', '自动化'],
+    heroChips: ['企业知识库', '金融文档 RAG', '文档处理', '助手上生产', '机器人自动化'],
     roles: [
-        { label: '我能做什么', value: '从想法到上线：聊需求 → 搭架构 → 写代码 → 部署运维', type: 'primary' },
-        { label: '适合谁', value: '企业、创业团队、有 AI 需求但缺技术的人', type: 'secondary' }
+        {
+            label: '一句话',
+            value: '找能把知识库 / 助手 / 文档智能真正做成线上系统的人，就找阿布',
+            type: 'primary'
+        },
+        {
+            label: '适合谁',
+            value: '技术负责人 · 业务负责人 · 创业公司 CTO',
+            type: 'secondary'
+        }
     ],
     stats: [
         { number: '6+', label: '年经验' },
@@ -68,45 +77,30 @@ Object.assign(zh.profile, {
     ]
 });
 
-zh.featured.title = '精选作品';
-zh.featured.subtitle = '挑了几个最能代表我能力的项目';
+zh.featured.title = '落地案例';
+zh.featured.subtitle = '用买方听得懂的话说清楚：解决什么问题、我做了什么';
 
 const featuredMap = {
-    multi_llm_analysis: {
-        title: 'AI 自动批改作业/解析题目',
-        subtitle: '多种题型 · 自动检查',
-        description: '教培场景用的：不同题型自动选合适的 AI 来解答，还会复查一遍，减少错题。',
-        highlights: ['8 种题型自动识别', '解答和评分分开做，更靠谱', '多轮检查，复杂题也能搞定']
+    fastapi_celery_kb: {
+        title: '研报公告一堆，知识库还老引用错段落',
+        subtitle: '金融知识库 · 切块 · 重排',
+        description:
+            '文档已经入库了，问答还是答非所问。先把解析和切块修好，再加上时效/来源排序，而不是先换更大模型。',
+        highlights: ['重建解析和语义切块，异步入库', '加上时效和权威重排，并留下评测日志', 'Docker 部署，方便交接和回滚']
+    },
+    doc_intelligence: {
+        title: '扫描件和乱版面，把整个知识库项目拖进泥潭',
+        subtitle: 'PDF / OCR / 目录 / 去水印',
+        description:
+            '扫描件、表格、水印、目录缺失是常见坑。目标是把脏文档变成能检索的干净结构；能用规则稳住就先用规则。',
+        highlights: ['PDF 结构解析和表格识别', '去水印提升 OCR，目录提取多级兜底', '做成高并发解析接口给下游用']
     },
     group_management_bot: {
-        title: '社群管理 + 担保交易机器人',
-        subtitle: '管群 · 收钱 · 分账',
-        description: '大群用的 Telegram 机器人：自动管群、防骗子、担保交易、客服工单，一套搞定。',
-        highlights: ['入群验证、反垃圾、风控', '担保交易和财务对账', '运营后台一目了然']
-    },
-    fastapi_celery_kb: {
-        title: '金融文档知识库流水线',
-        subtitle: '大量文档 · 自动入库',
-        description: '把研报、公告等长文档自动拆开、转成向量、存进知识库，给 AI 问答当资料库。',
-        highlights: ['研报公告自动切块', '多台机器并行处理', 'Docker 一键部署']
-    },
-    rerank_system: {
-        title: '搜索答案更准的排序器',
-        subtitle: '让 AI 引用对的资料',
-        description: '知识库搜出来一堆结果后，再智能排序，把最相关、最新的排前面，AI 回答更准。',
-        highlights: ['多种排序策略可选', '考虑时效和来源可信度', '有日志可查搜得好不好']
-    },
-    phone_autoglm: {
-        title: '手机批量自动操作',
-        subtitle: '看屏幕 · 自动点',
-        description: 'AI 能「看」手机屏幕，按你说的去点、去操作，多台手机一起跑，省人工重复劳动。',
-        highlights: ['看屏幕做复杂操作', '网页控制台管任务', '提供 API 接入业务流程']
-    },
-    need_radar_bot: {
-        title: '自动挖商机的机器人',
-        subtitle: '听群聊 · 找需求',
-        description: '24 小时盯着群消息，用 AI 判断谁在找货、谁在出货，自动匹配推送商机。',
-        highlights: ['AI 理解买卖意图', '增量抓取 + 推送', '后台管理全部线索']
+        title: '群一大，风控/担保/客服靠人顶不住',
+        subtitle: '社群机器人 · 担保对账',
+        description:
+            '商业社群扩起来后，验证、防骗、担保交易和客服靠人工撑不住。重点做稳、能对账、能监控。',
+        highlights: ['入群验证、反垃圾、风控自动化', '担保交易和财务对账', '运营后台 + 工单客服闭环']
     }
 };
 
@@ -116,11 +110,11 @@ zh.featured.items.forEach(item => {
 });
 
 const rowTitles = {
-    'enterprise-ai': { title: '企业 AI 应用', description: '把 AI 做成真正能用的业务系统' },
+    'enterprise-ai': { title: '企业 AI 应用', description: '把 AI 做成真正能上线的业务系统（详见上面 3 个案例）' },
     'rag-knowledge': { title: '知识库 & 搜索', description: '文档进来 → 切块 → 搜得到 → 答得准' },
-    'doc-intelligence': { title: '文档处理', description: 'PDF、扫描件、复杂排版都能结构化提取' },
+    'doc-intelligence': { title: '文档处理', description: '扫描件、乱版面、水印、目录——知识库上游的脏活' },
     'agent-mcp': { title: '智能助手 & 自动化', description: 'AI 能自己规划步骤、调用工具完成任务' },
-    'tg-mobile': { title: '机器人和 IM 应用', description: 'Telegram 机器人、搜索、桌面小工具' },
+    'tg-mobile': { title: '机器人和 IM 应用', description: '社群机器人、搜索、桌面小工具' },
     'platform-auto': { title: '后台和运维', description: '监控、调度、数据同步这些基础设施' }
 };
 zh.projectShowcase.rows.forEach(row => {
@@ -168,21 +162,61 @@ zh.projectShowcase.rows.forEach(row => {
 });
 
 zh.experience.title = '做过什么';
-zh.experience.subtitle = '这几年主要在这些方向干活';
+zh.experience.subtitle = '这些年主要在「能上线」这条线上干活';
 zh.experience.items = [
-    { period: '2024 — 至今', title: '企业 AI 系统', description: '帮企业做智能助手、知识库问答、多模态应用，从 demo 到正式上线都做过。', tags: ['智能助手', '知识库', '手机自动化'] },
-    { period: '2022 — 2024', title: '文档处理', description: '处理百万级金融 PDF：复杂排版、OCR、切块，给 AI 准备干净数据。', tags: ['PDF', 'OCR'] },
-    { period: '2020 — 至今', title: '机器人和后台', description: '高并发的 Telegram 机器人和监控系统，交易流程要稳。', tags: ['机器人', '飞书', 'Redis'] },
-    { period: '持续', title: 'AI 工具链', description: '研究 AI 调工具、写代码、查数据库，让流程可审计、可复现。', tags: ['MCP', 'Agent'] }
+    {
+        period: '2024 — 至今',
+        title: '企业 AI 系统',
+        description: '帮企业做智能助手、知识库问答、多模态应用，从试做到正式上线都做过，强调能监控、能回滚。',
+        tags: ['智能助手', '知识库', '可观测']
+    },
+    {
+        period: '2022 — 2024',
+        title: '文档处理',
+        description: '处理百万级金融 PDF：复杂排版、OCR、切块，给 AI 准备干净数据。',
+        tags: ['PDF', 'OCR']
+    },
+    {
+        period: '2020 — 至今',
+        title: '机器人和后台',
+        description: '高并发的社群机器人和监控系统，交易和客服流程要稳。',
+        tags: ['机器人', '飞书', 'Redis']
+    },
+    {
+        period: '持续',
+        title: 'AI 工具链',
+        description: '研究 AI 调工具、写代码、查数据库，让流程可审计、可复现。',
+        tags: ['MCP', 'Agent']
+    }
 ];
 
 zh.skills.title = '会什么';
-zh.skills.motto = '不光会调大模型，<strong>更会把 AI 嵌进现有系统</strong>，做得稳、扩得开。';
+zh.skills.motto = '不光会调大模型，<strong>更会把 AI 嵌进现有系统</strong>，做得稳、扩得开、能交接。';
 zh.skills.items = [
-    { title: 'AI 应用', description: '知识库问答 / 手机自动化 / 模型部署 / 多智能体 / 工具调用', tags: ['RAG', 'Agent', 'MCP'], icon: '🤖' },
-    { title: '金融文本 & 知识库', description: '研报公告切块、搜索排序、图表检索、资讯分类', tags: ['向量库', '研报'], icon: '📊' },
-    { title: '文档处理', description: 'PDF 解析 / OCR / 去水印 / 表格识别', tags: ['PDF', 'OCR'], icon: '📄' },
-    { title: '集成 & 自动化', description: 'Telegram 机器人 / 飞书 / 邮件自动化 / 任务队列', tags: ['Bot', '飞书'], icon: '⚡' }
+    {
+        title: 'AI 应用',
+        description: '知识库问答 / 助手上生产 / 模型服务化 / 多智能体 / 工具调用',
+        tags: ['RAG', 'Agent', 'MCP'],
+        icon: '🤖'
+    },
+    {
+        title: '金融文本 & 知识库',
+        description: '研报公告切块、搜索排序、图表检索、资讯分类',
+        tags: ['向量库', 'Rerank', '研报'],
+        icon: '📊'
+    },
+    {
+        title: '文档处理',
+        description: 'PDF 解析 / OCR / 去水印 / 表格识别 / 目录还原',
+        tags: ['PDF', 'OCR'],
+        icon: '📄'
+    },
+    {
+        title: '集成 & 自动化',
+        description: '社群机器人 / 飞书 / 邮件自动化 / 任务队列',
+        tags: ['Bot', '飞书'],
+        icon: '⚡'
+    }
 ];
 zh.skills.summary = [
     { icon: '🏗️', text: '全栈' },
@@ -190,41 +224,94 @@ zh.skills.summary = [
     { icon: '🚀', text: '快速交付' }
 ];
 
-zh.services.title = '能帮你做什么';
+zh.services.title = '怎么合作';
 zh.services.items = [
-    { title: '企业 AI 助手', description: '知识库问答、工作流自动化、私有化部署', technologies: ['RAG', 'Agent'], badge: '企业', icon: '🤖' },
-    { title: '文档知识库', description: '研报公告入库、搜索优化、效果评测', technologies: ['向量库', 'Rerank'], badge: '知识库', icon: '📈' },
-    { title: '文档处理', description: 'PDF 解析、OCR、去水印、批量结构化', technologies: ['PDF', 'OCR'], badge: '文档', icon: '📄' },
-    { title: '机器人和办公自动化', description: 'Telegram/飞书机器人、邮件转发、定时任务', technologies: ['Bot', '飞书'], badge: '自动化', icon: '📱' },
-    { title: '技术顾问', description: '架构评审、性能优化、疑难问题', technologies: ['架构', 'Code Review'], badge: '顾问', icon: '📚' }
+    {
+        title: '15 分钟先聊清楚',
+        description: '先看问题是不是匹配；你把场景说清，我口头给建议，不写长方案。',
+        technologies: ['澄清', '匹配'],
+        badge: '免费 · 限时',
+        icon: '💬'
+    },
+    {
+        title: '知识库 / AI 落地诊断',
+        description: '访谈现状、画架构草图、列风险和优先级。先把坑标出来，再决定要不要上大项目。',
+        technologies: ['诊断纪要', '路线图'],
+        badge: '诊断包',
+        icon: '🩺'
+    },
+    {
+        title: '技术顾问',
+        description: '架构评审、关键决策、Code Review、疑难排障。适合已有团队、缺「做过线上」的人盯方向。',
+        technologies: ['架构', 'Code Review'],
+        badge: '按月顾问',
+        icon: '📚'
+    },
+    {
+        title: '模块交付',
+        description: '固定范围：文档解析、召回重排、问答网关、机器人自动化等，带验收和交接。',
+        technologies: ['解析', 'Rerank', '网关', 'Bot'],
+        badge: '可报价模块',
+        icon: '📦'
+    },
+    {
+        title: '完整项目',
+        description: '从调研到上线交接一条龙。按里程碑付款；档期满了会直说。',
+        technologies: ['RAG', 'Agent', 'FastAPI'],
+        badge: '端到端',
+        icon: '🚀'
+    }
 ];
-zh.services.partners.title = '适合这样的伙伴';
+zh.services.partners.title = '这样的伙伴最合适';
 zh.services.partners.types = [
-    { icon: '🚀', type: '创业团队', description: '从 MVP 到产品化，缺后端或 AI 可以找我补' },
-    { icon: '🏢', type: '企业', description: '想做知识库、智能问答、AI 集成' },
-    { icon: '👥', type: '技术合伙人', description: '一起打磨有商业价值的 AI 产品' }
+    {
+        icon: '🏗️',
+        type: '技术负责人',
+        description: 'Demo 好看上不了线、知识库不准、链路没法监控'
+    },
+    {
+        icon: '🏢',
+        type: '业务负责人',
+        description: '文档多、人工贵、流程断——需要知识库或机器人'
+    },
+    {
+        icon: '🚀',
+        type: '创业公司 CTO',
+        description: '要快、要稳，缺人顶核心模块'
+    }
 ];
-zh.services.partners.note = '欢迎<strong>项目合作</strong>或<strong>长期顾问</strong>，先聊 30 分钟对齐需求 💬';
+zh.services.partners.note =
+    '不做纯 PPT 包装，也不接「三天万能助手」表演项目。欢迎先<strong>发知识库/文档现状</strong>，再约 15 分钟聊 💬';
 
 zh.projects.innovation.title = '我的理念';
-zh.projects.innovation.text = 'AI 的价值在于真能用——能监控、能回滚、好维护。用扎实的工程能力，把模型变成业务里在跑的系统。';
+zh.projects.innovation.text =
+    'AI 的价值在于真能用——能监控、能回滚、好维护。我不卖概念，我交付业务里在跑的系统。';
 
 Object.assign(zh.contact.intro, {
-    title: '有想法？聊聊怎么落地',
-    description: '智能助手、知识库、文档处理、机器人都可以聊。我会实话实说能不能做、怎么做。'
+    title: '把你的知识库 / 助手现状发我',
+    description: '搜不准、解析炸、助手上不了线都可以聊。我会实话实说能不能做，并建议走诊断、顾问还是模块交付。'
 });
+zh.contact.collaboration.types = [
+    { icon: '🩺', text: '诊断包' },
+    { icon: '📚', text: '技术顾问' },
+    { icon: '📦', text: '模块交付' },
+    { icon: '🚀', text: '完整项目' }
+];
 Object.assign(zh.contact.form, {
-    title: '留言',
-    subtitle: '留下联系方式，我会尽快回复',
+    title: '开始合作',
+    subtitle: '发我现状就行；工作日一般 2–4 小时内回复',
     fields: {
         name: { label: '怎么称呼', placeholder: '你的名字' },
         contact: { label: '联系方式', placeholder: '微信 / 邮箱 / 手机' },
-        topic: { label: '想聊什么', placeholder: '合作方向 / 项目需求…' },
-        message: { label: '详细说说', placeholder: '简单描述场景和需求，我好针对性回复…' }
+        topic: { label: '想聊什么', placeholder: '知识库不准 / 文档解析 / 助手上线 / 顾问…' },
+        message: {
+            label: '现状简述',
+            placeholder: '已有什么（文档量、是否入库、卡在哪）、目标与时间…'
+        }
     },
-    submit: '发送',
+    submit: '发我现状',
     submitting: '发送中…',
-    success: '收到了！我会尽快回复',
+    success: '收到了！我会尽快回复并建议下一步',
     error: '发送失败，请稍后重试或直接联系我'
 });
 zh.contact.availability.labels = {
@@ -232,9 +319,7 @@ zh.contact.availability.labels = {
     response: '内回复',
     timezoneLabel: '时区'
 };
+zh.contact.footer.highlights = ['工程优先', '结果可验收', '范围先谈清'];
 
-fs.writeFileSync(
-    path.join(root, 'assets/data/homeConfig.plain.json'),
-    JSON.stringify(zh, null, 2) + '\n'
-);
+fs.writeFileSync(path.join(root, 'assets/data/homeConfig.plain.json'), JSON.stringify(zh, null, 2) + '\n');
 console.log('Generated assets/data/homeConfig.plain.json');

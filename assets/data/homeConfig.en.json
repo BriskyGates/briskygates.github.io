@@ -1,11 +1,11 @@
 {
   "ui": {
-    "pageTitle": "Abu · AI Full-Stack Engineer",
-    "pageDescription": "Python Full-Stack | Enterprise AI | RAG · Agent · Document Intelligence",
+    "pageTitle": "Abu · Enterprise AI Production Engineer",
+    "pageDescription": "I ship RAG, Agents, and document intelligence into production — enterprise knowledge bases and workflow automation",
     "labelSuffix": ": ",
     "searchPlaceholder": "Explore skills, projects, and collaboration…",
-    "heroCtaPrimary": "View featured work",
-    "heroCtaSecondary": "View services",
+    "heroCtaPrimary": "Send me your knowledge-base status",
+    "heroCtaSecondary": "See 3 production cases",
     "contactMethodsTitle": "Contact",
     "languageToggle": {
       "tooltip": "Choose language"
@@ -65,7 +65,7 @@
       "testing": "Testing",
       "development": "In Dev",
       "planned": "Planned",
-      "highlightsLabel": "Highlights",
+      "highlightsLabel": "What I did",
       "progressLabel": "Progress"
     },
     "greetings": {
@@ -78,30 +78,30 @@
   "profile": {
     "name": "Abu",
     "avatar": "🐶",
-    "tagline": "Shanghai · Online",
+    "tagline": "Shanghai · Remote OK",
     "status": "Available",
-    "heroTitle": "Turning AI from Tech Demos into Real Production Power",
+    "heroTitle": "Turning AI from tech demos into real production power",
     "title": "About",
     "greeting": {
       "text": "Hi, I'm Abu, based in Shanghai",
-      "description": "As an <strong>AI Full-Stack Engineer</strong>, I bridge the gap between LLMs and real-world business needs.<br>Specializing in transforming complex RAG, Agents, and multimodal tech into stable, scalable enterprise applications."
+      "description": "I'm an <strong>enterprise AI production engineer</strong> — I help tech leads and business teams turn RAG, Agents, and document intelligence into systems that are <strong>deployable, measurable, and operable</strong>.<br>If your knowledge base cites the wrong passages, document parsing is broken, or Agents won't ship — send me the status quo."
     },
     "heroChips": [
-      "LLM Productionization",
-      "Enterprise RAG Architecture",
-      "Multi-Agent Collaboration",
-      "High-Concurrency Microservices",
-      "Workflow Automation"
+      "Enterprise / finance RAG",
+      "Document intelligence",
+      "Agents in production",
+      "Observable and rollback-ready",
+      "Bot / Feishu automation"
     ],
     "roles": [
       {
-        "label": "Core Strength",
-        "value": "Building Enterprise AI Apps from 0 to 1: Requirements → Architecture → Development → Ops",
+        "label": "In one line",
+        "value": "Need someone who can actually put RAG / Agents / document AI into production? Talk to Abu.",
         "type": "primary"
       },
       {
-        "label": "Collaboration Focus",
-        "value": "Enterprise clients · Product & engineering teams · Startups & SMBs",
+        "label": "Best fit",
+        "value": "Tech leads · Business owners (finance / education / communities) · Startup CTOs",
         "type": "secondary"
       }
     ],
@@ -134,125 +134,67 @@
     ]
   },
   "featured": {
-    "title": "Featured Work",
-    "subtitle": "Curated by scenario — RAG, agents, bots, and document intelligence",
+    "title": "Production cases",
+    "subtitle": "Three buyer-pain stories — more capabilities in the project library below",
     "items": [
       {
-        "id": "multi_llm_analysis",
-        "title": "Multi-LLM Education Evaluation Engine",
-        "subtitle": "Precision Parsing · Smart Verification",
-        "description": "An automated evaluation system for complex education scenarios. By intelligently routing 8 types of complex questions to optimal LLMs and integrating multi-round validation workflows, it significantly boosts the accuracy and efficiency of educational material parsing.",
-        "tags": [
-          "Multi-LLM",
-          "Type Engine",
-          "Pipeline"
-        ],
-        "icon": "🧠",
-        "accent": "#e91429",
-        "status": "production",
-        "highlights": [
-          "Built an automated recognition and routing engine for 8 question types",
-          "Innovatively decoupled evaluation and generation pipelines for rigorous answers",
-          "Designed a multi-round verification workflow for precise parsing of complex questions"
-        ]
-      },
-      {
-        "id": "group_management_bot",
-        "title": "Community Ops & Escrow Trading Engine",
-        "subtitle": "High Concurrency · Business Closed-Loop",
-        "description": "A tailored automation management and trading platform for massive commercial communities. Deeply integrates smart risk control, fund escrow, automated profit splitting, and ticketing systems to support highly concurrent commercial operations.",
-        "tags": [
-          "Bot",
-          "MySQL",
-          "Redis",
-          "Escrow"
-        ],
-        "icon": "🤖",
-        "accent": "#1db954",
-        "status": "production",
-        "highlights": [
-          "Automated governance from group entry verification, anti-spam to risk control",
-          "Built a highly reliable escrow and financial reconciliation system for VIP groups",
-          "Provided a comprehensive admin console to close the commercial workflow loop"
-        ]
-      },
-      {
         "id": "fastapi_celery_kb",
-        "title": "Enterprise RAG Data Pipeline",
-        "subtitle": "Async Concurrency · Automated Flow",
-        "description": "A knowledge engineering pipeline designed for massive financial long-form documents. Enables fully automated scheduling from smart document parsing and high-dimensional semantic chunking to high-performance vector ingestion, providing a real-time, precise knowledge base for LLMs.",
+        "title": "Lots of reports filed — the knowledge base still cites the wrong passages",
+        "subtitle": "Finance RAG · parsing and chunking · rerank and eval",
+        "description": "A mid-size research/news team: docs were ingested, Q&A still missed the point. Goal: a shippable knowledge Q&A with an observable pipeline. Fix parsing and chunking first, then add freshness/authority rerank — not a bigger model.",
         "tags": [
-          "Celery",
-          "Vector DB",
+          "RAG",
           "Chunking",
-          "Docker"
+          "Rerank",
+          "Celery"
         ],
         "icon": "📚",
         "accent": "#b49bc8",
         "status": "production",
         "highlights": [
-          "Automated structural and high-quality semantic chunking of reports and announcements",
-          "Built a multi-node parallel asynchronous task scheduling cluster with Celery",
-          "Provided scalable production deployment solutions via Docker Compose"
+          "Rebuilt report/filing parsing and semantic chunking with async parallel ingest",
+          "Added freshness and source-authority rerank plus recall-path logging and eval",
+          "Delivered scalable Docker Compose deploy with handoff and rollback in mind"
         ]
       },
       {
-        "id": "rerank_system",
-        "title": "High-Precision Semantic Reranking Engine",
-        "subtitle": "Multi-dimensional Fusion · Intent Alignment",
-        "description": "Breaking the accuracy bottleneck of standard RAG retrieval. Introduces multi-dimensional semantic reranking strategies, dynamically scoring by document recency and source authority with MMR diversity deduplication, ensuring LLMs generate answers based on the optimal context.",
+        "id": "doc_intelligence",
+        "title": "Scans and messy layouts drag the whole RAG project into the mud",
+        "subtitle": "PDF / OCR / TOC / watermark cleanup",
+        "description": "Common enterprise KB blockers: scans, tables, watermarks, missing TOC hierarchy. Goal: turn dirty docs into structured, searchable input. Prefer rules + coordinates when stable; bring VL/OCR when layout complexity demands it.",
         "tags": [
-          "FastAPI",
-          "Rerank",
-          "MMR",
-          "PostgreSQL"
+          "PDF",
+          "OCR",
+          "Layout",
+          "Structured"
         ],
-        "icon": "🎯",
-        "accent": "#f59e0b",
+        "icon": "📄",
+        "accent": "#6366f1",
         "status": "production",
         "highlights": [
-          "Flexibly integrated multiple deep semantic scoring models and custom reranking strategies",
-          "Innovatively fused recency and authority into a comprehensive ranking algorithm",
-          "Provided full query quality evaluation and retrieval tracing logs"
+          "Built PDF structure parsing and table recognition into clean Markdown/trees",
+          "Rule-based cleanup to lift OCR baselines; three-tier TOC extraction fallback",
+          "Wrapped high-concurrency parse APIs for downstream chunking and embedding"
         ]
       },
       {
-        "id": "phone_autoglm",
-        "title": "Mobile Agent Orchestration Hub",
-        "subtitle": "Visual Perception · Batch Automation",
-        "description": "A mobile automation scheduling system powered by multimodal visual LLMs. Translates natural language into precise terminal operation commands, enabling parallel task dispatching and status monitoring across multiple devices, drastically reducing the cost of cross-app repetitive operations.",
+        "id": "group_management_bot",
+        "title": "As the group scales, risk control / escrow / support cannot stay manual",
+        "subtitle": "Community bot · escrow reconciliation · observability",
+        "description": "A commercial community outgrew manual verification, anti-spam, escrow trades, and support tickets. Delivery focus: stability, reconciliation loops, and operable ops — not feature sprawl.",
         "tags": [
-          "AutoGLM",
-          "ADB",
-          "FastAPI",
-          "Vue"
+          "Bot",
+          "Risk",
+          "Escrow",
+          "Redis"
         ],
-        "icon": "📱",
-        "accent": "#059669",
+        "icon": "🤖",
+        "accent": "#1db954",
         "status": "production",
         "highlights": [
-          "Deeply integrated screen visual perception with multi-step complex operation planning",
-          "Provided a visual Web console for task orchestration and device monitoring",
-          "Offered standardized business APIs to easily integrate mobile operations into workflows"
-        ]
-      },
-      {
-        "id": "need_radar_bot",
-        "title": "Intelligent Lead Generation Radar",
-        "subtitle": "Intent Analysis · Supply-Demand Matching",
-        "description": "A 24/7 intelligent business opportunity mining platform. Uses LLMs to deeply understand supply and demand intents from massive unstructured texts, precisely matches complementary resources, and delivers high-quality leads in real-time via an automated subscription engine.",
-        "tags": [
-          "IM",
-          "LLM",
-          "Hybrid search"
-        ],
-        "icon": "📡",
-        "accent": "#8b5cf6",
-        "status": "production",
-        "highlights": [
-          "Utilized LLMs for precise supply/demand intent extraction and semantic alignment",
-          "Built an incremental scraping and high-availability subscription pushing engine",
-          "Provided a full-featured admin backend for comprehensive lead lifecycle management"
+          "Automated join verification, anti-spam, and risk governance",
+          "Built VIP-group escrow and financial reconciliation to cut human error",
+          "Shipped an ops console and ticketing for a monitorable commercial loop"
         ]
       }
     ]
@@ -262,7 +204,7 @@
       {
         "id": "enterprise-ai",
         "title": "Enterprise AI Solutions",
-        "description": "Transforming cutting-edge model capabilities into production systems that solve actual business pain points",
+        "description": "Turn model capability into shippable business systems (see the three featured cases)",
         "items": [
           {
             "id": "multi_llm_analysis",
@@ -330,7 +272,7 @@
       {
         "id": "rag-knowledge",
         "title": "RAG & Knowledge Engineering Infrastructure",
-        "description": "Building the full RAG pipeline from document parsing, high-quality chunking to precise retrieval",
+        "description": "RAG foundation from parsing and chunking to rerank and chat gateways",
         "items": [
           {
             "id": "fastapi_celery_kb",
@@ -398,7 +340,7 @@
       {
         "id": "doc-intelligence",
         "title": "Multimodal Document Intelligence",
-        "description": "Solving precise structured extraction for complex layouts, scanned copies, and multimodal documents",
+        "description": "Scans, messy layouts, watermarks, TOC — the dirty work upstream of RAG",
         "items": [
           {
             "id": "pdf2xml",
@@ -660,24 +602,24 @@
     ]
   },
   "experience": {
-    "title": "Experience",
-    "subtitle": "Full-stack engineering capabilities honed in complex business scenarios",
+    "title": "Track record",
+    "subtitle": "Production delivery paths — not a demo gallery",
     "items": [
       {
         "period": "2024 — Present",
-        "title": "Enterprise AI Architecture & Dev",
-        "description": "Deeply led the design and implementation of enterprise agents, complex RAG architectures, and multimodal applications. Accumulated full-cycle tuning experience from POC to high-availability production systems.",
+        "title": "Enterprise AI architecture and delivery",
+        "description": "Led agents, complex RAG, and multimodal apps from POC to HA production — with eval, observability, rollback, and handoff, not just demos.",
         "tags": [
           "Agents",
           "RAG",
-          "AutoGLM",
-          "FastAPI"
+          "FastAPI",
+          "Observability"
         ]
       },
       {
         "period": "2022 — 2024",
-        "title": "Document Intelligence & Data Pipelines",
-        "description": "Led the construction of a million-level financial document parsing pipeline, overcoming core challenges like complex PDF layouts, deep OCR, and high-priority chunking strategies to build a high-quality data foundation.",
+        "title": "Document intelligence and unstructured data",
+        "description": "Built million-scale finance document pipelines — complex layouts, OCR, chunking — so retrieval rests on correct parsing.",
         "tags": [
           "PDF",
           "OCR",
@@ -686,18 +628,18 @@
       },
       {
         "period": "2020 — Present",
-        "title": "High-Concurrency IM Bots & Backends",
-        "description": "Designed and implemented high-concurrency commercial ecosystem bots and ops monitoring hubs, proficient in async frameworks and caching queues to guarantee absolute stability of core trading flows.",
+        "title": "High-concurrency IM bots and backend",
+        "description": "Designed commercial community bots and ops hubs; async frameworks and queues protect trading and support stability.",
         "tags": [
           "Bot",
-          "Lark API",
+          "Feishu API",
           "Redis"
         ]
       },
       {
         "period": "Ongoing",
-        "title": "MCP & Agent Engineering",
-        "description": "MCP orchestration, code-act patterns, Text2SQL — auditable, reproducible LLM workflows.",
+        "title": "MCP and Agent engineering",
+        "description": "Embed tool orchestration, code-act, and Text2SQL into auditable, reproducible flows — Agents that ship, not just demo.",
         "tags": [
           "MCP",
           "Agent",
@@ -707,33 +649,33 @@
     ]
   },
   "skills": {
-    "title": "Core Skills",
-    "motto": "Not just an LLM prompter—<strong>dedicated to seamlessly integrating AI into enterprise systems</strong> to provide stable, scalable engineering architectures.",
+    "title": "Core capabilities",
+    "motto": "Not just model wiring — <strong>shipping AI that belongs in production</strong>: observable, rollback-ready, maintainable.",
     "items": [
       {
-        "title": "AI Application Engineering",
-        "description": "RAG / phone agents / LLM deploy / multi-agent / MCP toolchains",
+        "title": "AI application engineering",
+        "description": "Full RAG path / Agents in prod / LLM services / Multi-Agent / MCP toolchains",
         "tags": [
           "RAG",
           "Agent",
-          "AutoGLM",
-          "MCP"
+          "MCP",
+          "Eval"
         ],
         "icon": "🤖"
       },
       {
-        "title": "Domain Text & Knowledge",
-        "description": "Report/filing chunking, recall, rerank, figure retrieval, news tagging",
+        "title": "Domain text and knowledge bases",
+        "description": "Report/filing chunking and vectors, recall rerank, chart recall, tagging, Q&A gateways",
         "tags": [
-          "Vector DB",
-          "Research",
-          "Recall"
+          "Vectors",
+          "Rerank",
+          "Reports"
         ],
         "icon": "📊"
       },
       {
-        "title": "Document Intelligence",
-        "description": "PDF parse / OCR-VL / watermark / table detection / structuring",
+        "title": "Document intelligence",
+        "description": "PDF parsing / OCR-VL / watermark cleanup / tables / TOC / structured extract",
         "tags": [
           "PDF",
           "OCR",
@@ -742,11 +684,11 @@
         "icon": "📄"
       },
       {
-        "title": "Platform & Automation",
-        "description": "Domestic IM bots / Lark / email RPA / Celery scheduling",
+        "title": "Platform integration and automation",
+        "description": "IM bots / Feishu / email RPA / Celery scheduling and reconciliation loops",
         "tags": [
           "Bot",
-          "Lark",
+          "Feishu",
           "Celery"
         ],
         "icon": "⚡"
@@ -768,83 +710,82 @@
     ]
   },
   "services": {
-    "title": "What I Offer",
+    "title": "Ways to work together",
     "items": [
       {
-        "title": "Enterprise AI Agents",
-        "description": "Knowledge Q&A, workflow agents, private deploy, API monitoring",
+        "title": "15-min problem triage",
+        "description": "Classify the problem and fit. Fill in your scenario first. Verbal guidance only — no long proposal.",
+        "technologies": [
+          "Intake",
+          "Fit check"
+        ],
+        "badge": "Free · time-boxed",
+        "icon": "💬"
+      },
+      {
+        "title": "Knowledge-base / AI production diagnosis",
+        "description": "Status interview + architecture sketch + risk list + prioritized backlog. Mark the pits before a big build.",
+        "technologies": [
+          "Diagnosis notes",
+          "Roadmap"
+        ],
+        "badge": "Diagnosis pack",
+        "icon": "🩺"
+      },
+      {
+        "title": "Advisory retainer",
+        "description": "Architecture reviews, key design calls, code review, escalation support. For teams that need a production-experienced peer.",
+        "technologies": [
+          "Architecture",
+          "Code Review"
+        ],
+        "badge": "Monthly advisory",
+        "icon": "📚"
+      },
+      {
+        "title": "Module delivery",
+        "description": "Fixed-scope modules: parse pipeline, recall rerank, RAG chat gateway, Feishu/Bot automation — with acceptance and handoff.",
+        "technologies": [
+          "Parsing",
+          "Rerank",
+          "Gateway",
+          "Bot"
+        ],
+        "badge": "Priced modules",
+        "icon": "📦"
+      },
+      {
+        "title": "Full project delivery",
+        "description": "End-to-end: discovery → build → launch → handoff. Milestone payments; I will be honest when capacity is full.",
         "technologies": [
           "RAG",
           "Agent",
           "FastAPI"
         ],
-        "badge": "Enterprise",
-        "icon": "🤖"
-      },
-      {
-        "title": "Document RAG Systems",
-        "description": "Report/filing ingest, chunk strategy, recall/rerank & eval",
-        "technologies": [
-          "Vector DB",
-          "Rerank",
-          "ETL"
-        ],
-        "badge": "RAG",
-        "icon": "📈"
-      },
-      {
-        "title": "Document Pipelines",
-        "description": "PDF parse, OCR, watermark removal, batch structuring",
-        "technologies": [
-          "PDF",
-          "OCR",
-          "Python"
-        ],
-        "badge": "Doc AI",
-        "icon": "📄"
-      },
-      {
-        "title": "Bots & Office Automation",
-        "description": "Domestic IM/Lark bots, email relay, task scheduling",
-        "technologies": [
-          "Bot",
-          "Lark",
-          "Celery"
-        ],
-        "badge": "Automation",
-        "icon": "📱"
-      },
-      {
-        "title": "Python Consulting",
-        "description": "Architecture review, performance, hard problems",
-        "technologies": [
-          "Architecture",
-          "Code Review"
-        ],
-        "badge": "Advisor",
-        "icon": "📚"
+        "badge": "End-to-end",
+        "icon": "🚀"
       }
     ],
     "partners": {
-      "title": "Ideal Partners",
+      "title": "Best-fit partners",
       "types": [
         {
-          "icon": "🚀",
-          "type": "AI Startups",
-          "description": "MVP to product — backend & AI engineering"
+          "icon": "🏗️",
+          "type": "Tech leads / architects",
+          "description": "Demos look great but will not ship; RAG is inaccurate; pipelines are not observable"
         },
         {
           "icon": "🏢",
-          "type": "Enterprise clients",
-          "description": "Knowledge-base, Q&A, and AI system integration"
+          "type": "Business owners (finance / education / communities)",
+          "description": "Too many docs, expensive labor, broken workflows — need pipelines, KB Q&A, or bot automation"
         },
         {
-          "icon": "👥",
-          "type": "Tech Co-founders",
-          "description": "Build valuable Agent / RAG products together"
+          "icon": "🚀",
+          "type": "Startup CTOs",
+          "description": "Need speed and stability with someone who can own the hard modules"
         }
       ],
-      "note": "Open to <strong>project work</strong> or <strong>long-term advisory</strong> — let's align in a 30-min call first 💬"
+      "note": "No pure pitch-deck theater, no \"3-day universal Agent\" stunts. Prefer <strong>sending your KB/doc status</strong>, then a 15-min triage 💬"
     }
   },
   "projects": {
@@ -854,15 +795,15 @@
     "innovation": {
       "icon": "💡",
       "title": "Technical Philosophy",
-      "text": "AI value is in production — observable, rollback-friendly, maintainable. Solid Python engineering turns models into systems that actually run in your business."
+      "text": "AI value is production — observable, rollback-ready, maintainable. I do not sell concepts; I deliver systems that actually run in the business."
     }
   },
   "contact": {
     "title": "Let's Talk",
     "intro": {
       "icon": "✨",
-      "title": "Have an idea? Let's ship it",
-      "description": "Agents, RAG, document pipelines, or bots — bring your scenario. I'll assess feasibility honestly and propose a concrete path."
+      "title": "Send me your knowledge-base / Agent status",
+      "description": "Wrong citations, broken parsing, Agents that will not ship — bring the scenario. I will assess fit honestly and suggest diagnosis, advisory, or a module."
     },
     "methods": [],
     "availability": {
@@ -881,51 +822,55 @@
       "title": "Collaboration",
       "types": [
         {
-          "icon": "💼",
-          "text": "Projects"
+          "icon": "🩺",
+          "text": "Diagnosis"
         },
         {
-          "icon": "🎓",
+          "icon": "📚",
           "text": "Advisory"
         },
         {
+          "icon": "📦",
+          "text": "Modules"
+        },
+        {
           "icon": "🚀",
-          "text": "Co-founder"
+          "text": "Full project"
         }
       ]
     },
     "footer": {
       "highlights": [
-        "Open comms",
-        "Engineering-first",
-        "Outcome-driven"
+        "Engineering first",
+        "Acceptance-ready",
+        "Scope before price"
       ]
     },
     "form": {
-      "title": "Send a Message",
-      "subtitle": "Leave your contact info and I'll get back to you soon",
+      "title": "Start a conversation",
+      "subtitle": "Send the status quo; weekday replies usually within 2–4 hours",
       "fields": {
         "name": {
-          "label": "Your Name",
+          "label": "Your name",
           "placeholder": "What should I call you?"
         },
         "contact": {
-          "label": "Contact Info",
-          "placeholder": "WeChat / Email / Phone"
+          "label": "Contact",
+          "placeholder": "WeChat / email / phone"
         },
         "topic": {
           "label": "Topic",
-          "placeholder": "Collaboration / Project needs / Tech discussion…"
+          "placeholder": "KB accuracy / doc parsing / Agent launch / advisory…"
         },
         "message": {
-          "label": "Details",
-          "placeholder": "Briefly describe your scenario and needs, I'll respond more precisely…"
+          "label": "Status brief",
+          "placeholder": "What you have (doc volume, ingested or not, where it stuck), goals and constraints…"
         }
       },
-      "submit": "Send Message",
+      "submit": "Send status",
       "submitting": "Sending…",
-      "success": "Message delivered! I'll get back to you soon",
-      "error": "Failed to send, please try again or contact me directly"
+      "success": "Got it! I will reply soon with a suggested next step",
+      "error": "Send failed — retry later or reach me on WeChat"
     }
   }
 }
