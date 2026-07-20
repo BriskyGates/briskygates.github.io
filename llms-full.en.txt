@@ -1,79 +1,52 @@
-# Abu · AI Full-Stack Engineer
+# Abu · Enterprise AI Production Engineer
 
-> Python Full-Stack | Enterprise AI | RAG · Agent · Document Intelligence
+> I ship RAG, Agents, and document intelligence into production — enterprise knowledge bases and workflow automation
 
 ## 个人简介
 
 - 姓名: Abu
 - 状态: Available
-- 标语: Shanghai · Online
-- 定位: Turning AI from Tech Demos into Real Production Power
-- 介绍: As an AI Full-Stack Engineer , I bridge the gap between LLMs and real-world business needs. Specializing in transforming complex RAG, Agents, and multimodal tech into stable, scalable enterprise applications.
-- 技术关键词: LLM Productionization, Enterprise RAG Architecture, Multi-Agent Collaboration, High-Concurrency Microservices, Workflow Automation
+- 标语: Shanghai · Remote OK
+- 定位: Turning AI from tech demos into real production power
+- 介绍: I'm an enterprise AI production engineer — I help tech leads and business teams turn RAG, Agents, and document intelligence into systems that are deployable, measurable, and operable . If your knowledge base cites the wrong passages, document parsing is broken, or Agents won't ship — send me the status quo.
+- 技术关键词: Enterprise / finance RAG, Document intelligence, Agents in production, Observable and rollback-ready, Bot / Feishu automation
 - 数据: 6+ Years · 80+ Repos · 15+ AI Projects · Full-Stack Delivery
 
-## Featured Work
+## Production cases
 
-Curated by scenario — RAG, agents, bots, and document intelligence
+Three buyer-pain stories — more capabilities in the project library below
 
-### Multi-LLM Education Evaluation Engine
-- 副标题: Precision Parsing · Smart Verification
-- 描述: An automated evaluation system for complex education scenarios. By intelligently routing 8 types of complex questions to optimal LLMs and integrating multi-round validation workflows, it significantly boosts the accuracy and efficiency of educational material parsing.
-- 标签: Multi-LLM, Type Engine, Pipeline
+### Lots of reports filed — the knowledge base still cites the wrong passages
+- 副标题: Finance RAG · parsing and chunking · rerank and eval
+- 描述: A mid-size research/news team: docs were ingested, Q&A still missed the point. Goal: a shippable knowledge Q&A with an observable pipeline. Fix parsing and chunking first, then add freshness/authority rerank — not a bigger model.
+- 标签: RAG, Chunking, Rerank, Celery
 - 亮点:
-  - Built an automated recognition and routing engine for 8 question types
-  - Innovatively decoupled evaluation and generation pipelines for rigorous answers
-  - Designed a multi-round verification workflow for precise parsing of complex questions
+  - Rebuilt report/filing parsing and semantic chunking with async parallel ingest
+  - Added freshness and source-authority rerank plus recall-path logging and eval
+  - Delivered scalable Docker Compose deploy with handoff and rollback in mind
 
-### Community Ops & Escrow Trading Engine
-- 副标题: High Concurrency · Business Closed-Loop
-- 描述: A tailored automation management and trading platform for massive commercial communities. Deeply integrates smart risk control, fund escrow, automated profit splitting, and ticketing systems to support highly concurrent commercial operations.
-- 标签: Bot, MySQL, Redis, Escrow
+### Scans and messy layouts drag the whole RAG project into the mud
+- 副标题: PDF / OCR / TOC / watermark cleanup
+- 描述: Common enterprise KB blockers: scans, tables, watermarks, missing TOC hierarchy. Goal: turn dirty docs into structured, searchable input. Prefer rules + coordinates when stable; bring VL/OCR when layout complexity demands it.
+- 标签: PDF, OCR, Layout, Structured
 - 亮点:
-  - Automated governance from group entry verification, anti-spam to risk control
-  - Built a highly reliable escrow and financial reconciliation system for VIP groups
-  - Provided a comprehensive admin console to close the commercial workflow loop
+  - Built PDF structure parsing and table recognition into clean Markdown/trees
+  - Rule-based cleanup to lift OCR baselines; three-tier TOC extraction fallback
+  - Wrapped high-concurrency parse APIs for downstream chunking and embedding
 
-### Enterprise RAG Data Pipeline
-- 副标题: Async Concurrency · Automated Flow
-- 描述: A knowledge engineering pipeline designed for massive financial long-form documents. Enables fully automated scheduling from smart document parsing and high-dimensional semantic chunking to high-performance vector ingestion, providing a real-time, precise knowledge base for LLMs.
-- 标签: Celery, Vector DB, Chunking, Docker
+### As the group scales, risk control / escrow / support cannot stay manual
+- 副标题: Community bot · escrow reconciliation · observability
+- 描述: A commercial community outgrew manual verification, anti-spam, escrow trades, and support tickets. Delivery focus: stability, reconciliation loops, and operable ops — not feature sprawl.
+- 标签: Bot, Risk, Escrow, Redis
 - 亮点:
-  - Automated structural and high-quality semantic chunking of reports and announcements
-  - Built a multi-node parallel asynchronous task scheduling cluster with Celery
-  - Provided scalable production deployment solutions via Docker Compose
-
-### High-Precision Semantic Reranking Engine
-- 副标题: Multi-dimensional Fusion · Intent Alignment
-- 描述: Breaking the accuracy bottleneck of standard RAG retrieval. Introduces multi-dimensional semantic reranking strategies, dynamically scoring by document recency and source authority with MMR diversity deduplication, ensuring LLMs generate answers based on the optimal context.
-- 标签: FastAPI, Rerank, MMR, PostgreSQL
-- 亮点:
-  - Flexibly integrated multiple deep semantic scoring models and custom reranking strategies
-  - Innovatively fused recency and authority into a comprehensive ranking algorithm
-  - Provided full query quality evaluation and retrieval tracing logs
-
-### Mobile Agent Orchestration Hub
-- 副标题: Visual Perception · Batch Automation
-- 描述: A mobile automation scheduling system powered by multimodal visual LLMs. Translates natural language into precise terminal operation commands, enabling parallel task dispatching and status monitoring across multiple devices, drastically reducing the cost of cross-app repetitive operations.
-- 标签: AutoGLM, ADB, FastAPI, Vue
-- 亮点:
-  - Deeply integrated screen visual perception with multi-step complex operation planning
-  - Provided a visual Web console for task orchestration and device monitoring
-  - Offered standardized business APIs to easily integrate mobile operations into workflows
-
-### Intelligent Lead Generation Radar
-- 副标题: Intent Analysis · Supply-Demand Matching
-- 描述: A 24/7 intelligent business opportunity mining platform. Uses LLMs to deeply understand supply and demand intents from massive unstructured texts, precisely matches complementary resources, and delivers high-quality leads in real-time via an automated subscription engine.
-- 标签: IM, LLM, Hybrid search
-- 亮点:
-  - Utilized LLMs for precise supply/demand intent extraction and semantic alignment
-  - Built an incremental scraping and high-availability subscription pushing engine
-  - Provided a full-featured admin backend for comprehensive lead lifecycle management
+  - Automated join verification, anti-spam, and risk governance
+  - Built VIP-group escrow and financial reconciliation to cut human error
+  - Shipped an ops console and ticketing for a monitorable commercial loop
 
 ## 项目库
 
 ### Enterprise AI Solutions
-Transforming cutting-edge model capabilities into production systems that solve actual business pain points
+Turn model capability into shippable business systems (see the three featured cases)
 
 ### Multi-LLM Education Parsing Engine
 - 副标题: 8 types · Dual mode
@@ -101,7 +74,7 @@ Transforming cutting-edge model capabilities into production systems that solve 
 - 标签: NER, FastAPI, Vector
 
 ### RAG & Knowledge Engineering Infrastructure
-Building the full RAG pipeline from document parsing, high-quality chunking to precise retrieval
+RAG foundation from parsing and chunking to rerank and chat gateways
 
 ### Massive Long-Doc Async Ingestion
 - 副标题: FastAPI · Celery · GPU
@@ -129,7 +102,7 @@ Building the full RAG pipeline from document parsing, high-quality chunking to p
 - 标签: NLP, Classification
 
 ### Multimodal Document Intelligence
-Solving precise structured extraction for complex layouts, scanned copies, and multimodal documents
+Scans, messy layouts, watermarks, TOC — the dirty work upstream of RAG
 
 ### High-Precision PDF Structuring Engine
 - 副标题: PDFlib TET · FastAPI
@@ -235,71 +208,71 @@ Providing stable and reliable infrastructure for monitoring, asynchronous schedu
 - 描述: Automated polling of emails to extract key data tables from attached reports, outputting standard structured ledgers, vastly improving financial data ingestion efficiency.
 - 标签: RPA, PDF
 
-## Experience
+## Track record
 
-Full-stack engineering capabilities honed in complex business scenarios
+Production delivery paths — not a demo gallery
 
-### 2024 — Present — Enterprise AI Architecture & Dev
-Deeply led the design and implementation of enterprise agents, complex RAG architectures, and multimodal applications. Accumulated full-cycle tuning experience from POC to high-availability production systems.
-标签: Agents, RAG, AutoGLM, FastAPI
+### 2024 — Present — Enterprise AI architecture and delivery
+Led agents, complex RAG, and multimodal apps from POC to HA production — with eval, observability, rollback, and handoff, not just demos.
+标签: Agents, RAG, FastAPI, Observability
 
-### 2022 — 2024 — Document Intelligence & Data Pipelines
-Led the construction of a million-level financial document parsing pipeline, overcoming core challenges like complex PDF layouts, deep OCR, and high-priority chunking strategies to build a high-quality data foundation.
+### 2022 — 2024 — Document intelligence and unstructured data
+Built million-scale finance document pipelines — complex layouts, OCR, chunking — so retrieval rests on correct parsing.
 标签: PDF, OCR, ETL
 
-### 2020 — Present — High-Concurrency IM Bots & Backends
-Designed and implemented high-concurrency commercial ecosystem bots and ops monitoring hubs, proficient in async frameworks and caching queues to guarantee absolute stability of core trading flows.
-标签: Bot, Lark API, Redis
+### 2020 — Present — High-concurrency IM bots and backend
+Designed commercial community bots and ops hubs; async frameworks and queues protect trading and support stability.
+标签: Bot, Feishu API, Redis
 
-### Ongoing — MCP & Agent Engineering
-MCP orchestration, code-act patterns, Text2SQL — auditable, reproducible LLM workflows.
+### Ongoing — MCP and Agent engineering
+Embed tool orchestration, code-act, and Text2SQL into auditable, reproducible flows — Agents that ship, not just demo.
 标签: MCP, Agent, Text2SQL
 
-## Core Skills
+## Core capabilities
 
-Not just an LLM prompter— dedicated to seamlessly integrating AI into enterprise systems to provide stable, scalable engineering architectures.
+Not just model wiring — shipping AI that belongs in production : observable, rollback-ready, maintainable.
 
-### AI Application Engineering
-RAG / phone agents / LLM deploy / multi-agent / MCP toolchains
-标签: RAG, Agent, AutoGLM, MCP
+### AI application engineering
+Full RAG path / Agents in prod / LLM services / Multi-Agent / MCP toolchains
+标签: RAG, Agent, MCP, Eval
 
-### Domain Text & Knowledge
-Report/filing chunking, recall, rerank, figure retrieval, news tagging
-标签: Vector DB, Research, Recall
+### Domain text and knowledge bases
+Report/filing chunking and vectors, recall rerank, chart recall, tagging, Q&A gateways
+标签: Vectors, Rerank, Reports
 
-### Document Intelligence
-PDF parse / OCR-VL / watermark / table detection / structuring
+### Document intelligence
+PDF parsing / OCR-VL / watermark cleanup / tables / TOC / structured extract
 标签: PDF, OCR, Pipeline
 
-### Platform & Automation
-Domestic IM bots / Lark / email RPA / Celery scheduling
-标签: Bot, Lark, Celery
+### Platform integration and automation
+IM bots / Feishu / email RPA / Celery scheduling and reconciliation loops
+标签: Bot, Feishu, Celery
 
-## What I Offer
+## Ways to work together
 
-### Enterprise AI Agents [Enterprise]
-Knowledge Q&A, workflow agents, private deploy, API monitoring
-技术: RAG, Agent, FastAPI
+### 15-min problem triage [Free · time-boxed]
+Classify the problem and fit. Fill in your scenario first. Verbal guidance only — no long proposal.
+技术: Intake, Fit check
 
-### Document RAG Systems [RAG]
-Report/filing ingest, chunk strategy, recall/rerank & eval
-技术: Vector DB, Rerank, ETL
+### Knowledge-base / AI production diagnosis [Diagnosis pack]
+Status interview + architecture sketch + risk list + prioritized backlog. Mark the pits before a big build.
+技术: Diagnosis notes, Roadmap
 
-### Document Pipelines [Doc AI]
-PDF parse, OCR, watermark removal, batch structuring
-技术: PDF, OCR, Python
-
-### Bots & Office Automation [Automation]
-Domestic IM/Lark bots, email relay, task scheduling
-技术: Bot, Lark, Celery
-
-### Python Consulting [Advisor]
-Architecture review, performance, hard problems
+### Advisory retainer [Monthly advisory]
+Architecture reviews, key design calls, code review, escalation support. For teams that need a production-experienced peer.
 技术: Architecture, Code Review
+
+### Module delivery [Priced modules]
+Fixed-scope modules: parse pipeline, recall rerank, RAG chat gateway, Feishu/Bot automation — with acceptance and handoff.
+技术: Parsing, Rerank, Gateway, Bot
+
+### Full project delivery [End-to-end]
+End-to-end: discovery → build → launch → handoff. Milestone payments; I will be honest when capacity is full.
+技术: RAG, Agent, FastAPI
 
 ## Technical Philosophy
 
-AI value is in production — observable, rollback-friendly, maintainable. Solid Python engineering turns models into systems that actually run in your business.
+AI value is production — observable, rollback-ready, maintainable. I do not sell concepts; I deliver systems that actually run in the business.
 
 ## 机器可读数据源
 

@@ -6,22 +6,22 @@
       "@type": "Person",
       "@id": "https://briskygates.github.io/#person",
       "name": "阿布",
-      "description": "作为 AI 全栈开发工程师 ，我致力于填补大模型与实际业务之间的鸿沟。 擅长将复杂的 RAG、Agent 与多模态技术，转化为稳定、可扩展的企业级应用。",
+      "description": "我是 企业 AI 落地工程师 ——帮技术负责人/业务团队把 RAG、Agent、文档智能做成 可部署、可评测、可运维 的生产系统。 如果你卡在知识库不准、文档解析炸、或 Agent 上不了生产，可以把现状发我。",
       "jobTitle": "AI Full-Stack Engineer",
       "url": "https://briskygates.github.io",
       "knowsAbout": [
-        "大模型应用落地",
-        "企业级 RAG 架构",
-        "多智能体 (Agent) 协作",
-        "高并发微服务",
-        "业务流程自动化",
+        "企业/金融文档 RAG",
+        "文档智能解析",
+        "Agent 生产落地",
+        "可观测可回滚",
+        "Bot / 飞书自动化",
         "RAG",
         "Agent",
-        "AutoGLM",
         "MCP",
+        "评测",
         "向量库",
+        "Rerank",
         "研报",
-        "召回",
         "PDF",
         "OCR",
         "Pipeline",
@@ -38,8 +38,8 @@
       "@type": "WebSite",
       "@id": "https://briskygates.github.io/#website",
       "url": "https://briskygates.github.io",
-      "name": "阿布 · AI 全栈工程师",
-      "description": "Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能",
+      "name": "阿布 · 企业 AI 落地工程师",
+      "description": "专注把 RAG、Agent、文档智能做成可上生产的系统；擅长金融/企业知识库与办公自动化",
       "author": {
         "@id": "https://briskygates.github.io/#person"
       },
@@ -52,8 +52,8 @@
       "@type": "ProfilePage",
       "@id": "https://briskygates.github.io/#profilepage",
       "url": "https://briskygates.github.io",
-      "name": "阿布 · AI 全栈工程师",
-      "description": "Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能",
+      "name": "阿布 · 企业 AI 落地工程师",
+      "description": "专注把 RAG、Agent、文档智能做成可上生产的系统；擅长金融/企业知识库与办公自动化",
       "mainEntity": {
         "@id": "https://briskygates.github.io/#person"
       },
@@ -64,16 +64,16 @@
     {
       "@type": "ItemList",
       "@id": "https://briskygates.github.io/#featured-projects",
-      "name": "精选代表作",
+      "name": "落地案例",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "item": {
             "@type": "CreativeWork",
-            "name": "多模型驱动的教育解析引擎",
-            "description": "面向复杂教育场景的自动化评估系统。通过智能路由分发，针对 8 类复杂题型调用最优大模型，结合多轮校验工作流，大幅提升教辅解析的准确度与效率。",
-            "keywords": "Multi-LLM, 题型引擎, Pipeline"
+            "name": "研报/公告很多，知识库却经常引用错段落",
+            "description": "某中型投研/资讯团队：文档已入库，问答仍答非所问。目标是可上线的知识库问答，且链路可观测。优先重修解析与分块，再上时效/权威重排，而不是先换更大模型。",
+            "keywords": "RAG, 分块, Rerank, Celery"
           }
         },
         {
@@ -81,9 +81,9 @@
           "position": 2,
           "item": {
             "@type": "CreativeWork",
-            "name": "社群运营与担保交易引擎",
-            "description": "为庞大商业社群量身定制的自动化管理与交易平台。深度集成智能风控、资金担保、自动分账与工单客服系统，支撑高并发场景下社群的高效商业化运转。",
-            "keywords": "Bot, MySQL, Redis, 担保交易"
+            "name": "扫描件与复杂版面，把整个 RAG 项目拖进泥潭",
+            "description": "企业知识库常见卡点：扫描件、表格、水印、目录层级缺失。目标是把脏文档变成可检索的结构化输入。规则+坐标能稳住的先稳住，VL/OCR 按版面复杂度按需上。",
+            "keywords": "PDF, OCR, 版面, 结构化"
           }
         },
         {
@@ -91,39 +91,9 @@
           "position": 3,
           "item": {
             "@type": "CreativeWork",
-            "name": "海量金融文档 RAG 数据管线",
-            "description": "专为金融级海量长文档打造的知识工程流水线。实现从文档智能解析、语义高维分块到高性能向量入库的全自动调度，为大模型提供实时、精准的行业知识底座。",
-            "keywords": "Celery, 向量库, 分块, Docker"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "item": {
-            "@type": "CreativeWork",
-            "name": "高精度语义检索重排序引擎",
-            "description": "突破基础 RAG 检索的准确率瓶颈。引入多维度语义重排策略，结合文档时效性、来源权威性进行动态打分与 MMR 多样性去重，确保大模型始终基于最优上下文生成回答。",
-            "keywords": "FastAPI, Rerank, MMR, PostgreSQL"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 5,
-          "item": {
-            "@type": "CreativeWork",
-            "name": "移动端智能体群控中枢",
-            "description": "基于多模态视觉大模型的移动端自动化调度系统。将自然语言转化为精准的终端操作指令，实现多设备的并行任务下发与状态监控，大幅降低跨应用重复操作的业务成本。",
-            "keywords": "AutoGLM, ADB, FastAPI, Vue"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 6,
-          "item": {
-            "@type": "CreativeWork",
-            "name": "智能商业线索挖掘雷达",
-            "description": "24小时不间断的智能商机挖掘平台。利用大模型深度理解海量非结构化文本中的供需意图，精准计算匹配互补资源，并通过自动化订阅引擎完成高质量商机的实时触达。",
-            "keywords": "国内IM, LLM, 混合检索"
+            "name": "群规模上来后，风控/担保/客服靠人顶不住",
+            "description": "商业社群在扩群后，验证、反垃圾、担保交易与客服工单靠人工撑不住。交付重点是稳定性、对账闭环与运营可控，而不是堆功能。",
+            "keywords": "Bot, 风控, 担保交易, Redis"
           }
         }
       ]
