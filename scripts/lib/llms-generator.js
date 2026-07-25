@@ -4,10 +4,17 @@ const { stripHtml } = require('./escape');
 
 function renderProjectBlock(project, indent = '') {
     const lines = [
-        `${indent}### ${project.title}`,
-        `${indent}- 副标题: ${project.subtitle}`,
-        `${indent}- 描述: ${project.description}`
+        `${indent}### ${project.title}`
     ];
+    if (project.subtitle) {
+        lines.push(`${indent}- 副标题: ${project.subtitle}`);
+    }
+    if (project.how) {
+        lines.push(`${indent}- 怎么解: ${project.how}`);
+    }
+    if (project.description) {
+        lines.push(`${indent}- 描述: ${project.description}`);
+    }
     if (project.tags && project.tags.length) {
         lines.push(`${indent}- 标签: ${project.tags.join(', ')}`);
     }
@@ -56,16 +63,28 @@ function generateLlmsFull(config, lang = 'zh') {
         });
     }
 
-    if (config.projectShowcase?.rows?.length) {
-        lines.push('## 项目库');
+    if (config.businessFlows?.flows?.length) {
+        lines.push(`## ${config.businessFlows.title || '业务流'}`);
         lines.push('');
-        config.projectShowcase.rows.forEach(row => {
-            lines.push(`### ${row.title}`);
-            lines.push(row.description || '');
+        if (config.businessFlows.subtitle) {
+            lines.push(config.businessFlows.subtitle);
             lines.push('');
-            (row.items || []).forEach(p => {
-                lines.push(renderProjectBlock(p, ''));
+        }
+        config.businessFlows.flows.forEach(flow => {
+            lines.push(`### ${flow.title}`);
+            if (flow.subtitle) lines.push(flow.subtitle);
+            lines.push('');
+            if (flow.persona) lines.push(`- 读者画像: ${flow.persona}`);
+            if (flow.oneLiner) lines.push(`- 一句话: ${flow.oneLiner}`);
+            if (flow.persona || flow.oneLiner) lines.push('');
+            (flow.nodes || []).forEach(node => {
+                lines.push(`#### ${node.stage} · ${node.painPoint}`);
+                if (node.painDetail) lines.push(node.painDetail);
                 lines.push('');
+                (node.projects || []).forEach(p => {
+                    lines.push(renderProjectBlock(p, ''));
+                    lines.push('');
+                });
             });
         });
     }

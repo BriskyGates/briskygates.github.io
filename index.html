@@ -131,6 +131,21 @@ description: Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能
                             {{ config.ui.heroCtaSecondary }}
                         </button>
                     </div>
+                    <div class="hero-flow-entries" v-if="config.profile.heroFlowEntries">
+                        <button
+                            v-for="entry in config.profile.heroFlowEntries"
+                            :key="entry.id"
+                            type="button"
+                            class="hero-flow-entry"
+                            @click="scrollToSection(entry.id)"
+                        >
+                            <span class="hero-flow-entry-icon">{{ entry.icon }}</span>
+                            <div>
+                                <strong>{{ entry.title }}</strong>
+                                <span>{{ entry.sub }}</span>
+                            </div>
+                        </button>
+                    </div>
                 </div>
                 <div class="hero-stats">
                     <div v-for="stat in config.profile.stats" :key="stat.label" class="hero-stat">
@@ -175,38 +190,39 @@ description: Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能
             </div>
         </section>
 
-        <!-- Project categories -->
+        <!-- Business flows -->
         <section
-            v-for="row in config.projectShowcase.rows"
-            :key="row.id"
-            :id="row.id === 'enterprise-ai' ? 'projects' : undefined"
-            class="content-section"
+            v-for="flow in (config.businessFlows && config.businessFlows.flows) || []"
+            :key="flow.id"
+            :id="flow.id"
+            class="content-section flow-section"
+            :style="{ '--flow-accent': flow.accent }"
         >
-            <div class="section-head section-head--row">
-                <h2>{{ row.title }}</h2>
-                <p>{{ row.description }}</p>
+            <div class="section-head">
+                <h2>{{ flow.title }}</h2>
+                <p class="flow-persona">{{ flow.persona }}</p>
+                <p class="flow-oneliner">{{ flow.oneLiner }}</p>
             </div>
-            <div class="media-row-wrap">
-            <div class="media-row">
-                <article
-                    v-for="project in row.items"
-                    :key="project.id"
-                    class="media-card"
-                    :style="{ '--card-accent': project.accent }"
-                >
-                    <div class="media-card-visual media-card-visual--sm">
-                        <span class="media-card-emoji">{{ project.icon }}</span>
-                    </div>
-                    <div class="media-card-body">
-                        <h3>{{ project.title }}</h3>
-                        <p class="media-card-sub">{{ project.subtitle }}</p>
-                        <p class="media-card-desc">{{ project.description }}</p>
-                        <div class="tag-row">
-                            <span v-for="tag in project.tags" :key="tag" class="tag-pill tag-pill--muted">{{ tag }}</span>
+            <div class="flow-track">
+                <article v-for="node in flow.nodes" :key="node.id" class="flow-node">
+                    <header class="flow-node-head">
+                        <span class="flow-stage">{{ node.stage }}</span>
+                        <h3 class="flow-pain">{{ node.painPoint }}</h3>
+                        <p class="flow-pain-detail">{{ node.painDetail }}</p>
+                    </header>
+                    <div class="flow-projects">
+                        <div v-for="p in node.projects" :key="p.id" class="flow-project-card">
+                            <span class="flow-project-icon">{{ p.icon }}</span>
+                            <div class="flow-project-body">
+                                <strong>{{ p.title }}</strong>
+                                <p>{{ p.how }}</p>
+                                <div class="tag-row">
+                                    <span v-for="tag in p.tags" :key="tag" class="tag-pill tag-pill--muted">{{ tag }}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </article>
-            </div>
             </div>
         </section>
 
@@ -414,8 +430,8 @@ description: Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能
             <a href="#showcase" class="nav-item">
                 <span>代表作</span>
             </a>
-            <a href="#projects" class="nav-item">
-                <span>项目库</span>
+            <a href="#flow-rag" class="nav-item">
+                <span>业务流</span>
             </a>
             <a href="#experience" class="nav-item">
                 <span>履历</span>
