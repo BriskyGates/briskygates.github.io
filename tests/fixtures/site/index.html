@@ -127,12 +127,27 @@
                         <span v-for="chip in config.profile.heroChips" :key="chip" class="hero-chip">{{ chip }}</span>
                     </div>
                     <div class="hero-actions">
-                        <button type="button" class="btn-primary" @click="scrollToSection('showcase')">
+                        <button type="button" class="btn-primary" @click="scrollToSection('contact')">
                             <i class="fas fa-arrow-right"></i>
                             {{ config.ui.heroCtaPrimary }}
                         </button>
-                        <button type="button" class="btn-secondary" @click="scrollToSection('services')">
+                        <button type="button" class="btn-secondary" @click="scrollToSection('showcase')">
                             {{ config.ui.heroCtaSecondary }}
+                        </button>
+                    </div>
+                    <div class="hero-flow-entries" v-if="config.profile.heroFlowEntries">
+                        <button
+                            v-for="entry in config.profile.heroFlowEntries"
+                            :key="entry.id"
+                            type="button"
+                            class="hero-flow-entry"
+                            @click="scrollToSection(entry.id)"
+                        >
+                            <span class="hero-flow-entry-icon">{{ entry.icon }}</span>
+                            <div>
+                                <strong>{{ entry.title }}</strong>
+                                <span>{{ entry.sub }}</span>
+                            </div>
                         </button>
                     </div>
                 </div>
@@ -179,38 +194,39 @@
             </div>
         </section>
 
-        <!-- Project categories -->
+        <!-- Business flows -->
         <section
-            v-for="row in config.projectShowcase.rows"
-            :key="row.id"
-            :id="row.id === 'enterprise-ai' ? 'projects' : undefined"
-            class="content-section"
+            v-for="flow in (config.businessFlows && config.businessFlows.flows) || []"
+            :key="flow.id"
+            :id="flow.id"
+            class="content-section flow-section"
+            :style="{ '--flow-accent': flow.accent }"
         >
-            <div class="section-head section-head--row">
-                <h2>{{ row.title }}</h2>
-                <p>{{ row.description }}</p>
+            <div class="section-head">
+                <h2>{{ flow.title }}</h2>
+                <p class="flow-persona">{{ flow.persona }}</p>
+                <p class="flow-oneliner">{{ flow.oneLiner }}</p>
             </div>
-            <div class="media-row-wrap">
-            <div class="media-row">
-                <article
-                    v-for="project in row.items"
-                    :key="project.id"
-                    class="media-card"
-                    :style="{ '--card-accent': project.accent }"
-                >
-                    <div class="media-card-visual media-card-visual--sm">
-                        <span class="media-card-emoji">{{ project.icon }}</span>
-                    </div>
-                    <div class="media-card-body">
-                        <h3>{{ project.title }}</h3>
-                        <p class="media-card-sub">{{ project.subtitle }}</p>
-                        <p class="media-card-desc">{{ project.description }}</p>
-                        <div class="tag-row">
-                            <span v-for="tag in project.tags" :key="tag" class="tag-pill tag-pill--muted">{{ tag }}</span>
+            <div class="flow-track">
+                <article v-for="node in flow.nodes" :key="node.id" class="flow-node">
+                    <header class="flow-node-head">
+                        <span class="flow-stage">{{ node.stage }}</span>
+                        <h3 class="flow-pain">{{ node.painPoint }}</h3>
+                        <p class="flow-pain-detail">{{ node.painDetail }}</p>
+                    </header>
+                    <div class="flow-projects">
+                        <div v-for="p in node.projects" :key="p.id" class="flow-project-card">
+                            <span class="flow-project-icon">{{ p.icon }}</span>
+                            <div class="flow-project-body">
+                                <strong>{{ p.title }}</strong>
+                                <p>{{ p.how }}</p>
+                                <div class="tag-row">
+                                    <span v-for="tag in p.tags" :key="tag" class="tag-pill tag-pill--muted">{{ tag }}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </article>
-            </div>
             </div>
         </section>
 
@@ -406,7 +422,7 @@
 <aside class="sidebar" aria-label="主导航">
         <div class="sidebar-brand">
             <strong>阿布</strong>
-            <span>上海 · 在线</span>
+            <span>上海 · 可远程</span>
         </div>
         <nav class="sidebar-nav">
             <a href="#home" class="nav-item">
@@ -415,8 +431,8 @@
             <a href="#showcase" class="nav-item">
                 <span>代表作</span>
             </a>
-            <a href="#projects" class="nav-item">
-                <span>项目库</span>
+            <a href="#flow-rag" class="nav-item">
+                <span>业务流</span>
             </a>
             <a href="#experience" class="nav-item">
                 <span>履历</span>
@@ -439,8 +455,8 @@
                 <div class="hero-content">
                     <p class="hero-eyebrow">早上好</p>
                     <h1 class="hero-title">让 AI 跨越技术演示，落地为真实的生产力</h1>
-                    <p class="hero-subtitle">作为 <strong>AI 全栈开发工程师</strong>，我致力于填补大模型与实际业务之间的鸿沟。<br>擅长将复杂的 RAG、Agent 与多模态技术，转化为稳定、可扩展的企业级应用。</p>
-                    <div class="hero-chips"><span class="hero-chip">大模型应用落地</span><span class="hero-chip">企业级 RAG 架构</span><span class="hero-chip">多智能体 (Agent) 协作</span><span class="hero-chip">高并发微服务</span><span class="hero-chip">业务流程自动化</span></div>
+                    <p class="hero-subtitle">我是<strong>企业 AI 落地工程师</strong>——帮技术负责人/业务团队把 RAG、Agent、文档智能做成<strong>可部署、可评测、可运维</strong>的生产系统。<br>如果你卡在知识库不准、文档解析炸、或 Agent 上不了生产，可以把现状发我。</p>
+                    <div class="hero-chips"><span class="hero-chip">企业/金融文档 RAG</span><span class="hero-chip">文档智能解析</span><span class="hero-chip">Agent 生产落地</span><span class="hero-chip">可观测可回滚</span><span class="hero-chip">Bot / 飞书自动化</span></div>
                 </div>
                 <div class="hero-stats">
                     <div class="hero-stat">
@@ -464,19 +480,19 @@
         </section>
 
         <section id="showcase" class="content-section seo-prerender" aria-label="精选代表作摘要">
-            <h2>精选代表作</h2>
-            <ul><li>多模型驱动的教育解析引擎 — 面向复杂教育场景的自动化评估系统。通过智能路由分发，针对 8 类复杂题型调用最优大模型，结合多轮校验工作流，大幅提升教辅解析的准确度与效率。</li><li>社群运营与担保交易引擎 — 为庞大商业社群量身定制的自动化管理与交易平台。深度集成智能风控、资金担保、自动分账与工单客服系统，支撑高并发场景下社群的高效商业化运转。</li><li>海量金融文档 RAG 数据管线 — 专为金融级海量长文档打造的知识工程流水线。实现从文档智能解析、语义高维分块到高性能向量入库的全自动调度，为大模型提供实时、精准的行业知识底座。</li><li>高精度语义检索重排序引擎 — 突破基础 RAG 检索的准确率瓶颈。引入多维度语义重排策略，结合文档时效性、来源权威性进行动态打分与 MMR 多样性去重，确保大模型始终基于最优上下文生成回答。</li><li>移动端智能体群控中枢 — 基于多模态视觉大模型的移动端自动化调度系统。将自然语言转化为精准的终端操作指令，实现多设备的并行任务下发与状态监控，大幅降低跨应用重复操作的业务成本。</li><li>智能商业线索挖掘雷达 — 24小时不间断的智能商机挖掘平台。利用大模型深度理解海量非结构化文本中的供需意图，精准计算匹配互补资源，并通过自动化订阅引擎完成高质量商机的实时触达。</li></ul>
+            <h2>落地案例</h2>
+            <ul><li>研报/公告很多，知识库却经常引用错段落 — 某中型投研/资讯团队：文档已入库，问答仍答非所问。目标是可上线的知识库问答，且链路可观测。优先重修解析与分块，再上时效/权威重排，而不是先换更大模型。</li><li>扫描件与复杂版面，把整个 RAG 项目拖进泥潭 — 企业知识库常见卡点：扫描件、表格、水印、目录层级缺失。目标是把脏文档变成可检索的结构化输入。规则+坐标能稳住的先稳住，VL/OCR 按版面复杂度按需上。</li><li>群规模上来后，风控/担保/客服靠人顶不住 — 商业社群在扩群后，验证、反垃圾、担保交易与客服工单靠人工撑不住。交付重点是稳定性、对账闭环与运营可控，而不是堆功能。</li></ul>
         </section>
 
         <section id="skills" class="content-section seo-prerender" aria-label="技能摘要">
-            <h2>核心技术</h2>
-            <p>不仅精于大模型的调度， 更专注于将 AI 技术无缝融合入企业系统 ，提供稳定、可扩展的工程落地架构。</p>
-            <ul><li><strong>AI 应用工程化</strong>：RAG 架构 / 手机 Agent / LLM 部署 / Multi-Agent / MCP 工具链</li><li><strong>行业文本 &amp; 知识库</strong>：研报/公告分块向量化、召回重排、图表召回、资讯打标</li><li><strong>文档智能</strong>：PDF 解析 / OCR-VL / 去水印 / 表格识别 / 结构化抽取</li><li><strong>平台集成 &amp; 自动化</strong>：国内IM Bot / 飞书 / 邮件 RPA / Celery 任务调度</li></ul>
+            <h2>核心能力</h2>
+            <p>不只精于调模型， 更专注把 AI 做成可上生产的系统 ——可观测、可回滚、可维护。</p>
+            <ul><li><strong>AI 应用工程化</strong>：RAG 全链路 / Agent 上生产 / LLM 服务化 / Multi-Agent / MCP 工具链</li><li><strong>行业文本 &amp; 知识库</strong>：研报/公告分块向量化、召回重排、图表召回、资讯打标与问答网关</li><li><strong>文档智能</strong>：PDF 解析 / OCR-VL / 去水印 / 表格识别 / 目录还原 / 结构化抽取</li><li><strong>平台集成 &amp; 自动化</strong>：国内 IM Bot / 飞书 / 邮件 RPA / Celery 任务调度与对账闭环</li></ul>
         </section>
 
         <section id="services" class="content-section seo-prerender" aria-label="服务摘要">
-            <h2>可提供的合作</h2>
-            <ul><li>企业 AI 智能体：知识库问答、工作流智能体、私有化部署与 API 监控</li><li>行业文档 RAG 系统：研报/公告入库、分块策略、召回重排与评测</li><li>文档处理管线：PDF 解析、OCR、去水印、批量结构化</li><li>Bot &amp; 办公自动化：国内IM/飞书机器人、邮件转发、任务调度</li><li>Python 技术顾问：架构评审、性能优化、疑难问题攻坚</li></ul>
+            <h2>合作方式</h2>
+            <ul><li>15 分钟需求澄清：先对齐问题类型与是否匹配；你填清场景后约聊。只做归类与建议，不写长方案。</li><li>知识库 / AI 落地诊断：现状访谈 + 架构草图 + 风险清单 + 优先级 backlog。先把坑标清楚，再决定要不要上大项目。</li><li>技术顾问包：架构评审、关键设计拍板、Code Review、排障升级。适合已有团队、缺「做过生产」的人盯方向。</li><li>模块交付：固定范围交付：文档解析管线、召回重排、RAG 对话网关、飞书/Bot 自动化等，含验收与交接。</li><li>完整项目交付：端到端：调研 → 实施 → 上线 → 交接。里程碑付款；档期占满时会坦诚说明内容节奏。</li></ul>
         </section>
     </main>
 </div>

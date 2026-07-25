@@ -43,170 +43,206 @@ Three buyer-pain stories — more capabilities in the project library below
   - Built VIP-group escrow and financial reconciliation to cut human error
   - Shipped an ops console and ticketing for a monitorable commercial loop
 
-## 项目库
+## Business flows
 
-### Enterprise AI Solutions
-Turn model capability into shippable business systems (see the three featured cases)
+Locate capability by where you are stuck - not by a wall of tech cards
 
-### Multi-LLM Education Parsing Engine
-- 副标题: 8 types · Dual mode
-- 描述: Built a complex question recognition routing network, separated evaluation and generation stages, supporting multi-round automatic verification for rigorous parsing.
-- 标签: Multi-LLM, Engine
+### Knowledge base, 0 to production
+Full RAG chain - from dirty docs to a shippable Q&A gateway
 
-### Retrieval Reranker
-- 副标题: RAG precision
-- 描述: Semantic reranking and dedup for report/filing candidates, with time and source weighting to improve Q&A citations.
-- 标签: Rerank, RAG
+- 读者画像: If you are a tech/business lead: docs piled up, answers are wrong, will not ship
+- 一句话: Do not swap for a bigger model first - fix parsing, chunking, rerank, and the gateway
 
-### Multimodal Report Retrieval
-- 副标题: Multimodal retrieval
-- 描述: Achieved dual-track vector storage for inline charts and text in PDFs, precisely responding to advanced retrieval needs for chart data and text evidence in investment research.
-- 标签: Vector, Research
-
-### Intraday ETF Quant Monitoring
-- 副标题: Quant · News
-- 描述: Built a millisecond-level market and news anomaly monitoring engine, automatically evaluating risks across multidimensional quant indicators to assist investment decisions.
-- 标签: ETF, Quant
-
-### High-Precision Financial NER
-- 副标题: NER · Time parsing
-- 描述: Provided customized financial entity extraction for research reports, combining knowledge graph retrieval and financial cycle logic parsing to enhance semantic understanding of business data.
-- 标签: NER, FastAPI, Vector
-
-### RAG & Knowledge Engineering Infrastructure
-RAG foundation from parsing and chunking to rerank and chat gateways
-
-### Massive Long-Doc Async Ingestion
-- 副标题: FastAPI · Celery · GPU
-- 描述: An asynchronous distributed document processing system based on Celery and Docker, supporting automated ingestion and vectorization orchestration of reports.
-- 标签: Celery, Vector DB, Docker
-
-### Adaptive Multi-Format Chunking
-- 副标题: Production pipeline
-- 描述: Built an automated high-dimensional chunking service supporting various formats, deployed in GPU production to smoothly support massive streaming information ingestion.
-- 标签: Chunk, Vectorize
-
-### Qwen3 Vector Retrieval Platform
-- 副标题: PostgreSQL vector search
-- 描述: Enterprise-grade vector retrieval microservice based on cutting-edge Embedding models and PGVector, deeply optimizing semantic hit rates for vertical industry texts.
-- 标签: Qwen3, PostgreSQL
-
-### Enterprise Conversational Q&A Gateway
-- 副标题: Knowledge Q&A API
-- 描述: Provided standardized conversational RAG OpenAPI interfaces, encapsulating underlying complex retrieval and LLM generation logic with complete authentication and auditing.
-- 标签: OpenAPI, Chat
-
-### Financial News Smart Tagging
-- 副标题: NLP classification
-- 描述: Used NLP models for automated tag extraction and classification of massive corporate announcements, providing data support for downstream information aggregation and push.
-- 标签: NLP, Classification
-
-### Multimodal Document Intelligence
-Scans, messy layouts, watermarks, TOC — the dirty work upstream of RAG
+#### A1 · Doc intake · Scans, tables, watermarks, missing TOC - dirty docs feed dirty knowledge
+The most common blocker is upstream: PDF structure lost, tables garbled, watermarks over text, TOC missing. No downstream tweak can save this.
 
 ### High-Precision PDF Structuring Engine
-- 副标题: PDFlib TET · FastAPI
-- 描述: Utilized low-level libraries to reversely parse PDF coordinates with high precision, extracting text, tables, and logical hierarchy as the purest structured data source for RAG.
+- 怎么解: Reverse-engineers PDF coordinates via low-level libs to extract text/tables/hierarchy as the cleanest data source
 - 标签: PDF, FastAPI
 
-### Report Smart Semantic Chunking
-- 副标题: Report / filing modes
-- 描述: Intelligent chunking algorithms specifically optimized for financial layouts, effectively recognizing various table formats and outputting high-quality Markdown while preserving business context.
-- 标签: Chunking, Tables
-
 ### Smart PDF Watermark Removal
-- 副标题: Multi-rule templates
-- 描述: Based on configurable rule bases and visual coordinate matching, enabling batch watermark removal for reports to significantly raise the baseline accuracy of subsequent OCR.
+- 怎么解: Configurable rule base + visual coordinate matching for batch watermark removal, raising the OCR baseline
 - 标签: Watermark, Batch
 
 ### Multimodal OCR Visual Service
-- 副标题: Upload & parse
-- 描述: Encapsulated advanced OCR and layout understanding models into high-concurrency APIs, providing out-of-the-box structured extraction for scanned copies and complex images.
+- 怎么解: OCR + layout understanding wrapped as a high-concurrency API - upload a scan and get structured output
 - 标签: OCR, VL
 
 ### Deep Report TOC Extraction
-- 副标题: Three-tier fallback
-- 描述: Designed a three-level fallback strategy from bookmark extraction to page parsing to layout understanding, maximally boosting the TOC reconstruction success rate of complex reports.
-- 标签: PDF, TOC, Layout
+- 怎么解: Bookmark extraction -> TOC page parsing -> layout understanding, a three-tier fallback
+- 标签: PDF, TOC
 
 ### Ultra-Fast GPU Layout Detection
-- 副标题: High concurrency
-- 描述: Layout element recognition API accelerated by GPU inference clusters, supporting high-concurrency asynchronous ingestion to efficiently dismantle charts, tables, and paragraphs.
-- 标签: FastAPI, Layout, GPU
+- 怎么解: GPU inference cluster acceleration with high-concurrency async ingest, dismantling charts/tables/paragraphs
+- 标签: Layout, GPU
 
-### Agents & Automation
-Building agent networks capable of perceiving complex environments, autonomous planning, and toolchain orchestration
+#### A2 · Semantic chunking · Naive chunking shreds tables and severs context - recall ceiling locked
+Chunking is the hidden ceiling of RAG precision. Hard character splits tear tables and cut context; even perfect recall cannot reassemble full meaning.
 
-### Phone AutoGLM Fleet Platform
-- 副标题: Cloud phones · Business API
-- 描述: AutoGLM-based cloud phone fleet: web console for task debugging, REST APIs for command dispatch, progress polling, and album media import.
-- 标签: AutoGLM, ADB, Fleet
+### Report Smart Semantic Chunking
+- 怎么解: Layout-aware chunking for financial reports, recognizing table shapes and emitting clean Markdown
+- 标签: Chunking, Tables
+
+### Adaptive Multi-Format Chunking
+- 怎么解: One chunking pipeline for all source formats, streaming into a GPU production ingest path
+- 标签: Chunk, Vectorize
+
+#### A3 · Vector recall · Keyword-only hits miss semantics; chart data is invisible to search
+Default BM25 cannot match paraphrases, and chart content is a blind spot. Charts and text need dual-track vectorization to be retrievable.
+
+### Qwen3 Vector Retrieval Platform
+- 怎么解: Qwen3 Embedding + PGVector recall microservice, tuned for vertical-industry semantic hit rates
+- 标签: Qwen3, PostgreSQL
+
+### Multimodal Report Retrieval
+- 怎么解: Dual-track vector storage for inline charts and text in PDFs, answering chart-data and text-evidence queries
+- 标签: Vector, Research
+
+#### A4 · Rerank & citation · Dumping top-k into the LLM cites the wrong passage and answers miss the point
+Recalled top-k mixes stale and weakly-relevant snippets that mislead the LLM. You need freshness/authority rerank plus eval logs.
+
+### Retrieval Reranker
+- 怎么解: Semantic rerank and dedup over recall candidates, fusing freshness and source authority for better citations
+- 标签: Rerank, RAG
+
+#### A5 · Async ingest infra · Manual ingest cannot scale and cannot roll back
+At volume, manual ingest is slow and lossy. You need an async ingest cluster with scalable deployment for throughput and handoff/rollback.
+
+### Massive Long-Doc Async Ingestion
+- 怎么解: Celery + Docker async distributed document system for automated report ingest and vectorization orchestration
+- 标签: Celery, Docker
+
+#### A6 · Conversational Q&A gateway · No auth, audit, or logging - cannot go to production
+Internal demos can run raw, but production needs auth, call logs, and audit. The gateway must wrap retrieval and generation behind a standard OpenAPI.
+
+### Enterprise Conversational Q&A Gateway
+- 怎么解: Standard conversational RAG OpenAPI wrapping retrieval and generation with auth and call-log auditing
+- 标签: OpenAPI, Chat
+
+### Agent, demo to production
+Agent engineering - tool orchestration / code exec / multi-agent
+
+- 读者画像: If you are a CTO/tech lead: agent demos look great but break on new scenes, will not ship
+- 一句话: Embed tool orchestration, code execution, and multi-agent into an auditable engineering flow
+
+#### B1 · Dynamic tools · Hard-coded tools break on new scenes; static toolchains cannot generalize
+Tool calls baked into code mean every new tool needs a logic change. LLMs need to write code in a sandbox and mount tools on demand.
 
 ### Sandboxed Code Execution & Tool Proxy
-- 副标题: Code act · Dynamic tools
-- 描述: Empowered LLMs to dynamically write and execute code in isolated sandboxes and mount tools on demand, effectively solving the generalization challenges of static toolchains.
+- 怎么解: Empowers LLMs to dynamically write and execute code in isolated sandboxes and mount tools on demand
 - 标签: MCP, Code Act
 
+#### B2 · Multi-tool orchestration · Multi-tool coordination via hand-written if-else is not reusable
+Chaining tools with spaghetti if-else means rewriting for every new intent. You need natural-language-driven call-chain planning.
+
 ### MCP Service Orchestration Engine
-- 副标题: Multi-tool flows
-- 描述: Intelligently planning multi-tool invocation links based on natural language instructions, supporting context-aware complex intent decomposition and concurrent task execution.
+- 怎么解: Plans multi-tool call chains from natural language, with context-aware intent decomposition and concurrent execution
 - 标签: JSON-RPC, Orchestration
 
+#### B3 · Capability aggregation · Every system calls the LLM directly - AI API assets are out of control
+Each business system connects to the LLM on its own; calls are scattered, costs run out of control, governance is impossible. A middle layer must aggregate AI API assets.
+
 ### Enterprise Model Capability Gateway
-- 副标题: Business bridge
-- 描述: Built a unified AI tool scheduling middleware, shielding the complexity of business systems directly connecting to LLMs, achieving centralized control and routing of AI API assets.
+- 怎么解: Unified AI tool scheduling middleware shielding business systems from direct LLM complexity, with centralized control and routing
 - 标签: MCP, API
 
+#### B4 · Multi-agent collaboration · A single agent cannot hold complex tasks - cannot split, routing is messy
+A single agent drifts as context grows. Complex tasks need multi-role collaboration: autonomous decomposition, multi-round routing, automated execution loops.
+
 ### Complex Multi-Agent Collaboration
-- 副标题: Multi-agent systems
-- 描述: Designed multi-role Agent collaborative networks, realizing autonomous decomposition, multi-round routing, and automated execution loops for complex tasks, empowering workflow reconstruction.
+- 怎么解: Multi-role agent network for autonomous task decomposition, multi-round routing, and automated execution loops
 - 标签: Multi-Agent
 
-### Community Bots & Ecosystem Apps
-Deeply integrating IM ecosystems with hybrid search to build high-conversion, highly sticky commercial productivity tools
+#### B5 · Edge execution · No controllable execution environment - mobile/edge scenes cannot plug in
+Much business happens on mobile/edge, but agents have no controllable environment to plug into. You need cloud-phone fleet control plus standard APIs.
 
-### Community Ops & Monetization Hub
-- 副标题: Moderation · Escrow · Wallet
-- 描述: All-in-one community operations solution covering anti-fraud risk control, escrow trading, and smart customer service, deeply empowering the efficient conversion of private traffic.
-- 标签: Bot, MySQL, Escrow
+### Phone AutoGLM Fleet Platform
+- 怎么解: AutoGLM-based cloud-phone fleet: web console + REST APIs for command dispatch, progress polling, and media import
+- 标签: AutoGLM, Fleet
 
-### Community Lead Insight Radar
-- 副标题: Scan · Complementary match
-- 描述: 24/7 full-volume monitoring of community dynamics, extracting business intents with LLMs to accurately capture complementary opportunities and deliver real-time targeted alerts.
-- 标签: Bot, LLM, SeekDB
+### Finance research content
+From attachment collection to intraday anomalies - automate the research pipeline
 
-### Community History Smart Search
-- 副标题: In-bot search
-- 描述: Dual-track retrieval system fusing full-text search and vector similarity, deeply mining and precisely locating valuable information in massive community chat histories.
-- 标签: IM, Hybrid search, RAG
+- 读者画像: If you are a finance/news team: too many reports, labor is expensive, workflows are broken
+- 一句话: From attachment collection to intraday anomalies - automate the research pipeline
 
-### AI-Enhanced Smart Clipboard
-- 副标题: Windows desktop · AI
-- 描述: Desktop productivity tool built with Rust for extreme performance, tracking and reshaping clipboard content with LLMs in real-time, seamlessly bridging various workflows.
-- 标签: Tauri, Rust, Desktop
-
-### Backend Systems & Ops Orchestration
-Providing stable and reliable infrastructure for monitoring, asynchronous scheduling, and data flow
-
-### High-Freq Asset Trading Monitor
-- 副标题: Real-time monitor · IM push
-- 描述: Built low-latency trading data listening nodes, combined with Redis caching for high-speed deduplication and analysis, pushing core trading intelligence in milliseconds.
-- 标签: Web3, IM
-
-### Email Intel Automated Routing
-- 副标题: Email automation
-- 描述: Real-time monitoring of core inboxes, extracting high-value email information via custom rules and delivering across platforms, bridging the information silo between Email and IM.
-- 标签: IMAP, Bot
-
-### Enterprise Data Synergy Pipeline
-- 副标题: Office automation
-- 描述: Breaking the data barrier between Lark multidimensional tables and backend systems, achieving bi-directional real-time sync of order statuses and client info, eliminating manual reconciliation costs.
-- 标签: Lark, Automation
+#### C1 · Multi-source collection · Report attachments scattered across inboxes - manual moving is slow and lossy
+Reports pile up in inboxes daily; manual download, rename, and ingest is slow and leaky. You need RPA auto-polling plus email intel routing.
 
 ### Report Attachment RPA Crawler
-- 副标题: RPA · PyInstaller
-- 描述: Automated polling of emails to extract key data tables from attached reports, outputting standard structured ledgers, vastly improving financial data ingestion efficiency.
+- 怎么解: Auto-polls inboxes and extracts key data tables from attached reports into standard structured ledgers
 - 标签: RPA, PDF
+
+### Email Intel Automated Routing
+- 怎么解: Real-time monitoring of core inboxes, extracting high-value email via custom rules and routing across platforms
+- 标签: IMAP, Bot
+
+#### C2 · Entity & semantic extraction · Entity/time extraction is inaccurate; business semantics are weak
+Regex extraction of company names, dates, and metrics from reports misses and errs; downstream aggregation cannot get accurate. You need custom NER plus auto-tagging.
+
+### High-Precision Financial NER
+- 怎么解: Custom financial entity extraction with knowledge-graph recall and earnings-cycle logic parsing for stronger semantic understanding
+- 标签: NER, FastAPI
+
+### Financial News Smart Tagging
+- 怎么解: NLP models auto-tag and classify massive announcements and news for downstream aggregation and push
+- 标签: NLP, Classification
+
+#### C3 · Intraday anomaly monitoring · Nobody watches intraday anomalies - risk lags, opportunities slip away
+Manual monitoring of intraday market and news anomalies is unrealistic; by the time you see it, it is too late. You need millisecond listening plus multi-dimensional quant scoring plus real-time alerts.
+
+### Intraday ETF Quant Monitoring
+- 怎么解: Millisecond market and news anomaly engine, auto-evaluating risk across multi-dimensional quant indicators for real-time alerts
+- 标签: ETF, Quant
+
+### High-Freq Asset Trading Monitor
+- 怎么解: Low-latency trade-data listeners plus Redis high-speed dedup, pushing core trading intel in milliseconds
+- 标签: Web3, IM
+
+#### C4 · Question parsing engine · Evaluation and generation are tangled - parsing is not rigorous
+In education scenarios, evaluating and generating the same question lets the LLM self-endorse. You need to separate evaluation from generation and support multi-round verification.
+
+### Multi-LLM Education Parsing Engine
+- 怎么解: Complex question-type routing network, separating evaluation and generation, with multi-round auto-verification for rigor
+- 标签: Multi-LLM, Engine
+
+### Community monetization & office automation
+Hand moderation, leads, and collaboration to bots and automation
+
+- 读者画像: If you run a community/private-domain: group scale outgrew manual ops
+- 一句话: Hand moderation, leads, and collaboration to bots and automation
+
+#### D1 · Moderation, risk & escrow · Verification, anti-spam, escrow, and support tickets cannot stay manual
+After growth, join verification, anti-spam, escrow trades, and support tickets cannot stay manual. Focus: stability, reconciliation loop, and operational control.
+
+### Community Ops & Monetization Hub
+- 怎么解: All-in-one community ops solution covering anti-fraud risk control, escrow trading, and smart customer service as a monitorable loop
+- 标签: Bot, Escrow
+
+#### D2 · Lead insight · Opportunities in chat slip through the flood of messages
+Tens of thousands of messages a day are impossible to scan manually; complementary opportunities are lost. You need 24/7 listening plus LLM intent extraction plus targeted delivery.
+
+### Community Lead Insight Radar
+- 怎么解: 24/7 full-volume monitoring of community dynamics, LLM-extracted business intents, capturing complementary opportunities in real time
+- 标签: Bot, LLM
+
+#### D3 · History search · Chat history is a black box - valuable info cannot be found
+Group history is a huge information mine, but full-text search cannot find semantically similar content. You need full-text plus vector dual-track recall.
+
+### Community History Smart Search
+- 怎么解: Dual-track retrieval fusing full-text search and vector similarity, mining valuable info from massive chat histories
+- 标签: IM, Hybrid search
+
+#### D4 · Office sync & desktop · Feishu/email/desktop data is siloed - manual reconciliation is costly
+Feishu sheets and backend systems are disconnected, requiring manual order-status sync; desktop work is repetitive. You need bidirectional data pipelines plus desktop AI enhancement.
+
+### Enterprise Data Synergy Pipeline
+- 怎么解: Bridges Lark multidimensional tables and backend systems for bidirectional real-time sync of orders and client info, eliminating manual reconciliation
+- 标签: Lark, Automation
+
+### AI-Enhanced Smart Clipboard
+- 怎么解: Rust-based desktop tool that listens and reshapes clipboard content with LLMs in real time, bridging workflows
+- 标签: Tauri, Rust
 
 ## Track record
 

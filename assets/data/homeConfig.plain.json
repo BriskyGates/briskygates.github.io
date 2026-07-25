@@ -29,9 +29,9 @@
         "icon": "fas fa-fire"
       },
       {
-        "id": "projects",
-        "label": "项目",
-        "shortLabel": "项目",
+        "id": "flow-rag",
+        "label": "业务流",
+        "shortLabel": "业务流",
         "icon": "fas fa-layer-group"
       },
       {
@@ -131,6 +131,32 @@
       "#0c4a6e",
       "#1e3a5f",
       "#312e81"
+    ],
+    "heroFlowEntries": [
+      {
+        "id": "flow-rag",
+        "icon": "📚",
+        "title": "知识库问答不准 / 上不了线",
+        "sub": "从脏文档到问答网关，一条链路打通"
+      },
+      {
+        "id": "flow-agent",
+        "icon": "🤖",
+        "title": "Agent demo 好看，换场景就废",
+        "sub": "工具编排 + 多智能体 + 可审计工程化"
+      },
+      {
+        "id": "flow-finance",
+        "icon": "📈",
+        "title": "研报公告多、人工搬不动",
+        "sub": "采集 -> 实体 -> 异动监测自动化"
+      },
+      {
+        "id": "flow-community",
+        "icon": "🤝",
+        "title": "群规模上来，靠人顶不住",
+        "sub": "风控 / 线索 / 协同交给 Bot"
+      }
     ]
   },
   "featured": {
@@ -199,414 +225,12 @@
       }
     ]
   },
-  "projectShowcase": {
-    "rows": [
-      {
-        "id": "enterprise-ai",
-        "title": "企业 AI 应用",
-        "description": "把 AI 做成真正能上线的业务系统（详见上面 3 个案例）",
-        "items": [
-          {
-            "id": "multi_llm_analysis",
-            "title": "AI 教育题目解析",
-            "subtitle": "8 种题型",
-            "description": "不同题型走不同 AI，解答完还会复查。",
-            "tags": [
-              "Multi-LLM",
-              "题型引擎"
-            ],
-            "icon": "🧠",
-            "accent": "#ff6b6b"
-          },
-          {
-            "id": "rerank_system",
-            "title": "搜索结果重排序",
-            "subtitle": "让问答更准",
-            "description": "搜出来的资料再排个序，引用更靠谱。",
-            "tags": [
-              "Rerank",
-              "RAG"
-            ],
-            "icon": "🎯",
-            "accent": "#f59e0b"
-          },
-          {
-            "id": "report_recall",
-            "title": "研报图文一起搜",
-            "subtitle": "图和字都能找",
-            "description": "PDF 里的图表和文字分别存，问的时候都能搜到。",
-            "tags": [
-              "向量检索",
-              "研报"
-            ],
-            "icon": "📈",
-            "accent": "#06b6d4"
-          },
-          {
-            "id": "etf_unusual",
-            "title": "ETF 异动提醒",
-            "subtitle": "行情监控",
-            "description": "盯盘发现异常就推送，辅助投研决策。",
-            "tags": [
-              "ETF",
-              "量化"
-            ],
-            "icon": "📉",
-            "accent": "#8b5cf6"
-          },
-          {
-            "id": "temp_ner",
-            "title": "金融实体识别",
-            "subtitle": "认公司、认时间",
-            "description": "从研报里自动提取公司名、时间等关键信息。",
-            "tags": [
-              "NER",
-              "FastAPI",
-              "向量召回"
-            ],
-            "icon": "🏷️",
-            "accent": "#f472b6"
-          }
-        ]
-      },
-      {
-        "id": "rag-knowledge",
-        "title": "知识库 & 搜索",
-        "description": "文档进来 → 切块 → 搜得到 → 答得准",
-        "items": [
-          {
-            "id": "fastapi_celery_kb",
-            "title": "文档批量入库",
-            "subtitle": "异步处理",
-            "description": "大量文档排队处理，自动切块和向量化。",
-            "tags": [
-              "Celery",
-              "向量库",
-              "Docker"
-            ],
-            "icon": "📚",
-            "accent": "#b49bc8"
-          },
-          {
-            "id": "multi_source_chunk",
-            "title": "各种格式文档切块",
-            "subtitle": "统一管线",
-            "description": "不同来源的文档用同一套流程切块入库。",
-            "tags": [
-              "分块",
-              "向量化"
-            ],
-            "icon": "🔗",
-            "accent": "#10b981"
-          },
-          {
-            "id": "qwen3_pg_recall",
-            "title": "向量搜索服务",
-            "subtitle": "PostgreSQL",
-            "description": "用向量数据库做语义搜索，找相似内容。",
-            "tags": [
-              "Qwen3",
-              "PostgreSQL"
-            ],
-            "icon": "🔍",
-            "accent": "#3b82f6"
-          },
-          {
-            "id": "enterprise_chat_openapi",
-            "title": "企业问答 API",
-            "subtitle": "开箱即用",
-            "description": "封装好搜索+问答，别的系统直接调接口。",
-            "tags": [
-              "OpenAPI",
-              "Chat"
-            ],
-            "icon": "💬",
-            "accent": "#ec4899"
-          },
-          {
-            "id": "announcement_tagging",
-            "title": "公告自动打标签",
-            "subtitle": "分类整理",
-            "description": "海量公告自动分类打标，方便下游使用。",
-            "tags": [
-              "NLP",
-              "分类"
-            ],
-            "icon": "🏷️",
-            "accent": "#f97316"
-          }
-        ]
-      },
-      {
-        "id": "doc-intelligence",
-        "title": "文档处理",
-        "description": "扫描件、乱版面、水印、目录——知识库上游的脏活",
-        "items": [
-          {
-            "id": "pdf2xml",
-            "title": "PDF 结构化解析",
-            "subtitle": "提取文字表格",
-            "description": "把 PDF 拆成干净的结构化数据，给后续流程用。",
-            "tags": [
-              "PDF",
-              "FastAPI"
-            ],
-            "icon": "📄",
-            "accent": "#6366f1"
-          },
-          {
-            "id": "pdf_chunker",
-            "title": "研报智能切块",
-            "subtitle": "保留逻辑",
-            "description": "按段落和表格智能切分，不丢上下文。",
-            "tags": [
-              "分块",
-              "表格识别"
-            ],
-            "icon": "✂️",
-            "accent": "#14b8a6"
-          },
-          {
-            "id": "pdf_watermark",
-            "title": "PDF 去水印",
-            "subtitle": "批量处理",
-            "description": "研报批量去水印，后面 OCR 更准。",
-            "tags": [
-              "水印",
-              "批处理"
-            ],
-            "icon": "💧",
-            "accent": "#a855f7"
-          },
-          {
-            "id": "paddle_ocr_vl",
-            "title": "图片 OCR 服务",
-            "subtitle": "上传即解析",
-            "description": "扫描件、复杂图片上传就能提取文字结构。",
-            "tags": [
-              "OCR",
-              "VL"
-            ],
-            "icon": "👁️",
-            "accent": "#22c55e"
-          },
-          {
-            "id": "extract_pdf_toc",
-            "title": "PDF 目录提取",
-            "subtitle": "多级兜底",
-            "description": "尽量把研报目录结构还原出来。",
-            "tags": [
-              "PDF",
-              "目录",
-              "版面分析"
-            ],
-            "icon": "📑",
-            "accent": "#a78bfa"
-          },
-          {
-            "id": "gpu_rapid_layout",
-            "title": "版面元素检测",
-            "subtitle": "GPU 加速",
-            "description": "快速识别文档里的图、表、段落位置。",
-            "tags": [
-              "FastAPI",
-              "版面检测",
-              "GPU"
-            ],
-            "icon": "🖼️",
-            "accent": "#f59e0b"
-          }
-        ]
-      },
-      {
-        "id": "agent-mcp",
-        "title": "智能助手 & 自动化",
-        "description": "AI 能自己规划步骤、调用工具完成任务",
-        "items": [
-          {
-            "id": "phone_autoglm",
-            "title": "手机群控平台",
-            "subtitle": "云手机",
-            "description": "网页管多台手机，API 下发任务查进度。",
-            "tags": [
-              "AutoGLM",
-              "ADB",
-              "群控"
-            ],
-            "icon": "📱",
-            "accent": "#059669"
-          },
-          {
-            "id": "dynamic_mcp",
-            "title": "AI 写代码调工具",
-            "subtitle": "沙箱执行",
-            "description": "AI 在隔离环境里写代码、调工具，更灵活。",
-            "tags": [
-              "MCP",
-              "Code Act"
-            ],
-            "icon": "⚡",
-            "accent": "#1db954"
-          },
-          {
-            "id": "mcp_json_rpc",
-            "title": "多工具编排",
-            "subtitle": "自动串联",
-            "description": "你说一句话，AI 自动规划调哪些工具、什么顺序。",
-            "tags": [
-              "JSON-RPC",
-              "编排"
-            ],
-            "icon": "🔧",
-            "accent": "#0ea5e9"
-          },
-          {
-            "id": "ai_mcp_middleware",
-            "title": "AI 能力统一网关",
-            "subtitle": "集中管理",
-            "description": "各业务系统通过统一入口调 AI，好管好用。",
-            "tags": [
-              "MCP",
-              "API"
-            ],
-            "icon": "🌐",
-            "accent": "#64748b"
-          },
-          {
-            "id": "multi_agent_collab",
-            "title": "多个 AI 协作",
-            "subtitle": "分工干活",
-            "description": "复杂任务拆给多个 AI 角色，自动配合完成。",
-            "tags": [
-              "Multi-Agent"
-            ],
-            "icon": "🤝",
-            "accent": "#d946ef"
-          }
-        ]
-      },
-      {
-        "id": "tg-mobile",
-        "title": "机器人和 IM 应用",
-        "description": "社群机器人、搜索、桌面小工具",
-        "items": [
-          {
-            "id": "group_management_bot",
-            "title": "社群运营机器人",
-            "subtitle": "管群变现",
-            "description": "管群、担保交易、客服，私域变现一条龙。",
-            "tags": [
-              "Bot",
-              "MySQL",
-              "担保交易"
-            ],
-            "icon": "🤖",
-            "accent": "#1db954"
-          },
-          {
-            "id": "need_radar_bot",
-            "title": "商机挖掘雷达",
-            "subtitle": "听群找单",
-            "description": "监听群消息，AI 找买卖需求并推送。",
-            "tags": [
-              "Bot",
-              "LLM",
-              "SeekDB"
-            ],
-            "icon": "📡",
-            "accent": "#8b5cf6"
-          },
-          {
-            "id": "tg_ai_search",
-            "title": "群聊历史搜索",
-            "subtitle": "全文+语义",
-            "description": "在大量聊天记录里快速找到有用信息。",
-            "tags": [
-              "国内IM",
-              "混合检索",
-              "RAG"
-            ],
-            "icon": "🔎",
-            "accent": "#06b6d4"
-          },
-          {
-            "id": "smart_clipboard",
-            "title": "AI 剪贴板",
-            "subtitle": "Windows 桌面",
-            "description": "复制内容时 AI 自动帮你改写、整理。",
-            "tags": [
-              "Tauri",
-              "Rust",
-              "桌面工具"
-            ],
-            "icon": "📋",
-            "accent": "#818cf8"
-          }
-        ]
-      },
-      {
-        "id": "platform-auto",
-        "title": "后台和运维",
-        "description": "监控、调度、数据同步这些基础设施",
-        "items": [
-          {
-            "id": "onchain_token_monitor",
-            "title": "链上交易监控",
-            "subtitle": "实时推送",
-            "description": "盯链上交易，异常就推到 IM。",
-            "tags": [
-              "Web3",
-              "国内IM"
-            ],
-            "icon": "⛓️",
-            "accent": "#facc15"
-          },
-          {
-            "id": "cc_monitor_gmail",
-            "title": "邮件自动转发",
-            "subtitle": "邮件→IM",
-            "description": "重要邮件自动提取内容发到聊天工具。",
-            "tags": [
-              "IMAP",
-              "Bot"
-            ],
-            "icon": "📧",
-            "accent": "#ef4444"
-          },
-          {
-            "id": "lark_sync",
-            "title": "飞书数据同步",
-            "subtitle": "表格对接",
-            "description": "飞书表格和后端系统双向同步，少手工对账。",
-            "tags": [
-              "飞书",
-              "自动化"
-            ],
-            "icon": "🚀",
-            "accent": "#3370ff"
-          },
-          {
-            "id": "email_auto_crawl",
-            "title": "邮箱研报自动采集",
-            "subtitle": "RPA",
-            "description": "自动收邮件附件、提取表格数据入库。",
-            "tags": [
-              "RPA",
-              "PDF"
-            ],
-            "icon": "📬",
-            "accent": "#78716c"
-          }
-        ]
-      }
-    ]
-  },
   "experience": {
     "title": "做过什么",
     "subtitle": "这些年主要在「能上线」这条线上干活",
     "items": [
       {
-        "period": "2024 — 至今",
+        "period": "2024 - 至今",
         "title": "企业 AI 系统",
         "description": "帮企业做智能助手、知识库问答、多模态应用，从试做到正式上线都做过，强调能监控、能回滚。",
         "tags": [
@@ -616,7 +240,7 @@
         ]
       },
       {
-        "period": "2022 — 2024",
+        "period": "2022 - 2024",
         "title": "文档处理",
         "description": "处理百万级金融 PDF：复杂排版、OCR、切块，给 AI 准备干净数据。",
         "tags": [
@@ -625,7 +249,7 @@
         ]
       },
       {
-        "period": "2020 — 至今",
+        "period": "2020 - 至今",
         "title": "机器人和后台",
         "description": "高并发的社群机器人和监控系统，交易和客服流程要稳。",
         "tags": [
@@ -771,7 +395,7 @@
         {
           "icon": "🏢",
           "type": "业务负责人",
-          "description": "文档多、人工贵、流程断——需要知识库或机器人"
+          "description": "文档多、人工贵、流程断--需要知识库或机器人"
         },
         {
           "icon": "🚀",
@@ -789,7 +413,7 @@
     "innovation": {
       "icon": "💡",
       "title": "我的理念",
-      "text": "AI 的价值在于真能用——能监控、能回滚、好维护。我不卖概念，我交付业务里在跑的系统。"
+      "text": "AI 的价值在于真能用--能监控、能回滚、好维护。我不卖概念，我交付业务里在跑的系统。"
     }
   },
   "contact": {
@@ -866,5 +490,525 @@
       "success": "收到了！我会尽快回复并建议下一步",
       "error": "发送失败，请稍后重试或直接联系我"
     }
+  },
+  "businessFlows": {
+    "title": "业务流",
+    "subtitle": "按你卡在哪一步找能力，不是按我有什么技术铺卡片",
+    "flows": [
+      {
+        "id": "flow-rag",
+        "icon": "📚",
+        "accent": "#b49bc8",
+        "title": "企业知识库从 0 到上线",
+        "subtitle": "从脏文档到能上线的问答接口，一条龙打通",
+        "persona": "如果你是技术/业务负责人：文档一堆，问答不准、上不了线",
+        "oneLiner": "别先换更大模型，先把解析、分块、重排、网关修好",
+        "nodes": [
+          {
+            "id": "a1-doc-feed",
+            "stage": "A1 · 文档进料",
+            "painPoint": "扫描件、表格、水印、目录缺失，脏文档喂出脏知识",
+            "painDetail": "知识库最常卡在上游：PDF 结构丢了、表格乱码、水印盖住正文、目录拿不到。下游怎么调都白搭。",
+            "projects": [
+              {
+                "id": "pdf2xml",
+                "title": "PDF 结构化解析",
+                "how": "把 PDF 拆成干净的结构化数据，给后续流程用",
+                "tags": [
+                  "PDF",
+                  "FastAPI"
+                ],
+                "icon": "📄",
+                "accent": "#6366f1"
+              },
+              {
+                "id": "pdf_watermark",
+                "title": "PDF 去水印",
+                "how": "研报批量去水印，后面 OCR 更准",
+                "tags": [
+                  "水印",
+                  "批处理"
+                ],
+                "icon": "💧",
+                "accent": "#a855f7"
+              },
+              {
+                "id": "paddle_ocr_vl",
+                "title": "图片 OCR 服务",
+                "how": "扫描件、复杂图片上传就能提取文字结构",
+                "tags": [
+                  "OCR",
+                  "VL"
+                ],
+                "icon": "👁️",
+                "accent": "#22c55e"
+              },
+              {
+                "id": "extract_pdf_toc",
+                "title": "PDF 目录提取",
+                "how": "尽量把研报目录结构还原出来",
+                "tags": [
+                  "PDF",
+                  "目录"
+                ],
+                "icon": "📑",
+                "accent": "#a78bfa"
+              },
+              {
+                "id": "gpu_rapid_layout",
+                "title": "版面元素检测",
+                "how": "快速识别文档里的图、表、段落位置",
+                "tags": [
+                  "版面检测",
+                  "GPU"
+                ],
+                "icon": "🖼️",
+                "accent": "#f59e0b"
+              }
+            ]
+          },
+          {
+            "id": "a2-chunking",
+            "stage": "A2 · 语义分块",
+            "painPoint": "一刀切分块把表格打散、语义截断，召回上限被锁死",
+            "painDetail": "分块是 RAG 精度的隐性天花板。硬切会撕断表格、割裂上下文，召回再准也拼不回完整语义。",
+            "projects": [
+              {
+                "id": "pdf_chunker",
+                "title": "研报智能切块",
+                "how": "按段落和表格智能切分，不丢上下文",
+                "tags": [
+                  "分块",
+                  "表格识别"
+                ],
+                "icon": "✂️",
+                "accent": "#14b8a6"
+              },
+              {
+                "id": "multi_source_chunk",
+                "title": "各种格式文档切块",
+                "how": "不同来源的文档用同一套流程切块入库",
+                "tags": [
+                  "分块",
+                  "向量化"
+                ],
+                "icon": "🔗",
+                "accent": "#10b981"
+              }
+            ]
+          },
+          {
+            "id": "a3-recall",
+            "stage": "A3 · 向量召回",
+            "painPoint": "关键词命中为主，语义对不上，图表数据搜不到",
+            "painDetail": "默认 BM25 搜不到同义表达，图表更是盲区。图表和正文要双路向量化才能捞回来。",
+            "projects": [
+              {
+                "id": "qwen3_pg_recall",
+                "title": "向量搜索服务",
+                "how": "用向量数据库做语义搜索，找相似内容",
+                "tags": [
+                  "Qwen3",
+                  "PostgreSQL"
+                ],
+                "icon": "🔍",
+                "accent": "#3b82f6"
+              },
+              {
+                "id": "report_recall",
+                "title": "研报图文一起搜",
+                "how": "PDF 里的图表和文字分别存，问的时候都能搜到",
+                "tags": [
+                  "向量检索",
+                  "研报"
+                ],
+                "icon": "📈",
+                "accent": "#06b6d4"
+              }
+            ]
+          },
+          {
+            "id": "a4-rerank",
+            "stage": "A4 · 重排和引用",
+            "painPoint": "top-k 一股脑塞给 LLM，引用错段落，答非所问",
+            "painDetail": "召回的 top-k 里混了过时和弱相关片段，LLM 会被带偏。必须做时效/权威重排，留评测日志。",
+            "projects": [
+              {
+                "id": "rerank_system",
+                "title": "搜索结果重排序",
+                "how": "搜出来的资料再排个序，引用更靠谱",
+                "tags": [
+                  "Rerank",
+                  "RAG"
+                ],
+                "icon": "🎯",
+                "accent": "#f59e0b"
+              }
+            ]
+          },
+          {
+            "id": "a5-ingest",
+            "stage": "A5 · 异步入库基建",
+            "painPoint": "文档入库靠手动跑，规模化不了、回滚不了",
+            "painDetail": "文档量大，手动入库既慢又容易丢。需要异步入库集群 + 可扩展部署，才能撑住规模、支持交接回滚。",
+            "projects": [
+              {
+                "id": "fastapi_celery_kb",
+                "title": "文档批量入库",
+                "how": "大量文档排队处理，自动切块和向量化",
+                "tags": [
+                  "Celery",
+                  "Docker"
+                ],
+                "icon": "📚",
+                "accent": "#b49bc8"
+              }
+            ]
+          },
+          {
+            "id": "a6-gateway",
+            "stage": "A6 · 对话问答网关",
+            "painPoint": "没有鉴权、审计、日志，上不了线",
+            "painDetail": "内部 demo 可以裸跑，上生产必须有鉴权、日志、审计。网关要把检索和生成封装成标准接口。",
+            "projects": [
+              {
+                "id": "enterprise_chat_openapi",
+                "title": "企业问答 API",
+                "how": "封装好搜索+问答，别的系统直接调接口",
+                "tags": [
+                  "OpenAPI",
+                  "Chat"
+                ],
+                "icon": "💬",
+                "accent": "#ec4899"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "flow-agent",
+        "icon": "🤖",
+        "accent": "#1db954",
+        "title": "Agent 从演示到上线",
+        "subtitle": "工具编排 / 代码执行 / 多智能体",
+        "persona": "如果你是 CTO/技术负责人：Agent demo 好看，换场景就废、上不了线",
+        "oneLiner": "把工具编排、代码执行、多智能体做成能审计的流程",
+        "nodes": [
+          {
+            "id": "b1-dynamic-tools",
+            "stage": "B1 · 工具动态化",
+            "painPoint": "工具写死，换场景就废，静态工具链泛化难",
+            "painDetail": "工具调用写死在代码里，加一个工具就要改逻辑。LLM 要能在沙箱里写代码、按需挂工具。",
+            "projects": [
+              {
+                "id": "dynamic_mcp",
+                "title": "AI 写代码调工具",
+                "how": "AI 在隔离环境里写代码、调工具，更灵活",
+                "tags": [
+                  "MCP",
+                  "Code Act"
+                ],
+                "icon": "⚡",
+                "accent": "#1db954"
+              }
+            ]
+          },
+          {
+            "id": "b2-orchestration",
+            "stage": "B2 · 多工具编排",
+            "painPoint": "多工具协同靠手写 if-else，编排不可复用",
+            "painDetail": "多工具串联写成面条 if-else，换意图就重写。要按自然语言智能规划调用链路。",
+            "projects": [
+              {
+                "id": "mcp_json_rpc",
+                "title": "多工具编排",
+                "how": "你说一句话，AI 自动规划调哪些工具、什么顺序",
+                "tags": [
+                  "JSON-RPC",
+                  "编排"
+                ],
+                "icon": "🔧",
+                "accent": "#0ea5e9"
+              }
+            ]
+          },
+          {
+            "id": "b3-gateway",
+            "stage": "B3 · 模型能力聚合",
+            "painPoint": "每个业务系统直连大模型，AI 接口失控",
+            "painDetail": "每个系统各自直连大模型，调用分散、成本失控、没法统一治理。要中间层聚合。",
+            "projects": [
+              {
+                "id": "ai_mcp_middleware",
+                "title": "AI 能力统一网关",
+                "how": "各业务系统通过统一入口调 AI，好管好用",
+                "tags": [
+                  "MCP",
+                  "API"
+                ],
+                "icon": "🌐",
+                "accent": "#64748b"
+              }
+            ]
+          },
+          {
+            "id": "b4-multi-agent",
+            "stage": "B4 · 多智能体协同",
+            "painPoint": "单 Agent 顶不住复杂任务，拆不动、路由乱",
+            "painDetail": "单 Agent 上下文一长就跑偏，复杂任务要多角色协同：自主拆解、多轮路由、自动执行。",
+            "projects": [
+              {
+                "id": "multi_agent_collab",
+                "title": "多个 AI 协作",
+                "how": "复杂任务拆给多个 AI 角色，自动配合完成",
+                "tags": [
+                  "Multi-Agent"
+                ],
+                "icon": "🤝",
+                "accent": "#d946ef"
+              }
+            ]
+          },
+          {
+            "id": "b5-edge",
+            "stage": "B5 · 端侧执行",
+            "painPoint": "没有可控执行环境，移动端接不进来",
+            "painDetail": "很多业务在手机端，但 Agent 没有可控环境接不进来。要云手机群控 + 标准 API。",
+            "projects": [
+              {
+                "id": "phone_autoglm",
+                "title": "手机群控平台",
+                "how": "网页管多台手机，API 下发任务查进度",
+                "tags": [
+                  "AutoGLM",
+                  "群控"
+                ],
+                "icon": "📱",
+                "accent": "#059669"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "flow-finance",
+        "icon": "📈",
+        "accent": "#8b5cf6",
+        "title": "金融投研内容生产",
+        "subtitle": "从附件到盘中异动，自动化流水线",
+        "persona": "如果你是金融/资讯团队：研报多、人工贵、流程断",
+        "oneLiner": "从附件到盘中异动，做成自动化流水线",
+        "nodes": [
+          {
+            "id": "c1-collect",
+            "stage": "C1 · 多源采集",
+            "painPoint": "研报附件散落邮箱，人工搬不动、搬不对",
+            "painDetail": "研报每天堆邮箱里，人工下载、重命名、入库既慢又容易漏。要 RPA 自动轮询 + 邮件分发。",
+            "projects": [
+              {
+                "id": "email_auto_crawl",
+                "title": "邮箱研报自动采集",
+                "how": "自动收邮件附件、提取表格数据入库",
+                "tags": [
+                  "RPA",
+                  "PDF"
+                ],
+                "icon": "📬",
+                "accent": "#78716c"
+              },
+              {
+                "id": "cc_monitor_gmail",
+                "title": "邮件自动转发",
+                "how": "重要邮件自动提取内容发到聊天工具",
+                "tags": [
+                  "IMAP",
+                  "Bot"
+                ],
+                "icon": "📧",
+                "accent": "#ef4444"
+              }
+            ]
+          },
+          {
+            "id": "c2-extract",
+            "stage": "C2 · 实体和语义提取",
+            "painPoint": "实体/时间提取不准，业务语义弱",
+            "painDetail": "研报里公司名、时间、指标靠正则提取漏错多，下游聚合不准。要定制 NER + 自动打标。",
+            "projects": [
+              {
+                "id": "temp_ner",
+                "title": "金融实体识别",
+                "how": "从研报里自动提取公司名、时间等关键信息",
+                "tags": [
+                  "NER",
+                  "FastAPI"
+                ],
+                "icon": "🏷️",
+                "accent": "#f472b6"
+              },
+              {
+                "id": "announcement_tagging",
+                "title": "公告自动打标签",
+                "how": "海量公告自动分类打标，方便下游使用",
+                "tags": [
+                  "NLP",
+                  "分类"
+                ],
+                "icon": "🏷️",
+                "accent": "#f97316"
+              }
+            ]
+          },
+          {
+            "id": "c3-monitor",
+            "stage": "C3 · 盘中异动监测",
+            "painPoint": "盘中异动没人盯，风险滞后、机会溜走",
+            "painDetail": "盘中行情和资讯异动靠人盯不现实，等看到已经晚了。要毫秒监听 + 多维量化 + 实时预警。",
+            "projects": [
+              {
+                "id": "etf_unusual",
+                "title": "ETF 异动提醒",
+                "how": "盯盘发现异常就推送，辅助投研决策",
+                "tags": [
+                  "ETF",
+                  "量化"
+                ],
+                "icon": "📉",
+                "accent": "#8b5cf6"
+              },
+              {
+                "id": "onchain_token_monitor",
+                "title": "链上交易监控",
+                "how": "盯链上交易，异常就推到 IM",
+                "tags": [
+                  "Web3",
+                  "IM"
+                ],
+                "icon": "⛓️",
+                "accent": "#facc15"
+              }
+            ]
+          },
+          {
+            "id": "c4-parsing",
+            "stage": "C4 · 题型解析引擎",
+            "painPoint": "评估和生成混在一起，解析不严谨",
+            "painDetail": "教育场景一道题既评估又生成，LLM 容易自我背书。要分离评估和生成，支持多轮复核。",
+            "projects": [
+              {
+                "id": "multi_llm_analysis",
+                "title": "AI 教育题目解析",
+                "how": "不同题型走不同 AI，解答完还会复查",
+                "tags": [
+                  "Multi-LLM",
+                  "题型引擎"
+                ],
+                "icon": "🧠",
+                "accent": "#ff6b6b"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "flow-community",
+        "icon": "🤝",
+        "accent": "#1db954",
+        "title": "社群变现和办公自动化",
+        "subtitle": "风控、线索、协同交给机器人",
+        "persona": "如果你是社群运营/私域负责人：群一大，靠人顶不住",
+        "oneLiner": "风控、线索、协同交给机器人和自动化",
+        "nodes": [
+          {
+            "id": "d1-moderation",
+            "stage": "D1 · 群管风控和担保",
+            "painPoint": "验证、反垃圾、担保、客服靠人工撑不住",
+            "painDetail": "社群扩群后，入群验证、反垃圾、担保、客服全靠人工。重点做稳、能对账、能监控。",
+            "projects": [
+              {
+                "id": "group_management_bot",
+                "title": "社群运营机器人",
+                "how": "管群、担保交易、客服，私域变现一条龙",
+                "tags": [
+                  "Bot",
+                  "担保交易"
+                ],
+                "icon": "🤖",
+                "accent": "#1db954"
+              }
+            ]
+          },
+          {
+            "id": "d2-leads",
+            "stage": "D2 · 商业线索洞察",
+            "painPoint": "群里商机抓不住，线索流失在聊天洪流",
+            "painDetail": "群里每天上万条消息，人工扫不过来，商机白白流失。要 7×24 监听 + LLM 提取意图 + 定向触达。",
+            "projects": [
+              {
+                "id": "need_radar_bot",
+                "title": "商机挖掘雷达",
+                "how": "监听群消息，AI 找买卖需求并推送",
+                "tags": [
+                  "Bot",
+                  "LLM"
+                ],
+                "icon": "📡",
+                "accent": "#8b5cf6"
+              }
+            ]
+          },
+          {
+            "id": "d3-search",
+            "stage": "D3 · 历史内容检索",
+            "painPoint": "聊天记录是黑盒，有价值信息找不到",
+            "painDetail": "群历史是信息矿，但全文搜索搜不到语义相近的。要全文 + 向量双路召回。",
+            "projects": [
+              {
+                "id": "tg_ai_search",
+                "title": "群聊历史搜索",
+                "how": "在大量聊天记录里快速找到有用信息",
+                "tags": [
+                  "IM",
+                  "混合检索"
+                ],
+                "icon": "🔎",
+                "accent": "#06b6d4"
+              }
+            ]
+          },
+          {
+            "id": "d4-office",
+            "stage": "D4 · 办公协同和桌面效率",
+            "painPoint": "飞书/邮箱/桌面数据不通，人工对账成本高",
+            "painDetail": "飞书表格和后端不通，订单状态要人工同步；桌面操作重复。要数据管道双向同步 + 桌面 AI 增强。",
+            "projects": [
+              {
+                "id": "lark_sync",
+                "title": "飞书数据同步",
+                "how": "飞书表格和后端系统双向同步，少手工对账",
+                "tags": [
+                  "飞书",
+                  "自动化"
+                ],
+                "icon": "🚀",
+                "accent": "#3370ff"
+              },
+              {
+                "id": "smart_clipboard",
+                "title": "AI 剪贴板",
+                "how": "复制内容时 AI 自动帮你改写、整理",
+                "tags": [
+                  "Tauri",
+                  "Rust"
+                ],
+                "icon": "📋",
+                "accent": "#818cf8"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 }

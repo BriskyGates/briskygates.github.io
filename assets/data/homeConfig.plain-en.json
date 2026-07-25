@@ -29,9 +29,9 @@
         "icon": "fas fa-fire"
       },
       {
-        "id": "projects",
-        "label": "Projects",
-        "shortLabel": "Projects",
+        "id": "flow-rag",
+        "label": "Flows",
+        "shortLabel": "Flows",
         "icon": "fas fa-layer-group"
       },
       {
@@ -80,11 +80,11 @@
     "avatar": "🐶",
     "tagline": "Shanghai · Remote OK",
     "status": "Open to work",
-    "heroTitle": "Help companies use AI for real — not just demos",
+    "heroTitle": "Help companies use AI for real - not just demos",
     "title": "About me",
     "greeting": {
       "text": "Hi, I'm Abu, based in Shanghai",
-      "description": "I'm an <strong>enterprise AI production engineer</strong>: I help teams turn knowledge Q&A, document processing, and assistants into systems that are <strong>deployable, measurable, and maintainable</strong>.<br>If search is wrong, parsing is broken, or assistants will not ship — send me the status quo."
+      "description": "I'm an <strong>enterprise AI production engineer</strong>: I help teams turn knowledge Q&A, document processing, and assistants into systems that are <strong>deployable, measurable, and maintainable</strong>.<br>If search is wrong, parsing is broken, or assistants will not ship - send me the status quo."
     },
     "heroChips": [
       "Enterprise knowledge bases",
@@ -131,6 +131,32 @@
       "#0c4a6e",
       "#1e3a5f",
       "#312e81"
+    ],
+    "heroFlowEntries": [
+      {
+        "id": "flow-rag",
+        "icon": "📚",
+        "title": "KB Q&A wrong / will not ship",
+        "sub": "From dirty docs to a Q&A gateway, one chain"
+      },
+      {
+        "id": "flow-agent",
+        "icon": "🤖",
+        "title": "Agent demos break on new scenes",
+        "sub": "Tool orchestration + multi-agent + auditable"
+      },
+      {
+        "id": "flow-finance",
+        "icon": "📈",
+        "title": "Too many reports to move manually",
+        "sub": "Collect -> extract -> anomaly automation"
+      },
+      {
+        "id": "flow-community",
+        "icon": "🤝",
+        "title": "Group scale outgrew manual ops",
+        "sub": "Moderation / leads / sync to bots"
+      }
     ]
   },
   "featured": {
@@ -139,9 +165,9 @@
     "items": [
       {
         "id": "fastapi_celery_kb",
-        "title": "Lots of reports — the knowledge base still cites the wrong passages",
+        "title": "Lots of reports - the knowledge base still cites the wrong passages",
         "subtitle": "Finance knowledge base · chunking · rerank",
-        "description": "Docs were already ingested; answers still missed the point. Fix parsing and chunking first, then add freshness/authority ranking — not a bigger model.",
+        "description": "Docs were already ingested; answers still missed the point. Fix parsing and chunking first, then add freshness/authority ranking - not a bigger model.",
         "tags": [
           "RAG",
           "Chunking",
@@ -199,416 +225,14 @@
       }
     ]
   },
-  "projectShowcase": {
-    "rows": [
-      {
-        "id": "enterprise-ai",
-        "title": "Enterprise AI apps",
-        "description": "AI that ships as real business systems (see the 3 cases above)",
-        "items": [
-          {
-            "id": "multi_llm_analysis",
-            "title": "AI education problem solving",
-            "subtitle": "8 question types",
-            "description": "Routes question types to different models, then double-checks answers.",
-            "tags": [
-              "Multi-LLM",
-              "Engine"
-            ],
-            "icon": "🧠",
-            "accent": "#ff6b6b"
-          },
-          {
-            "id": "rerank_system",
-            "title": "Search result reranker",
-            "subtitle": "Better citations",
-            "description": "Re-ranks retrieved docs so answers cite the right sources.",
-            "tags": [
-              "Rerank",
-              "RAG"
-            ],
-            "icon": "🎯",
-            "accent": "#f59e0b"
-          },
-          {
-            "id": "report_recall",
-            "title": "Report chart + text search",
-            "subtitle": "Find figures and text",
-            "description": "Stores charts and text separately so both are searchable.",
-            "tags": [
-              "Vector",
-              "Research"
-            ],
-            "icon": "📈",
-            "accent": "#06b6d4"
-          },
-          {
-            "id": "etf_unusual",
-            "title": "ETF anomaly alerts",
-            "subtitle": "Market monitoring",
-            "description": "Watches markets and pushes anomalies to support research.",
-            "tags": [
-              "ETF",
-              "Quant"
-            ],
-            "icon": "📉",
-            "accent": "#8b5cf6"
-          },
-          {
-            "id": "temp_ner",
-            "title": "Finance entity extraction",
-            "subtitle": "Companies and dates",
-            "description": "Pulls company names, dates, and key entities from reports.",
-            "tags": [
-              "NER",
-              "FastAPI",
-              "Vector"
-            ],
-            "icon": "🏷️",
-            "accent": "#f472b6"
-          }
-        ]
-      },
-      {
-        "id": "rag-knowledge",
-        "title": "Knowledge bases and search",
-        "description": "Docs in → chunk → find → answer accurately",
-        "items": [
-          {
-            "id": "fastapi_celery_kb",
-            "title": "Batch document ingest",
-            "subtitle": "Async processing",
-            "description": "Queues large document volumes for chunking and embedding.",
-            "tags": [
-              "Celery",
-              "Vector DB",
-              "Docker"
-            ],
-            "icon": "📚",
-            "accent": "#b49bc8"
-          },
-          {
-            "id": "multi_source_chunk",
-            "title": "Multi-format chunking",
-            "subtitle": "One pipeline",
-            "description": "Different sources go through one chunking and ingest flow.",
-            "tags": [
-              "Chunk",
-              "Vectorize"
-            ],
-            "icon": "🔗",
-            "accent": "#10b981"
-          },
-          {
-            "id": "qwen3_pg_recall",
-            "title": "Vector search service",
-            "subtitle": "PostgreSQL",
-            "description": "Semantic search over a vector database for similar content.",
-            "tags": [
-              "Qwen3",
-              "PostgreSQL"
-            ],
-            "icon": "🔍",
-            "accent": "#3b82f6"
-          },
-          {
-            "id": "enterprise_chat_openapi",
-            "title": "Enterprise Q&A API",
-            "subtitle": "Ready to call",
-            "description": "Wraps search + answer so other systems call one API.",
-            "tags": [
-              "OpenAPI",
-              "Chat"
-            ],
-            "icon": "💬",
-            "accent": "#ec4899"
-          },
-          {
-            "id": "announcement_tagging",
-            "title": "Auto-tag filings",
-            "subtitle": "Classify and label",
-            "description": "Auto-labels large volumes of filings for downstream use.",
-            "tags": [
-              "NLP",
-              "Classification"
-            ],
-            "icon": "🏷️",
-            "accent": "#f97316"
-          }
-        ]
-      },
-      {
-        "id": "doc-intelligence",
-        "title": "Document processing",
-        "description": "Scans, messy layouts, watermarks, TOC — dirty work upstream of RAG",
-        "items": [
-          {
-            "id": "pdf2xml",
-            "title": "PDF structure parsing",
-            "subtitle": "Text and tables",
-            "description": "Turns PDFs into clean structured data for later steps.",
-            "tags": [
-              "PDF",
-              "FastAPI"
-            ],
-            "icon": "📄",
-            "accent": "#6366f1"
-          },
-          {
-            "id": "pdf_chunker",
-            "title": "Smart report chunking",
-            "subtitle": "Keep context",
-            "description": "Splits by paragraphs and tables without losing meaning.",
-            "tags": [
-              "Chunking",
-              "Tables"
-            ],
-            "icon": "✂️",
-            "accent": "#14b8a6"
-          },
-          {
-            "id": "pdf_watermark",
-            "title": "PDF watermark cleanup",
-            "subtitle": "Batch processing",
-            "description": "Batch-cleans report watermarks so OCR gets cleaner.",
-            "tags": [
-              "Watermark",
-              "Batch"
-            ],
-            "icon": "💧",
-            "accent": "#a855f7"
-          },
-          {
-            "id": "paddle_ocr_vl",
-            "title": "Image OCR service",
-            "subtitle": "Upload and parse",
-            "description": "Upload scans or complex images to extract structured text.",
-            "tags": [
-              "OCR",
-              "VL"
-            ],
-            "icon": "👁️",
-            "accent": "#22c55e"
-          },
-          {
-            "id": "extract_pdf_toc",
-            "title": "PDF TOC extraction",
-            "subtitle": "Multi-tier fallback",
-            "description": "Restores report table-of-contents structure when possible.",
-            "tags": [
-              "PDF",
-              "TOC",
-              "Layout"
-            ],
-            "icon": "📑",
-            "accent": "#a78bfa"
-          },
-          {
-            "id": "gpu_rapid_layout",
-            "title": "Layout element detection",
-            "subtitle": "GPU accelerated",
-            "description": "Finds figures, tables, and paragraphs in documents fast.",
-            "tags": [
-              "FastAPI",
-              "Layout",
-              "GPU"
-            ],
-            "icon": "🖼️",
-            "accent": "#f59e0b"
-          }
-        ]
-      },
-      {
-        "id": "agent-mcp",
-        "title": "Assistants and automation",
-        "description": "AI that plans steps and calls tools to finish the job",
-        "items": [
-          {
-            "id": "phone_autoglm",
-            "title": "Phone farm control",
-            "subtitle": "Cloud phones",
-            "description": "Web console plus APIs to dispatch tasks across phones.",
-            "tags": [
-              "AutoGLM",
-              "ADB",
-              "Fleet"
-            ],
-            "icon": "📱",
-            "accent": "#059669"
-          },
-          {
-            "id": "dynamic_mcp",
-            "title": "AI code + tool sandbox",
-            "subtitle": "Sandboxed execution",
-            "description": "Lets AI write code and call tools in an isolated environment.",
-            "tags": [
-              "MCP",
-              "Code Act"
-            ],
-            "icon": "⚡",
-            "accent": "#1db954"
-          },
-          {
-            "id": "mcp_json_rpc",
-            "title": "Multi-tool orchestration",
-            "subtitle": "Auto chaining",
-            "description": "Plans which tools to call and in what order from one request.",
-            "tags": [
-              "JSON-RPC",
-              "Orchestration"
-            ],
-            "icon": "🔧",
-            "accent": "#0ea5e9"
-          },
-          {
-            "id": "ai_mcp_middleware",
-            "title": "Unified AI gateway",
-            "subtitle": "Central control",
-            "description": "One entry point for business systems to call AI safely.",
-            "tags": [
-              "MCP",
-              "API"
-            ],
-            "icon": "🌐",
-            "accent": "#64748b"
-          },
-          {
-            "id": "multi_agent_collab",
-            "title": "Multi-agent collaboration",
-            "subtitle": "Divide and finish",
-            "description": "Splits hard jobs across agent roles that cooperate.",
-            "tags": [
-              "Multi-Agent"
-            ],
-            "icon": "🤝",
-            "accent": "#d946ef"
-          }
-        ]
-      },
-      {
-        "id": "tg-mobile",
-        "title": "Bots and IM apps",
-        "description": "Community bots, search, desktop helpers",
-        "items": [
-          {
-            "id": "group_management_bot",
-            "title": "Community ops bot",
-            "subtitle": "Moderation and monetization",
-            "description": "Group ops, escrow trades, and support in one loop.",
-            "tags": [
-              "Bot",
-              "MySQL",
-              "Escrow"
-            ],
-            "icon": "🤖",
-            "accent": "#1db954"
-          },
-          {
-            "id": "need_radar_bot",
-            "title": "Lead mining radar",
-            "subtitle": "Listen and match",
-            "description": "Watches chats, detects buy/sell intent, and pushes matches.",
-            "tags": [
-              "Bot",
-              "LLM",
-              "SeekDB"
-            ],
-            "icon": "📡",
-            "accent": "#8b5cf6"
-          },
-          {
-            "id": "tg_ai_search",
-            "title": "Chat history search",
-            "subtitle": "Keyword + semantic",
-            "description": "Finds useful info fast inside large chat histories.",
-            "tags": [
-              "IM",
-              "Hybrid search",
-              "RAG"
-            ],
-            "icon": "🔎",
-            "accent": "#06b6d4"
-          },
-          {
-            "id": "smart_clipboard",
-            "title": "AI clipboard",
-            "subtitle": "Windows desktop",
-            "description": "Rewrites or organizes clipboard content with AI as you copy.",
-            "tags": [
-              "Tauri",
-              "Rust",
-              "Desktop"
-            ],
-            "icon": "📋",
-            "accent": "#818cf8"
-          }
-        ]
-      },
-      {
-        "id": "platform-auto",
-        "title": "Ops and backend",
-        "description": "Monitoring, scheduling, data sync infrastructure",
-        "items": [
-          {
-            "id": "onchain_token_monitor",
-            "title": "On-chain trade monitor",
-            "subtitle": "Realtime push",
-            "description": "Watches chain activity and pushes anomalies to IM.",
-            "tags": [
-              "Web3",
-              "IM"
-            ],
-            "icon": "⛓️",
-            "accent": "#facc15"
-          },
-          {
-            "id": "cc_monitor_gmail",
-            "title": "Email auto-forward",
-            "subtitle": "Email to IM",
-            "description": "Extracts important email content and routes it to chat tools.",
-            "tags": [
-              "IMAP",
-              "Bot"
-            ],
-            "icon": "📧",
-            "accent": "#ef4444"
-          },
-          {
-            "id": "lark_sync",
-            "title": "Feishu data sync",
-            "subtitle": "Sheet integration",
-            "description": "Two-way sync between Feishu sheets and backend systems.",
-            "tags": [
-              "Lark",
-              "Automation"
-            ],
-            "icon": "🚀",
-            "accent": "#3370ff"
-          },
-          {
-            "id": "email_auto_crawl",
-            "title": "Email report collector",
-            "subtitle": "RPA",
-            "description": "Pulls email attachments and extracts tables into structured ledgers.",
-            "tags": [
-              "RPA",
-              "PDF"
-            ],
-            "icon": "📬",
-            "accent": "#78716c"
-          }
-        ]
-      }
-    ]
-  },
   "experience": {
     "title": "What I have done",
     "subtitle": "Years focused on systems that can go live",
     "items": [
       {
-        "period": "2024 — Present",
+        "period": "2024 - Present",
         "title": "Enterprise AI systems",
-        "description": "Assistants, knowledge Q&A, multimodal apps — from trial to production, with monitoring and rollback in mind.",
+        "description": "Assistants, knowledge Q&A, multimodal apps - from trial to production, with monitoring and rollback in mind.",
         "tags": [
           "Assistants",
           "Knowledge bases",
@@ -616,18 +240,18 @@
         ]
       },
       {
-        "period": "2022 — 2024",
+        "period": "2022 - 2024",
         "title": "Document processing",
-        "description": "Million-scale finance PDFs: messy layouts, OCR, chunking — clean data for AI.",
+        "description": "Million-scale finance PDFs: messy layouts, OCR, chunking - clean data for AI.",
         "tags": [
           "PDF",
           "OCR"
         ]
       },
       {
-        "period": "2020 — Present",
+        "period": "2020 - Present",
         "title": "Bots and backend",
-        "description": "High-concurrency community bots and monitoring — trading and support must stay stable.",
+        "description": "High-concurrency community bots and monitoring - trading and support must stay stable.",
         "tags": [
           "Bots",
           "Feishu",
@@ -637,7 +261,7 @@
       {
         "period": "Ongoing",
         "title": "AI toolchains",
-        "description": "AI calling tools, writing code, querying databases — auditable and reproducible.",
+        "description": "AI calling tools, writing code, querying databases - auditable and reproducible.",
         "tags": [
           "MCP",
           "Agent"
@@ -647,7 +271,7 @@
   },
   "skills": {
     "title": "What I am good at",
-    "motto": "Not just calling models — <strong>embedding AI into real systems</strong> that stay stable, scale, and hand off cleanly.",
+    "motto": "Not just calling models - <strong>embedding AI into real systems</strong> that stay stable, scale, and hand off cleanly.",
     "items": [
       {
         "title": "AI applications",
@@ -708,7 +332,7 @@
     "items": [
       {
         "title": "15-min triage call",
-        "description": "Check fit first. You describe the scenario; I give verbal guidance — no long proposal.",
+        "description": "Check fit first. You describe the scenario; I give verbal guidance - no long proposal.",
         "technologies": [
           "Triage",
           "Fit check"
@@ -738,7 +362,7 @@
       },
       {
         "title": "Module delivery",
-        "description": "Fixed scope: document parsing, recall rerank, Q&A gateway, bot automation — with acceptance and handoff.",
+        "description": "Fixed scope: document parsing, recall rerank, Q&A gateway, bot automation - with acceptance and handoff.",
         "technologies": [
           "Parsing",
           "Rerank",
@@ -771,7 +395,7 @@
         {
           "icon": "🏢",
           "type": "Business owners",
-          "description": "Too many docs, expensive labor, broken workflows — need a knowledge base or bots"
+          "description": "Too many docs, expensive labor, broken workflows - need a knowledge base or bots"
         },
         {
           "icon": "🚀",
@@ -789,7 +413,7 @@
     "innovation": {
       "icon": "💡",
       "title": "How I think",
-      "text": "AI only matters if it runs — observable, rollback-friendly, maintainable. I do not sell concepts; I deliver systems the business actually uses."
+      "text": "AI only matters if it runs - observable, rollback-friendly, maintainable. I do not sell concepts; I deliver systems the business actually uses."
     }
   },
   "contact": {
@@ -797,7 +421,7 @@
     "intro": {
       "icon": "✨",
       "title": "Send me your knowledge-base / assistant status",
-      "description": "Wrong search, broken parsing, assistants that will not ship — all fair game. I will be straight about fit and suggest diagnosis, advisory, or a module."
+      "description": "Wrong search, broken parsing, assistants that will not ship - all fair game. I will be straight about fit and suggest diagnosis, advisory, or a module."
     },
     "methods": [],
     "availability": {
@@ -863,8 +487,528 @@
       },
       "submit": "Send status",
       "submitting": "Sending…",
-      "success": "Got it — I will reply with a suggested next step",
-      "error": "Send failed — try again later or contact me directly"
+      "success": "Got it - I will reply with a suggested next step",
+      "error": "Send failed - try again later or contact me directly"
     }
+  },
+  "businessFlows": {
+    "title": "Business flows",
+    "subtitle": "Find capability by where you are stuck - not a wall of tech cards",
+    "flows": [
+      {
+        "id": "flow-rag",
+        "icon": "📚",
+        "accent": "#b49bc8",
+        "title": "Knowledge base, 0 to production",
+        "subtitle": "From dirty docs to a shippable Q&A API - one chain",
+        "persona": "If you are a tech/business lead: docs piled up, answers wrong, will not ship",
+        "oneLiner": "Do not swap for a bigger model first - fix parsing, chunking, rerank, gateway",
+        "nodes": [
+          {
+            "id": "a1-doc-feed",
+            "stage": "A1 · Doc intake",
+            "painPoint": "Scans, tables, watermarks, missing TOC - dirty docs feed dirty knowledge",
+            "painDetail": "The most common blocker is upstream: PDF structure lost, tables garbled, watermarks over text, TOC missing. No downstream tweak saves this.",
+            "projects": [
+              {
+                "id": "pdf2xml",
+                "title": "PDF structuring",
+                "how": "Turn PDFs into clean structured data for later steps",
+                "tags": [
+                  "PDF",
+                  "FastAPI"
+                ],
+                "icon": "📄",
+                "accent": "#6366f1"
+              },
+              {
+                "id": "pdf_watermark",
+                "title": "PDF watermark removal",
+                "how": "Batch-clean report watermarks so OCR gets cleaner",
+                "tags": [
+                  "Watermark",
+                  "Batch"
+                ],
+                "icon": "💧",
+                "accent": "#a855f7"
+              },
+              {
+                "id": "paddle_ocr_vl",
+                "title": "Image OCR service",
+                "how": "Upload scans or complex images to extract structured text",
+                "tags": [
+                  "OCR",
+                  "VL"
+                ],
+                "icon": "👁️",
+                "accent": "#22c55e"
+              },
+              {
+                "id": "extract_pdf_toc",
+                "title": "PDF TOC extraction",
+                "how": "Restore report table-of-contents structure when possible",
+                "tags": [
+                  "PDF",
+                  "TOC"
+                ],
+                "icon": "📑",
+                "accent": "#a78bfa"
+              },
+              {
+                "id": "gpu_rapid_layout",
+                "title": "Layout element detection",
+                "how": "Find figures, tables, and paragraphs in documents fast",
+                "tags": [
+                  "Layout",
+                  "GPU"
+                ],
+                "icon": "🖼️",
+                "accent": "#f59e0b"
+              }
+            ]
+          },
+          {
+            "id": "a2-chunking",
+            "stage": "A2 · Semantic chunking",
+            "painPoint": "Naive chunking shreds tables and severs context - recall ceiling locked",
+            "painDetail": "Chunking is the hidden ceiling of RAG precision. Hard splits tear tables and cut context; even perfect recall cannot reassemble meaning.",
+            "projects": [
+              {
+                "id": "pdf_chunker",
+                "title": "Smart report chunking",
+                "how": "Split by paragraphs and tables without losing meaning",
+                "tags": [
+                  "Chunking",
+                  "Tables"
+                ],
+                "icon": "✂️",
+                "accent": "#14b8a6"
+              },
+              {
+                "id": "multi_source_chunk",
+                "title": "Multi-format chunking",
+                "how": "Different sources go through one chunking and ingest flow",
+                "tags": [
+                  "Chunk",
+                  "Vectorize"
+                ],
+                "icon": "🔗",
+                "accent": "#10b981"
+              }
+            ]
+          },
+          {
+            "id": "a3-recall",
+            "stage": "A3 · Vector recall",
+            "painPoint": "Keyword-only hits miss semantics; chart data is invisible",
+            "painDetail": "Default BM25 cannot match paraphrases, and charts are a blind spot. Charts and text need dual-track vectorization.",
+            "projects": [
+              {
+                "id": "qwen3_pg_recall",
+                "title": "Vector search service",
+                "how": "Semantic search over a vector database for similar content",
+                "tags": [
+                  "Qwen3",
+                  "PostgreSQL"
+                ],
+                "icon": "🔍",
+                "accent": "#3b82f6"
+              },
+              {
+                "id": "report_recall",
+                "title": "Report chart + text search",
+                "how": "Store charts and text separately so both are searchable",
+                "tags": [
+                  "Vector",
+                  "Research"
+                ],
+                "icon": "📈",
+                "accent": "#06b6d4"
+              }
+            ]
+          },
+          {
+            "id": "a4-rerank",
+            "stage": "A4 · Rerank & citation",
+            "painPoint": "Dumping top-k into the LLM cites the wrong passage",
+            "painDetail": "Recalled top-k mixes stale and weakly-relevant snippets that mislead the LLM. You need freshness/authority rerank plus eval logs.",
+            "projects": [
+              {
+                "id": "rerank_system",
+                "title": "Search result reranker",
+                "how": "Re-rank retrieved docs so answers cite the right sources",
+                "tags": [
+                  "Rerank",
+                  "RAG"
+                ],
+                "icon": "🎯",
+                "accent": "#f59e0b"
+              }
+            ]
+          },
+          {
+            "id": "a5-ingest",
+            "stage": "A5 · Async ingest infra",
+            "painPoint": "Manual ingest cannot scale and cannot roll back",
+            "painDetail": "At volume, manual ingest is slow and lossy. You need an async ingest cluster with scalable deployment for throughput and rollback.",
+            "projects": [
+              {
+                "id": "fastapi_celery_kb",
+                "title": "Batch document ingest",
+                "how": "Queue large document volumes for chunking and embedding",
+                "tags": [
+                  "Celery",
+                  "Docker"
+                ],
+                "icon": "📚",
+                "accent": "#b49bc8"
+              }
+            ]
+          },
+          {
+            "id": "a6-gateway",
+            "stage": "A6 · Q&A gateway",
+            "painPoint": "No auth, audit, or logging - cannot go to production",
+            "painDetail": "Demos can run raw, but production needs auth, logs, and audit. The gateway must wrap retrieval and generation behind a standard API.",
+            "projects": [
+              {
+                "id": "enterprise_chat_openapi",
+                "title": "Enterprise Q&A API",
+                "how": "Wraps search + answer so other systems call one API",
+                "tags": [
+                  "OpenAPI",
+                  "Chat"
+                ],
+                "icon": "💬",
+                "accent": "#ec4899"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "flow-agent",
+        "icon": "🤖",
+        "accent": "#1db954",
+        "title": "Agent, demo to production",
+        "subtitle": "Tool orchestration / code exec / multi-agent",
+        "persona": "If you are a CTO/tech lead: agent demos look great but break on new scenes",
+        "oneLiner": "Make tool orchestration, code exec, and multi-agent an auditable flow",
+        "nodes": [
+          {
+            "id": "b1-dynamic-tools",
+            "stage": "B1 · Dynamic tools",
+            "painPoint": "Hard-coded tools break on new scenes; static toolchains cannot generalize",
+            "painDetail": "Tool calls baked into code mean every new tool needs a logic change. LLMs need to write code in a sandbox and mount tools on demand.",
+            "projects": [
+              {
+                "id": "dynamic_mcp",
+                "title": "AI code + tool sandbox",
+                "how": "Lets AI write code and call tools in an isolated environment",
+                "tags": [
+                  "MCP",
+                  "Code Act"
+                ],
+                "icon": "⚡",
+                "accent": "#1db954"
+              }
+            ]
+          },
+          {
+            "id": "b2-orchestration",
+            "stage": "B2 · Multi-tool orchestration",
+            "painPoint": "Multi-tool coordination via hand-written if-else is not reusable",
+            "painDetail": "Chaining tools with spaghetti if-else means rewriting for every new intent. You need natural-language-driven call-chain planning.",
+            "projects": [
+              {
+                "id": "mcp_json_rpc",
+                "title": "Multi-tool orchestration",
+                "how": "Plans which tools to call and in what order from one request",
+                "tags": [
+                  "JSON-RPC",
+                  "Orchestration"
+                ],
+                "icon": "🔧",
+                "accent": "#0ea5e9"
+              }
+            ]
+          },
+          {
+            "id": "b3-gateway",
+            "stage": "B3 · Capability aggregation",
+            "painPoint": "Every system calls the LLM directly - AI API assets out of control",
+            "painDetail": "Each business system connects to the LLM on its own; calls scattered, costs runaway, governance impossible. A middle layer must aggregate.",
+            "projects": [
+              {
+                "id": "ai_mcp_middleware",
+                "title": "Unified AI gateway",
+                "how": "One entry point for business systems to call AI safely",
+                "tags": [
+                  "MCP",
+                  "API"
+                ],
+                "icon": "🌐",
+                "accent": "#64748b"
+              }
+            ]
+          },
+          {
+            "id": "b4-multi-agent",
+            "stage": "B4 · Multi-agent collaboration",
+            "painPoint": "A single agent cannot hold complex tasks - cannot split, routing messy",
+            "painDetail": "A single agent drifts as context grows. Complex tasks need multi-role collaboration: autonomous decomposition, multi-round routing, automated execution.",
+            "projects": [
+              {
+                "id": "multi_agent_collab",
+                "title": "Multi-agent collaboration",
+                "how": "Splits hard jobs across agent roles that cooperate",
+                "tags": [
+                  "Multi-Agent"
+                ],
+                "icon": "🤝",
+                "accent": "#d946ef"
+              }
+            ]
+          },
+          {
+            "id": "b5-edge",
+            "stage": "B5 · Edge execution",
+            "painPoint": "No controllable execution environment - mobile/edge cannot plug in",
+            "painDetail": "Much business happens on mobile/edge, but agents have no controllable environment. You need cloud-phone fleet control plus standard APIs.",
+            "projects": [
+              {
+                "id": "phone_autoglm",
+                "title": "Phone farm control",
+                "how": "Web console plus APIs to dispatch tasks across phones",
+                "tags": [
+                  "AutoGLM",
+                  "Fleet"
+                ],
+                "icon": "📱",
+                "accent": "#059669"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "flow-finance",
+        "icon": "📈",
+        "accent": "#8b5cf6",
+        "title": "Finance research content",
+        "subtitle": "From attachments to intraday anomalies - automated",
+        "persona": "If you are a finance/news team: too many reports, labor pricey, workflows broken",
+        "oneLiner": "From attachments to intraday anomalies - an automated pipeline",
+        "nodes": [
+          {
+            "id": "c1-collect",
+            "stage": "C1 · Multi-source collection",
+            "painPoint": "Report attachments scattered across inboxes - manual moving is slow and lossy",
+            "painDetail": "Reports pile up in inboxes daily; manual download, rename, ingest is slow and leaky. You need RPA auto-polling plus email routing.",
+            "projects": [
+              {
+                "id": "email_auto_crawl",
+                "title": "Email report collector",
+                "how": "Pulls email attachments and extracts tables into ledgers",
+                "tags": [
+                  "RPA",
+                  "PDF"
+                ],
+                "icon": "📬",
+                "accent": "#78716c"
+              },
+              {
+                "id": "cc_monitor_gmail",
+                "title": "Email auto-forward",
+                "how": "Extracts important email content and routes it to chat tools",
+                "tags": [
+                  "IMAP",
+                  "Bot"
+                ],
+                "icon": "📧",
+                "accent": "#ef4444"
+              }
+            ]
+          },
+          {
+            "id": "c2-extract",
+            "stage": "C2 · Entity & semantic extraction",
+            "painPoint": "Entity/time extraction is inaccurate; business semantics weak",
+            "painDetail": "Regex extraction of company names, dates, and metrics misses and errs; downstream aggregation cannot stay accurate. You need custom NER plus auto-tagging.",
+            "projects": [
+              {
+                "id": "temp_ner",
+                "title": "Finance entity extraction",
+                "how": "Pulls company names, dates, and key entities from reports",
+                "tags": [
+                  "NER",
+                  "FastAPI"
+                ],
+                "icon": "🏷️",
+                "accent": "#f472b6"
+              },
+              {
+                "id": "announcement_tagging",
+                "title": "Auto-tag filings",
+                "how": "Auto-labels large volumes of filings for downstream use",
+                "tags": [
+                  "NLP",
+                  "Classification"
+                ],
+                "icon": "🏷️",
+                "accent": "#f97316"
+              }
+            ]
+          },
+          {
+            "id": "c3-monitor",
+            "stage": "C3 · Intraday anomaly monitoring",
+            "painPoint": "Nobody watches intraday anomalies - risk lags, opportunities slip",
+            "painDetail": "Manual monitoring of intraday anomalies is unrealistic; by the time you see it, it is too late. You need millisecond listening plus quant scoring plus real-time alerts.",
+            "projects": [
+              {
+                "id": "etf_unusual",
+                "title": "ETF anomaly alerts",
+                "how": "Watches markets and pushes anomalies to support research",
+                "tags": [
+                  "ETF",
+                  "Quant"
+                ],
+                "icon": "📉",
+                "accent": "#8b5cf6"
+              },
+              {
+                "id": "onchain_token_monitor",
+                "title": "On-chain trade monitor",
+                "how": "Watches chain activity and pushes anomalies to IM",
+                "tags": [
+                  "Web3",
+                  "IM"
+                ],
+                "icon": "⛓️",
+                "accent": "#facc15"
+              }
+            ]
+          },
+          {
+            "id": "c4-parsing",
+            "stage": "C4 · Question parsing engine",
+            "painPoint": "Evaluation and generation are tangled - parsing not rigorous",
+            "painDetail": "In education scenarios, evaluating and generating the same question lets the LLM self-endorse. You need to separate evaluation from generation and support multi-round verification.",
+            "projects": [
+              {
+                "id": "multi_llm_analysis",
+                "title": "AI education problem solving",
+                "how": "Routes question types to different models, then double-checks",
+                "tags": [
+                  "Multi-LLM",
+                  "Engine"
+                ],
+                "icon": "🧠",
+                "accent": "#ff6b6b"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "flow-community",
+        "icon": "🤝",
+        "accent": "#1db954",
+        "title": "Community monetization & office automation",
+        "subtitle": "Hand moderation, leads, and sync to bots",
+        "persona": "If you run a community/private-domain: group scale outgrew manual ops",
+        "oneLiner": "Hand moderation, leads, and sync to bots and automation",
+        "nodes": [
+          {
+            "id": "d1-moderation",
+            "stage": "D1 · Moderation, risk & escrow",
+            "painPoint": "Verification, anti-spam, escrow, and support cannot stay manual",
+            "painDetail": "After growth, join verification, anti-spam, escrow trades, and support cannot stay manual. Focus: stability, reconciliation loop, operational control.",
+            "projects": [
+              {
+                "id": "group_management_bot",
+                "title": "Community ops bot",
+                "how": "Group ops, escrow trades, and support in one loop",
+                "tags": [
+                  "Bot",
+                  "Escrow"
+                ],
+                "icon": "🤖",
+                "accent": "#1db954"
+              }
+            ]
+          },
+          {
+            "id": "d2-leads",
+            "stage": "D2 · Lead insight",
+            "painPoint": "Opportunities slip through the flood of messages",
+            "painDetail": "Tens of thousands of messages a day are impossible to scan manually; complementary opportunities are lost. You need 24/7 listening plus LLM intent extraction plus targeted delivery.",
+            "projects": [
+              {
+                "id": "need_radar_bot",
+                "title": "Lead mining radar",
+                "how": "Watches chats, detects buy/sell intent, and pushes matches",
+                "tags": [
+                  "Bot",
+                  "LLM"
+                ],
+                "icon": "📡",
+                "accent": "#8b5cf6"
+              }
+            ]
+          },
+          {
+            "id": "d3-search",
+            "stage": "D3 · History search",
+            "painPoint": "Chat history is a black box - valuable info cannot be found",
+            "painDetail": "Group history is a huge information mine, but full-text search cannot find semantically similar content. You need full-text plus vector dual-track recall.",
+            "projects": [
+              {
+                "id": "tg_ai_search",
+                "title": "Chat history search",
+                "how": "Finds useful info fast inside large chat histories",
+                "tags": [
+                  "IM",
+                  "Hybrid search"
+                ],
+                "icon": "🔎",
+                "accent": "#06b6d4"
+              }
+            ]
+          },
+          {
+            "id": "d4-office",
+            "stage": "D4 · Office sync & desktop",
+            "painPoint": "Feishu/email/desktop data is siloed - manual reconciliation costly",
+            "painDetail": "Feishu sheets and backend systems are disconnected, requiring manual order-status sync; desktop work is repetitive. You need bidirectional data pipelines plus desktop AI enhancement.",
+            "projects": [
+              {
+                "id": "lark_sync",
+                "title": "Feishu data sync",
+                "how": "Two-way sync between Feishu sheets and backend systems",
+                "tags": [
+                  "Lark",
+                  "Automation"
+                ],
+                "icon": "🚀",
+                "accent": "#3370ff"
+              },
+              {
+                "id": "smart_clipboard",
+                "title": "AI clipboard",
+                "how": "Rewrites or organizes clipboard content with AI as you copy",
+                "tags": [
+                  "Tauri",
+                  "Rust"
+                ],
+                "icon": "📋",
+                "accent": "#818cf8"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 }
