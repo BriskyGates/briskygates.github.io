@@ -56,7 +56,7 @@ const TOP_LEVEL_KEYS = [
     'ui',
     'profile',
     'featured',
-    'projectShowcase',
+    'businessFlows',
     'experience',
     'skills',
     'services',
