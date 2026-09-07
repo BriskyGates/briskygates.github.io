@@ -13,6 +13,7 @@ const {
 } = window.SiteAppCore;
 
 const FEISHU_WEBHOOK = 'https://open.feishu.cn/open-apis/bot/v2/hook/95c6e7c8-7469-442c-bcb4-4217417cbdd6';
+const FLOW_SECTION_IDS = ['flow-rag', 'flow-agent', 'flow-finance', 'flow-community'];
 
 let currentLang = 'zh';
 let currentConfig = null;
@@ -99,6 +100,13 @@ function renderWithVue(config) {
                 langMenuOpen: false,
                 langMenuSource: null,
                 _scrollSpyHandler: null,
+                _resizeHandler: null,
+                _scrollEndTimer: null,
+                _scrollIdleTimer: null,
+                _isProgrammaticScroll: false,
+                _ticking: false,
+                _cachedOffset: null,
+                _cachedOffsetWidth: null,
                 _langMenuOutsideHandler: null,
                 _langMenuEscapeHandler: null,
                 contactForm: {
@@ -142,7 +150,8 @@ function renderWithVue(config) {
                 if (!nav) {
                     return '';
                 }
-                const item = nav.find(entry => entry.id === this.activeSection);
+                const activeId = FLOW_SECTION_IDS.includes(this.activeSection) ? 'flow-rag' : this.activeSection;
+                const item = nav.find(entry => entry.id === activeId);
                 return item?.label || '';
             },
             languageOptions() {
@@ -153,8 +162,38 @@ function renderWithVue(config) {
             }
         },
         mounted() {
-            this._scrollSpyHandler = () => this.updateActiveSection();
+            this._ticking = false;
+            this._scrollSpyHandler = () => {
+                if (this._isProgrammaticScroll) {
+                    if (this._scrollIdleTimer) {
+                        clearTimeout(this._scrollIdleTimer);
+                    }
+                    this._scrollIdleTimer = setTimeout(() => {
+                        if (this._isProgrammaticScroll) {
+                            this._isProgrammaticScroll = false;
+                            clearTimeout(this._scrollEndTimer);
+                            this._scrollEndTimer = null;
+                            this._scrollIdleTimer = null;
+                            this.updateActiveSection();
+                        }
+                    }, 150);
+                    return;
+                }
+                if (!this._ticking) {
+                    this._ticking = true;
+                    requestAnimationFrame(() => {
+                        this.updateActiveSection();
+                        this._ticking = false;
+                    });
+                }
+            };
+            this._resizeHandler = () => {
+                this._cachedOffset = null;
+                this._cachedOffsetWidth = null;
+                this.updateActiveSection();
+            };
             window.addEventListener('scroll', this._scrollSpyHandler, { passive: true });
+            window.addEventListener('resize', this._resizeHandler, { passive: true });
             this.$nextTick(() => this.updateActiveSection());
 
             this._langMenuOutsideHandler = (event) => {
@@ -177,6 +216,15 @@ function renderWithVue(config) {
             if (this._scrollSpyHandler) {
                 window.removeEventListener('scroll', this._scrollSpyHandler);
             }
+            if (this._resizeHandler) {
+                window.removeEventListener('resize', this._resizeHandler);
+            }
+            if (this._scrollEndTimer) {
+                clearTimeout(this._scrollEndTimer);
+            }
+            if (this._scrollIdleTimer) {
+                clearTimeout(this._scrollIdleTimer);
+            }
             if (this._langMenuOutsideHandler) {
                 document.removeEventListener('click', this._langMenuOutsideHandler);
             }
@@ -186,36 +234,117 @@ function renderWithVue(config) {
         },
         methods: {
             getScrollOffset() {
+                if (this._cachedOffset !== null && this._cachedOffsetWidth === window.innerWidth) {
+                    return this._cachedOffset;
+                }
                 const topbar = parseInt(
                     getComputedStyle(document.documentElement).getPropertyValue('--topbar-height'),
                     10
                 );
                 const extra = window.innerWidth <= 768 ? 12 : 20;
-                return (topbar || 60) + extra;
+                this._cachedOffset = (topbar || 60) + extra;
+                this._cachedOffsetWidth = window.innerWidth;
+                return this._cachedOffset;
             },
             scrollToSection(id) {
                 this.sidebarOpen = false;
+                const navId = FLOW_SECTION_IDS.includes(id) ? 'flow-rag' : id;
+                this.activeSection = navId;
+
                 const el = document.getElementById(id);
-                if (el) {
-                    const top = el.getBoundingClientRect().top + window.scrollY - this.getScrollOffset();
-                    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-                    this.activeSection = id;
+                if (!el) {
+                    return;
                 }
+
+                this._isProgrammaticScroll = true;
+                if (this._scrollEndTimer) {
+                    clearTimeout(this._scrollEndTimer);
+                }
+                if (this._scrollIdleTimer) {
+                    clearTimeout(this._scrollIdleTimer);
+                }
+
+                const offset = this.getScrollOffset();
+                const top = el.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+
+                const unlock = () => {
+                    if (!this._isProgrammaticScroll) {
+                        return;
+                    }
+                    this._isProgrammaticScroll = false;
+                    if (this._scrollEndTimer) {
+                        clearTimeout(this._scrollEndTimer);
+                        this._scrollEndTimer = null;
+                    }
+                    if (this._scrollIdleTimer) {
+                        clearTimeout(this._scrollIdleTimer);
+                        this._scrollIdleTimer = null;
+                    }
+                    window.removeEventListener('scrollend', unlock);
+                    window.removeEventListener('wheel', unlock);
+                    window.removeEventListener('touchstart', unlock);
+                    this.updateActiveSection();
+                };
+
+                window.addEventListener('scrollend', unlock, { once: true });
+                window.addEventListener('wheel', unlock, { passive: true, once: true });
+                window.addEventListener('touchstart', unlock, { passive: true, once: true });
+                this._scrollEndTimer = setTimeout(unlock, 3000);
             },
             updateActiveSection() {
                 const nav = this.config?.ui?.nav;
                 if (!nav || !nav.length) {
                     return;
                 }
+
+                const scrollY = window.scrollY;
+                const viewportHeight = window.innerHeight;
+                const docHeight = document.documentElement.scrollHeight;
+
+                // 1. 触底检测：保证滚动到底部时联系模块必被点亮
+                if (scrollY + viewportHeight >= docHeight - 24) {
+                    this.activeSection = nav[nav.length - 1].id;
+                    return;
+                }
+
                 const offset = this.getScrollOffset();
-                let current = nav[0].id;
-                for (const item of nav) {
-                    const el = document.getElementById(item.id);
-                    if (el && el.getBoundingClientRect().top <= offset) {
-                        current = item.id;
+
+                // 2. 页面顶部检测：保证在顶部时首页稳妥点亮
+                if (scrollY <= Math.max(10, offset / 2)) {
+                    this.activeSection = nav[0].id;
+                    return;
+                }
+
+                // 3. 视口中上部阅读焦点线判定（带容差缓冲）
+                const triggerLine = Math.max(offset + 30, Math.min(viewportHeight * 0.35, 240));
+
+                const allSections = [
+                    'home',
+                    'showcase',
+                    'flow-rag',
+                    'flow-agent',
+                    'flow-finance',
+                    'flow-community',
+                    'experience',
+                    'skills',
+                    'services',
+                    'contact'
+                ];
+
+                let currentSectionId = nav[0].id;
+                for (const sid of allSections) {
+                    const el = document.getElementById(sid);
+                    if (el) {
+                        const top = el.getBoundingClientRect().top;
+                        if (top <= triggerLine) {
+                            currentSectionId = sid;
+                        }
                     }
                 }
-                this.activeSection = current;
+
+                const finalNavId = FLOW_SECTION_IDS.includes(currentSectionId) ? 'flow-rag' : currentSectionId;
+                this.activeSection = finalNavId;
             },
             toggleLangMenu(source) {
                 if (this.langMenuOpen && this.langMenuSource === source) {
