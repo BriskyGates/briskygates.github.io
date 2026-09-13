@@ -76,6 +76,9 @@ function renderWithVue(config) {
         vueAppInstance.langMenuOpen = false;
         vueAppInstance.langMenuSource = null;
         updatePageMeta(config);
+        vueAppInstance.$nextTick(() => {
+            vueAppInstance.initScrollReveals();
+        });
         return;
     }
 
@@ -109,6 +112,8 @@ function renderWithVue(config) {
                 _cachedOffsetWidth: null,
                 _langMenuOutsideHandler: null,
                 _langMenuEscapeHandler: null,
+                _revealObserver: null,
+                _statsAnimated: false,
                 contactForm: {
                     name: '',
                     contact: '',
@@ -194,7 +199,11 @@ function renderWithVue(config) {
             };
             window.addEventListener('scroll', this._scrollSpyHandler, { passive: true });
             window.addEventListener('resize', this._resizeHandler, { passive: true });
-            this.$nextTick(() => this.updateActiveSection());
+            this.$nextTick(() => {
+                this.updateActiveSection();
+                this.initScrollReveals();
+                this.initHeroStatsCounter();
+            });
 
             this._langMenuOutsideHandler = (event) => {
                 if (!this.langMenuOpen) {
@@ -213,6 +222,10 @@ function renderWithVue(config) {
             document.addEventListener('keydown', this._langMenuEscapeHandler);
         },
         unmounted() {
+            if (this._revealObserver) {
+                this._revealObserver.disconnect();
+                this._revealObserver = null;
+            }
             if (this._scrollSpyHandler) {
                 window.removeEventListener('scroll', this._scrollSpyHandler);
             }
@@ -495,6 +508,106 @@ function renderWithVue(config) {
                 return String(text).replace(/[&<>"']/g, function (m) {
                     return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
                 });
+            },
+            initScrollReveals() {
+                if (typeof IntersectionObserver === 'undefined') {
+                    document.querySelectorAll('.motion-reveal').forEach(el => el.classList.add('is-revealed'));
+                    return;
+                }
+                if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    document.querySelectorAll('.motion-reveal').forEach(el => el.classList.add('is-revealed'));
+                    return;
+                }
+
+                if (this._revealObserver) {
+                    this._revealObserver.disconnect();
+                }
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-revealed');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    rootMargin: '0px 0px -40px 0px',
+                    threshold: 0.05
+                });
+
+                document.querySelectorAll('.motion-reveal').forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('is-revealed');
+                    } else {
+                        observer.observe(el);
+                    }
+                });
+
+                this._revealObserver = observer;
+            },
+            initHeroStatsCounter() {
+                if (this._statsAnimated) {
+                    return;
+                }
+                if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    this._statsAnimated = true;
+                    return;
+                }
+
+                const statSection = document.querySelector('.hero-stats');
+                if (!statSection) {
+                    return;
+                }
+
+                const runCounter = () => {
+                    if (this._statsAnimated) return;
+                    this._statsAnimated = true;
+
+                    const statEls = document.querySelectorAll('.hero-stat-num');
+                    statEls.forEach(el => {
+                        const raw = el.textContent.trim();
+                        const match = raw.match(/^(\D*)(\d+)(.*)$/);
+                        if (!match) return;
+
+                        const prefix = match[1] || '';
+                        const targetNum = parseInt(match[2], 10);
+                        const suffix = match[3] || '';
+                        const duration = 1200;
+                        const startTime = performance.now();
+
+                        const step = (now) => {
+                            const elapsed = now - startTime;
+                            const progress = Math.min(1, elapsed / duration);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            const current = Math.round(eased * targetNum);
+                            el.textContent = `${prefix}${current}${suffix}`;
+
+                            if (progress < 1) {
+                                requestAnimationFrame(step);
+                            } else {
+                                el.textContent = raw;
+                            }
+                        };
+                        requestAnimationFrame(step);
+                    });
+                };
+
+                if (typeof IntersectionObserver === 'undefined') {
+                    runCounter();
+                    return;
+                }
+
+                const statsObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            runCounter();
+                            statsObserver.disconnect();
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                statsObserver.observe(statSection);
             }
         }
     });
