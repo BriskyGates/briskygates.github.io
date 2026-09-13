@@ -652,8 +652,341 @@ function renderWithVue(config) {
                     </svg>`;
                 }
 
-                // Fallback: render original or clean dot
+                // 5. Business Flows Project Cards (28 Technical Micro-projects)
+                if (context === 'flow-project') {
+                    // Document Ingestion & Parsing
+                    if (k === 'pdf2xml' || k === '📄') {
+                        return `<svg class="flow-p-svg flow-p-svg--sky" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#38bdf8" stroke-width="1.8"/>
+                            <polyline points="14 2 14 8 20 8" stroke="#38bdf8" stroke-width="1.8"/>
+                            <path d="M9 13l-1.5 1.5 1.5 1.5M15 13l1.5 1.5-1.5 1.5" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'pdf_watermark' || k === '💧') {
+                        return `<svg class="flow-p-svg flow-p-svg--cyan" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke="#06b6d4" stroke-width="1.8"/>
+                            <path d="M7 14c1.5 1.5 4 1.5 5 0s3.5-1.5 5 0" stroke="#06b6d4" stroke-width="1.6" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'paddle_ocr_vl' || k === '👁️' || k === '👁') {
+                        return `<svg class="flow-p-svg flow-p-svg--indigo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="3.5" stroke="#818cf8" stroke-width="1.8"/>
+                            <circle cx="12" cy="12" r="1.5" fill="#818cf8"/>
+                        </svg>`;
+                    }
+                    if (k === 'extract_pdf_toc' || k === '📑') {
+                        return `<svg class="flow-p-svg flow-p-svg--sky" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <line x1="8" y1="6" x2="21" y2="6" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                            <line x1="8" y1="12" x2="21" y2="12" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                            <line x1="8" y1="18" x2="21" y2="18" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                            <polyline points="3 5 4.5 6.5 3 8" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="3 11 4.5 12.5 3 14" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="3 17 4.5 18.5 3 20" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'gpu_rapid_layout' || k === '🖼️' || k === '🖼') {
+                        return `<svg class="flow-p-svg flow-p-svg--violet" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="4" y="4" width="16" height="16" rx="2.5" stroke="#a78bfa" stroke-width="1.8"/>
+                            <rect x="7" y="7" width="4" height="4" fill="rgba(167,139,250,0.3)" stroke="#a78bfa" stroke-width="1.4"/>
+                            <rect x="13" y="7" width="4" height="10" fill="rgba(167,139,250,0.2)" stroke="#a78bfa" stroke-width="1.4"/>
+                            <rect x="7" y="13" width="4" height="4" fill="rgba(167,139,250,0.3)" stroke="#a78bfa" stroke-width="1.4"/>
+                        </svg>`;
+                    }
+                    // Semantic Chunking
+                    if (k === 'pdf_chunker' || k === '✂️' || k === '✂') {
+                        return `<svg class="flow-p-svg flow-p-svg--teal" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="6" cy="6" r="3" stroke="#2dd4bf" stroke-width="1.8"/>
+                            <circle cx="6" cy="18" r="3" stroke="#2dd4bf" stroke-width="1.8"/>
+                            <line x1="20" y1="4" x2="8.12" y2="15.88" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round"/>
+                            <line x1="14.47" y1="14.48" x2="20" y2="20" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round"/>
+                            <line x1="8.12" y1="8.12" x2="12" y2="12" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'multi_source_chunk' || k === '🔗') {
+                        return `<svg class="flow-p-svg flow-p-svg--cyan" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    // Vector Recall & Rerank
+                    if (k === 'qwen3_pg_recall' || k === '🔍') {
+                        return `<svg class="flow-p-svg flow-p-svg--sky" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <ellipse cx="9" cy="6" rx="6" ry="2.5" stroke="#38bdf8" stroke-width="1.8"/>
+                            <path d="M3 6v6c0 1.38 2.69 2.5 6 2.5s6-1.12 6-2.5V6" stroke="#38bdf8" stroke-width="1.8"/>
+                            <circle cx="16" cy="16" r="4" stroke="#38bdf8" stroke-width="1.8"/>
+                            <line x1="19" y1="19" x2="22" y2="22" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'report_recall' || k === '📈') {
+                        return `<svg class="flow-p-svg flow-p-svg--emerald" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M3 20h18" stroke="#10b981" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M4 15l5-5 4 3 7-7" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="20" cy="6" r="2" fill="#10b981"/>
+                        </svg>`;
+                    }
+                    if (k === 'rerank_system' || k === '🎯') {
+                        return `<svg class="flow-p-svg flow-p-svg--rose" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="12" cy="12" r="9" stroke="#fb7185" stroke-width="1.8"/>
+                            <circle cx="12" cy="12" r="5" stroke="#fb7185" stroke-width="1.6"/>
+                            <circle cx="12" cy="12" r="1.5" fill="#fb7185"/>
+                            <line x1="12" y1="2" x2="12" y2="5" stroke="#fb7185" stroke-width="1.8"/>
+                            <line x1="12" y1="19" x2="12" y2="22" stroke="#fb7185" stroke-width="1.8"/>
+                            <line x1="2" y1="12" x2="5" y2="12" stroke="#fb7185" stroke-width="1.8"/>
+                            <line x1="19" y1="12" x2="22" y2="12" stroke="#fb7185" stroke-width="1.8"/>
+                        </svg>`;
+                    }
+                    // Async Pipeline & Gateway
+                    if (k === 'fastapi_celery_kb' || k === '📚') {
+                        return `<svg class="flow-p-svg flow-p-svg--indigo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2" stroke="#818cf8" stroke-width="1.8" fill="rgba(129,140,248,0.12)"/>
+                            <polyline points="2 12 12 17 22 12" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round"/>
+                            <polyline points="2 17 12 22 22 17" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'enterprise_chat_openapi' || k === '💬') {
+                        return `<svg class="flow-p-svg flow-p-svg--sky" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#38bdf8" stroke-width="1.8" stroke-linejoin="round"/>
+                            <path d="M8 11h8M8 14h5" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    // Agent Pipeline
+                    if (k === 'dynamic_mcp' || k === '⚡') {
+                        return `<svg class="flow-p-svg flow-p-svg--amber" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="rgba(251,191,36,0.15)" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'mcp_json_rpc' || k === '🔧') {
+                        return `<svg class="flow-p-svg flow-p-svg--violet" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="12" cy="12" r="3" stroke="#a78bfa" stroke-width="1.8"/>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="#a78bfa" stroke-width="1.6"/>
+                        </svg>`;
+                    }
+                    if (k === 'ai_mcp_middleware' || k === '🌐') {
+                        return `<svg class="flow-p-svg flow-p-svg--sky" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="12" cy="12" r="9" stroke="#38bdf8" stroke-width="1.8"/>
+                            <line x1="3.6" y1="9" x2="20.4" y2="9" stroke="#38bdf8" stroke-width="1.6"/>
+                            <line x1="3.6" y1="15" x2="20.4" y2="15" stroke="#38bdf8" stroke-width="1.6"/>
+                            <path d="M11.5 3a17 17 0 0 0 0 18M12.5 3a17 17 0 0 1 0 18" stroke="#38bdf8" stroke-width="1.6"/>
+                        </svg>`;
+                    }
+                    if (k === 'multi_agent_collab' || k === '🤝') {
+                        return `<svg class="flow-p-svg flow-p-svg--purple" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="6" cy="6" r="3" stroke="#c084fc" stroke-width="1.8"/>
+                            <circle cx="18" cy="6" r="3" stroke="#c084fc" stroke-width="1.8"/>
+                            <circle cx="12" cy="18" r="3" stroke="#c084fc" stroke-width="1.8"/>
+                            <line x1="8.5" y1="7.5" x2="15.5" y2="7.5" stroke="#c084fc" stroke-width="1.6"/>
+                            <line x1="7.5" y1="8.5" x2="10.5" y2="15.5" stroke="#c084fc" stroke-width="1.6"/>
+                            <line x1="16.5" y1="8.5" x2="13.5" y2="15.5" stroke="#c084fc" stroke-width="1.6"/>
+                        </svg>`;
+                    }
+                    if (k === 'phone_autoglm' || k === '📱') {
+                        return `<svg class="flow-p-svg flow-p-svg--emerald" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="5" y="2" width="14" height="20" rx="2.5" stroke="#10b981" stroke-width="1.8"/>
+                            <line x1="12" y1="18" x2="12.01" y2="18" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M9 7h6M9 11h6" stroke="#10b981" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    // Finance Pipeline
+                    if (k === 'email_auto_crawl' || k === '📬') {
+                        return `<svg class="flow-p-svg flow-p-svg--sky" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" stroke="#38bdf8" stroke-width="1.8"/>
+                            <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" stroke="#38bdf8" stroke-width="1.8"/>
+                            <line x1="12" y1="3" x2="12" y2="8" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round"/>
+                            <polyline points="10 6 12 8 14 6" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'cc_monitor_gmail' || k === '📧') {
+                        return `<svg class="flow-p-svg flow-p-svg--teal" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#2dd4bf" stroke-width="1.8"/>
+                            <polyline points="22,6 12,13 2,6" stroke="#2dd4bf" stroke-width="1.8"/>
+                        </svg>`;
+                    }
+                    if (k === 'temp_ner' || k === 'announcement_tagging' || k === '🏷️' || k === '🏷') {
+                        return `<svg class="flow-p-svg flow-p-svg--amber" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" stroke="#fbbf24" stroke-width="1.8"/>
+                            <circle cx="7" cy="7" r="1.5" fill="#fbbf24"/>
+                        </svg>`;
+                    }
+                    if (k === 'etf_unusual' || k === '📉') {
+                        return `<svg class="flow-p-svg flow-p-svg--rose" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M3 3v18h18" stroke="#fb7185" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M4 8l5 6 4-3 7 7" stroke="#fb7185" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="20" cy="18" r="2" fill="#fb7185"/>
+                        </svg>`;
+                    }
+                    if (k === 'onchain_token_monitor' || k === '⛓️' || k === '⛓') {
+                        return `<svg class="flow-p-svg flow-p-svg--cyan" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="2" y="7" width="6" height="10" rx="1.5" stroke="#06b6d4" stroke-width="1.8"/>
+                            <rect x="16" y="7" width="6" height="10" rx="1.5" stroke="#06b6d4" stroke-width="1.8"/>
+                            <line x1="8" y1="12" x2="16" y2="12" stroke="#06b6d4" stroke-width="1.8"/>
+                            <circle cx="12" cy="12" r="1.8" fill="#06b6d4"/>
+                        </svg>`;
+                    }
+                    if (k === 'multi_llm_analysis' || k === '🧠') {
+                        return `<svg class="flow-p-svg flow-p-svg--purple" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 3a6 6 0 0 0-6 6c0 2.5 1.5 4.5 3.5 5.5V17a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-2.5c2-1 3.5-3 3.5-5.5a6 6 0 0 0-6-6z" stroke="#c084fc" stroke-width="1.8"/>
+                            <line x1="9" y1="21" x2="15" y2="21" stroke="#c084fc" stroke-width="1.8" stroke-linecap="round"/>
+                            <circle cx="12" cy="9" r="2" fill="#c084fc"/>
+                        </svg>`;
+                    }
+                    // Community Pipeline
+                    if (k === 'group_management_bot' || k === '🤖') {
+                        return `<svg class="flow-p-svg flow-p-svg--emerald" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="4" y="11" width="16" height="10" rx="2.5" stroke="#10b981" stroke-width="1.8"/>
+                            <circle cx="12" cy="5" r="2" fill="#10b981"/>
+                            <path d="M12 7v4M8 15h.01M16 15h.01" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M9 18h6" stroke="#10b981" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'need_radar_bot' || k === '📡') {
+                        return `<svg class="flow-p-svg flow-p-svg--sky" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4 11a8 8 0 0 1 8-8" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M4 16a13 13 0 0 1 13-13" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                            <circle cx="5" cy="19" r="2" fill="#38bdf8"/>
+                            <path d="M7 17l6-6M15 9l4-4" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'tg_ai_search' || k === '🔎') {
+                        return `<svg class="flow-p-svg flow-p-svg--indigo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#818cf8" stroke-width="1.8" stroke-linejoin="round"/>
+                            <circle cx="11" cy="10" r="2.5" stroke="#818cf8" stroke-width="1.6"/>
+                            <line x1="13" y1="12" x2="16" y2="15" stroke="#818cf8" stroke-width="1.6" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'lark_sync' || k === '🚀') {
+                        return `<svg class="flow-p-svg flow-p-svg--cyan" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round"/>
+                            <polyline points="3 3 3 8 8 8" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round"/>
+                            <polyline points="16 16 21 16 21 21" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'smart_clipboard' || k === '📋') {
+                        return `<svg class="flow-p-svg flow-p-svg--amber" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke="#fbbf24" stroke-width="1.8"/>
+                            <rect x="8" y="2" width="8" height="4" rx="1" stroke="#fbbf24" stroke-width="1.6" fill="rgba(251,191,36,0.15)"/>
+                            <polyline points="9 13 11 15 15 10" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`;
+                    }
+                    // Generic fallback for flow-project
+                    return `<svg class="flow-p-svg flow-p-svg--sky" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2" stroke="#38bdf8" stroke-width="1.8"/>
+                        <polyline points="2 12 12 17 22 12" stroke="#38bdf8" stroke-width="1.8"/>
+                    </svg>`;
+                }
+
+                // 6. Partners
+                if (context === 'partner') {
+                    if (k.includes('技术') || k.includes('CTO') || k.includes('架构') || k.includes('Tech') || k === '🏗️' || k === '🏗') {
+                        return `<svg class="partner-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#38bdf8" stroke-width="1.8" fill="rgba(56,189,248,0.12)"/>
+                            <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#818cf8" stroke-width="1.8" fill="rgba(129,140,248,0.12)"/>
+                            <rect x="8.5" y="14" width="7" height="7" rx="1.5" stroke="#a78bfa" stroke-width="1.8" fill="rgba(167,139,250,0.12)"/>
+                            <line x1="6.5" y1="10" x2="12" y2="14" stroke="#818cf8" stroke-width="1.6" stroke-linecap="round"/>
+                            <line x1="17.5" y1="10" x2="12" y2="14" stroke="#818cf8" stroke-width="1.6" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    if (k.includes('业务') || k.includes('产品') || k.includes('Business') || k.includes('Product') || k === '🏢') {
+                        return `<svg class="partner-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="4" y="2" width="16" height="20" rx="2" stroke="#34d399" stroke-width="1.8" fill="rgba(52,211,153,0.1)"/>
+                            <line x1="8" y1="6" x2="10" y2="6" stroke="#34d399" stroke-width="1.6"/>
+                            <line x1="14" y1="6" x2="16" y2="6" stroke="#34d399" stroke-width="1.6"/>
+                            <line x1="8" y1="10" x2="10" y2="10" stroke="#34d399" stroke-width="1.6"/>
+                            <line x1="14" y1="10" x2="16" y2="10" stroke="#34d399" stroke-width="1.6"/>
+                            <line x1="8" y1="14" x2="10" y2="14" stroke="#34d399" stroke-width="1.6"/>
+                            <line x1="14" y1="14" x2="16" y2="14" stroke="#34d399" stroke-width="1.6"/>
+                            <path d="M10 22v-4h4v4" stroke="#34d399" stroke-width="1.8"/>
+                        </svg>`;
+                    }
+                    if (k.includes('创业') || k.includes('独立') || k.includes('Startup') || k.includes('Founder') || k === '🚀') {
+                        return `<svg class="partner-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" stroke="#fb7185" stroke-width="1.6" fill="rgba(251,113,133,0.15)"/>
+                            <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" stroke="#fb7185" stroke-width="1.8" fill="rgba(251,113,133,0.1)"/>
+                            <circle cx="15.5" cy="8.5" r="1.5" fill="#fb7185"/>
+                        </svg>`;
+                    }
+                }
+
+                // 7. Contact Info & Collaboration Tags
+                if (context === 'contact-intro' || k === '✨') {
+                    return `<svg class="contact-intro-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <defs><linearGradient id="ct-g-spark" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#818cf8"/></linearGradient></defs>
+                        <path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z" fill="rgba(56,189,248,0.18)" stroke="url(#ct-g-spark)" stroke-width="1.8" stroke-linejoin="round"/>
+                        <circle cx="18.5" cy="4.5" r="1.5" fill="#fde047"/>
+                    </svg>`;
+                }
+                if (context === 'contact-avail' || k === '⚡' || k === '⏱️' || k === '⏱') {
+                    return `<svg class="contact-meta-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9" stroke="var(--accent)" stroke-width="1.8"/>
+                        <polyline points="12 6 12 12 15 14" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M19 4l2 2" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>`;
+                }
+                if (context === 'contact-collab' || k === '🤝') {
+                    return `<svg class="contact-meta-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M16 11l2 2 4-4" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 11l-2 2-4-4" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="12" r="3" stroke="var(--accent)" stroke-width="1.8"/>
+                    </svg>`;
+                }
+                if (context === 'contact-type') {
+                    if (k.includes('诊断') || k.includes('Audit') || k === '🩺') {
+                        return `<svg class="tag-pill-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                            <polyline points="7 12 10 12 11.5 8 13.5 16 15 12 17 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`;
+                    }
+                    if (k.includes('顾问') || k.includes('咨询') || k.includes('Advisory') || k === '📚') {
+                        return `<svg class="tag-pill-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                            <polygon points="12,7 15,13 12,11 9,13" fill="currentColor"/>
+                        </svg>`;
+                    }
+                    if (k.includes('模块') || k.includes('Module') || k === '📦') {
+                        return `<svg class="tag-pill-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 2l8 4.5v11l-8 4.5-8-4.5v-11L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            <polyline points="20 6.5 12 11 4 6.5" stroke="currentColor" stroke-width="2"/>
+                            <line x1="12" y1="11" x2="12" y2="22" stroke="currentColor" stroke-width="2"/>
+                        </svg>`;
+                    }
+                    if (k.includes('项目') || k.includes('完整') || k.includes('Project') || k === '🚀') {
+                        return `<svg class="tag-pill-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="15.5" cy="8.5" r="1.5" fill="currentColor"/>
+                        </svg>`;
+                    }
+                }
+
+                // Fallback: render clean badge dot
                 return `<span class="tech-badge-dot" aria-hidden="true">${k}</span>`;
+            },
+            getBrandAvatar(size = 'md') {
+                const raw = (this.config?.profile?.avatar || '').trim();
+                // If custom image path or user provided non-dog text, honor it
+                if (raw && raw !== '🐶' && raw !== '🐕') {
+                    return raw;
+                }
+                const dim = size === 'lg' ? 44 : (size === 'sm' ? 20 : 24);
+                return `<svg class="brand-avatar-svg brand-avatar-svg--${size}" width="${dim}" height="${dim}" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="av-g-${size}" x1="2" y1="2" x2="30" y2="30">
+                            <stop offset="0%" stop-color="#38bdf8"/>
+                            <stop offset="50%" stop-color="#818cf8"/>
+                            <stop offset="100%" stop-color="#c084fc"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Cyber-Dog & AI Core Vector Emblem -->
+                    <polygon points="6,4 11,13 5,13" fill="url(#av-g-${size})" opacity="0.85"/>
+                    <polygon points="26,4 21,13 27,13" fill="url(#av-g-${size})" opacity="0.85"/>
+                    <polygon points="7,7 10,12 6,12" fill="#38bdf8" opacity="0.45"/>
+                    <polygon points="25,7 22,12 26,12" fill="#818cf8" opacity="0.45"/>
+                    <path d="M8 12h16l2 9-10 7-10-7 2-9z" fill="rgba(56,189,248,0.16)" stroke="url(#av-g-${size})" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M10 16h12l-1 3H11l-1-3z" fill="url(#av-g-${size})" opacity="0.95"/>
+                    <line x1="11" y1="17.5" x2="21" y2="17.5" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"/>
+                    <polygon points="14.5,23 17.5,23 16,24.5" fill="url(#av-g-${size})"/>
+                    <circle cx="16" cy="21" r="1" fill="#38bdf8"/>
+                </svg>`;
             },
             getScrollOffset() {
                 if (this._cachedOffset !== null && this._cachedOffsetWidth === window.innerWidth) {
