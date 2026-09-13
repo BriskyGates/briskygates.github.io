@@ -246,6 +246,128 @@ function renderWithVue(config) {
             }
         },
         methods: {
+            getNavIcon(id) {
+                const icons = {
+                    home: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="nav-g-home" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#38bdf8"/>
+                                <stop offset="100%" stop-color="#0284c7"/>
+                            </linearGradient>
+                            <linearGradient id="nav-f-home" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.22"/>
+                                <stop offset="100%" stop-color="#0284c7" stop-opacity="0.06"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M3 10.25L12 3.5l9 6.75V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20V10.25z" fill="url(#nav-f-home)"/>
+                        <path d="M3 10.25L12 3.5l9 6.75V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20V10.25z" stroke="url(#nav-g-home)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.5 21.5V14a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v7.5" stroke="url(#nav-g-home)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="8.2" r="1.25" fill="#38bdf8"/>
+                    </svg>`,
+                    showcase: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="nav-g-showcase" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fb923c"/>
+                                <stop offset="50%" stop-color="#f97316"/>
+                                <stop offset="100%" stop-color="#ef4444"/>
+                            </linearGradient>
+                            <linearGradient id="nav-f-showcase" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fb923c" stop-opacity="0.28"/>
+                                <stop offset="100%" stop-color="#ef4444" stop-opacity="0.08"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 2c-.5 2.5-2.5 4.5-4.5 6.5C5 11 3.5 13.5 3.5 16.5A8.5 8.5 0 0 0 12 22a8.5 8.5 0 0 0 8.5-5.5c0-4-3-7.5-5-9.5-.5 2.5-2 4-3.5 4C12 9 12.5 5 12 2z" fill="url(#nav-f-showcase)"/>
+                        <path d="M12 2c-.5 2.5-2.5 4.5-4.5 6.5C5 11 3.5 13.5 3.5 16.5A8.5 8.5 0 0 0 12 22a8.5 8.5 0 0 0 8.5-5.5c0-4-3-7.5-5-9.5-.5 2.5-2 4-3.5 4C12 9 12.5 5 12 2z" stroke="url(#nav-g-showcase)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 18.5a3 3 0 0 0 3-3c0-2-1.5-3-3-4.5-1.5 1.5-3 2.5-3 4.5a3 3 0 0 0 3 3z" fill="url(#nav-g-showcase)" opacity="0.85"/>
+                    </svg>`,
+                    'flow-rag': `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="nav-g-flow" x1="2" y1="3" x2="22" y2="21" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#c084fc"/>
+                                <stop offset="100%" stop-color="#818cf8"/>
+                            </linearGradient>
+                            <linearGradient id="nav-f-flow" x1="2" y1="3" x2="22" y2="21" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#c084fc" stop-opacity="0.22"/>
+                                <stop offset="100%" stop-color="#818cf8" stop-opacity="0.08"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="3" y="3.5" width="18" height="4.5" rx="1.75" fill="url(#nav-f-flow)"/>
+                        <rect x="3" y="3.5" width="18" height="4.5" rx="1.75" stroke="url(#nav-g-flow)" stroke-width="1.8"/>
+                        <rect x="3" y="9.75" width="18" height="4.5" rx="1.75" fill="url(#nav-f-flow)"/>
+                        <rect x="3" y="9.75" width="18" height="4.5" rx="1.75" stroke="url(#nav-g-flow)" stroke-width="1.8"/>
+                        <rect x="3" y="16" width="18" height="4.5" rx="1.75" fill="url(#nav-f-flow)"/>
+                        <rect x="3" y="16" width="18" height="4.5" rx="1.75" stroke="url(#nav-g-flow)" stroke-width="1.8"/>
+                        <circle cx="6.5" cy="5.75" r="1" fill="#c084fc"/>
+                        <circle cx="12" cy="12" r="1" fill="#a855f7"/>
+                        <circle cx="17.5" cy="18.25" r="1" fill="#818cf8"/>
+                    </svg>`,
+                    experience: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="nav-g-exp" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#34d399"/>
+                                <stop offset="100%" stop-color="#059669"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M5.5 4v16" stroke="url(#nav-g-exp)" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="0.1 3.5"/>
+                        <rect x="9.5" y="3.5" width="11" height="4.2" rx="1.5" fill="rgba(52, 211, 153, 0.16)" stroke="url(#nav-g-exp)" stroke-width="1.6"/>
+                        <circle cx="5.5" cy="5.6" r="2.2" fill="#34d399"/>
+                        <rect x="9.5" y="9.9" width="11" height="4.2" rx="1.5" fill="rgba(52, 211, 153, 0.16)" stroke="url(#nav-g-exp)" stroke-width="1.6"/>
+                        <circle cx="5.5" cy="12" r="2.2" fill="#10b981"/>
+                        <rect x="9.5" y="16.3" width="11" height="4.2" rx="1.5" fill="rgba(52, 211, 153, 0.16)" stroke="url(#nav-g-exp)" stroke-width="1.6"/>
+                        <circle cx="5.5" cy="18.4" r="2.2" fill="#059669"/>
+                    </svg>`,
+                    skills: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="nav-g-skills" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fde047"/>
+                                <stop offset="50%" stop-color="#fbbf24"/>
+                                <stop offset="100%" stop-color="#f59e0b"/>
+                            </linearGradient>
+                            <linearGradient id="nav-f-skills" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fde047" stop-opacity="0.28"/>
+                                <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.1"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M13 2.5L3.5 13.5a1 1 0 0 0 .8 1.5H11l-2 7.5L19.5 10.5a1 1 0 0 0-.8-1.5H13l2-6.5a.5.5 0 0 0-.8-.5H13z" fill="url(#nav-f-skills)"/>
+                        <path d="M13 2.5L3.5 13.5a1 1 0 0 0 .8 1.5H11l-2 7.5L19.5 10.5a1 1 0 0 0-.8-1.5H13l2-6.5a.5.5 0 0 0-.8-.5H13z" stroke="url(#nav-g-skills)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polygon points="12,7 9,13 14,13 11,18 16,11 11,11" fill="#fde047" opacity="0.6"/>
+                    </svg>`,
+                    services: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="nav-g-services" x1="2" y1="4" x2="22" y2="21" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#60a5fa"/>
+                                <stop offset="100%" stop-color="#6366f1"/>
+                            </linearGradient>
+                            <linearGradient id="nav-f-services" x1="2" y1="4" x2="22" y2="21" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.22"/>
+                                <stop offset="100%" stop-color="#6366f1" stop-opacity="0.08"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="2.5" y="7" width="19" height="13.5" rx="3" fill="url(#nav-f-services)"/>
+                        <rect x="2.5" y="7" width="19" height="13.5" rx="3" stroke="url(#nav-g-services)" stroke-width="1.8"/>
+                        <path d="M8 7V4.75A1.75 1.75 0 0 1 9.75 3h4.5A1.75 1.75 0 0 1 16 4.75V7" stroke="url(#nav-g-services)" stroke-width="1.8" stroke-linecap="round"/>
+                        <line x1="2.5" y1="12" x2="21.5" y2="12" stroke="url(#nav-g-services)" stroke-width="1.5" stroke-dasharray="1.5 2"/>
+                        <rect x="10" y="10.5" width="4" height="3" rx="1" fill="#818cf8"/>
+                    </svg>`,
+                    contact: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="nav-g-contact" x1="2" y1="4" x2="22" y2="20" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fb7185"/>
+                                <stop offset="100%" stop-color="#e11d48"/>
+                            </linearGradient>
+                            <linearGradient id="nav-f-contact" x1="2" y1="4" x2="22" y2="20" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fb7185" stop-opacity="0.24"/>
+                                <stop offset="100%" stop-color="#e11d48" stop-opacity="0.08"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="2.5" y="4.5" width="19" height="15" rx="3" fill="url(#nav-f-contact)"/>
+                        <rect x="2.5" y="4.5" width="19" height="15" rx="3" stroke="url(#nav-g-contact)" stroke-width="1.8"/>
+                        <path d="M3 6.5l8.15 6.11a1.5 1.5 0 0 0 1.7 0L21 6.5" stroke="url(#nav-g-contact)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="14" r="1.3" fill="#fb7185"/>
+                    </svg>`
+                };
+                return icons[id] || `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/></svg>`;
+            },
             getScrollOffset() {
                 if (this._cachedOffset !== null && this._cachedOffsetWidth === window.innerWidth) {
                     return this._cachedOffset;
