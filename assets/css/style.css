@@ -157,12 +157,28 @@ body.site-body {
     transform: scale(0.97);
 }
 
+.nav-item i,
+.nav-item .nav-icon-wrap {
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.22s var(--ease-spring), color 0.16s ease, filter 0.22s var(--ease-smooth);
+}
+
 .nav-item i {
-    width: 20px;
-    text-align: center;
     font-size: 1rem;
     opacity: 0.85;
-    transition: transform 0.2s var(--ease-spring), color 0.16s ease;
+}
+
+.nav-item .nav-icon-wrap svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    overflow: visible;
+    transition: transform 0.22s var(--ease-spring), filter 0.22s var(--ease-smooth);
 }
 
 .nav-item:hover {
@@ -175,6 +191,10 @@ body.site-body {
     color: var(--accent);
 }
 
+.nav-item:hover .nav-icon-wrap svg {
+    transform: scale(1.15) translateY(-1px);
+}
+
 .nav-item.active {
     color: var(--text-primary);
     background: rgba(56, 189, 248, 0.12);
@@ -184,6 +204,40 @@ body.site-body {
 .nav-item.active i {
     color: var(--accent);
     transform: scale(1.06);
+}
+
+.nav-item.active .nav-icon-wrap svg {
+    transform: scale(1.12);
+}
+
+/* Individual accent glow on hover and active */
+.nav-item[href="#home"].active .nav-icon-wrap svg,
+.nav-item[href="#home"]:hover .nav-icon-wrap svg {
+    filter: drop-shadow(0 0 7px rgba(56, 189, 248, 0.65));
+}
+.nav-item[href="#showcase"].active .nav-icon-wrap svg,
+.nav-item[href="#showcase"]:hover .nav-icon-wrap svg {
+    filter: drop-shadow(0 0 7px rgba(249, 115, 22, 0.7));
+}
+.nav-item[href="#flow-rag"].active .nav-icon-wrap svg,
+.nav-item[href="#flow-rag"]:hover .nav-icon-wrap svg {
+    filter: drop-shadow(0 0 7px rgba(168, 85, 247, 0.7));
+}
+.nav-item[href="#experience"].active .nav-icon-wrap svg,
+.nav-item[href="#experience"]:hover .nav-icon-wrap svg {
+    filter: drop-shadow(0 0 7px rgba(52, 211, 153, 0.7));
+}
+.nav-item[href="#skills"].active .nav-icon-wrap svg,
+.nav-item[href="#skills"]:hover .nav-icon-wrap svg {
+    filter: drop-shadow(0 0 7px rgba(251, 191, 36, 0.7));
+}
+.nav-item[href="#services"].active .nav-icon-wrap svg,
+.nav-item[href="#services"]:hover .nav-icon-wrap svg {
+    filter: drop-shadow(0 0 7px rgba(99, 102, 241, 0.7));
+}
+.nav-item[href="#contact"].active .nav-icon-wrap svg,
+.nav-item[href="#contact"]:hover .nav-icon-wrap svg {
+    filter: drop-shadow(0 0 7px rgba(244, 63, 94, 0.7));
 }
 
 .sidebar-footer {
@@ -2248,9 +2302,25 @@ body.site-body {
         opacity: 0.82;
     }
 
+    .mobile-nav-item i,
+    .mobile-nav-item .nav-icon-wrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        transition: transform 0.25s var(--ease-spring);
+    }
+
     .mobile-nav-item i {
         font-size: 1.15rem;
-        transition: transform 0.25s var(--ease-spring);
+    }
+
+    .mobile-nav-item .nav-icon-wrap svg {
+        width: 20px;
+        height: 20px;
+        display: block;
+        transition: transform 0.25s var(--ease-spring), filter 0.22s var(--ease-smooth);
     }
 
     .mobile-nav-item span {
@@ -2269,6 +2339,32 @@ body.site-body {
     .mobile-nav-item.active i {
         transform: scale(1.1);
         filter: drop-shadow(0 0 6px var(--accent-glow));
+    }
+
+    .mobile-nav-item.active .nav-icon-wrap svg {
+        transform: scale(1.15);
+    }
+
+    .mobile-nav-item[href="#home"].active .nav-icon-wrap svg {
+        filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.7));
+    }
+    .mobile-nav-item[href="#showcase"].active .nav-icon-wrap svg {
+        filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.75));
+    }
+    .mobile-nav-item[href="#flow-rag"].active .nav-icon-wrap svg {
+        filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.75));
+    }
+    .mobile-nav-item[href="#experience"].active .nav-icon-wrap svg {
+        filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.75));
+    }
+    .mobile-nav-item[href="#skills"].active .nav-icon-wrap svg {
+        filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.75));
+    }
+    .mobile-nav-item[href="#services"].active .nav-icon-wrap svg {
+        filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.75));
+    }
+    .mobile-nav-item[href="#contact"].active .nav-icon-wrap svg {
+        filter: drop-shadow(0 0 6px rgba(244, 63, 94, 0.75));
     }
 
     .toast {
