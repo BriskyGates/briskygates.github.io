@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Test Fixture</title>
     <meta name="description" content="test fixture">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body class="site-body">
@@ -42,9 +41,9 @@
                     aria-haspopup="listbox"
                     :aria-expanded="langMenuOpen && langMenuSource === 'sidebar'"
                 >
-                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <svg class="lang-btn__globe" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     <span class="lang-btn__label">{{ currentLanguageLabel }}</span>
-                    <i class="fas fa-chevron-down lang-btn__chevron" aria-hidden="true"></i>
+                    <svg class="lang-btn__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                 </button>
                 <ul v-show="langMenuOpen && langMenuSource === 'sidebar'" class="lang-menu" role="listbox" :aria-label="config.ui.languageToggle.tooltip">
                     <li v-for="opt in languageOptions" :key="opt.code" role="presentation">
@@ -57,7 +56,7 @@
                             @click="selectLanguage(opt.code)"
                         >
                             <span>{{ opt.label }}</span>
-                            <i v-if="currentLang === opt.code" class="fas fa-check lang-menu__check" aria-hidden="true"></i>
+                            <svg v-if="currentLang === opt.code" class="lang-menu__check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                         </button>
                     </li>
                 </ul>
@@ -75,7 +74,7 @@
                 </div>
             </div>
             <div class="search-pill" role="search">
-                <i class="fas fa-search"></i>
+                <svg class="search-pill__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 <span>{{ config.ui.searchPlaceholder }}</span>
             </div>
             <div class="lang-dropdown lang-dropdown--compact" :class="{ 'lang-dropdown--open': langMenuOpen && langMenuSource === 'compact' }">
@@ -87,9 +86,9 @@
                     aria-haspopup="listbox"
                     :aria-expanded="langMenuOpen && langMenuSource === 'compact'"
                 >
-                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <svg class="lang-btn__globe" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     <span class="lang-btn__label">{{ currentLanguageLabel }}</span>
-                    <i class="fas fa-chevron-down lang-btn__chevron" aria-hidden="true"></i>
+                    <svg class="lang-btn__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                 </button>
                 <ul v-show="langMenuOpen && langMenuSource === 'compact'" class="lang-menu" role="listbox" :aria-label="config.ui.languageToggle.tooltip">
                     <li v-for="opt in languageOptions" :key="opt.code" role="presentation">
@@ -102,7 +101,7 @@
                             @click="selectLanguage(opt.code)"
                         >
                             <span>{{ opt.label }}</span>
-                            <i v-if="currentLang === opt.code" class="fas fa-check lang-menu__check" aria-hidden="true"></i>
+                            <svg v-if="currentLang === opt.code" class="lang-menu__check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                         </button>
                     </li>
                 </ul>
@@ -128,7 +127,7 @@
                     </div>
                     <div class="hero-actions">
                         <button type="button" class="btn-primary" @click="scrollToSection('contact')">
-                            <i class="fas fa-arrow-right"></i>
+                            <svg class="btn-arrow-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                             {{ config.ui.heroCtaPrimary }}
                         </button>
                         <button type="button" class="btn-secondary" @click="scrollToSection('showcase')">
@@ -375,7 +374,7 @@
                         ></textarea>
                     </div>
                     <button type="submit" class="btn-submit" :disabled="contactSending">
-                        <i class="fas fa-paper-plane"></i>
+                        <svg class="btn-submit__icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                         {{ contactSending ? config.contact.form.submitting : config.contact.form.submit }}
                     </button>
                     <p v-if="contactFeedback" class="form-feedback" :class="contactFeedbackType">
