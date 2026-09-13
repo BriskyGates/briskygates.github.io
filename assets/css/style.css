@@ -352,9 +352,20 @@ body.site-body {
     font-weight: 500;
 }
 
-.search-pill i {
+.search-pill i,
+.search-pill svg,
+.search-pill__icon {
     color: var(--text-muted);
+    width: 14px;
+    height: 14px;
     font-size: 0.8rem;
+    flex-shrink: 0;
+    transition: color var(--transition), transform 0.2s var(--ease-spring);
+}
+
+.search-pill:hover .search-pill__icon {
+    color: var(--accent);
+    transform: scale(1.1);
 }
 
 .lang-btn {
@@ -382,6 +393,19 @@ body.site-body {
     border-color: var(--border-medium);
 }
 
+.lang-btn__globe {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: var(--text-secondary);
+    transition: color var(--transition), transform 0.3s var(--ease-spring);
+}
+
+.lang-btn:hover .lang-btn__globe {
+    color: var(--accent);
+    transform: rotate(20deg);
+}
+
 .lang-btn__label {
     flex: 1;
     text-align: left;
@@ -391,8 +415,11 @@ body.site-body {
 }
 
 .lang-btn__chevron {
+    width: 12px;
+    height: 12px;
     font-size: 0.65rem;
     color: var(--text-muted);
+    flex-shrink: 0;
     transition: transform var(--transition);
 }
 
@@ -490,8 +517,12 @@ body.site-body {
 }
 
 .lang-menu__check {
+    width: 13px;
+    height: 13px;
     font-size: 0.72rem;
     color: var(--accent);
+    flex-shrink: 0;
+    display: inline-block;
 }
 
 .lang-btn--compact {
@@ -776,6 +807,17 @@ body.site-body {
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.btn-arrow-svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    transition: transform 0.2s var(--ease-spring);
+}
+
+.btn-primary:hover .btn-arrow-svg {
+    transform: translateX(3px);
 }
 
 .btn-secondary {
@@ -1851,6 +1893,17 @@ body.site-body {
 .btn-submit:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.btn-submit__icon {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    transition: transform 0.25s var(--ease-spring);
+}
+
+.btn-submit:hover:not(:disabled) .btn-submit__icon {
+    transform: translate(2px, -2px) scale(1.1);
 }
 
 .btn-submit:active:not(:disabled) {
