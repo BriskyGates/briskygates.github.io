@@ -28,7 +28,7 @@
                 :class="{ active: activeSection === item.id }"
                 @click.prevent="scrollToSection(item.id)"
             >
-                <i :class="item.icon"></i>
+                <span class="nav-icon-wrap" v-html="getNavIcon(item.id)" aria-hidden="true"></span>
                 <span>{{ item.label }}</span>
             </a>
         </nav>
@@ -406,7 +406,7 @@
             :class="{ active: activeSection === item.id }"
             @click.prevent="scrollToSection(item.id)"
         >
-            <i :class="item.icon"></i>
+            <span class="nav-icon-wrap" v-html="getNavIcon(item.id)" aria-hidden="true"></span>
             <span>{{ item.shortLabel || item.label }}</span>
         </a>
     </nav>
