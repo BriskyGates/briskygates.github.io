@@ -161,13 +161,13 @@
         </section>
 
         <!-- Featured horizontal row -->
-        <section id="showcase" class="content-section" v-if="config.featured && config.featured.items">
+        <section id="showcase" class="content-section motion-reveal" v-if="config.featured && config.featured.items">
             <div class="section-head">
                 <h2>{{ config.featured.title }}</h2>
                 <p>{{ config.featured.subtitle }}</p>
             </div>
             <div class="media-row-wrap">
-            <div class="media-row">
+            <div class="media-row reveal-stagger">
                 <article
                     v-for="project in config.featured.items"
                     :key="project.id"
@@ -199,7 +199,7 @@
             v-for="flow in (config.businessFlows && config.businessFlows.flows) || []"
             :key="flow.id"
             :id="flow.id"
-            class="content-section flow-section"
+            class="content-section flow-section motion-reveal"
             :style="{ '--flow-accent': flow.accent }"
         >
             <div class="section-head">
@@ -231,7 +231,7 @@
         </section>
 
         <!-- Experience timeline -->
-        <section id="experience" class="content-section" v-if="config.experience">
+        <section id="experience" class="content-section motion-reveal" v-if="config.experience">
             <div class="section-head">
                 <h2>{{ config.experience.title }}</h2>
                 <p>{{ config.experience.subtitle }}</p>
@@ -252,12 +252,12 @@
         </section>
 
         <!-- Skills -->
-        <section id="skills" class="content-section">
+        <section id="skills" class="content-section motion-reveal">
             <div class="section-head">
                 <h2>{{ config.skills.title }}</h2>
                 <p class="section-motto" v-html="config.skills.motto"></p>
             </div>
-            <div class="skills-grid">
+            <div class="skills-grid reveal-stagger">
                 <article v-for="skill in config.skills.items" :key="skill.title" class="skill-tile">
                     <span class="skill-tile-icon">{{ skill.icon }}</span>
                     <h3>{{ skill.title }}</h3>
@@ -270,11 +270,11 @@
         </section>
 
         <!-- Services -->
-        <section id="services" class="content-section">
+        <section id="services" class="content-section motion-reveal">
             <div class="section-head">
                 <h2>{{ config.services.title }}</h2>
             </div>
-            <div class="services-grid">
+            <div class="services-grid reveal-stagger">
                 <article v-for="service in config.services.items" :key="service.title" class="service-tile">
                     <div class="service-tile-top">
                         <span>{{ service.icon }}</span>
@@ -303,7 +303,7 @@
         </section>
 
         <!-- Contact Form -->
-        <section id="contact" class="content-section" v-if="config.contact && config.contact.form">
+        <section id="contact" class="content-section motion-reveal" v-if="config.contact && config.contact.form">
             <div class="section-head">
                 <h2>{{ config.contact.form.title }}</h2>
                 <p>{{ config.contact.form.subtitle }}</p>
@@ -386,7 +386,7 @@
         </section>
 
         <!-- Philosophy -->
-        <section class="content-section" v-if="config.projects && config.projects.innovation">
+        <section class="content-section motion-reveal" v-if="config.projects && config.projects.innovation">
             <div class="philosophy-card">
                 <span>{{ config.projects.innovation.icon }}</span>
                 <div>
