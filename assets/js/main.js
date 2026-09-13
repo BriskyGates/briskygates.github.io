@@ -368,6 +368,293 @@ function renderWithVue(config) {
                 };
                 return icons[id] || `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/></svg>`;
             },
+            getShowcaseVisual(project) {
+                const id = project?.id || '';
+                if (id === 'fastapi_celery_kb') {
+                    return `<svg class="showcase-visual-svg" viewBox="0 0 480 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="sc-g-kb-line" x1="40" y1="110" x2="440" y2="110" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#b49bc8" stop-opacity="0.3"/>
+                                <stop offset="50%" stop-color="#c084fc"/>
+                                <stop offset="100%" stop-color="#38bdf8"/>
+                            </linearGradient>
+                        </defs>
+                        <g opacity="0.14" stroke="#a78bfa" stroke-width="0.75" stroke-dasharray="2 4">
+                            <line x1="40" y1="55" x2="440" y2="55"/>
+                            <line x1="40" y1="110" x2="440" y2="110"/>
+                            <line x1="40" y1="165" x2="440" y2="165"/>
+                            <line x1="100" y1="20" x2="100" y2="200"/>
+                            <line x1="210" y1="20" x2="210" y2="200"/>
+                            <line x1="320" y1="20" x2="320" y2="200"/>
+                        </g>
+                        <path d="M 75 110 L 160 110 L 250 110 L 340 110 L 405 110" stroke="url(#sc-g-kb-line)" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M 160 110 C 185 68, 205 68, 245 68 L 305 68 C 325 68, 335 90, 345 110" stroke="#c084fc" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.6"/>
+                        <path d="M 160 110 C 185 152, 205 152, 245 152 L 305 152 C 325 152, 335 130, 345 110" stroke="#818cf8" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.6"/>
+                        <!-- Node 1: Input Docs -->
+                        <g transform="translate(45, 82)">
+                            <rect width="56" height="56" rx="12" fill="#161922" stroke="#c084fc" stroke-width="1.6"/>
+                            <rect x="13" y="14" width="22" height="28" rx="3" fill="#c084fc" fill-opacity="0.16" stroke="#c084fc" stroke-width="1.5"/>
+                            <line x1="18" y1="21" x2="29" y2="21" stroke="#c084fc" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="18" y1="27" x2="27" y2="27" stroke="#c084fc" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="18" y1="33" x2="24" y2="33" stroke="#c084fc" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="42" cy="20" r="3" fill="#38bdf8"/>
+                            <text x="28" y="68" fill="#9aa3b2" font-size="8.5" font-family="sans-serif" text-anchor="middle" font-weight="600">研报 / 公告</text>
+                        </g>
+                        <!-- Node 2: Async Chunker -->
+                        <g transform="translate(155, 82)">
+                            <rect width="56" height="56" rx="12" fill="#161922" stroke="#a855f7" stroke-width="1.6"/>
+                            <rect x="13" y="15" width="30" height="10" rx="3" fill="#a855f7" fill-opacity="0.2" stroke="#a855f7" stroke-width="1.2"/>
+                            <rect x="13" y="31" width="30" height="10" rx="3" fill="#a855f7" fill-opacity="0.2" stroke="#a855f7" stroke-width="1.2"/>
+                            <circle cx="28" cy="20" r="1.5" fill="#fde047"/>
+                            <circle cx="28" cy="36" r="1.5" fill="#fde047"/>
+                            <text x="28" y="68" fill="#9aa3b2" font-size="8.5" font-family="sans-serif" text-anchor="middle" font-weight="600">异步分块</text>
+                        </g>
+                        <!-- Node 3: Hybrid Store -->
+                        <g transform="translate(255, 75)">
+                            <rect width="66" height="70" rx="14" fill="#1a1e28" stroke="#818cf8" stroke-width="1.8"/>
+                            <path d="M 18 20 C 18 16, 48 16, 48 20 C 48 24, 18 24, 18 20 Z" fill="#818cf8" fill-opacity="0.3" stroke="#818cf8" stroke-width="1.2"/>
+                            <path d="M 18 20 V 32 C 18 36, 48 36, 48 32 V 20" fill="none" stroke="#818cf8" stroke-width="1.2"/>
+                            <path d="M 18 32 V 44 C 18 48, 48 48, 48 44 V 32" fill="none" stroke="#818cf8" stroke-width="1.2"/>
+                            <circle cx="33" cy="32" r="2" fill="#38bdf8"/>
+                            <text x="33" y="80" fill="#818cf8" font-size="8.5" font-family="sans-serif" text-anchor="middle" font-weight="700">双路召回</text>
+                        </g>
+                        <!-- Node 4: Neural Rerank -->
+                        <g transform="translate(365, 78)">
+                            <rect width="64" height="64" rx="14" fill="#161922" stroke="#38bdf8" stroke-width="1.8"/>
+                            <polygon points="18,17 46,17 38,33 26,33" fill="#38bdf8" fill-opacity="0.25" stroke="#38bdf8" stroke-width="1.5"/>
+                            <line x1="32" y1="33" x2="32" y2="47" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="32" cy="47" r="3" fill="#34d399"/>
+                            <text x="32" y="76" fill="#38bdf8" font-size="8.5" font-family="sans-serif" text-anchor="middle" font-weight="700">时效重排</text>
+                        </g>
+                    </svg>`;
+                }
+                if (id === 'doc_intelligence') {
+                    return `<svg class="showcase-visual-svg" viewBox="0 0 480 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <g opacity="0.14" stroke="#6366f1" stroke-width="0.75" stroke-dasharray="2 4">
+                            <line x1="40" y1="55" x2="440" y2="55"/>
+                            <line x1="40" y1="110" x2="440" y2="110"/>
+                            <line x1="40" y1="165" x2="440" y2="165"/>
+                            <line x1="120" y1="20" x2="120" y2="200"/>
+                            <line x1="240" y1="20" x2="240" y2="200"/>
+                            <line x1="360" y1="20" x2="360" y2="200"/>
+                        </g>
+                        <!-- Left: Scanned messy document with bounding boxes -->
+                        <g transform="translate(60, 42)">
+                            <rect width="84" height="114" rx="8" fill="#161922" stroke="#6366f1" stroke-width="1.6"/>
+                            <line x1="16" y1="94" x2="68" y2="24" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2 3" opacity="0.5"/>
+                            <rect x="12" y="16" width="60" height="12" rx="2" fill="#6366f1" fill-opacity="0.2" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 2"/>
+                            <rect x="12" y="34" width="28" height="42" rx="2" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 2"/>
+                            <rect x="44" y="34" width="28" height="42" rx="2" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 2"/>
+                            <rect x="12" y="82" width="60" height="20" rx="2" fill="#a855f7" fill-opacity="0.2" stroke="#a855f7" stroke-width="1" stroke-dasharray="2 2"/>
+                            <text x="42" y="128" fill="#9aa3b2" font-size="8.5" font-family="sans-serif" text-anchor="middle" font-weight="600">复杂扫描版面</text>
+                        </g>
+                        <!-- Center: Coordinate Scanner Crosshair Beam -->
+                        <g transform="translate(195, 76)">
+                            <path d="M 0 25 L 45 6 L 45 44 Z" fill="#6366f1" fill-opacity="0.16" stroke="#6366f1" stroke-width="1.4"/>
+                            <circle cx="48" cy="25" r="18" fill="#1a1e28" stroke="#38bdf8" stroke-width="2"/>
+                            <line x1="36" y1="25" x2="60" y2="25" stroke="#38bdf8" stroke-width="1.5"/>
+                            <line x1="48" y1="13" x2="48" y2="37" stroke="#38bdf8" stroke-width="1.5"/>
+                            <circle cx="48" cy="25" r="5" fill="#38bdf8" fill-opacity="0.35"/>
+                            <text x="48" y="58" fill="#38bdf8" font-size="8.5" font-family="sans-serif" text-anchor="middle" font-weight="700">规则 + 坐标对齐</text>
+                        </g>
+                        <!-- Right: Clean Structured Tree & Table -->
+                        <g transform="translate(325, 42)">
+                            <rect width="96" height="114" rx="8" fill="#161922" stroke="#34d399" stroke-width="1.6"/>
+                            <rect x="14" y="16" width="38" height="6" rx="2" fill="#34d399"/>
+                            <rect x="14" y="28" width="68" height="38" rx="3" fill="#34d399" fill-opacity="0.08" stroke="#34d399" stroke-width="1"/>
+                            <line x1="14" y1="40" x2="82" y2="40" stroke="#34d399" stroke-width="0.8"/>
+                            <line x1="14" y1="52" x2="82" y2="52" stroke="#34d399" stroke-width="0.8"/>
+                            <line x1="48" y1="28" x2="48" y2="66" stroke="#34d399" stroke-width="0.8"/>
+                            <line x1="14" y1="76" x2="76" y2="76" stroke="#9aa3b2" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="14" y1="84" x2="64" y2="84" stroke="#9aa3b2" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="14" y1="92" x2="70" y2="92" stroke="#9aa3b2" stroke-width="1.5" stroke-linecap="round"/>
+                            <text x="48" y="128" fill="#34d399" font-size="8.5" font-family="sans-serif" text-anchor="middle" font-weight="700">结构化 Markdown/AST</text>
+                        </g>
+                    </svg>`;
+                }
+                if (id === 'group_management_bot') {
+                    return `<svg class="showcase-visual-svg" viewBox="0 0 480 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <g opacity="0.14" stroke="#10b981" stroke-width="0.75" stroke-dasharray="2 4">
+                            <line x1="40" y1="55" x2="440" y2="55"/>
+                            <line x1="40" y1="110" x2="440" y2="110"/>
+                            <line x1="40" y1="165" x2="440" y2="165"/>
+                            <line x1="110" y1="20" x2="110" y2="200"/>
+                            <line x1="230" y1="20" x2="230" y2="200"/>
+                            <line x1="350" y1="20" x2="350" y2="200"/>
+                        </g>
+                        <!-- Left: High concurrency chat streams -->
+                        <g transform="translate(60, 60)">
+                            <rect width="64" height="84" rx="10" fill="#161922" stroke="#34d399" stroke-width="1.5"/>
+                            <rect x="10" y="16" width="34" height="12" rx="4" fill="#34d399" fill-opacity="0.25"/>
+                            <rect x="20" y="34" width="34" height="12" rx="4" fill="#38bdf8" fill-opacity="0.25"/>
+                            <rect x="10" y="52" width="38" height="12" rx="4" fill="#34d399" fill-opacity="0.25"/>
+                            <text x="32" y="98" fill="#9aa3b2" font-size="8.5" font-family="sans-serif" text-anchor="middle" font-weight="600">多群事件流</text>
+                        </g>
+                        <!-- Center: Risk Shield & Transaction Audit Engine -->
+                        <g transform="translate(195, 48)">
+                            <path d="M 40 8 L 76 23 V 63 C 76 93, 40 113, 40 113 C 40 113, 4 93, 4 63 V 23 Z" fill="#1a1e28" stroke="#10b981" stroke-width="2"/>
+                            <path d="M 40 20 L 66 32 V 62 C 66 84, 40 100, 40 100 C 40 100, 14 84, 14 62 V 32 Z" fill="#10b981" fill-opacity="0.16" stroke="#34d399" stroke-width="1"/>
+                            <path d="M 28 56 L 36 64 L 52 46" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <text x="40" y="128" fill="#34d399" font-size="8.5" font-family="sans-serif" text-anchor="middle" font-weight="700">风控防刷 + 财务对账</text>
+                        </g>
+                        <!-- Right: Redis / Dispatch & Ops Console -->
+                        <g transform="translate(340, 60)">
+                            <rect width="78" height="84" rx="10" fill="#161922" stroke="#f59e0b" stroke-width="1.5"/>
+                            <circle cx="20" cy="22" r="4" fill="#34d399"/>
+                            <line x1="30" y1="22" x2="66" y2="22" stroke="#9aa3b2" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="20" cy="42" r="4" fill="#38bdf8"/>
+                            <line x1="30" y1="42" x2="58" y2="42" stroke="#9aa3b2" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="20" cy="62" r="4" fill="#f59e0b"/>
+                            <line x1="30" y1="62" x2="64" y2="62" stroke="#9aa3b2" stroke-width="2" stroke-linecap="round"/>
+                            <text x="39" y="98" fill="#f59e0b" font-size="8.5" font-family="sans-serif" text-anchor="middle" font-weight="700">运营控制台 / 工单</text>
+                        </g>
+                        <!-- Connecting pulse rays -->
+                        <path d="M 124 95 L 195 85" stroke="#34d399" stroke-width="2" stroke-dasharray="3 3"/>
+                        <path d="M 271 85 L 340 95" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3 3"/>
+                    </svg>`;
+                }
+                return `<div class="media-card-fallback-accent" style="background:${project?.accent || 'var(--accent)'}"></div>`;
+            },
+            getTechIcon(idOrKey, context) {
+                const k = String(idOrKey || '').trim();
+
+                // 1. Hero Flow Entries
+                if (context === 'hero-flow') {
+                    if (k === 'flow-rag' || k === '📚') {
+                        return `<svg class="tech-icon tech-icon--flow-rag" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <defs><linearGradient id="ti-g-rag" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#818cf8"/></linearGradient></defs>
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="url(#ti-g-rag)" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="rgba(56,189,248,0.12)" stroke="url(#ti-g-rag)" stroke-width="1.8"/>
+                            <line x1="9" y1="7" x2="16" y2="7" stroke="url(#ti-g-rag)" stroke-width="1.6" stroke-linecap="round"/>
+                            <line x1="9" y1="11" x2="14" y2="11" stroke="url(#ti-g-rag)" stroke-width="1.6" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'flow-agent' || k === '🤖') {
+                        return `<svg class="tech-icon tech-icon--flow-agent" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <defs><linearGradient id="ti-g-agent" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#c084fc"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs>
+                            <rect x="3" y="11" width="18" height="10" rx="3" fill="rgba(192,132,252,0.14)" stroke="url(#ti-g-agent)" stroke-width="1.8"/>
+                            <circle cx="12" cy="5" r="2" fill="url(#ti-g-agent)"/>
+                            <path d="M12 7v4M8 15h.01M16 15h.01" stroke="url(#ti-g-agent)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M9 18h6" stroke="url(#ti-g-agent)" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'flow-finance' || k === '📈') {
+                        return `<svg class="tech-icon tech-icon--flow-finance" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <defs><linearGradient id="ti-g-fin" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#059669"/></linearGradient></defs>
+                            <path d="M3 20h18" stroke="url(#ti-g-fin)" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M5 16l5-6 4 3 6-8" fill="none" stroke="url(#ti-g-fin)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polygon points="17,5 20,5 20,8" fill="url(#ti-g-fin)"/>
+                        </svg>`;
+                    }
+                    if (k === 'flow-community' || k === '🤝') {
+                        return `<svg class="tech-icon tech-icon--flow-community" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <defs><linearGradient id="ti-g-comm" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#fb923c"/><stop offset="100%" stop-color="#f97316"/></linearGradient></defs>
+                            <path d="M12 2l8 4v6c0 5.5-3.5 10-8 12-4.5-2-8-6.5-8-12V6l8-4z" fill="rgba(251,146,60,0.15)" stroke="url(#ti-g-comm)" stroke-width="1.8" stroke-linejoin="round"/>
+                            <path d="M9 12l2 2 4-4" stroke="url(#ti-g-comm)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`;
+                    }
+                }
+
+                // 2. Skills
+                if (context === 'skill' || k === '🤖' || k === '📊' || k === '📄' || k === '⚡') {
+                    if (k.includes('工程化') || k.includes('Engineering') || k === '🤖') {
+                        return `<svg class="skill-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <defs><linearGradient id="sk-g-eng" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#818cf8"/></linearGradient></defs>
+                            <rect x="4" y="4" width="16" height="16" rx="4" fill="rgba(56,189,248,0.12)" stroke="url(#sk-g-eng)" stroke-width="1.8"/>
+                            <rect x="8.5" y="8.5" width="7" height="7" rx="1.5" fill="url(#sk-g-eng)"/>
+                            <line x1="1" y1="9" x2="4" y2="9" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
+                            <line x1="1" y1="15" x2="4" y2="15" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
+                            <line x1="20" y1="9" x2="23" y2="9" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
+                            <line x1="20" y1="15" x2="23" y2="15" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
+                            <line x1="9" y1="1" x2="9" y2="4" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
+                            <line x1="15" y1="1" x2="15" y2="4" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
+                            <line x1="9" y1="20" x2="9" y2="23" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
+                            <line x1="15" y1="20" x2="15" y2="23" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    if (k.includes('知识库') || k.includes('文本') || k.includes('Knowledge') || k === '📊') {
+                        return `<svg class="skill-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <defs><linearGradient id="sk-g-kb" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#c084fc"/><stop offset="100%" stop-color="#818cf8"/></linearGradient></defs>
+                            <ellipse cx="12" cy="5" rx="8" ry="3" fill="rgba(192,132,252,0.2)" stroke="url(#sk-g-kb)" stroke-width="1.8"/>
+                            <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5" stroke="url(#sk-g-kb)" stroke-width="1.8"/>
+                            <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" stroke="url(#sk-g-kb)" stroke-width="1.8"/>
+                            <circle cx="16" cy="14" r="1.5" fill="#fde047"/>
+                        </svg>`;
+                    }
+                    if (k.includes('文档') || k.includes('Document') || k === '📄') {
+                        return `<svg class="skill-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <defs><linearGradient id="sk-g-doc" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs>
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="rgba(96,165,250,0.12)" stroke="url(#sk-g-doc)" stroke-width="1.8"/>
+                            <polyline points="14 2 14 8 20 8" stroke="url(#sk-g-doc)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="9" y1="13" x2="15" y2="13" stroke="url(#sk-g-doc)" stroke-width="1.8" stroke-linecap="round"/>
+                            <line x1="9" y1="17" x2="13" y2="17" stroke="url(#sk-g-doc)" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>`;
+                    }
+                    if (k.includes('集成') || k.includes('自动化') || k.includes('Automation') || k === '⚡') {
+                        return `<svg class="skill-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <defs><linearGradient id="sk-g-aut" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#fde047"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs>
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="rgba(253,224,71,0.15)" stroke="url(#sk-g-aut)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`;
+                    }
+                }
+
+                // 3. Services
+                if (context === 'service') {
+                    if (k.includes('15') || k.includes('澄清') || k.includes('Clarification') || k === '💬') {
+                        return `<svg class="service-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <defs><linearGradient id="sv-g-msg" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#0284c7"/></linearGradient></defs>
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" fill="rgba(56,189,248,0.12)" stroke="url(#sv-g-msg)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="8.5" cy="12" r="1" fill="#38bdf8"/>
+                            <circle cx="12" cy="12" r="1" fill="#38bdf8"/>
+                            <circle cx="15.5" cy="12" r="1" fill="#38bdf8"/>
+                        </svg>`;
+                    }
+                    if (k.includes('诊断') || k.includes('Audit') || k === '🩺') {
+                        return `<svg class="service-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <defs><linearGradient id="sv-g-diag" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#059669"/></linearGradient></defs>
+                            <circle cx="12" cy="12" r="9" fill="rgba(52,211,153,0.12)" stroke="url(#sv-g-diag)" stroke-width="1.8"/>
+                            <polyline points="7 12 10 12 11.5 8 13.5 16 15 12 17 12" stroke="url(#sv-g-diag)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`;
+                    }
+                    if (k.includes('顾问') || k.includes('Advisory') || k === '📚') {
+                        return `<svg class="service-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <defs><linearGradient id="sv-g-adv" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#818cf8"/><stop offset="100%" stop-color="#6366f1"/></linearGradient></defs>
+                            <circle cx="12" cy="12" r="9" fill="rgba(129,140,248,0.12)" stroke="url(#sv-g-adv)" stroke-width="1.8"/>
+                            <polygon points="12,7 15,13 12,11 9,13" fill="url(#sv-g-adv)"/>
+                            <polygon points="12,17 9,11 12,13 15,11" fill="rgba(129,140,248,0.4)"/>
+                        </svg>`;
+                    }
+                    if (k.includes('模块') || k.includes('Module') || k === '📦') {
+                        return `<svg class="service-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <defs><linearGradient id="sv-g-mod" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs>
+                            <path d="M12 2l8 4.5v11l-8 4.5-8-4.5v-11L12 2z" fill="rgba(251,191,36,0.12)" stroke="url(#sv-g-mod)" stroke-width="1.8" stroke-linejoin="round"/>
+                            <polyline points="20 6.5 12 11 4 6.5" stroke="url(#sv-g-mod)" stroke-width="1.8"/>
+                            <line x1="12" y1="11" x2="12" y2="22" stroke="url(#sv-g-mod)" stroke-width="1.8"/>
+                        </svg>`;
+                    }
+                    if (k.includes('项目') || k.includes('完整') || k.includes('Project') || k === '🚀') {
+                        return `<svg class="service-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <defs><linearGradient id="sv-g-proj" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#fb7185"/><stop offset="100%" stop-color="#e11d48"/></linearGradient></defs>
+                            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" fill="rgba(251,113,133,0.2)" stroke="url(#sv-g-proj)" stroke-width="1.6"/>
+                            <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" fill="rgba(251,113,133,0.12)" stroke="url(#sv-g-proj)" stroke-width="1.8"/>
+                            <circle cx="15.5" cy="8.5" r="1.5" fill="#fb7185"/>
+                        </svg>`;
+                    }
+                }
+
+                // 4. Philosophy
+                if (context === 'philosophy' || k === '💡') {
+                    return `<svg class="philosophy-icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <defs><linearGradient id="ph-g-idea" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#fde047"/><stop offset="100%" stop-color="#38bdf8"/></linearGradient></defs>
+                        <path d="M9 18h6M10 22h4" stroke="url(#ph-g-idea)" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" fill="rgba(253,224,71,0.12)" stroke="url(#ph-g-idea)" stroke-width="1.8"/>
+                        <circle cx="12" cy="9" r="2.5" fill="#fde047"/>
+                    </svg>`;
+                }
+
+                // Fallback: render original or clean dot
+                return `<span class="tech-badge-dot" aria-hidden="true">${k}</span>`;
+            },
             getScrollOffset() {
                 if (this._cachedOffset !== null && this._cachedOffsetWidth === window.innerWidth) {
                     return this._cachedOffset;

@@ -139,7 +139,7 @@ description: Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能
                             class="hero-flow-entry"
                             @click="scrollToSection(entry.id)"
                         >
-                            <span class="hero-flow-entry-icon">{{ entry.icon }}</span>
+                            <span class="hero-flow-entry-icon" v-html="getTechIcon(entry.id, 'hero-flow')"></span>
                             <div>
                                 <strong>{{ entry.title }}</strong>
                                 <span>{{ entry.sub }}</span>
@@ -170,8 +170,8 @@ description: Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能
                     class="media-card media-card--featured"
                     :style="{ '--card-accent': project.accent }"
                 >
-                    <div class="media-card-visual">
-                        <span class="media-card-emoji">{{ project.icon }}</span>
+                    <div class="media-card-visual" :class="'media-card-visual--' + project.id">
+                        <div class="media-card-diagram" v-html="getShowcaseVisual(project)"></div>
                         <span class="media-card-badge">{{ getStatusText(project.status) }}</span>
                     </div>
                     <div class="media-card-body">
@@ -255,7 +255,7 @@ description: Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能
             </div>
             <div class="skills-grid reveal-stagger">
                 <article v-for="skill in config.skills.items" :key="skill.title" class="skill-tile">
-                    <span class="skill-tile-icon">{{ skill.icon }}</span>
+                    <span class="skill-tile-icon" v-html="getTechIcon(skill.title || skill.icon, 'skill')"></span>
                     <h3>{{ skill.title }}</h3>
                     <p>{{ skill.description }}</p>
                     <div class="tag-row">
@@ -273,7 +273,7 @@ description: Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能
             <div class="services-grid reveal-stagger">
                 <article v-for="service in config.services.items" :key="service.title" class="service-tile">
                     <div class="service-tile-top">
-                        <span>{{ service.icon }}</span>
+                        <span class="service-tile-icon" v-html="getTechIcon(service.title || service.icon, 'service')"></span>
                         <span class="service-badge">{{ service.badge }}</span>
                     </div>
                     <h3>{{ service.title }}</h3>
@@ -384,7 +384,7 @@ description: Python 全栈 | 企业级 AI 落地 | RAG · Agent · 文档智能
         <!-- Philosophy -->
         <section class="content-section motion-reveal" v-if="config.projects && config.projects.innovation">
             <div class="philosophy-card">
-                <span>{{ config.projects.innovation.icon }}</span>
+                <span class="philosophy-card-icon" v-html="getTechIcon(config.projects.innovation.icon, 'philosophy')"></span>
                 <div>
                     <h3>{{ config.projects.innovation.title }}</h3>
                     <p>{{ config.projects.innovation.text }}</p>
