@@ -517,6 +517,10 @@ function renderWithVue(config) {
             },
             getTechIcon(idOrKey, context) {
                 const k = String(idOrKey || '').trim();
+                // ⚠️ 调用方必须优先传**跨语言稳定**的键：id（如 `flow-rag`）或 icon emoji（如 `🩺`）。
+                // 绝不能把 title / type / label 这类会随语言变的文案放在前面——一旦换个语言改了措辞，
+                // 下面的关键词分支就全部失配，整块图标会掉成兜底的文本角标（曾出现在「大白话」「繁體」「英文」版）。
+                // 正确写法见 index.html：`getTechIcon(skill.icon || skill.title, 'skill')`。
 
                 // 1. Hero Flow Entries
                 if (context === 'hero-flow') {
@@ -970,8 +974,12 @@ function renderWithVue(config) {
                     }
                 }
 
-                // Fallback: render clean badge dot
-                return `<span class="tech-badge-dot" aria-hidden="true">${k}</span>`;
+                // 兜底：绝不把 key 当文本吐出来（那会在页面上留下裸露文案，如「AI 應用」）。
+                // 返回一个中性占位图标——语义不对但至少不脏，而且一眼能看出是"没匹配上"。
+                return `<svg class="tech-icon tech-icon--fallback" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 3" opacity="0.55"/>
+                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6" opacity="0.55"/>
+                </svg>`;
             },
             getBrandAvatar(size = 'md') {
                 const raw = (this.config?.profile?.avatar || '').trim();
