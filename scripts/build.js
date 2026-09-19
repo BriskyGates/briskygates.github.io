@@ -35,6 +35,34 @@ function removeInlineConfig(source) {
         .replace(/<script>window\.siteConfig = JSON\.parse\(document\.getElementById\('site-config-data'\)\.textContent\);<\/script>\s*/g, '');
 }
 
+/**
+ * 用 homeConfig 的 ui.pageTitle / ui.pageDescription 回写 index.html 的 YAML front matter。
+ * 避免「改了配置、页面 <title>/og 元信息还是旧文案」的漂移。
+ */
+function syncFrontMatter(source, config) {
+    const ui = config.ui || {};
+    const title = ui.pageTitle || config.profile?.name || '';
+    const description = ui.pageDescription || '';
+    const blockMatch = source.match(/^---\n([\s\S]*?)\n---\n/);
+    if (!blockMatch) {
+        throw new Error('index.html 缺少 YAML front matter，无法同步 title / description');
+    }
+
+    const upsert = (block, key, value) => {
+        const line = `${key}: ${value}`;
+        const pattern = new RegExp(`^${key}:.*$`, 'm');
+        return pattern.test(block)
+            ? block.replace(pattern, line)
+            : `${block}\n${line}`;
+    };
+
+    const body = upsert(upsert(blockMatch[1], 'title', title), 'description', description);
+    if (body === blockMatch[1]) {
+        return source;
+    }
+    return `---\n${body}\n---\n${source.slice(blockMatch[0].length)}`;
+}
+
 function main() {
     const zhConfig = readJson('assets/data/homeConfig.json');
     const enConfig = readJson('assets/data/homeConfig.en.json');
@@ -43,6 +71,7 @@ function main() {
     const indexPath = path.join(root, 'index.html');
     let indexHtml = fs.readFileSync(indexPath, 'utf8');
     indexHtml = removeInlineConfig(indexHtml);
+    indexHtml = syncFrontMatter(indexHtml, zhConfig);
     indexHtml = replaceBetweenMarkers(indexHtml, PRERENDER_START, PRERENDER_END, prerendered);
     fs.writeFileSync(indexPath, indexHtml);
     console.log('Updated index.html slim prerender');

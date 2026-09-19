@@ -106,13 +106,43 @@ git push
 `npm run build` 会：
 
 - 将中文内容**精简预渲染**进 `index.html`（Hero + 文本摘要，供爬虫读取；完整 UI 仍由 Vue 异步加载 JSON）
+- 用 `ui.pageTitle` / `ui.pageDescription` **回写 `index.html` 的 title / description**，避免页面标题与配置漂移
 - 生成 `llms-full.txt` / `llms-full.en.txt` 纯文本履历
 - 根据 `homeConfig.json` 重新生成 `README.md`（GitHub 仓库首页）
 - 生成 `_includes/json-ld.html` 结构化数据
 
+> 改定位（称号 / 一句话介绍）时只需改 `assets/data/homeConfig.json` 的 `ui.pageTitle` 与 `ui.pageDescription`，再跑 `npm run build`；
+> `_config.yml` 的 `title` / `description` 是兜底值，建议一并同步。
+
 站点使用**本地托管的 Vue**（`assets/vendor/`）与**系统字体**，避免 Google Fonts / unpkg 在国内拖慢首屏。
 
 站点根目录还提供 [`llms.txt`](llms.txt)，供 LLM / 爬虫发现机器可读数据源。
+
+---
+
+## 品牌图标与分享图
+
+图标有**唯一矢量源** `assets/img/favicon.svg`——深底 + **`abu` 字标**（手绘几何小写字母，不依赖字体，跨系统渲染一致），墨色用站点品牌渐变 `#38bdf8 → #818cf8 → #c084fc` **提亮一档**（`#5ccdfa → #98a2fb → #cc9bfd`，水平方向，a 青 → b 靛 → u 紫）。位图全部由它生成：
+
+```bash
+npm run icons          # 需要 Playwright 浏览器：npx playwright install chromium
+```
+
+> 墨色为什么不是品牌原色：原色最暗的靛 `#818cf8` 对深底盘对比度只有 5.9:1，缩到 16px 标签页时"u"会发闷；提亮后 ≥ 7.5:1。**换墨色前先算最暗一档对底盘的对比度，保证 ≥ 7:1。**
+
+产物：
+
+| 文件 | 用途 |
+|------|------|
+| `favicon.ico` | 根目录，浏览器 / IM 链接卡片默认抓取位（含 16/32/48 三档） |
+| `assets/img/favicon.svg` | 矢量图标（Safari / 高分屏） |
+| `assets/img/favicon-32.png` | 浏览器标签页 |
+| `assets/img/apple-touch-icon.png` | iOS 添加到主屏（180x180，全幅不透明，圆角由系统裁） |
+| `assets/img/icon-192.png`、`icon-512.png` | PWA / `site.webmanifest`（同上，全幅） |
+| `assets/img/og-cover.png` | 1200x630 社交分享封面（微信 / 飞书 / Twitter 卡片缩略图） |
+
+> 分享缩略图**必须用 PNG**：微信、飞书等 IM 抓取器不解析 SVG 的 `og:image`，早前的 `og-cover.svg` 会退化成默认地球图标。
+> 改标题文案后记得重跑 `npm run icons`，封面里的文字是写死在 `scripts/generate-icons.js` 模板里的。
 
 ---
 
@@ -252,11 +282,16 @@ npm test
 ├── assets/
 │   ├── css/style.css
 │   ├── data/
-│   │   ├── homeConfig.json  # 中文内容（源数据）
+│   │   ├── homeConfig.json  # 中文内容（源数据，含 ui.pageTitle）
 │   │   └── homeConfig.en.json
+│   ├── img/                 # favicon.svg（矢量源）+ npm run icons 生成的位图
 │   ├── js/app-core.js
 │   └── vendor/              # 本地 Vue
-├── scripts/build.js         # SEO 预渲染构建
+├── scripts/
+│   ├── build.js             # SEO 预渲染构建
+│   └── generate-icons.js    # 品牌图标 / 分享图生成（npm run icons）
+├── favicon.ico              # 根目录图标（IM 链接卡片抓取位）
+├── site.webmanifest         # PWA 图标清单
 ├── llms.txt                 # AI / 爬虫站点索引
 ├── llms-full.txt            # 中文纯文本履历（构建生成）
 ├── README.md                # GitHub 首页履历（构建生成）

@@ -30,7 +30,8 @@ function generateJsonLd(config, siteUrl = 'https://briskygates.github.io') {
                 '@id': `${siteUrl}/#person`,
                 name: profile.name,
                 description: stripHtml(profile.greeting?.description || ui.pageDescription || ''),
-                jobTitle: 'AI Full-Stack Engineer',
+                jobTitle: 'Enterprise AI Production Engineer',
+                image: `${siteUrl}/assets/img/og-cover.png`,
                 url: siteUrl,
                 knowsAbout: [...knowsAbout],
                 worksFor: {

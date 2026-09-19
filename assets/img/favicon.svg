@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="阿布 · 企业 AI 落地工程师">
+  <defs>
+    <linearGradient id="plate" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1b2237"/>
+      <stop offset="1" stop-color="#0a0d15"/>
+    </linearGradient>
+    <!--
+      墨色：站点品牌渐变 #38bdf8 → #818cf8 → #c084fc（与 og 封面 .gradient-text 同源）提亮一档。
+      为什么要提亮：原色最暗一档 #818cf8 对底盘对比度只有 5.9:1，16px 下笔画变细后"u"会发闷；
+      提到 7.5:1 以上后三个字母在小尺寸都立得住。方向取水平，让 a 青 → b 靛 → u 紫。
+      想回到 100% 原色：把三个 stop 换成 #38bdf8 / #818cf8 / #c084fc 即可。
+    -->
+    <linearGradient id="ink" x1="5.6" y1="32" x2="58.4" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5ccdfa"/>
+      <stop offset="0.5" stop-color="#98a2fb"/>
+      <stop offset="1" stop-color="#cc9bfd"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 底盘（PWA / iOS 位图由 scripts/generate-icons.js 换成全幅版，交系统自己裁圆角） -->
+  <rect width="64" height="64" rx="15" fill="url(#plate)"/>
+  <rect x="1.6" y="1.6" width="60.8" height="60.8" rx="13.6" fill="none" stroke="#8fc4ff" stroke-opacity="0.2" stroke-width="1.4"/>
+
+  <!-- 字标 abu：手绘几何小写字母（字碗横向压缩 0.67），不依赖字体，跨系统渲染一致 -->
+  <g fill="none" stroke="url(#ink)" stroke-width="5.4">
+    <!-- a：整圆字碗 + 右侧竖笔 -->
+    <ellipse cx="11.24" cy="35.2" rx="5.63" ry="8.4"/>
+    <path d="M16.87 26.8V43.6" stroke-linecap="round"/>
+    <!-- b：升部竖笔 + 右下字碗 -->
+    <path d="M26.37 20.4V43.6" stroke-linecap="round"/>
+    <ellipse cx="32" cy="35.2" rx="5.63" ry="8.4"/>
+    <!-- u：左竖笔 + 底部半圆 + 右竖笔 -->
+    <path d="M44.43 26.8V35.2A5.63 8.4 0 0 0 55.68 35.2V26.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
