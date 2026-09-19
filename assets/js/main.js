@@ -264,6 +264,7 @@ function renderWithVue(config) {
                         <path d="M9.5 21.5V14a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v7.5" stroke="url(#nav-g-home)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                         <circle cx="12" cy="8.2" r="1.25" fill="#38bdf8"/>
                     </svg>`,
+                    // 代表作：五角星（精选作品），原为火苗——火苗读作"热门/爆款"，与"作品集"不符
                     showcase: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <defs>
                             <linearGradient id="nav-g-showcase" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
@@ -276,9 +277,8 @@ function renderWithVue(config) {
                                 <stop offset="100%" stop-color="#ef4444" stop-opacity="0.08"/>
                             </linearGradient>
                         </defs>
-                        <path d="M12 2c-.5 2.5-2.5 4.5-4.5 6.5C5 11 3.5 13.5 3.5 16.5A8.5 8.5 0 0 0 12 22a8.5 8.5 0 0 0 8.5-5.5c0-4-3-7.5-5-9.5-.5 2.5-2 4-3.5 4C12 9 12.5 5 12 2z" fill="url(#nav-f-showcase)"/>
-                        <path d="M12 2c-.5 2.5-2.5 4.5-4.5 6.5C5 11 3.5 13.5 3.5 16.5A8.5 8.5 0 0 0 12 22a8.5 8.5 0 0 0 8.5-5.5c0-4-3-7.5-5-9.5-.5 2.5-2 4-3.5 4C12 9 12.5 5 12 2z" stroke="url(#nav-g-showcase)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 18.5a3 3 0 0 0 3-3c0-2-1.5-3-3-4.5-1.5 1.5-3 2.5-3 4.5a3 3 0 0 0 3 3z" fill="url(#nav-g-showcase)" opacity="0.85"/>
+                        <path d="M12 3l2.12 6.09 6.44.13-5.14 3.89 1.87 6.17L12 15.6l-5.29 3.68 1.87-6.17L3.44 9.22l6.44-.13L12 3z" fill="url(#nav-f-showcase)" stroke="url(#nav-g-showcase)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="12.4" r="1.9" fill="url(#nav-g-showcase)"/>
                     </svg>`,
                     'flow-rag': `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <defs>
@@ -558,18 +558,12 @@ function renderWithVue(config) {
                 // 2. Skills
                 if (context === 'skill' || k === '🤖' || k === '📊' || k === '📄' || k === '⚡') {
                     if (k.includes('工程化') || k.includes('Engineering') || k === '🤖') {
+                        // 应用工程化：代码工程语义（原为芯片外观 —— 芯片读作"硬件/算力"，与"工程化"不符）
                         return `<svg class="skill-icon-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <defs><linearGradient id="sk-g-eng" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#818cf8"/></linearGradient></defs>
-                            <rect x="4" y="4" width="16" height="16" rx="4" fill="rgba(56,189,248,0.12)" stroke="url(#sk-g-eng)" stroke-width="1.8"/>
-                            <rect x="8.5" y="8.5" width="7" height="7" rx="1.5" fill="url(#sk-g-eng)"/>
-                            <line x1="1" y1="9" x2="4" y2="9" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
-                            <line x1="1" y1="15" x2="4" y2="15" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
-                            <line x1="20" y1="9" x2="23" y2="9" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
-                            <line x1="20" y1="15" x2="23" y2="15" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
-                            <line x1="9" y1="1" x2="9" y2="4" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
-                            <line x1="15" y1="1" x2="15" y2="4" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
-                            <line x1="9" y1="20" x2="9" y2="23" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
-                            <line x1="15" y1="20" x2="15" y2="23" stroke="url(#sk-g-eng)" stroke-width="1.6" stroke-linecap="round"/>
+                            <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="rgba(56,189,248,0.1)" stroke="url(#sk-g-eng)" stroke-width="1.8"/>
+                            <path d="M10.2 9.4 7.7 12l2.5 2.6M13.8 9.4 16.3 12l-2.5 2.6" stroke="url(#sk-g-eng)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12.9" y1="8.6" x2="11.1" y2="15.4" stroke="url(#sk-g-eng)" stroke-width="1.9" stroke-linecap="round"/>
                         </svg>`;
                     }
                     if (k.includes('知识库') || k.includes('文本') || k.includes('Knowledge') || k === '📊') {
@@ -802,10 +796,24 @@ function renderWithVue(config) {
                             <polyline points="22,6 12,13 2,6" stroke="#2dd4bf" stroke-width="1.8"/>
                         </svg>`;
                     }
-                    if (k === 'temp_ner' || k === 'announcement_tagging' || k === '🏷️' || k === '🏷') {
+                    // 这两张卡片在「金融资讯」节点里紧挨着，图标必须一眼分得开：
+                    //   打标分类 = 两个错位标签（多标签）
+                    //   实体识别 = 文本行 + 被框出的片段（从正文里认出实体）
+                    // 曾经两者都是"单标签"，只差一个斜角，20px 下完全分不出。
+                    if (k === 'announcement_tagging' || k === '🏷️️') {
                         return `<svg class="flow-p-svg flow-p-svg--amber" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" stroke="#fbbf24" stroke-width="1.8"/>
-                            <circle cx="7" cy="7" r="1.5" fill="#fbbf24"/>
+                            <path d="M9 4.6H2.6v6.4l5.72 5.72a2 2 0 0 0 2.83 0l4.98-4.98a2 2 0 0 0 0-2.83L9 4.6z" stroke="#fbbf24" stroke-width="1.8" stroke-linejoin="round"/>
+                            <circle cx="5.9" cy="8.5" r="1.25" fill="#fbbf24"/>
+                            <path d="M15.4 4.6l5.3 5.3a2 2 0 0 1 0 2.83l-4.7 4.7" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>`;
+                    }
+                    if (k === 'temp_ner' || k === '🏷️' || k === '🏷') {
+                        return `<svg class="flow-p-svg flow-p-svg--amber" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <line x1="3" y1="6" x2="18" y2="6" stroke="#fbbf24" stroke-width="1.7" stroke-linecap="round" opacity="0.55"/>
+                            <line x1="3" y1="11.4" x2="13.4" y2="11.4" stroke="#fbbf24" stroke-width="1.7" stroke-linecap="round" opacity="0.55"/>
+                            <line x1="3" y1="16.8" x2="10" y2="16.8" stroke="#fbbf24" stroke-width="1.7" stroke-linecap="round" opacity="0.55"/>
+                            <circle cx="15.9" cy="16" r="4.2" fill="rgba(251,191,36,0.16)" stroke="#fbbf24" stroke-width="1.8"/>
+                            <line x1="19" y1="19.1" x2="21.6" y2="21.7" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
                         </svg>`;
                     }
                     if (k === 'etf_unusual' || k === '📉') {
@@ -877,7 +885,16 @@ function renderWithVue(config) {
                 }
 
                 // 6. Partners
+                // 注意分支顺序：更具体的"创业/Founder"必须排在"技术/CTO"之前。
+                // 否则「创业团队 CTO」会先命中 技术|CTO 分支，和「技术负责人 / 架构师」撞成同一个图标。
                 if (context === 'partner') {
+                    if (k.includes('创业') || k.includes('独立') || k.includes('Startup') || k.includes('Founder') || k === '🚀') {
+                        return `<svg class="partner-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" stroke="#fb7185" stroke-width="1.6" fill="rgba(251,113,133,0.15)"/>
+                            <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" stroke="#fb7185" stroke-width="1.8" fill="rgba(251,113,133,0.1)"/>
+                            <circle cx="15.5" cy="8.5" r="1.5" fill="#fb7185"/>
+                        </svg>`;
+                    }
                     if (k.includes('技术') || k.includes('CTO') || k.includes('架构') || k.includes('Tech') || k === '🏗️' || k === '🏗') {
                         return `<svg class="partner-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#38bdf8" stroke-width="1.8" fill="rgba(56,189,248,0.12)"/>
@@ -899,21 +916,16 @@ function renderWithVue(config) {
                             <path d="M10 22v-4h4v4" stroke="#34d399" stroke-width="1.8"/>
                         </svg>`;
                     }
-                    if (k.includes('创业') || k.includes('独立') || k.includes('Startup') || k.includes('Founder') || k === '🚀') {
-                        return `<svg class="partner-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" stroke="#fb7185" stroke-width="1.6" fill="rgba(251,113,133,0.15)"/>
-                            <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" stroke="#fb7185" stroke-width="1.8" fill="rgba(251,113,133,0.1)"/>
-                            <circle cx="15.5" cy="8.5" r="1.5" fill="#fb7185"/>
-                        </svg>`;
-                    }
                 }
 
                 // 7. Contact Info & Collaboration Tags
+                // 联系页主卡：文档 + 上箭头 = "把你的现状发我"（原为四角星芒，读作"AI 魔法"，与文案无关）
                 if (context === 'contact-intro' || k === '✨') {
                     return `<svg class="contact-intro-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <defs><linearGradient id="ct-g-spark" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#818cf8"/></linearGradient></defs>
-                        <path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z" fill="rgba(56,189,248,0.18)" stroke="url(#ct-g-spark)" stroke-width="1.8" stroke-linejoin="round"/>
-                        <circle cx="18.5" cy="4.5" r="1.5" fill="#fde047"/>
+                        <defs><linearGradient id="ct-g-send" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#818cf8"/></linearGradient></defs>
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="rgba(56,189,248,0.12)" stroke="url(#ct-g-send)" stroke-width="1.8" stroke-linejoin="round"/>
+                        <polyline points="14 2 14 8 20 8" stroke="url(#ct-g-send)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 19v-6.4M9.2 15.2 12 12.4l2.8 2.8" stroke="url(#ct-g-send)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>`;
                 }
                 if (context === 'contact-avail' || k === '⚡' || k === '⏱️' || k === '⏱') {
@@ -968,24 +980,33 @@ function renderWithVue(config) {
                     return raw;
                 }
                 const dim = size === 'lg' ? 44 : (size === 'sm' ? 20 : 24);
-                return `<svg class="brand-avatar-svg brand-avatar-svg--${size}" width="${dim}" height="${dim}" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                // lg 用在 Hero 的 88px 圆形渐变环里，底盘必须是正圆（圆角方形嵌进圆环会"方圆打架"）；
+                // sm/md 没有形状约束，用和 favicon 一致的圆角方形，保持品牌呼应。
+                const radius = size === 'lg' ? 16 : 7.5;
+                const innerRadius = size === 'lg' ? 15.3 : 6.8;
+                // abu 字标：与站点 favicon（assets/img/favicon.svg）同一套几何，
+                // 按 32 viewBox 等比缩一半。改字标要先改 favicon.svg，再同步这里。
+                return `<svg class="brand-avatar-svg brand-avatar-svg--${size}" width="${dim}" height="${dim}" viewBox="0 0 32 32" fill="none" role="img" aria-label="${this.config?.profile?.name || '阿布'}">
                     <defs>
-                        <linearGradient id="av-g-${size}" x1="2" y1="2" x2="30" y2="30">
-                            <stop offset="0%" stop-color="#38bdf8"/>
-                            <stop offset="50%" stop-color="#818cf8"/>
-                            <stop offset="100%" stop-color="#c084fc"/>
+                        <linearGradient id="av-p-${size}" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#1b2237"/>
+                            <stop offset="100%" stop-color="#0a0d15"/>
+                        </linearGradient>
+                        <linearGradient id="av-i-${size}" x1="2.8" y1="16" x2="29.2" y2="16" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#5ccdfa"/>
+                            <stop offset="50%" stop-color="#98a2fb"/>
+                            <stop offset="100%" stop-color="#cc9bfd"/>
                         </linearGradient>
                     </defs>
-                    <!-- Cyber-Dog & AI Core Vector Emblem -->
-                    <polygon points="6,4 11,13 5,13" fill="url(#av-g-${size})" opacity="0.85"/>
-                    <polygon points="26,4 21,13 27,13" fill="url(#av-g-${size})" opacity="0.85"/>
-                    <polygon points="7,7 10,12 6,12" fill="#38bdf8" opacity="0.45"/>
-                    <polygon points="25,7 22,12 26,12" fill="#818cf8" opacity="0.45"/>
-                    <path d="M8 12h16l2 9-10 7-10-7 2-9z" fill="rgba(56,189,248,0.16)" stroke="url(#av-g-${size})" stroke-width="1.8" stroke-linejoin="round"/>
-                    <path d="M10 16h12l-1 3H11l-1-3z" fill="url(#av-g-${size})" opacity="0.95"/>
-                    <line x1="11" y1="17.5" x2="21" y2="17.5" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"/>
-                    <polygon points="14.5,23 17.5,23 16,24.5" fill="url(#av-g-${size})"/>
-                    <circle cx="16" cy="21" r="1" fill="#38bdf8"/>
+                    <rect width="32" height="32" rx="${radius}" fill="url(#av-p-${size})"/>
+                    <rect x="0.8" y="0.8" width="30.4" height="30.4" rx="${innerRadius}" fill="none" stroke="#8fc4ff" stroke-opacity="0.28" stroke-width="0.7"/>
+                    <g fill="none" stroke="url(#av-i-${size})" stroke-width="2.7">
+                        <ellipse cx="5.62" cy="17.6" rx="2.82" ry="4.2"/>
+                        <path d="M8.44 13.4V21.8" stroke-linecap="round"/>
+                        <path d="M13.19 10.2V21.8" stroke-linecap="round"/>
+                        <ellipse cx="16" cy="17.6" rx="2.82" ry="4.2"/>
+                        <path d="M22.22 13.4V17.6A2.82 4.2 0 0 0 27.84 17.6V13.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
                 </svg>`;
             },
             getScrollOffset() {
