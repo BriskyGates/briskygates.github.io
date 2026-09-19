@@ -258,7 +258,7 @@
             </div>
             <div class="skills-grid reveal-stagger">
                 <article v-for="skill in config.skills.items" :key="skill.title" class="skill-tile">
-                    <span class="skill-tile-icon" v-html="getTechIcon(skill.title || skill.icon, 'skill')"></span>
+                    <span class="skill-tile-icon" v-html="getTechIcon(skill.icon || skill.title, 'skill')"></span>
                     <h3>{{ skill.title }}</h3>
                     <p>{{ skill.description }}</p>
                     <div class="tag-row">
@@ -276,7 +276,7 @@
             <div class="services-grid reveal-stagger">
                 <article v-for="service in config.services.items" :key="service.title" class="service-tile">
                     <div class="service-tile-top">
-                        <span class="service-tile-icon" v-html="getTechIcon(service.title || service.icon, 'service')"></span>
+                        <span class="service-tile-icon" v-html="getTechIcon(service.icon || service.title, 'service')"></span>
                         <span class="service-badge">{{ service.badge }}</span>
                     </div>
                     <h3>{{ service.title }}</h3>
@@ -290,7 +290,7 @@
                 <h3>{{ config.services.partners.title }}</h3>
                 <div class="partners-row">
                     <div v-for="partner in config.services.partners.types" :key="partner.type" class="partner-pill">
-                        <span class="partner-pill-icon" v-html="getTechIcon(partner.type || partner.icon, 'partner')"></span>
+                        <span class="partner-pill-icon" v-html="getTechIcon(partner.icon || partner.type, 'partner')"></span>
                         <div>
                             <strong>{{ partner.type }}</strong>
                             <p>{{ partner.description }}</p>
