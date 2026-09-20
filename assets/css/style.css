@@ -695,11 +695,13 @@ body.site-body {
     font-size: 1rem;
     font-weight: 700;
     color: #ffffff;
+    white-space: nowrap;
 }
 
 .hero-profile-meta span {
-    font-size: 0.74rem;
+    font-size: 0.78rem;
     color: #94a3b8;
+    white-space: nowrap;
 }
 
 .radar-status-badge {
@@ -2456,8 +2458,8 @@ body.site-body {
     }
 
     .hero-avatar-ring {
-        width: 64px;
-        height: 64px;
+        width: 44px;
+        height: 44px;
     }
 
     .hero-avatar {
@@ -2785,10 +2787,10 @@ body.site-body {
         min-width: 0;
         min-height: 48px;
         flex: 1;
-        color: var(--text-muted);
+        color: var(--text-secondary);
         text-decoration: none;
-        font-size: 0.62rem;
-        font-weight: 600;
+        font-size: 0.65rem;
+        font-weight: 500;
         border-radius: var(--radius-sm);
         transition: color 0.15s var(--ease-snappy), background 0.15s var(--ease-snappy), transform 0.15s var(--ease-snappy);
         -webkit-tap-highlight-color: transparent;
@@ -2833,6 +2835,7 @@ body.site-body {
 
     .mobile-nav-item.active {
         color: var(--accent);
+        font-weight: 700;
         background: rgba(56, 189, 248, 0.08);
     }
 
