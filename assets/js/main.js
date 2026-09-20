@@ -982,6 +982,7 @@ function renderWithVue(config) {
                 </svg>`;
             },
             getBrandAvatar(size = 'md') {
+                const idSuffix = arguments[1] || '';
                 const raw = (this.config?.profile?.avatar || '').trim();
                 // If custom image path or user provided non-dog text, honor it
                 if (raw && raw !== '🐶' && raw !== '🐕') {
@@ -992,23 +993,25 @@ function renderWithVue(config) {
                 // sm/md 没有形状约束，用和 favicon 一致的圆角方形，保持品牌呼应。
                 const radius = size === 'lg' ? 16 : 7.5;
                 const innerRadius = size === 'lg' ? 15.3 : 6.8;
+                const pid = `av-p-${size}${idSuffix ? '-' + idSuffix : ''}`;
+                const iid = `av-i-${size}${idSuffix ? '-' + idSuffix : ''}`;
                 // abu 字标：与站点 favicon（assets/img/favicon.svg）同一套几何，
                 // 按 32 viewBox 等比缩一半。改字标要先改 favicon.svg，再同步这里。
                 return `<svg class="brand-avatar-svg brand-avatar-svg--${size}" width="${dim}" height="${dim}" viewBox="0 0 32 32" fill="none" role="img" aria-label="${this.config?.profile?.name || '阿布'}">
                     <defs>
-                        <linearGradient id="av-p-${size}" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                        <linearGradient id="${pid}" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
                             <stop offset="0%" stop-color="#1b2237"/>
                             <stop offset="100%" stop-color="#0a0d15"/>
                         </linearGradient>
-                        <linearGradient id="av-i-${size}" x1="2.8" y1="16" x2="29.2" y2="16" gradientUnits="userSpaceOnUse">
+                        <linearGradient id="${iid}" x1="2.8" y1="16" x2="29.2" y2="16" gradientUnits="userSpaceOnUse">
                             <stop offset="0%" stop-color="#5ccdfa"/>
                             <stop offset="50%" stop-color="#98a2fb"/>
                             <stop offset="100%" stop-color="#cc9bfd"/>
                         </linearGradient>
                     </defs>
-                    <rect width="32" height="32" rx="${radius}" fill="url(#av-p-${size})"/>
+                    <rect width="32" height="32" rx="${radius}" fill="url(#${pid})"/>
                     <rect x="0.8" y="0.8" width="30.4" height="30.4" rx="${innerRadius}" fill="none" stroke="#8fc4ff" stroke-opacity="0.28" stroke-width="0.7"/>
-                    <g fill="none" stroke="url(#av-i-${size})" stroke-width="2.7">
+                    <g fill="none" stroke="url(#${iid})" stroke-width="2.7">
                         <ellipse cx="5.62" cy="17.6" rx="2.82" ry="4.2"/>
                         <path d="M8.44 13.4V21.8" stroke-linecap="round"/>
                         <path d="M13.19 10.2V21.8" stroke-linecap="round"/>

@@ -47,7 +47,7 @@ zh.ui.nav = [
 ];
 
 Object.assign(zh.profile, {
-    tagline: '上海 · 可远程',
+    tagline: '全栈工程师',
     status: '可接活',
     heroTitle: '帮企业把 AI 真正用起来，不只是做演示',
     title: '关于我',
