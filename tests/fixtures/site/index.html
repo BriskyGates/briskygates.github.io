@@ -108,22 +108,34 @@
             </div>
         </header>
 
-        <!-- Hero -->
-        <section id="home" class="hero-banner">
+        <!-- Hero: MotionSites Bento Grid & Liquid-Glass -->
+        <section id="home" class="hero-banner bento-hero">
             <div class="hero-bg" :style="heroGradientStyle" aria-hidden="true"></div>
-            <div class="hero-inner">
-                <div class="hero-profile">
-                    <div class="hero-avatar-ring">
-                        <span class="hero-avatar" v-html="getBrandAvatar('lg')"></span>
+            <div class="bento-hero-grid noise-overlay">
+                <!-- Bento 1: Main Value & Identity -->
+                <article class="bento-card bento-card--main liquid-glass">
+                    <div class="bento-card__header">
+                        <div class="hero-profile-inline">
+                            <div class="hero-avatar-ring">
+                                <span class="hero-avatar" v-html="getBrandAvatar('md')"></span>
+                            </div>
+                            <div class="hero-profile-meta">
+                                <strong>{{ config.profile.name }}</strong>
+                                <span>{{ config.profile.tagline }}</span>
+                            </div>
+                        </div>
+                        <div class="radar-status-badge">
+                            <span class="radar-pulse"></span>
+                            <span>{{ config.profile.status }}</span>
+                        </div>
                     </div>
-                    <div class="hero-status-badge">{{ config.profile.status }}</div>
-                </div>
-                <div class="hero-content">
-                    <p class="hero-eyebrow">{{ timeGreeting }}</p>
-                    <h1 class="hero-title">{{ config.profile.heroTitle }}</h1>
-                    <p class="hero-subtitle" v-html="config.profile.greeting.description"></p>
-                    <div class="hero-chips">
-                        <span v-for="chip in config.profile.heroChips" :key="chip" class="hero-chip">{{ chip }}</span>
+                    <div class="bento-card__body">
+                        <p class="hero-eyebrow">{{ timeGreeting }}</p>
+                        <h1 class="hero-title">{{ config.profile.heroTitle }}</h1>
+                        <p class="hero-subtitle" v-html="config.profile.greeting.description"></p>
+                        <div class="hero-chips">
+                            <span v-for="chip in config.profile.heroChips" :key="chip" class="hero-chip">{{ chip }}</span>
+                        </div>
                     </div>
                     <div class="hero-actions">
                         <button type="button" class="btn-primary" @click="scrollToSection('contact')">
@@ -134,28 +146,81 @@
                             {{ config.ui.heroCtaSecondary }}
                         </button>
                     </div>
-                    <div class="hero-flow-entries" v-if="config.profile.heroFlowEntries">
+                </article>
+
+                <!-- Bento 2: Delivery Impact & Stats -->
+                <article class="bento-card bento-card--stats liquid-glass">
+                    <div class="bento-card-label">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                        <span>DELIVERY IMPACT</span>
+                    </div>
+                    <div class="hero-stats-grid">
+                        <div v-for="stat in config.profile.stats" :key="stat.label" class="hero-stat-card">
+                            <span class="hero-stat-num">{{ stat.number }}</span>
+                            <span class="hero-stat-label">{{ stat.label }}</span>
+                        </div>
+                    </div>
+                    <div class="bento-role-highlight" v-if="config.profile.roles && config.profile.roles[0]">
+                        <span class="role-pill-icon">⚡</span>
+                        <p>{{ config.profile.roles[0].value }}</p>
+                    </div>
+                </article>
+
+                <!-- Bento 3: Tech Stack Marquee (Full-width) -->
+                <article class="bento-card bento-card--marquee liquid-glass">
+                    <div class="marquee-header">
+                        <span class="marquee-title">ENGINEERING STACK</span>
+                        <span class="marquee-sub">可落地 · 生产可用 · 高吞吐低延迟</span>
+                    </div>
+                    <div class="marquee-container" aria-label="技术栈跑马灯">
+                        <div class="marquee-track">
+                            <div class="marquee-group">
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>企业级 RAG 架构</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>Multi-Agent 工具编排</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>PDF / OCR 复杂版面智能</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>FastAPI + Celery 异步队列</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>Milvus / pgvector 向量检索</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>时效与权威重排 Rerank</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>Docker / 云原生部署</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>飞书 / 企微 Bot 自动化</span>
+                            </div>
+                            <div class="marquee-group" aria-hidden="true">
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>企业级 RAG 架构</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>Multi-Agent 工具编排</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>PDF / OCR 复杂版面智能</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>FastAPI + Celery 异步队列</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>Milvus / pgvector 向量检索</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>时效与权威重排 Rerank</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>Docker / 云原生部署</span>
+                                <span class="tech-badge"><i class="tech-icon-dot"></i>飞书 / 企微 Bot 自动化</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Bento 4: Quick Flow Entries -->
+                <article class="bento-card bento-card--flows liquid-glass" v-if="config.profile.heroFlowEntries">
+                    <div class="bento-card-label">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <span>SCENARIO SOLUTIONS · 快速定位场景</span>
+                    </div>
+                    <div class="bento-flow-grid">
                         <button
                             v-for="entry in config.profile.heroFlowEntries"
                             :key="entry.id"
                             type="button"
-                            class="hero-flow-entry"
+                            class="bento-flow-tile"
                             @click="scrollToSection(entry.id)"
                         >
-                            <span class="hero-flow-entry-icon" v-html="getTechIcon(entry.id, 'hero-flow')"></span>
-                            <div>
+                            <span class="bento-flow-icon" v-html="getTechIcon(entry.id, 'hero-flow')"></span>
+                            <div class="bento-flow-text">
                                 <strong>{{ entry.title }}</strong>
                                 <span>{{ entry.sub }}</span>
                             </div>
+                            <svg class="bento-flow-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
                         </button>
                     </div>
-                </div>
-                <div class="hero-stats">
-                    <div v-for="stat in config.profile.stats" :key="stat.label" class="hero-stat">
-                        <span class="hero-stat-num">{{ stat.number }}</span>
-                        <span class="hero-stat-label">{{ stat.label }}</span>
-                    </div>
-                </div>
+                </article>
             </div>
         </section>
 
@@ -170,7 +235,7 @@
                 <article
                     v-for="project in config.featured.items"
                     :key="project.id"
-                    class="media-card media-card--featured"
+                    class="media-card media-card--featured liquid-glass"
                     :style="{ '--card-accent': project.accent }"
                 >
                     <div class="media-card-visual" :class="'media-card-visual--' + project.id">
@@ -238,7 +303,7 @@
             <div class="timeline">
                 <article v-for="(item, idx) in config.experience.items" :key="idx" class="timeline-item">
                     <div class="timeline-marker"></div>
-                    <div class="timeline-card">
+                    <div class="timeline-card liquid-glass">
                         <span class="timeline-period">{{ item.period }}</span>
                         <h3>{{ item.title }}</h3>
                         <p>{{ item.description }}</p>
@@ -449,32 +514,51 @@
     </aside>
 
     <main class="main-view">
-        <section id="home" class="hero-banner">
-            <div class="hero-inner">
-                <div class="hero-content">
-                    <p class="hero-eyebrow">早上好</p>
-                    <h1 class="hero-title">让 AI 跨越技术演示，落地为真实的生产力</h1>
-                    <p class="hero-subtitle">我是<strong>企业 AI 落地工程师</strong>——帮技术负责人/业务团队把 RAG、Agent、文档智能做成<strong>可部署、可评测、可运维</strong>的生产系统。<br>如果你卡在知识库不准、文档解析炸、或 Agent 上不了生产，可以把现状发我。</p>
-                    <div class="hero-chips"><span class="hero-chip">企业/金融文档 RAG</span><span class="hero-chip">文档智能解析</span><span class="hero-chip">Agent 生产落地</span><span class="hero-chip">可观测可回滚</span><span class="hero-chip">Bot / 飞书自动化</span></div>
-                </div>
-                <div class="hero-stats">
-                    <div class="hero-stat">
+        <section id="home" class="hero-banner bento-hero">
+            <div class="bento-hero-grid noise-overlay">
+                <article class="bento-card bento-card--main liquid-glass">
+                    <div class="bento-card__header">
+                        <div class="hero-profile-inline">
+                            <div class="hero-profile-meta">
+                                <strong>阿布</strong>
+                                <span>上海 · 可远程</span>
+                            </div>
+                        </div>
+                        <div class="radar-status-badge">
+                            <span class="radar-pulse"></span>
+                            <span>可接项目</span>
+                        </div>
+                    </div>
+                    <div class="bento-card__body">
+                        <p class="hero-eyebrow">早上好</p>
+                        <h1 class="hero-title">让 AI 跨越技术演示，落地为真实的生产力</h1>
+                        <p class="hero-subtitle">我是<strong>企业 AI 落地工程师</strong>——帮技术负责人/业务团队把 RAG、Agent、文档智能做成<strong>可部署、可评测、可运维</strong>的生产系统。<br>如果你卡在知识库不准、文档解析炸、或 Agent 上不了生产，可以把现状发我。</p>
+                        <div class="hero-chips"><span class="hero-chip">企业/金融文档 RAG</span><span class="hero-chip">文档智能解析</span><span class="hero-chip">Agent 生产落地</span><span class="hero-chip">可观测可回滚</span><span class="hero-chip">Bot / 飞书自动化</span></div>
+                    </div>
+                </article>
+                <article class="bento-card bento-card--stats liquid-glass">
+                    <div class="bento-card-label">
+                        <span>DELIVERY IMPACT</span>
+                    </div>
+                    <div class="hero-stats-grid">
+                    <div class="hero-stat-card">
                         <span class="hero-stat-num">6+</span>
                         <span class="hero-stat-label">年实战</span>
                     </div>
-                    <div class="hero-stat">
+                    <div class="hero-stat-card">
                         <span class="hero-stat-num">80+</span>
                         <span class="hero-stat-label">自研仓库</span>
                     </div>
-                    <div class="hero-stat">
+                    <div class="hero-stat-card">
                         <span class="hero-stat-num">15+</span>
                         <span class="hero-stat-label">AI 核心项目</span>
                     </div>
-                    <div class="hero-stat">
+                    <div class="hero-stat-card">
                         <span class="hero-stat-num">全栈</span>
                         <span class="hero-stat-label">交付闭环</span>
                     </div>
-                </div>
+                    </div>
+                </article>
             </div>
         </section>
 

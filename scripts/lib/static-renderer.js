@@ -23,7 +23,7 @@ function renderAppShell(config) {
 
     const stats = (profile.stats || [])
         .map(stat => `
-                    <div class="hero-stat">
+                    <div class="hero-stat-card">
                         <span class="hero-stat-num">${escapeHtml(stat.number)}</span>
                         <span class="hero-stat-label">${escapeHtml(stat.label)}</span>
                     </div>`)
@@ -52,16 +52,35 @@ function renderAppShell(config) {
     </aside>
 
     <main class="main-view">
-        <section id="home" class="hero-banner">
-            <div class="hero-inner">
-                <div class="hero-content">
-                    <p class="hero-eyebrow">${escapeHtml(greeting)}</p>
-                    <h1 class="hero-title">${escapeHtml(profile.heroTitle)}</h1>
-                    <p class="hero-subtitle">${profile.greeting?.description || ''}</p>
-                    <div class="hero-chips">${heroChips}</div>
-                </div>
-                <div class="hero-stats">${stats}
-                </div>
+        <section id="home" class="hero-banner bento-hero">
+            <div class="bento-hero-grid noise-overlay">
+                <article class="bento-card bento-card--main liquid-glass">
+                    <div class="bento-card__header">
+                        <div class="hero-profile-inline">
+                            <div class="hero-profile-meta">
+                                <strong>${escapeHtml(profile.name)}</strong>
+                                <span>${escapeHtml(profile.tagline)}</span>
+                            </div>
+                        </div>
+                        <div class="radar-status-badge">
+                            <span class="radar-pulse"></span>
+                            <span>${escapeHtml(profile.status || '可接项目')}</span>
+                        </div>
+                    </div>
+                    <div class="bento-card__body">
+                        <p class="hero-eyebrow">${escapeHtml(greeting)}</p>
+                        <h1 class="hero-title">${escapeHtml(profile.heroTitle)}</h1>
+                        <p class="hero-subtitle">${profile.greeting?.description || ''}</p>
+                        <div class="hero-chips">${heroChips}</div>
+                    </div>
+                </article>
+                <article class="bento-card bento-card--stats liquid-glass">
+                    <div class="bento-card-label">
+                        <span>DELIVERY IMPACT</span>
+                    </div>
+                    <div class="hero-stats-grid">${stats}
+                    </div>
+                </article>
             </div>
         </section>
 
