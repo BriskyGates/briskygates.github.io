@@ -41,6 +41,29 @@ function renderAppShell(config) {
         .map(s => `<li>${escapeHtml(s.title)}：${escapeHtml(s.description)}</li>`)
         .join('');
 
+    const heroAvatarSvg = `<svg class="brand-avatar-svg brand-avatar-svg--lg" width="44" height="44" viewBox="0 0 32 32" fill="none" role="img" aria-label="${escapeHtml(profile.name || '阿布')}">
+                    <defs>
+                        <linearGradient id="av-p-lg-static" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#1b2237"/>
+                            <stop offset="100%" stop-color="#0a0d15"/>
+                        </linearGradient>
+                        <linearGradient id="av-i-lg-static" x1="2.8" y1="16" x2="29.2" y2="16" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#5ccdfa"/>
+                            <stop offset="50%" stop-color="#98a2fb"/>
+                            <stop offset="100%" stop-color="#cc9bfd"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="32" height="32" rx="16" fill="url(#av-p-lg-static)"/>
+                    <rect x="0.8" y="0.8" width="30.4" height="30.4" rx="15.3" fill="none" stroke="#8fc4ff" stroke-opacity="0.28" stroke-width="0.7"/>
+                    <g fill="none" stroke="url(#av-i-lg-static)" stroke-width="2.7">
+                        <ellipse cx="5.62" cy="17.6" rx="2.82" ry="4.2"/>
+                        <path d="M8.44 13.4V21.8" stroke-linecap="round"/>
+                        <path d="M13.19 10.2V21.8" stroke-linecap="round"/>
+                        <ellipse cx="16" cy="17.6" rx="2.82" ry="4.2"/>
+                        <path d="M22.22 13.4V17.6A2.82 4.2 0 0 0 27.84 17.6V13.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                </svg>`;
+
     return `
     <aside class="sidebar" aria-label="主导航">
         <div class="sidebar-brand">
@@ -57,6 +80,9 @@ function renderAppShell(config) {
                 <article class="bento-card bento-card--main liquid-glass">
                     <div class="bento-card__header">
                         <div class="hero-profile-inline">
+                            <div class="hero-avatar-ring">
+                                <span class="hero-avatar">${heroAvatarSvg}</span>
+                            </div>
                             <div class="hero-profile-meta">
                                 <strong>${escapeHtml(profile.name)}</strong>
                                 <span>${escapeHtml(profile.tagline)}</span>

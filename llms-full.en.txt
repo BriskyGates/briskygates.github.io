@@ -6,7 +6,7 @@
 
 - 姓名: Abu
 - 状态: Available
-- 标语: Shanghai · Remote OK
+- 标语: Full-Stack Engineer
 - 定位: Turning AI from tech demos into real production power
 - 介绍: I'm an enterprise AI production engineer — I help tech leads and business teams turn RAG, Agents, and document intelligence into systems that are deployable, measurable, and operable . If your knowledge base cites the wrong passages, document parsing is broken, or Agents won't ship — send me the status quo.
 - 技术关键词: Enterprise / finance RAG, Document intelligence, Agents in production, Observable and rollback-ready, Bot / Feishu automation
