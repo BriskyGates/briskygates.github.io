@@ -146,8 +146,8 @@ test('大白话版本展示问题清单和可复用工具，不展示技术长�
     await waitForAppReady(page);
 
     await expect(page.locator('#plain-cases')).toBeVisible();
-    await expect(page.locator('.plain-case-card')).toHaveCount(3);
-    await expect(page.locator('.plain-tool-card')).toHaveCount(6);
+    await expect(page.locator('.plain-case-card')).toHaveCount(7);
+    await expect(page.locator('.plain-tool-card')).toHaveCount(8);
     await expect(page.locator('#showcase')).toHaveCount(0);
     await expect(page.locator('#flow-rag')).toHaveCount(0);
     await expect(page.locator('.mobile-bottom-nav .mobile-nav-item[href="#tools"]')).toContainText('工具');
