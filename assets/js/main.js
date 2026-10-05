@@ -1114,6 +1114,8 @@ function renderWithVue(config) {
 
                 const allSections = [
                     'home',
+                    'plain-cases',
+                    'tools',
                     'showcase',
                     'flow-rag',
                     'flow-agent',
