@@ -54,7 +54,7 @@ test('下拉列表可选择大白话', async ({ page }) => {
 
     await selectLanguage(page, '大白话');
 
-    await expect(page.locator('.hero-title')).toContainText(/不只是做演示/);
+    await expect(page.locator('.hero-title')).toContainText(/少翻资料/);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('大白话');
     await expect(page).toHaveURL(/lang=plain/);
 });
@@ -76,7 +76,7 @@ test('下拉列表可选择大白話·繁', async ({ page }) => {
 
     await selectLanguage(page, '大白話·繁');
 
-    await expect(page.locator('.hero-title')).toContainText(/不只是做演示|演示/);
+    await expect(page.locator('.hero-title')).toContainText(/少翻資料/);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('大白話·繁');
     await expect(page).toHaveURL(/lang=plain-Hant/);
     await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
@@ -88,7 +88,7 @@ test('下拉列表可选择 Plain English', async ({ page }) => {
 
     await selectLanguage(page, 'Plain English');
 
-    await expect(page.locator('.hero-title')).toContainText(/not just demos/i);
+    await expect(page.locator('.hero-title')).toContainText(/Less searching/i);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('Plain English');
     await expect(page).toHaveURL(/lang=plain-en/);
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
@@ -119,7 +119,7 @@ test('URL 参数 lang=plain 直接加载大白话', async ({ page }) => {
     await page.goto('/?lang=plain');
     await waitForAppReady(page);
 
-    await expect(page.locator('.hero-title')).toContainText(/不只是做演示/);
+    await expect(page.locator('.hero-title')).toContainText(/少翻资料/);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('大白话');
 });
 
@@ -127,7 +127,7 @@ test('URL 参数 lang=plain-Hant 直接加载大白話·繁', async ({ page }) =
     await page.goto('/?lang=plain-Hant');
     await waitForAppReady(page);
 
-    await expect(page.locator('.hero-title')).toContainText(/演示/);
+    await expect(page.locator('.hero-title')).toContainText(/少翻資料/);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('大白話·繁');
     await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
 });
@@ -136,9 +136,21 @@ test('URL 参数 lang=plain-en 直接加载 Plain English', async ({ page }) => 
     await page.goto('/?lang=plain-en');
     await waitForAppReady(page);
 
-    await expect(page.locator('.hero-title')).toContainText(/not just demos/i);
+    await expect(page.locator('.hero-title')).toContainText(/Less searching/i);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('Plain English');
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+});
+
+test('大白话版本展示问题清单和可复用工具，不展示技术长流程', async ({ page }) => {
+    await page.goto('/?lang=plain');
+    await waitForAppReady(page);
+
+    await expect(page.locator('#plain-cases')).toBeVisible();
+    await expect(page.locator('.plain-case-card')).toHaveCount(3);
+    await expect(page.locator('.plain-tool-card')).toHaveCount(6);
+    await expect(page.locator('#showcase')).toHaveCount(0);
+    await expect(page.locator('#flow-rag')).toHaveCount(0);
+    await expect(page.locator('.mobile-bottom-nav .mobile-nav-item[href="#tools"]')).toContainText('工具');
 });
 
 test('URL 参数 lang=zh-Hant 直接加载繁体中文', async ({ page }) => {

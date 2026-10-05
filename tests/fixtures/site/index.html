@@ -117,7 +117,7 @@
                     <div class="bento-card__header">
                         <div class="hero-profile-inline">
                             <div class="hero-avatar-ring">
-                                <span class="hero-avatar" v-html="getBrandAvatar('md')"></span>
+                                <span class="hero-avatar" v-html="getBrandAvatar('lg', 'hero')"></span>
                             </div>
                             <div class="hero-profile-meta">
                                 <strong>{{ config.profile.name }}</strong>
@@ -142,7 +142,7 @@
                             <svg class="btn-arrow-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                             {{ config.ui.heroCtaPrimary }}
                         </button>
-                        <button type="button" class="btn-secondary" @click="scrollToSection('showcase')">
+                        <button type="button" class="btn-secondary" @click="scrollToSection(config.ui && config.ui.brief && config.ui.brief.enabled ? 'plain-cases' : 'showcase')">
                             {{ config.ui.heroCtaSecondary }}
                         </button>
                     </div>
@@ -167,7 +167,7 @@
                 </article>
 
                 <!-- Bento 3: Tech Stack Marquee (Full-width) -->
-                <article class="bento-card bento-card--marquee liquid-glass">
+                <article class="bento-card bento-card--marquee liquid-glass" v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled)">
                     <div class="marquee-header">
                         <span class="marquee-title">ENGINEERING STACK</span>
                         <span class="marquee-sub">可落地 · 生产可用 · 高吞吐低延迟</span>
@@ -199,7 +199,7 @@
                 </article>
 
                 <!-- Bento 4: Quick Flow Entries -->
-                <article class="bento-card bento-card--flows liquid-glass" v-if="config.profile.heroFlowEntries">
+                <article class="bento-card bento-card--flows liquid-glass" v-if="config.profile.heroFlowEntries && !(config.ui && config.ui.brief && config.ui.brief.enabled)">
                     <div class="bento-card-label">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                         <span>SCENARIO SOLUTIONS · 快速定位场景</span>
@@ -209,7 +209,7 @@
                             v-for="entry in config.profile.heroFlowEntries"
                             :key="entry.id"
                             type="button"
-                            class="bento-flow-tile"
+                            class="bento-flow-tile hero-flow-entry"
                             @click="scrollToSection(entry.id)"
                         >
                             <span class="bento-flow-icon" v-html="getTechIcon(entry.id, 'hero-flow')"></span>
@@ -224,8 +224,62 @@
             </div>
         </section>
 
+        <!-- Business-facing short version -->
+        <section id="plain-cases" v-if="config.ui && config.ui.brief && config.ui.brief.enabled" class="content-section plain-brief-section" aria-labelledby="plain-cases-title">
+            <div class="section-head">
+                <p class="plain-eyebrow">{{ config.ui.brief.eyebrow }}</p>
+                <h2 id="plain-cases-title">{{ config.ui.brief.casesTitle }}</h2>
+                <p>{{ config.ui.brief.casesSubtitle }}</p>
+                <p class="plain-audience">{{ config.ui.brief.audience }}</p>
+                <button type="button" class="plain-tech-link" @click="selectLanguage(currentLang === 'plain-en' ? 'en' : (currentLang === 'plain-Hant' ? 'zh-Hant' : 'zh'))">{{ config.ui.brief.technicalLabel }}</button>
+            </div>
+            <div class="plain-case-grid">
+                <article v-for="item in config.ui.brief.cases" :key="item.id" class="plain-case-card liquid-glass">
+                    <span class="plain-case-audience">{{ item.audience }}</span>
+                    <h3>{{ item.title }}</h3>
+                    <dl>
+                        <div><dt>{{ config.ui.brief.problemLabel }}</dt><dd>{{ item.problem }}</dd></div>
+                        <div><dt>{{ config.ui.brief.solutionLabel }}</dt><dd>{{ item.solution }}</dd></div>
+                        <div><dt>{{ config.ui.brief.resultLabel }}</dt><dd>{{ item.result }}</dd></div>
+                    </dl>
+                </article>
+            </div>
+        </section>
+
+        <section id="tools" v-if="config.ui && config.ui.brief && config.ui.brief.enabled" class="content-section plain-brief-section" aria-labelledby="plain-tools-title">
+            <div class="section-head">
+                <h2 id="plain-tools-title">{{ config.ui.brief.toolsTitle }}</h2>
+                <p>{{ config.ui.brief.toolsSubtitle }}</p>
+            </div>
+            <p class="plain-tools-note">{{ config.ui.brief.toolsNote }}</p>
+            <div class="plain-tools-grid">
+                <article v-for="tool in config.ui.brief.tools" :key="tool.id" class="plain-tool-card">
+                    <div class="plain-tool-card__top">
+                        <h3>{{ tool.title }}</h3>
+                        <span class="plain-tool-status">{{ tool.status }}</span>
+                    </div>
+                    <p class="plain-tool-fit">适合：{{ tool.fit }}</p>
+                    <div class="plain-tool-row"><strong>{{ config.ui.brief.inputLabel }}</strong><span>{{ tool.input }}</span></div>
+                    <div class="plain-tool-row"><strong>{{ config.ui.brief.outputLabel }}</strong><span>{{ tool.output }}</span></div>
+                    <div class="plain-tool-row plain-tool-row--setup"><strong>{{ config.ui.brief.setupLabel }}</strong><span>{{ tool.setup }}</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section v-if="config.ui && config.ui.brief && config.ui.brief.enabled" class="content-section plain-brief-section plain-conversation-section">
+            <div class="section-head">
+                <h2>{{ config.ui.brief.conversationTitle }}</h2>
+            </div>
+            <div class="plain-questions">
+                <div v-for="(question, index) in config.ui.brief.questions" :key="question" class="plain-question">
+                    <span>{{ index + 1 }}</span><p>{{ question }}</p>
+                </div>
+            </div>
+            <p class="plain-conversation-note">{{ config.ui.brief.conversationNote }}</p>
+        </section>
+
         <!-- Featured horizontal row -->
-        <section id="showcase" class="content-section motion-reveal" v-if="config.featured && config.featured.items">
+        <section id="showcase" class="content-section motion-reveal" v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled) && config.featured && config.featured.items">
             <div class="section-head">
                 <h2>{{ config.featured.title }}</h2>
                 <p>{{ config.featured.subtitle }}</p>
@@ -261,6 +315,7 @@
         <!-- Business flows -->
         <section
             v-for="flow in (config.businessFlows && config.businessFlows.flows) || []"
+            v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled)"
             :key="flow.id"
             :id="flow.id"
             class="content-section flow-section motion-reveal"
@@ -295,7 +350,7 @@
         </section>
 
         <!-- Experience timeline -->
-        <section id="experience" class="content-section motion-reveal" v-if="config.experience">
+        <section id="experience" class="content-section motion-reveal" v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled) && config.experience">
             <div class="section-head">
                 <h2>{{ config.experience.title }}</h2>
                 <p>{{ config.experience.subtitle }}</p>
@@ -316,7 +371,7 @@
         </section>
 
         <!-- Skills -->
-        <section id="skills" class="content-section motion-reveal">
+        <section id="skills" class="content-section motion-reveal" v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled)">
             <div class="section-head">
                 <h2>{{ config.skills.title }}</h2>
                 <p class="section-motto" v-html="config.skills.motto"></p>
@@ -334,7 +389,7 @@
         </section>
 
         <!-- Services -->
-        <section id="services" class="content-section motion-reveal">
+        <section id="services" class="content-section motion-reveal" v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled)">
             <div class="section-head">
                 <h2>{{ config.services.title }}</h2>
             </div>
@@ -450,7 +505,7 @@
         </section>
 
         <!-- Philosophy -->
-        <section class="content-section motion-reveal" v-if="config.projects && config.projects.innovation">
+        <section class="content-section motion-reveal" v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled) && config.projects && config.projects.innovation">
             <div class="philosophy-card">
                 <span class="philosophy-card-icon" v-html="getTechIcon(config.projects.innovation.icon, 'philosophy')"></span>
                 <div>
@@ -486,7 +541,7 @@
 <aside class="sidebar" aria-label="主导航">
         <div class="sidebar-brand">
             <strong>阿布</strong>
-            <span>上海 · 可远程</span>
+            <span>全栈工程师</span>
         </div>
         <nav class="sidebar-nav">
             <a href="#home" class="nav-item">
@@ -519,9 +574,33 @@
                 <article class="bento-card bento-card--main liquid-glass">
                     <div class="bento-card__header">
                         <div class="hero-profile-inline">
+                            <div class="hero-avatar-ring">
+                                <span class="hero-avatar"><svg class="brand-avatar-svg brand-avatar-svg--lg" width="44" height="44" viewBox="0 0 32 32" fill="none" role="img" aria-label="阿布">
+                    <defs>
+                        <linearGradient id="av-p-lg-static" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#1b2237"/>
+                            <stop offset="100%" stop-color="#0a0d15"/>
+                        </linearGradient>
+                        <linearGradient id="av-i-lg-static" x1="2.8" y1="16" x2="29.2" y2="16" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#5ccdfa"/>
+                            <stop offset="50%" stop-color="#98a2fb"/>
+                            <stop offset="100%" stop-color="#cc9bfd"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="32" height="32" rx="16" fill="url(#av-p-lg-static)"/>
+                    <rect x="0.8" y="0.8" width="30.4" height="30.4" rx="15.3" fill="none" stroke="#8fc4ff" stroke-opacity="0.28" stroke-width="0.7"/>
+                    <g fill="none" stroke="url(#av-i-lg-static)" stroke-width="2.7">
+                        <ellipse cx="5.62" cy="17.6" rx="2.82" ry="4.2"/>
+                        <path d="M8.44 13.4V21.8" stroke-linecap="round"/>
+                        <path d="M13.19 10.2V21.8" stroke-linecap="round"/>
+                        <ellipse cx="16" cy="17.6" rx="2.82" ry="4.2"/>
+                        <path d="M22.22 13.4V17.6A2.82 4.2 0 0 0 27.84 17.6V13.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                </svg></span>
+                            </div>
                             <div class="hero-profile-meta">
                                 <strong>阿布</strong>
-                                <span>上海 · 可远程</span>
+                                <span>全栈工程师</span>
                             </div>
                         </div>
                         <div class="radar-status-badge">
