@@ -1,70 +1,52 @@
 {
   "ui": {
-    "pageTitle": "阿布 · 幫企業把 AI 真正用起來",
-    "pageDescription": "把知識庫、文檔處理、智能助手做成能上線、能維護的系統",
+    "pageTitle": "阿布 · 幫團隊少翻資料、少做重複活",
+    "pageDescription": "給業務負責人的簡明介紹：做過哪些項目、解決什麼問題、哪些現有工具可以按需調整使用。",
     "labelSuffix": "：",
-    "searchPlaceholder": "搜項目、技能、怎麼合作…",
-    "heroCtaPrimary": "發我你的知識庫現狀",
-    "heroCtaSecondary": "看 3 個落地案例",
-    "contactMethodsTitle": "怎麼聯繫",
+    "searchPlaceholder": "看問題、看工具、聊需求",
+    "heroCtaPrimary": "看看有哪些小工具",
+    "heroCtaSecondary": "先看解決過的問題",
+    "contactMethodsTitle": "聯繫方式",
     "languageToggle": {
       "tooltip": "選語言"
     },
     "toast": {
-      "wechatCopied": "微信號已複製",
-      "xianyuCopied": "店鋪名已複製",
-      "imCopied": "賬號已複製"
+      "wechatCopied": "微信號已複製到剪貼板",
+      "xianyuCopied": "店鋪名稱已複製到剪貼板",
+      "imCopied": "IM 賬號已複製到剪貼板"
     },
     "nav": [
       {
         "id": "home",
-        "label": "首頁",
-        "shortLabel": "首頁",
+        "label": "一句話介紹",
+        "shortLabel": "介紹",
         "icon": "fas fa-house"
       },
       {
-        "id": "showcase",
-        "label": "代表作",
-        "shortLabel": "作品",
+        "id": "plain-cases",
+        "label": "解決什麼問題",
+        "shortLabel": "案例",
         "icon": "fas fa-fire"
       },
       {
-        "id": "flow-rag",
-        "label": "業務流",
-        "shortLabel": "業務流",
-        "icon": "fas fa-layer-group"
-      },
-      {
-        "id": "experience",
-        "label": "經歷",
-        "shortLabel": "經歷",
-        "icon": "fas fa-route"
-      },
-      {
-        "id": "skills",
-        "label": "技能",
-        "shortLabel": "技能",
+        "id": "tools",
+        "label": "可複用的小工具",
+        "shortLabel": "工具",
         "icon": "fas fa-bolt"
       },
       {
-        "id": "services",
-        "label": "服務",
-        "shortLabel": "服務",
-        "icon": "fas fa-briefcase"
-      },
-      {
         "id": "contact",
-        "label": "聯繫",
+        "label": "聊聊你的需求",
         "shortLabel": "聯繫",
         "icon": "fas fa-envelope"
       }
     ],
     "projectStatus": {
       "production": "已上線",
-      "active": "在維護",
+      "active": "持續迭代",
       "testing": "測試中",
       "development": "開發中",
-      "planned": "計劃中",
+      "planned": "規劃中",
       "highlightsLabel": "我做了什麼",
       "progressLabel": "進度"
     },
@@ -72,55 +54,159 @@
       "morning": "早上好",
       "afternoon": "下午好",
       "evening": "晚上好",
-      "night": "夜深了還在忙？"
+      "night": "夜深了，還在寫代碼？"
+    },
+    "brief": {
+      "enabled": true,
+      "eyebrow": "給業務負責人 · 2 分鐘瞭解",
+      "audience": "適合投研、資訊、運營和企業辦公團隊",
+      "technicalLabel": "查看完整技術版",
+      "casesTitle": "做過哪些項目，解決什麼問題？",
+      "casesSubtitle": "先看有沒有你熟悉的麻煩。",
+      "problemLabel": "遇到的問題",
+      "solutionLabel": "做過的項目",
+      "resultLabel": "帶來的幫助",
+      "cases": [
+        {
+          "id": "fastapi_celery_kb",
+          "title": "資料很多，答案不好找",
+          "audience": "投研 / 資訊團隊",
+          "problem": "研報、公告堆了一大堆，找一條信息要來回翻。",
+          "solution": "研報與公告問答：用日常語言提問，查找相關內容和出處。",
+          "result": "少翻文件，找到信息後能回看原文。"
+        },
+        {
+          "id": "doc_intelligence",
+          "title": "數據在文件裡，整理全靠手工",
+          "audience": "研究 / 數據團隊",
+          "problem": "掃描件裡的文字、研報裡的表格，要反覆複製和整理。",
+          "solution": "文檔整理：從文件裡提取文字和表格，供後續檢索、彙總。",
+          "result": "減少重複錄入，把時間留給核對和分析。"
+        },
+        {
+          "id": "lark_sync",
+          "title": "信息分散，更新靠人來回搬",
+          "audience": "運營 / 辦公團隊",
+          "problem": "郵件要盯，表格要填，業務系統裡的狀態還要再更新一遍。",
+          "solution": "郵件提醒與飛書同步：把重要信息送到指定位置，讓兩邊的數據同步。",
+          "result": "少做重複搬運，也少漏掉需要處理的信息。"
+        }
+      ],
+      "toolsTitle": "哪些小工具可以拿來改一改？",
+      "toolsSubtitle": "下面都有對應的已有項目。可以先從一個小場景試起。",
+      "toolsNote": "這裡的“可複用”指已有實現可作為基礎；能否直接試用，要先確認樣例、賬號權限和運行環境。",
+      "inputLabel": "你提供",
+      "outputLabel": "工具幫你做",
+      "setupLabel": "還要調整",
+      "tools": [
+        {
+          "id": "email_auto_crawl",
+          "title": "研報附件自動收集",
+          "status": "已有采集項目",
+          "fit": "每天從郵箱收研報的團隊",
+          "input": "指定郵箱裡的研報附件。",
+          "output": "自動收集附件，提取其中需要的表格數據。",
+          "setup": "接入郵箱，確定附件範圍和要提取的字段。"
+        },
+        {
+          "id": "cc_monitor_gmail",
+          "title": "重要郵件自動提醒",
+          "status": "已有提醒工具",
+          "fit": "不想反覆刷郵箱的同事",
+          "input": "要關注的發件人、關鍵詞。",
+          "output": "篩出重要郵件，把內容推送到指定聊天工具。",
+          "setup": "配置篩選規則和消息接收位置。"
+        },
+        {
+          "id": "announcement_tagging",
+          "title": "公告資訊自動分類",
+          "status": "已有分類項目",
+          "fit": "每天整理大量資訊的團隊",
+          "input": "公告、資訊和想要的分類。",
+          "output": "給內容打上標籤，方便篩選、彙總和分發。",
+          "setup": "對齊分類口徑，用一批樣例檢查效果。"
+        },
+        {
+          "id": "paddle_ocr_vl",
+          "title": "掃描件文字與表格提取",
+          "status": "已有文檔處理服務",
+          "fit": "需要把掃描資料變成可用數據的團隊",
+          "input": "掃描文件或圖片樣例。",
+          "output": "提取文字、識別表格，減少手工錄入。",
+          "setup": "確認版面識別效果和導出格式，再接入使用。"
+        },
+        {
+          "id": "lark_sync",
+          "title": "飛書表格與業務系統同步",
+          "status": "已有項目 · 需對接系統",
+          "fit": "同一份數據要在兩處維護的團隊",
+          "input": "飛書表格和業務系統中要同步的數據。",
+          "output": "同步訂單狀態、客商資料，減少重複填表。",
+          "setup": "對齊字段、同步規則和系統訪問權限。"
+        },
+        {
+          "id": "etf_unusual",
+          "title": "ETF 盤中異動提醒",
+          "status": "已有監測項目 · 需接數據",
+          "fit": "需要關注行情變化的投研團隊",
+          "input": "關注的 ETF 和提醒條件。",
+          "output": "持續檢查行情變化，觸發條件時發送提醒。",
+          "setup": "確認行情來源、提醒指標和接收渠道。"
+        }
+      ],
+      "conversationTitle": "和金融行業朋友聊，問這三句就夠了",
+      "questions": [
+        "哪件事每天都要重複做，最費人？",
+        "現在資料放在哪裡，能不能拿一份樣例？",
+        "如果先試一個小工具，做到什麼程度才算有用？"
+      ],
+      "conversationNote": "可以先聊收研報、篩資訊、整理表格這類具體需求。拿到樣例，再判斷哪些工具能複用、哪些需要定製。"
     }
   },
   "profile": {
     "name": "阿布",
     "avatar": "🐶",
-    "tagline": "全端工程師",
-    "status": "可接活",
-    "heroTitle": "幫企業把 AI 真正用起來，不只是做演示",
+    "tagline": "AI 工具與辦公自動化",
+    "status": "可接項目",
+    "heroTitle": "幫團隊少翻資料，少做重複活",
     "title": "關於我",
     "greeting": {
-      "text": "你好，我是阿布，在上海",
-      "description": "我是<strong>企業 AI 落地工程師</strong>：幫團隊把知識庫問答、文檔處理、智能助手做成<strong>能部署、能評測、能維護</strong>的系統。<br>如果你卡在「搜不準、解析炸、助手上不了線」，可以把現狀發我。"
+      "text": "你好，我是阿布",
+      "description": "我是阿布，做過金融文檔處理、資料問答和辦公自動化。把查資料、收郵件、整理數據這些費時的事，做成能幫上忙的工具。"
     },
     "heroChips": [
-      "企業知識庫",
-      "金融文檔 RAG",
-      "文檔處理",
-      "助手上生產",
-      "機器人自動化"
+      "查資料更方便",
+      "整理文件更省事",
+      "信息更新少手工"
     ],
     "roles": [
       {
         "label": "一句話",
-        "value": "找能把知識庫 / 助手 / 文檔智能真正做成線上系統的人，就找阿布",
+        "value": "把查資料、收郵件、整理數據這些重複活，做成能用的小工具。",
         "type": "primary"
       },
       {
-        "label": "適合誰",
-        "value": "技術負責人 · 業務負責人 · 創業公司 CTO",
+        "label": "適合",
+        "value": "投研、運營和企業辦公團隊",
         "type": "secondary"
       }
     ],
     "stats": [
       {
         "number": "6+",
-        "label": "年經驗"
+        "label": "年實戰"
       },
       {
         "number": "80+",
-        "label": "項目"
+        "label": "個項目"
       },
       {
         "number": "15+",
-        "label": "AI 項目"
+        "label": "個 AI 項目"
       },
       {
-        "number": "全棧",
-        "label": "一條龍"
+        "number": "全流程",
+        "label": "交付"
       }
     ],
     "location": {
@@ -132,42 +218,17 @@
       "#1e3a5f",
       "#312e81"
     ],
-    "heroFlowEntries": [
-      {
-        "id": "flow-rag",
-        "icon": "📚",
-        "title": "知識庫問答不準 / 上不了線",
-        "sub": "從髒文檔到問答網關，一條鏈路打通"
-      },
-      {
-        "id": "flow-agent",
-        "icon": "🤖",
-        "title": "Agent demo 好看，換場景就廢",
-        "sub": "工具編排 + 多智能體 + 可審計工程化"
-      },
-      {
-        "id": "flow-finance",
-        "icon": "📈",
-        "title": "研報公告多、人工搬不動",
-        "sub": "採集 -> 實體 -> 異動監測自動化"
-      },
-      {
-        "id": "flow-community",
-        "icon": "🤝",
-        "title": "群規模上來，靠人頂不住",
-        "sub": "風控 / 線索 / 協同交給 Bot"
-      }
-    ]
+    "heroFlowEntries": null
   },
   "featured": {
     "title": "落地案例",
-    "subtitle": "用買方聽得懂的話說清楚：解決什麼問題、我做了什麼",
+    "subtitle": "按買方痛點寫的 3 個代表作——其餘能力見下方項目庫",
     "items": [
       {
         "id": "fastapi_celery_kb",
-        "title": "研報公告一堆，知識庫還老引用錯段落",
-        "subtitle": "金融知識庫 · 切塊 · 重排",
-        "description": "文檔已經入庫了，問答還是答非所問。先把解析和切塊修好，再加上時效/來源排序，而不是先換更大模型。",
+        "title": "研報/公告很多，知識庫卻經常引用錯段落",
+        "subtitle": "金融文檔 RAG · 解析分塊 · 重排評測",
+        "description": "某中型投研/資訊團隊：文檔已入庫，問答仍答非所問。目標是可上線的知識庫問答，且鏈路可觀測。優先重修解析與分塊，再上時效/權威重排，而不是先換更大模型。",
         "tags": [
           "RAG",
           "分塊",
@@ -178,16 +239,16 @@
         "accent": "#b49bc8",
         "status": "production",
         "highlights": [
-          "重建解析和語義切塊，異步入庫",
-          "加上時效和權威重排，並留下評測日誌",
-          "Docker 部署，方便交接和回滾"
+          "重建研報/公告解析與語義分塊管線，異步並行入庫",
+          "增加時效與來源權威重排，並對召回鏈路做日誌評測",
+          "用 Docker Compose 交付可擴展部署，支持交接與回滾"
         ]
       },
       {
         "id": "doc_intelligence",
-        "title": "掃描件和亂版面，把整個知識庫項目拖進泥潭",
+        "title": "掃描件與複雜版面，把整個 RAG 項目拖進泥潭",
         "subtitle": "PDF / OCR / 目錄 / 去水印",
-        "description": "掃描件、表格、水印、目錄缺失是常見坑。目標是把髒文檔變成能檢索的乾淨結構；能用規則穩住就先用規則。",
+        "description": "企業知識庫常見卡點：掃描件、表格、水印、目錄層級缺失。目標是把髒文檔變成可檢索的結構化輸入。規則+座標能穩住的先穩住，VL/OCR 按版面複雜度按需上。",
         "tags": [
           "PDF",
           "OCR",
@@ -198,16 +259,16 @@
         "accent": "#6366f1",
         "status": "production",
         "highlights": [
-          "PDF 結構解析和表格識別",
-          "去水印提升 OCR，目錄提取多級兜底",
-          "做成高併發解析接口給下游用"
+          "搭建 PDF 結構化解析與表格識別，輸出乾淨 Markdown/結構樹",
+          "用多規則淨水提升 OCR 基線，目錄提取做三級降級兜底",
+          "封裝高併發解析 API，方便下游分塊與向量化直接接入"
         ]
       },
       {
         "id": "group_management_bot",
-        "title": "群一大，風控/擔保/客服靠人頂不住",
-        "subtitle": "社群機器人 · 擔保對賬",
-        "description": "商業社群擴起來後，驗證、防騙、擔保交易和客服靠人工撐不住。重點做穩、能對賬、能監控。",
+        "title": "群規模上來後，風控/擔保/客服靠人頂不住",
+        "subtitle": "社群 Bot · 擔保對賬 · 可監控",
+        "description": "商業社群在擴群后，驗證、反垃圾、擔保交易與客服工單靠人工撐不住。交付重點是穩定性、對賬閉環與運營可控，而不是堆功能。",
         "tags": [
           "Bot",
           "風控",
@@ -218,74 +279,78 @@
         "accent": "#1db954",
         "status": "production",
         "highlights": [
-          "入群驗證、反垃圾、風控自動化",
-          "擔保交易和財務對賬",
-          "運營後臺 + 工單客服閉環"
+          "實現入群驗證、反垃圾到風控管理的自動化治理",
+          "構建專群資金擔保與財務對賬，降低人工差錯",
+          "提供運營控制台與工單客服，形成可監控的商業閉環"
         ]
       }
     ]
   },
   "experience": {
-    "title": "做過什麼",
-    "subtitle": "這些年主要在「能上線」這條線上幹活",
+    "title": "能力履歷",
+    "subtitle": "面向生產交付的工程路徑，不是 Demo 合集",
     "items": [
       {
-        "period": "2024 - 至今",
-        "title": "企業 AI 系統",
-        "description": "幫企業做智能助手、知識庫問答、多模態應用，從試做到正式上線都做過，強調能監控、能回滾。",
+        "period": "2024 — 至今",
+        "title": "企業 AI 架構設計與研發",
+        "description": "主導智能體、複雜 RAG、多模態應用從 POC 到高可用生產：強調評測、觀測、回滾與交接，而不是隻演示效果。",
         "tags": [
-          "智能助手",
-          "知識庫",
+          "智能體",
+          "RAG",
+          "FastAPI",
           "可觀測"
         ]
       },
       {
-        "period": "2022 - 2024",
-        "title": "文檔處理",
-        "description": "處理百萬級金融 PDF：複雜排版、OCR、切塊，給 AI 準備乾淨數據。",
+        "period": "2022 — 2024",
+        "title": "文檔智能與非結構化數據處理",
+        "description": "構建百萬級金融文檔解析管線，攻克複雜版面、OCR、分塊策略，把「能搜到」建立在「解析對」之上。",
         "tags": [
           "PDF",
-          "OCR"
+          "OCR",
+          "ETL"
         ]
       },
       {
-        "period": "2020 - 至今",
-        "title": "機器人和後臺",
-        "description": "高併發的社群機器人和監控系統，交易和客服流程要穩。",
+        "period": "2020 — 至今",
+        "title": "高併發 IM 機器人與後臺架構",
+        "description": "設計商業社群機器人與運維監控中樞，用異步框架與緩存隊列守住交易與客服穩定性。",
         "tags": [
-          "機器人",
-          "飛書",
+          "Bot",
+          "飛書 API",
           "Redis"
         ]
       },
       {
         "period": "持續",
-        "title": "AI 工具鏈",
-        "description": "研究 AI 調工具、寫代碼、查數據庫，讓流程可審計、可復現。",
+        "title": "MCP & Agent 工程化",
+        "description": "把工具編排、代碼執行與 Text2SQL 嵌進可審計、可復現的工程流程，避免 Agent 只會演示。",
         "tags": [
           "MCP",
-          "Agent"
+          "Agent",
+          "Text2SQL"
         ]
       }
     ]
   },
   "skills": {
-    "title": "會什麼",
-    "motto": "不光會調大模型，<strong>更會把 AI 嵌進現有系統</strong>，做得穩、擴得開、能交接。",
+    "title": "核心能力",
+    "motto": "不只精於調模型，<strong>更專注把 AI 做成可上生產的系統</strong>——可觀測、可回滾、可維護。",
     "items": [
       {
-        "title": "AI 應用",
-        "description": "知識庫問答 / 助手上生產 / 模型服務化 / 多智能體 / 工具調用",
+        "title": "AI 應用工程化",
+        "description": "RAG 全鏈路 / Agent 上生產 / LLM 服務化 / Multi-Agent / MCP 工具鏈",
         "tags": [
           "RAG",
           "Agent",
-          "MCP"
+          "MCP",
+          "評測"
         ],
         "icon": "🤖"
       },
       {
-        "title": "金融文本 & 知識庫",
-        "description": "研報公告切塊、搜索排序、圖表檢索、資訊分類",
+        "title": "行業文本 & 知識庫",
+        "description": "研報/公告分塊向量化、召回重排、圖表召回、資訊打標與問答網關",
         "tags": [
           "向量庫",
           "Rerank",
@@ -294,20 +359,22 @@
         "icon": "📊"
       },
       {
-        "title": "文檔處理",
-        "description": "PDF 解析 / OCR / 去水印 / 表格識別 / 目錄還原",
+        "title": "文檔智能",
+        "description": "PDF 解析 / OCR-VL / 去水印 / 表格識別 / 目錄還原 / 結構化抽取",
         "tags": [
           "PDF",
-          "OCR"
+          "OCR",
+          "Pipeline"
         ],
         "icon": "📄"
       },
       {
-        "title": "集成 & 自動化",
-        "description": "社群機器人 / 飛書 / 郵件自動化 / 任務隊列",
+        "title": "平臺集成 & 自動化",
+        "description": "國內 IM Bot / 飛書 / 郵件 RPA / Celery 任務調度與對賬閉環",
         "tags": [
           "Bot",
-          "飛書"
+          "飛書",
+          "Celery"
         ],
         "icon": "⚡"
       }
@@ -315,34 +382,34 @@
     "summary": [
       {
         "icon": "🏗️",
-        "text": "全棧"
+        "text": "全棧架構"
       },
       {
         "icon": "🧠",
-        "text": "AI 落地"
+        "text": "AI 工程化"
       },
       {
         "icon": "🚀",
-        "text": "快速交付"
+        "text": "敏捷交付"
       }
     ]
   },
   "services": {
-    "title": "怎麼合作",
+    "title": "合作方式",
     "items": [
       {
-        "title": "15 分鐘先聊清楚",
-        "description": "先看問題是不是匹配；你把場景說清，我口頭給建議，不寫長方案。",
+        "title": "15 分鐘需求澄清",
+        "description": "先對齊問題類型與是否匹配；你填清場景後約聊。只做歸類與建議，不寫長方案。",
         "technologies": [
-          "澄清",
-          "匹配"
+          "獲客",
+          "過濾匹配"
         ],
         "badge": "免費 · 限時",
         "icon": "💬"
       },
       {
         "title": "知識庫 / AI 落地診斷",
-        "description": "訪談現狀、畫架構草圖、列風險和優先級。先把坑標出來，再決定要不要上大項目。",
+        "description": "現狀訪談 + 架構草圖 + 風險清單 + 優先級 backlog。先把坑標清楚，再決定要不要上大項目。",
         "technologies": [
           "診斷紀要",
           "路線圖"
@@ -351,8 +418,8 @@
         "icon": "🩺"
       },
       {
-        "title": "技術顧問",
-        "description": "架構評審、關鍵決策、Code Review、疑難排障。適合已有團隊、缺「做過線上」的人盯方向。",
+        "title": "技術顧問包",
+        "description": "架構評審、關鍵設計拍板、Code Review、排障升級。適合已有團隊、缺「做過生產」的人盯方向。",
         "technologies": [
           "架構",
           "Code Review"
@@ -362,7 +429,7 @@
       },
       {
         "title": "模塊交付",
-        "description": "固定範圍：文檔解析、召回重排、問答網關、機器人自動化等，帶驗收和交接。",
+        "description": "固定範圍交付：文檔解析管線、召回重排、RAG 對話網關、飛書/Bot 自動化等，含驗收與交接。",
         "technologies": [
           "解析",
           "Rerank",
@@ -373,8 +440,8 @@
         "icon": "📦"
       },
       {
-        "title": "完整項目",
-        "description": "從調研到上線交接一條龍。按里程碑付款；檔期滿了會直說。",
+        "title": "完整項目交付",
+        "description": "端到端：調研 → 實施 → 上線 → 交接。里程碑付款；檔期佔滿時會坦誠說明內容節奏。",
         "technologies": [
           "RAG",
           "Agent",
@@ -385,25 +452,25 @@
       }
     ],
     "partners": {
-      "title": "這樣的夥伴最合適",
+      "title": "這樣的夥伴最匹配",
       "types": [
         {
           "icon": "🏗️",
-          "type": "技術負責人",
-          "description": "Demo 好看上不了線、知識庫不準、鏈路沒法監控"
+          "type": "技術負責人 / 架構師",
+          "description": "Demo 好看上不了生產、RAG 不準、鏈路不可觀測——需要可部署可運維的方案"
         },
         {
           "icon": "🏢",
-          "type": "業務負責人",
-          "description": "文檔多、人工貴、流程斷--需要知識庫或機器人"
+          "type": "業務負責人（金融/教育/社群）",
+          "description": "文檔多、人工貴、流程斷——需要文檔管線 / 知識庫問答 / Bot 自動化"
         },
         {
           "icon": "🚀",
-          "type": "創業公司 CTO",
-          "description": "要快、要穩，缺人頂核心模塊"
+          "type": "創業團隊 CTO",
+          "description": "要快、要穩、要人能頂住——顧問 + 核心模塊交付"
         }
       ],
-      "note": "不做純 PPT 包裝，也不接「三天萬能助手」表演項目。歡迎先<strong>發知識庫/文檔現狀</strong>，再約 15 分鐘聊"
+      "note": "不做純包裝 PPT、不接「三天萬能 Agent」表演項目。歡迎先<strong>發知識庫/文檔現狀</strong>，再約 15 分鐘澄清"
     }
   },
   "projects": {
@@ -412,16 +479,16 @@
     "items": [],
     "innovation": {
       "icon": "💡",
-      "title": "我的理念",
-      "text": "AI 的價值在於真能用--能監控、能回滾、好維護。我不賣概念，我交付業務裡在跑的系統。"
+      "title": "技術理念",
+      "text": "AI 的價值在落地——可觀測、可回滾、可維護。我不賣概念，我交付能在業務裡真正跑起來的系統。"
     }
   },
   "contact": {
     "title": "合作交流",
     "intro": {
       "icon": "✨",
-      "title": "把你的知識庫 / 助手現狀發我",
-      "description": "搜不準、解析炸、助手上不了線都可以聊。我會實話實說能不能做，並建議走診斷、顧問還是模塊交付。"
+      "title": "說一個你最想省事的環節",
+      "description": "不用先寫技術方案。說清楚誰在做、現在怎麼做、哪裡最費時間，就可以開始聊。"
     },
     "methods": [],
     "availability": {
@@ -430,7 +497,7 @@
       "responseTime": "2–4 小時",
       "timezone": "UTC+8（北京時間）",
       "labels": {
-        "usuallyWithin": "工作日一般",
+        "usuallyWithin": "工作日通常在",
         "response": "內回覆",
         "timezoneLabel": "時區"
       }
@@ -440,20 +507,16 @@
       "title": "合作方式",
       "types": [
         {
-          "icon": "🩺",
-          "text": "診斷包"
-        },
-        {
-          "icon": "📚",
-          "text": "技術顧問"
+          "icon": "📄",
+          "text": "看一份樣例"
         },
         {
           "icon": "📦",
-          "text": "模塊交付"
+          "text": "試一個工具"
         },
         {
-          "icon": "🚀",
-          "text": "完整項目"
+          "icon": "🤝",
+          "text": "再定合作範圍"
         }
       ]
     },
@@ -465,55 +528,55 @@
       ]
     },
     "form": {
-      "title": "開始合作",
-      "subtitle": "發我現狀就行；工作日一般 2–4 小時內回覆",
+      "title": "有類似的問題，一起聊聊",
+      "subtitle": "帶一個具體問題來，先看看現有工具能不能幫上忙。",
       "fields": {
         "name": {
-          "label": "怎麼稱呼",
-          "placeholder": "你的名字"
+          "label": "你的名字",
+          "placeholder": "怎麼稱呼？"
         },
         "contact": {
           "label": "聯繫方式",
-          "placeholder": "微信 / 郵箱 / 手機"
+          "placeholder": "微信 / 郵箱 / 手機號"
         },
         "topic": {
-          "label": "想聊什麼",
-          "placeholder": "知識庫不準 / 文檔解析 / 助手上線 / 顧問…"
+          "label": "想省哪件事",
+          "placeholder": "比如：自動收研報、分類資訊、少填幾次表"
         },
         "message": {
-          "label": "現狀簡述",
-          "placeholder": "已有什麼（文檔量、是否入庫、卡在哪）、目標與時間…"
+          "label": "簡單說說現在怎麼做",
+          "placeholder": "誰在做？每天大概多少份？哪一步最費時間？想得到什麼結果？"
         }
       },
-      "submit": "發我現狀",
+      "submit": "發我這個需求",
       "submitting": "發送中…",
-      "success": "收到了！我會盡快回復並建議下一步",
-      "error": "發送失敗，請稍後重試或直接聯繫我"
+      "success": "已收到！我會盡快回復並建議下一步",
+      "error": "發送失敗，請稍後重試或直接加微信聯繫"
     }
   },
   "businessFlows": {
     "title": "業務流",
-    "subtitle": "按你卡在哪一步找能力，不是按我有什麼技術鋪卡片",
+    "subtitle": "按你卡在哪一步定位能力，不是按我有什麼技術鋪卡片",
     "flows": [
       {
         "id": "flow-rag",
         "icon": "📚",
         "accent": "#b49bc8",
         "title": "企業知識庫從 0 到上線",
-        "subtitle": "從髒文檔到能上線的問答接口，一條龍打通",
-        "persona": "如果你是技術/業務負責人：文檔一堆，問答不準、上不了線",
-        "oneLiner": "別先換更大模型，先把解析、分塊、重排、網關修好",
+        "subtitle": "RAG 全鏈路 · 從髒文檔到可上線問答網關",
+        "persona": "如果你是技術/業務負責人：文檔已堆了一堆，問答不準、上不了生產",
+        "oneLiner": "不先換更大模型，先把解析、分塊、重排、網關修到位",
         "nodes": [
           {
             "id": "a1-doc-feed",
             "stage": "A1 · 文檔進料",
             "painPoint": "掃描件、表格、水印、目錄缺失，髒文檔喂出髒知識",
-            "painDetail": "知識庫最常卡在上游：PDF 結構丟了、表格亂碼、水印蓋住正文、目錄拿不到。下游怎麼調都白搭。",
+            "painDetail": "企業知識庫最常見的卡點在上游：PDF 結構丟了、表格變成亂碼、水印蓋住正文、目錄層級拿不到。下游怎麼調都白搭。",
             "projects": [
               {
                 "id": "pdf2xml",
-                "title": "PDF 結構化解析",
-                "how": "把 PDF 拆成乾淨的結構化數據，給後續流程用",
+                "title": "高精度 PDF 結構化解析引擎",
+                "how": "用底層庫逆向 PDF 座標，提煉文本/表格/層級，給下游最乾淨的數據源",
                 "tags": [
                   "PDF",
                   "FastAPI"
@@ -523,8 +586,8 @@
               },
               {
                 "id": "pdf_watermark",
-                "title": "PDF 去水印",
-                "how": "研報批量去水印，後面 OCR 更準",
+                "title": "智能 PDF 淨水處理引擎",
+                "how": "可配置規則庫 + 視覺座標匹配，批量去水印，抬升 OCR 基線",
                 "tags": [
                   "水印",
                   "批處理"
@@ -534,8 +597,8 @@
               },
               {
                 "id": "paddle_ocr_vl",
-                "title": "圖片 OCR 服務",
-                "how": "掃描件、複雜圖片上傳就能提取文字結構",
+                "title": "多模態 OCR 視覺解析服務",
+                "how": "OCR + 版面理解封裝成高併發 API，掃描件上傳即解析",
                 "tags": [
                   "OCR",
                   "VL"
@@ -545,8 +608,8 @@
               },
               {
                 "id": "extract_pdf_toc",
-                "title": "PDF 目錄提取",
-                "how": "儘量把研報目錄結構還原出來",
+                "title": "研報目錄層級深度挖掘",
+                "how": "書籤提取 -> 目錄頁解析 -> 版面理解，三級降級兜底",
                 "tags": [
                   "PDF",
                   "目錄"
@@ -556,8 +619,8 @@
               },
               {
                 "id": "gpu_rapid_layout",
-                "title": "版面元素檢測",
-                "how": "快速識別文檔裡的圖、表、段落位置",
+                "title": "GPU 版面元素極速檢測",
+                "how": "GPU 推理集群加速，高併發異步落庫，拆解圖/表/段落",
                 "tags": [
                   "版面檢測",
                   "GPU"
@@ -570,13 +633,13 @@
           {
             "id": "a2-chunking",
             "stage": "A2 · 語義分塊",
-            "painPoint": "一刀切分塊把表格打散、語義截斷，召回上限被鎖死",
-            "painDetail": "分塊是 RAG 精度的隱性天花板。硬切會撕斷表格、割裂上下文，召回再準也拼不回完整語義。",
+            "painPoint": "一刀切分塊把表格打散、把語義截斷，召回上限被鎖死",
+            "painDetail": "分塊是 RAG 精度的隱性天花板。按字數硬切會撕斷表格、割裂上下文，召回再準也拼不回完整語義。",
             "projects": [
               {
                 "id": "pdf_chunker",
-                "title": "研報智能切塊",
-                "how": "按段落和表格智能切分，不丟上下文",
+                "title": "研報/公告智能語義分塊",
+                "how": "按金融排版智能分塊，識別多形態表格，輸出高質量 Markdown",
                 "tags": [
                   "分塊",
                   "表格識別"
@@ -586,8 +649,8 @@
               },
               {
                 "id": "multi_source_chunk",
-                "title": "各種格式文檔切塊",
-                "how": "不同來源的文檔用同一套流程切塊入庫",
+                "title": "全格式文檔自適應分塊管線",
+                "how": "兼容多格式來源的統一分塊管線，GPU 生產環境流式清洗入庫",
                 "tags": [
                   "分塊",
                   "向量化"
@@ -599,14 +662,14 @@
           },
           {
             "id": "a3-recall",
-            "stage": "A3 · 向量召回",
-            "painPoint": "關鍵詞命中為主，語義對不上，圖表數據搜不到",
-            "painDetail": "默認 BM25 搜不到同義表達，圖表更是盲區。圖表和正文要雙路向量化才能撈回來。",
+            "stage": "A3 · 向量化召回",
+            "painPoint": "關鍵詞命中為主，語義對不上，圖表裡的數據根本搜不到",
+            "painDetail": "默認 BM25 搜不到同義表達，圖表內容更是檢索盲區。圖表和正文要雙路向量化才能撈回來。",
             "projects": [
               {
                 "id": "qwen3_pg_recall",
-                "title": "向量搜索服務",
-                "how": "用向量數據庫做語義搜索，找相似內容",
+                "title": "Qwen3 向量化檢索中臺",
+                "how": "基於 Qwen3 Embedding + PGVector 的向量召回微服務，優化垂直行業命中率",
                 "tags": [
                   "Qwen3",
                   "PostgreSQL"
@@ -616,8 +679,8 @@
               },
               {
                 "id": "report_recall",
-                "title": "研報圖文一起搜",
-                "how": "PDF 裡的圖表和文字分別存，問的時候都能搜到",
+                "title": "研報圖文多模態召回",
+                "how": "PDF 內聯圖表與正文雙路向量化存儲，精準響應圖表數據與文本證據檢索",
                 "tags": [
                   "向量檢索",
                   "研報"
@@ -629,14 +692,14 @@
           },
           {
             "id": "a4-rerank",
-            "stage": "A4 · 重排和引用",
-            "painPoint": "top-k 一股腦塞給 LLM，引用錯段落，答非所問",
-            "painDetail": "召回的 top-k 裡混了過時和弱相關片段，LLM 會被帶偏。必須做時效/權威重排，留評測日誌。",
+            "stage": "A4 · 重排與引用",
+            "painPoint": "top-k 一股腦塞給 LLM，引用錯段落，問答答非所問",
+            "painDetail": "召回回來的 top-k 裡混了過時信息和弱相關片段，LLM 會被帶偏。必須做時效/權威重排，並留下評測日誌。",
             "projects": [
               {
                 "id": "rerank_system",
-                "title": "搜索結果重排序",
-                "how": "搜出來的資料再排個序，引用更靠譜",
+                "title": "檢索重排序系統",
+                "how": "對召回候選做語義重排與去重，融合時效與來源權重，提升引用準確率",
                 "tags": [
                   "Rerank",
                   "RAG"
@@ -650,12 +713,12 @@
             "id": "a5-ingest",
             "stage": "A5 · 異步入庫基建",
             "painPoint": "文檔入庫靠手動跑，規模化不了、回滾不了",
-            "painDetail": "文檔量大，手動入庫既慢又容易丟。需要異步入庫集群 + 可擴展部署，才能撐住規模、支持交接回滾。",
+            "painDetail": "文檔量一大，手動入庫既慢又容易丟。需要異步入庫集群 + 可擴展部署，才能撐住規模並支持交接回滾。",
             "projects": [
               {
                 "id": "fastapi_celery_kb",
-                "title": "文檔批量入庫",
-                "how": "大量文檔排隊處理，自動切塊和向量化",
+                "title": "海量長文檔異步入庫集群",
+                "how": "基於 Celery + Docker 的異步分佈式文檔處理系統，支撐研報/公告自動化入庫與向量化編排",
                 "tags": [
                   "Celery",
                   "Docker"
@@ -668,13 +731,13 @@
           {
             "id": "a6-gateway",
             "stage": "A6 · 對話問答網關",
-            "painPoint": "沒有鑑權、審計、日誌，上不了線",
-            "painDetail": "內部 demo 可以裸跑，上生產必須有鑑權、日誌、審計。網關要把檢索和生成封裝成標準接口。",
+            "painPoint": "沒有鑑權、審計、日誌，上不了生產",
+            "painDetail": "內部 demo 可以裸跑，但上生產必須有鑑權、調用日誌、審計。對話網關要把複雜檢索與生成邏輯封裝成標準 OpenAPI。",
             "projects": [
               {
                 "id": "enterprise_chat_openapi",
-                "title": "企業問答 API",
-                "how": "封裝好搜索+問答，別的系統直接調接口",
+                "title": "企業級對話問答網關",
+                "how": "標準化對話式 RAG OpenAPI 接口，封裝檢索與生成，提供鑑權與調用日誌審計",
                 "tags": [
                   "OpenAPI",
                   "Chat"
@@ -690,21 +753,21 @@
         "id": "flow-agent",
         "icon": "🤖",
         "accent": "#1db954",
-        "title": "Agent 從演示到上線",
-        "subtitle": "工具編排 / 代碼執行 / 多智能體",
-        "persona": "如果你是 CTO/技術負責人：Agent demo 好看，換場景就廢、上不了線",
-        "oneLiner": "把工具編排、代碼執行、多智能體做成能審計的流程",
+        "title": "Agent 從演示到生產",
+        "subtitle": "智能體工程化 · 工具編排 / 代碼執行 / 多智能體協同",
+        "persona": "如果你是 CTO/技術負責人：Agent demo 好看但換場景就廢、上不了線",
+        "oneLiner": "把工具編排、代碼執行、多智能體協同嵌進可審計的工程流程",
         "nodes": [
           {
             "id": "b1-dynamic-tools",
             "stage": "B1 · 工具動態化",
-            "painPoint": "工具寫死，換場景就廢，靜態工具鏈泛化難",
-            "painDetail": "工具調用寫死在代碼裡，加一個工具就要改邏輯。LLM 要能在沙箱裡寫代碼、按需掛工具。",
+            "painPoint": "工具寫死，換個場景就廢，靜態工具鏈泛化難",
+            "painDetail": "工具調用寫死在代碼裡，新增一個工具就要改一次邏輯。LLM 需要能在沙箱裡動態寫代碼、按需掛載工具。",
             "projects": [
               {
                 "id": "dynamic_mcp",
-                "title": "AI 寫代碼調工具",
-                "how": "AI 在隔離環境裡寫代碼、調工具，更靈活",
+                "title": "沙箱化代碼執行與工具代理",
+                "how": "賦能 LLM 在隔離沙箱中動態編寫執行代碼並按需掛載工具，解決靜態工具鏈泛化難題",
                 "tags": [
                   "MCP",
                   "Code Act"
@@ -717,13 +780,13 @@
           {
             "id": "b2-orchestration",
             "stage": "B2 · 多工具編排",
-            "painPoint": "多工具協同靠手寫 if-else，編排不可複用",
-            "painDetail": "多工具串聯寫成麵條 if-else，換意圖就重寫。要按自然語言智能規劃調用鏈路。",
+            "painPoint": "多工具協同靠手寫 if-else，編排邏輯不可複用",
+            "painDetail": "多工具串聯寫成麵條式 if-else，換一個意圖就要重寫一遍。需要按自然語言指令智能規劃調用鏈路。",
             "projects": [
               {
                 "id": "mcp_json_rpc",
-                "title": "多工具編排",
-                "how": "你說一句話，AI 自動規劃調哪些工具、什麼順序",
+                "title": "MCP 服務流編排引擎",
+                "how": "根據自然語言指令智能規劃多工具調用鏈路，支持上下文感知的意圖拆解與併發執行",
                 "tags": [
                   "JSON-RPC",
                   "編排"
@@ -736,13 +799,13 @@
           {
             "id": "b3-gateway",
             "stage": "B3 · 模型能力聚合",
-            "painPoint": "每個業務系統直連大模型，AI 接口失控",
-            "painDetail": "每個系統各自直連大模型，調用分散、成本失控、沒法統一治理。要中間層聚合。",
+            "painPoint": "每個業務系統直連大模型，AI 接口資產失控",
+            "painDetail": "每個業務系統各自直連大模型，調用分散、成本失控、無法統一治理。需要中間層聚合 AI 接口資產。",
             "projects": [
               {
                 "id": "ai_mcp_middleware",
-                "title": "AI 能力統一網關",
-                "how": "各業務系統通過統一入口調 AI，好管好用",
+                "title": "企業級模型能力聚合網關",
+                "how": "構建統一 AI 工具調度中間層，屏蔽業務系統直連大模型的複雜性，集中管控與路由",
                 "tags": [
                   "MCP",
                   "API"
@@ -756,12 +819,12 @@
             "id": "b4-multi-agent",
             "stage": "B4 · 多智能體協同",
             "painPoint": "單 Agent 頂不住複雜任務，拆不動、路由亂",
-            "painDetail": "單 Agent 上下文一長就跑偏，複雜任務要多角色協同：自主拆解、多輪路由、自動執行。",
+            "painDetail": "單 Agent 上下文一長就跑偏，複雜任務需要多角色協同：自主拆解、多輪路由、自動化執行閉環。",
             "projects": [
               {
                 "id": "multi_agent_collab",
-                "title": "多個 AI 協作",
-                "how": "複雜任務拆給多個 AI 角色，自動配合完成",
+                "title": "複雜業務多智能體協同",
+                "how": "設計多角色 Agent 協同網絡，實現複雜任務自主拆解、多輪路由與自動化執行閉環",
                 "tags": [
                   "Multi-Agent"
                 ],
@@ -773,13 +836,13 @@
           {
             "id": "b5-edge",
             "stage": "B5 · 端側執行",
-            "painPoint": "沒有可控執行環境，移動端接不進來",
-            "painDetail": "很多業務在手機端，但 Agent 沒有可控環境接不進來。要雲手機群控 + 標準 API。",
+            "painPoint": "沒有可控的執行環境，移動端/端側場景接不進來",
+            "painDetail": "很多業務發生在手機端/端側，但 Agent 沒有可控的執行環境接不進來。需要雲手機群控 + 標準 API。",
             "projects": [
               {
                 "id": "phone_autoglm",
-                "title": "手機群控平臺",
-                "how": "網頁管多臺手機，API 下發任務查進度",
+                "title": "Phone AutoGLM 群控平臺",
+                "how": "基於 AutoGLM 的雲手機群控平臺，Web 控制台 + REST API 下發指令、查詢進度、導入素材",
                 "tags": [
                   "AutoGLM",
                   "群控"
@@ -796,20 +859,20 @@
         "icon": "📈",
         "accent": "#8b5cf6",
         "title": "金融投研內容生產",
-        "subtitle": "從附件到盤中異動，自動化流水線",
-        "persona": "如果你是金融/資訊團隊：研報多、人工貴、流程斷",
-        "oneLiner": "從附件到盤中異動，做成自動化流水線",
+        "subtitle": "從附件採集到盤中異動，把投研內容生產做成自動化流水線",
+        "persona": "如果你是金融/資訊團隊：研報公告多、人工貴、流程斷",
+        "oneLiner": "從附件採集到盤中異動，把投研內容生產做成自動化流水線",
         "nodes": [
           {
             "id": "c1-collect",
             "stage": "C1 · 多源採集",
             "painPoint": "研報附件散落郵箱，人工搬不動、搬不對",
-            "painDetail": "研報每天堆郵箱裡，人工下載、重命名、入庫既慢又容易漏。要 RPA 自動輪詢 + 郵件分發。",
+            "painDetail": "研報每天堆在郵箱裡，人工下載、重命名、入庫既慢又容易漏。需要 RPA 自動輪詢 + 郵件情報分發。",
             "projects": [
               {
                 "id": "email_auto_crawl",
-                "title": "郵箱研報自動採集",
-                "how": "自動收郵件附件、提取表格數據入庫",
+                "title": "研報附件 RPA 自動化採集",
+                "how": "自動化輪詢郵箱並萃取附件研報中的關鍵數據表格，輸出標準結構化臺賬",
                 "tags": [
                   "RPA",
                   "PDF"
@@ -819,8 +882,8 @@
               },
               {
                 "id": "cc_monitor_gmail",
-                "title": "郵件自動轉發",
-                "how": "重要郵件自動提取內容發到聊天工具",
+                "title": "郵件情報自動化分發引擎",
+                "how": "實時監聽核心郵箱，定製規則萃取高價值郵件並跨平臺路由投遞",
                 "tags": [
                   "IMAP",
                   "Bot"
@@ -832,14 +895,14 @@
           },
           {
             "id": "c2-extract",
-            "stage": "C2 · 實體和語義提取",
-            "painPoint": "實體/時間提取不準，業務語義弱",
-            "painDetail": "研報裡公司名、時間、指標靠正則提取漏錯多，下游聚合不準。要定製 NER + 自動打標。",
+            "stage": "C2 · 實體與語義提取",
+            "painPoint": "實體/時間提取不準，業務語義理解弱",
+            "painDetail": "研報裡的公司名、時間、指標靠正則提取漏錯多，下游聚合做不準。需要定製 NER + 資訊自動打標。",
             "projects": [
               {
                 "id": "temp_ner",
-                "title": "金融實體識別",
-                "how": "從研報裡自動提取公司名、時間等關鍵信息",
+                "title": "高精度金融實體識別 (NER)",
+                "how": "定製化金融實體提取，結合知識圖譜召回與財報週期邏輯解析，強化業務語義理解",
                 "tags": [
                   "NER",
                   "FastAPI"
@@ -849,8 +912,8 @@
               },
               {
                 "id": "announcement_tagging",
-                "title": "公告自動打標籤",
-                "how": "海量公告自動分類打標，方便下游使用",
+                "title": "金融資訊智能打標分類",
+                "how": "NLP 模型對海量公告與資訊自動打標分類，為下游聚合與推送提供數據支撐",
                 "tags": [
                   "NLP",
                   "分類"
@@ -864,12 +927,12 @@
             "id": "c3-monitor",
             "stage": "C3 · 盤中異動監測",
             "painPoint": "盤中異動沒人盯，風險滯後、機會溜走",
-            "painDetail": "盤中行情和資訊異動靠人盯不現實，等看到已經晚了。要毫秒監聽 + 多維量化 + 實時預警。",
+            "painDetail": "盤中行情和資訊異動靠人盯不現實，等看到已經晚了。需要毫秒級監聽 + 多維量化指標自動評估 + 實時預警。",
             "projects": [
               {
                 "id": "etf_unusual",
-                "title": "ETF 異動提醒",
-                "how": "盯盤發現異常就推送，輔助投研決策",
+                "title": "ETF 盤中異動量化監測",
+                "how": "毫秒級行情與資訊異動監測引擎，多維量化指標自動評估風險，實時預警輔助投研決策",
                 "tags": [
                   "ETF",
                   "量化"
@@ -879,8 +942,8 @@
               },
               {
                 "id": "onchain_token_monitor",
-                "title": "鏈上交易監控",
-                "how": "盯鏈上交易，異常就推到 IM",
+                "title": "資產交易高頻監控預警",
+                "how": "低延遲交易數據監聽節點 + Redis 高速去重研判，毫秒級推送核心交易情報",
                 "tags": [
                   "Web3",
                   "IM"
@@ -893,13 +956,13 @@
           {
             "id": "c4-parsing",
             "stage": "C4 · 題型解析引擎",
-            "painPoint": "評估和生成混在一起，解析不嚴謹",
-            "painDetail": "教育場景一道題既評估又生成，LLM 容易自我背書。要分離評估和生成，支持多輪複核。",
+            "painPoint": "評估與生成混在一起，解析不嚴謹",
+            "painDetail": "教育場景裡一道題既評估又生成，LLM 容易自我背書。需要分離評估與生成，並支持多輪複核。",
             "projects": [
               {
                 "id": "multi_llm_analysis",
-                "title": "AI 教育題目解析",
-                "how": "不同題型走不同 AI，解答完還會複查",
+                "title": "多模型教育解析引擎",
+                "how": "構建複雜題型識別分流網絡，分離評估與生成環節，支持多輪自動複核確保解析嚴謹性",
                 "tags": [
                   "Multi-LLM",
                   "題型引擎"
@@ -915,21 +978,21 @@
         "id": "flow-community",
         "icon": "🤝",
         "accent": "#1db954",
-        "title": "社群變現和辦公自動化",
-        "subtitle": "風控、線索、協同交給機器人",
-        "persona": "如果你是社群運營/私域負責人：群一大，靠人頂不住",
-        "oneLiner": "風控、線索、協同交給機器人和自動化",
+        "title": "社群變現與辦公自動化",
+        "subtitle": "把風控、線索、協同交給 Bot 與自動化",
+        "persona": "如果你是社群運營/私域負責人：群規模上來靠人頂不住",
+        "oneLiner": "把風控、線索、協同交給 Bot 與自動化",
         "nodes": [
           {
             "id": "d1-moderation",
-            "stage": "D1 · 群管風控和擔保",
-            "painPoint": "驗證、反垃圾、擔保、客服靠人工撐不住",
-            "painDetail": "社群擴群后，入群驗證、反垃圾、擔保、客服全靠人工。重點做穩、能對賬、能監控。",
+            "stage": "D1 · 群管風控與擔保",
+            "painPoint": "驗證、反垃圾、擔保交易、客服工單靠人工撐不住",
+            "painDetail": "商業社群擴群后，入群驗證、反垃圾、擔保交易、客服工單全靠人工。交付重點是穩定性、對賬閉環與運營可控。",
             "projects": [
               {
                 "id": "group_management_bot",
-                "title": "社群運營機器人",
-                "how": "管群、擔保交易、客服，私域變現一條龍",
+                "title": "社群管理與商業變現中樞",
+                "how": "一體化社群運營方案，涵蓋反作弊風控、擔保交易與智能客服，形成可監控的商業閉環",
                 "tags": [
                   "Bot",
                   "擔保交易"
@@ -942,13 +1005,13 @@
           {
             "id": "d2-leads",
             "stage": "D2 · 商業線索洞察",
-            "painPoint": "群裡商機抓不住，線索流失在聊天洪流",
-            "painDetail": "群裡每天上萬條消息，人工掃不過來，商機白白流失。要 7×24 監聽 + LLM 提取意圖 + 定向觸達。",
+            "painPoint": "群裡商機抓不住，線索流失在聊天洪流裡",
+            "painDetail": "群裡每天上萬條消息，人工掃不過來，互補商機白白流失。需要 7×24 監聽 + LLM 提取商業意圖 + 定向觸達。",
             "projects": [
               {
                 "id": "need_radar_bot",
-                "title": "商機挖掘雷達",
-                "how": "監聽群消息，AI 找買賣需求並推送",
+                "title": "社群商業線索洞察雷達",
+                "how": "7×24 全量監聽社群動態，LLM 提取商業意圖，精準捕捉互補商機並實時觸達",
                 "tags": [
                   "Bot",
                   "LLM"
@@ -962,12 +1025,12 @@
             "id": "d3-search",
             "stage": "D3 · 歷史內容檢索",
             "painPoint": "聊天記錄是黑盒，有價值信息找不到",
-            "painDetail": "群歷史是信息礦，但全文搜索搜不到語義相近的。要全文 + 向量雙路召回。",
+            "painDetail": "群歷史是巨大的信息礦，但全文搜索搜不到語義相近的內容。需要全文 + 向量雙路召回。",
             "projects": [
               {
                 "id": "tg_ai_search",
-                "title": "群聊歷史搜索",
-                "how": "在大量聊天記錄裡快速找到有用信息",
+                "title": "社群歷史內容智能檢索引擎",
+                "how": "融合全文檢索與向量相似度的雙路召回，深度挖掘海量社群聊天記錄中的有價值信息",
                 "tags": [
                   "IM",
                   "混合檢索"
@@ -979,14 +1042,14 @@
           },
           {
             "id": "d4-office",
-            "stage": "D4 · 辦公協同和桌面效率",
+            "stage": "D4 · 辦公協同與桌面效率",
             "painPoint": "飛書/郵箱/桌面數據不通，人工對賬成本高",
-            "painDetail": "飛書表格和後端不通，訂單狀態要人工同步；桌面操作重複。要數據管道雙向同步 + 桌面 AI 增強。",
+            "painDetail": "飛書表格和後端系統數據不通，訂單狀態要人工同步；桌面操作重複勞動。需要數據管道雙向同步 + 桌面 AI 增強。",
             "projects": [
               {
                 "id": "lark_sync",
-                "title": "飛書數據同步",
-                "how": "飛書表格和後端系統雙向同步，少手工對賬",
+                "title": "企業辦公協同數據管道",
+                "how": "打通飛書多維表格與後端業務系統，訂單狀態與客商信息雙向實時同步，消除人工對賬",
                 "tags": [
                   "飛書",
                   "自動化"
@@ -996,8 +1059,8 @@
               },
               {
                 "id": "smart_clipboard",
-                "title": "AI 剪貼板",
-                "how": "複製內容時 AI 自動幫你改寫、整理",
+                "title": "AI 增強智能剪貼板",
+                "how": "基於 Rust 的桌面級效率工具，實時監聽並調用 LLM 重塑剪貼板內容，無縫銜接工作流",
                 "tags": [
                   "Tauri",
                   "Rust"

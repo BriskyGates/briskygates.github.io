@@ -73,6 +73,28 @@
       "afternoon": "Good afternoon",
       "evening": "Good evening",
       "night": "Still coding?"
+    },
+    "brief": {
+      "enabled": false,
+      "eyebrow": "",
+      "audience": "",
+      "technicalLabel": "",
+      "casesTitle": "",
+      "casesSubtitle": "",
+      "problemLabel": "",
+      "solutionLabel": "",
+      "resultLabel": "",
+      "cases": [],
+      "toolsTitle": "",
+      "toolsSubtitle": "",
+      "toolsNote": "",
+      "inputLabel": "",
+      "outputLabel": "",
+      "setupLabel": "",
+      "tools": [],
+      "conversationTitle": "",
+      "questions": [],
+      "conversationNote": ""
     }
   },
   "profile": {

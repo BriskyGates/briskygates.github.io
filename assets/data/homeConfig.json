@@ -73,6 +73,28 @@
       "afternoon": "下午好",
       "evening": "晚上好",
       "night": "夜深了，还在写代码？"
+    },
+    "brief": {
+      "enabled": false,
+      "eyebrow": "",
+      "audience": "",
+      "technicalLabel": "",
+      "casesTitle": "",
+      "casesSubtitle": "",
+      "problemLabel": "",
+      "solutionLabel": "",
+      "resultLabel": "",
+      "cases": [],
+      "toolsTitle": "",
+      "toolsSubtitle": "",
+      "toolsNote": "",
+      "inputLabel": "",
+      "outputLabel": "",
+      "setupLabel": "",
+      "tools": [],
+      "conversationTitle": "",
+      "questions": [],
+      "conversationNote": ""
     }
   },
   "profile": {

@@ -1,70 +1,52 @@
 {
   "ui": {
-    "pageTitle": "阿布 · 帮企业把 AI 真正用起来",
-    "pageDescription": "把知识库、文档处理、智能助手做成能上线、能维护的系统",
+    "pageTitle": "阿布 · 帮团队少翻资料、少做重复活",
+    "pageDescription": "给业务负责人的简明介绍：做过哪些项目、解决什么问题、哪些现有工具可以按需调整使用。",
     "labelSuffix": "：",
-    "searchPlaceholder": "搜项目、技能、怎么合作…",
-    "heroCtaPrimary": "发我你的知识库现状",
-    "heroCtaSecondary": "看 3 个落地案例",
-    "contactMethodsTitle": "怎么联系",
+    "searchPlaceholder": "看问题、看工具、聊需求",
+    "heroCtaPrimary": "看看有哪些小工具",
+    "heroCtaSecondary": "先看解决过的问题",
+    "contactMethodsTitle": "联系方式",
     "languageToggle": {
-      "tooltip": "选语言"
+      "tooltip": "选择语言"
     },
     "toast": {
-      "wechatCopied": "微信号已复制",
-      "xianyuCopied": "店铺名已复制",
-      "imCopied": "账号已复制"
+      "wechatCopied": "微信号已复制到剪贴板",
+      "xianyuCopied": "店铺名称已复制到剪贴板",
+      "imCopied": "IM 账号已复制到剪贴板"
     },
     "nav": [
       {
         "id": "home",
-        "label": "首页",
-        "shortLabel": "首页",
+        "label": "一句话介绍",
+        "shortLabel": "介绍",
         "icon": "fas fa-house"
       },
       {
-        "id": "showcase",
-        "label": "代表作",
-        "shortLabel": "作品",
+        "id": "plain-cases",
+        "label": "解决什么问题",
+        "shortLabel": "案例",
         "icon": "fas fa-fire"
       },
       {
-        "id": "flow-rag",
-        "label": "业务流",
-        "shortLabel": "业务流",
-        "icon": "fas fa-layer-group"
-      },
-      {
-        "id": "experience",
-        "label": "经历",
-        "shortLabel": "经历",
-        "icon": "fas fa-route"
-      },
-      {
-        "id": "skills",
-        "label": "技能",
-        "shortLabel": "技能",
+        "id": "tools",
+        "label": "可复用的小工具",
+        "shortLabel": "工具",
         "icon": "fas fa-bolt"
       },
       {
-        "id": "services",
-        "label": "服务",
-        "shortLabel": "服务",
-        "icon": "fas fa-briefcase"
-      },
-      {
         "id": "contact",
-        "label": "联系",
+        "label": "聊聊你的需求",
         "shortLabel": "联系",
         "icon": "fas fa-envelope"
       }
     ],
     "projectStatus": {
       "production": "已上线",
-      "active": "在维护",
+      "active": "持续迭代",
       "testing": "测试中",
       "development": "开发中",
-      "planned": "计划中",
+      "planned": "规划中",
       "highlightsLabel": "我做了什么",
       "progressLabel": "进度"
     },
@@ -72,55 +54,159 @@
       "morning": "早上好",
       "afternoon": "下午好",
       "evening": "晚上好",
-      "night": "夜深了还在忙？"
+      "night": "夜深了，还在写代码？"
+    },
+    "brief": {
+      "enabled": true,
+      "eyebrow": "给业务负责人 · 2 分钟了解",
+      "audience": "适合投研、资讯、运营和企业办公团队",
+      "technicalLabel": "查看完整技术版",
+      "casesTitle": "做过哪些项目，解决什么问题？",
+      "casesSubtitle": "先看有没有你熟悉的麻烦。",
+      "problemLabel": "遇到的问题",
+      "solutionLabel": "做过的项目",
+      "resultLabel": "带来的帮助",
+      "cases": [
+        {
+          "id": "fastapi_celery_kb",
+          "title": "资料很多，答案不好找",
+          "audience": "投研 / 资讯团队",
+          "problem": "研报、公告堆了一大堆，找一条信息要来回翻。",
+          "solution": "研报与公告问答：用日常语言提问，查找相关内容和出处。",
+          "result": "少翻文件，找到信息后能回看原文。"
+        },
+        {
+          "id": "doc_intelligence",
+          "title": "数据在文件里，整理全靠手工",
+          "audience": "研究 / 数据团队",
+          "problem": "扫描件里的文字、研报里的表格，要反复复制和整理。",
+          "solution": "文档整理：从文件里提取文字和表格，供后续检索、汇总。",
+          "result": "减少重复录入，把时间留给核对和分析。"
+        },
+        {
+          "id": "lark_sync",
+          "title": "信息分散，更新靠人来回搬",
+          "audience": "运营 / 办公团队",
+          "problem": "邮件要盯，表格要填，业务系统里的状态还要再更新一遍。",
+          "solution": "邮件提醒与飞书同步：把重要信息送到指定位置，让两边的数据同步。",
+          "result": "少做重复搬运，也少漏掉需要处理的信息。"
+        }
+      ],
+      "toolsTitle": "哪些小工具可以拿来改一改？",
+      "toolsSubtitle": "下面都有对应的已有项目。可以先从一个小场景试起。",
+      "toolsNote": "这里的“可复用”指已有实现可作为基础；能否直接试用，要先确认样例、账号权限和运行环境。",
+      "inputLabel": "你提供",
+      "outputLabel": "工具帮你做",
+      "setupLabel": "还要调整",
+      "tools": [
+        {
+          "id": "email_auto_crawl",
+          "title": "研报附件自动收集",
+          "status": "已有采集项目",
+          "fit": "每天从邮箱收研报的团队",
+          "input": "指定邮箱里的研报附件。",
+          "output": "自动收集附件，提取其中需要的表格数据。",
+          "setup": "接入邮箱，确定附件范围和要提取的字段。"
+        },
+        {
+          "id": "cc_monitor_gmail",
+          "title": "重要邮件自动提醒",
+          "status": "已有提醒工具",
+          "fit": "不想反复刷邮箱的同事",
+          "input": "要关注的发件人、关键词。",
+          "output": "筛出重要邮件，把内容推送到指定聊天工具。",
+          "setup": "配置筛选规则和消息接收位置。"
+        },
+        {
+          "id": "announcement_tagging",
+          "title": "公告资讯自动分类",
+          "status": "已有分类项目",
+          "fit": "每天整理大量资讯的团队",
+          "input": "公告、资讯和想要的分类。",
+          "output": "给内容打上标签，方便筛选、汇总和分发。",
+          "setup": "对齐分类口径，用一批样例检查效果。"
+        },
+        {
+          "id": "paddle_ocr_vl",
+          "title": "扫描件文字与表格提取",
+          "status": "已有文档处理服务",
+          "fit": "需要把扫描资料变成可用数据的团队",
+          "input": "扫描文件或图片样例。",
+          "output": "提取文字、识别表格，减少手工录入。",
+          "setup": "确认版面识别效果和导出格式，再接入使用。"
+        },
+        {
+          "id": "lark_sync",
+          "title": "飞书表格与业务系统同步",
+          "status": "已有项目 · 需对接系统",
+          "fit": "同一份数据要在两处维护的团队",
+          "input": "飞书表格和业务系统中要同步的数据。",
+          "output": "同步订单状态、客商资料，减少重复填表。",
+          "setup": "对齐字段、同步规则和系统访问权限。"
+        },
+        {
+          "id": "etf_unusual",
+          "title": "ETF 盘中异动提醒",
+          "status": "已有监测项目 · 需接数据",
+          "fit": "需要关注行情变化的投研团队",
+          "input": "关注的 ETF 和提醒条件。",
+          "output": "持续检查行情变化，触发条件时发送提醒。",
+          "setup": "确认行情来源、提醒指标和接收渠道。"
+        }
+      ],
+      "conversationTitle": "和金融行业朋友聊，问这三句就够了",
+      "questions": [
+        "哪件事每天都要重复做，最费人？",
+        "现在资料放在哪里，能不能拿一份样例？",
+        "如果先试一个小工具，做到什么程度才算有用？"
+      ],
+      "conversationNote": "可以先聊收研报、筛资讯、整理表格这类具体需求。拿到样例，再判断哪些工具能复用、哪些需要定制。"
     }
   },
   "profile": {
     "name": "阿布",
     "avatar": "🐶",
-    "tagline": "全栈工程师",
+    "tagline": "AI 工具与办公自动化",
     "status": "可接项目",
-    "heroTitle": "帮企业把 AI 真正用起来，不只是做演示",
+    "heroTitle": "帮团队少翻资料，少做重复活",
     "title": "关于我",
     "greeting": {
-      "text": "你好，我是阿布，在上海",
-      "description": "我是<strong>企业 AI 落地工程师</strong>：帮团队把知识库问答、文档处理、智能助手做成<strong>能部署、能评测、能维护</strong>的系统。<br>如果你卡在「搜不准、解析炸、助手上不了线」，可以把现状发我。"
+      "text": "你好，我是阿布",
+      "description": "我是阿布，做过金融文档处理、资料问答和办公自动化。把查资料、收邮件、整理数据这些费时的事，做成能帮上忙的工具。"
     },
     "heroChips": [
-      "企业知识库",
-      "金融文档 RAG",
-      "文档处理",
-      "助手上生产",
-      "机器人自动化"
+      "查资料更方便",
+      "整理文件更省事",
+      "信息更新少手工"
     ],
     "roles": [
       {
         "label": "一句话",
-        "value": "找能把知识库 / 助手 / 文档智能真正做成线上系统的人，就找阿布",
+        "value": "把查资料、收邮件、整理数据这些重复活，做成能用的小工具。",
         "type": "primary"
       },
       {
-        "label": "适合谁",
-        "value": "技术负责人 · 业务负责人 · 创业公司 CTO",
+        "label": "适合",
+        "value": "投研、运营和企业办公团队",
         "type": "secondary"
       }
     ],
     "stats": [
       {
         "number": "6+",
-        "label": "年经验"
+        "label": "年实战"
       },
       {
         "number": "80+",
-        "label": "项目"
+        "label": "个项目"
       },
       {
         "number": "15+",
-        "label": "AI 项目"
+        "label": "个 AI 项目"
       },
       {
-        "number": "全栈",
-        "label": "一条龙"
+        "number": "全流程",
+        "label": "交付"
       }
     ],
     "location": {
@@ -132,42 +218,17 @@
       "#1e3a5f",
       "#312e81"
     ],
-    "heroFlowEntries": [
-      {
-        "id": "flow-rag",
-        "icon": "📚",
-        "title": "知识库问答不准 / 上不了线",
-        "sub": "从脏文档到问答网关，一条链路打通"
-      },
-      {
-        "id": "flow-agent",
-        "icon": "🤖",
-        "title": "Agent demo 好看，换场景就废",
-        "sub": "工具编排 + 多智能体 + 可审计工程化"
-      },
-      {
-        "id": "flow-finance",
-        "icon": "📈",
-        "title": "研报公告多、人工搬不动",
-        "sub": "采集 -> 实体 -> 异动监测自动化"
-      },
-      {
-        "id": "flow-community",
-        "icon": "🤝",
-        "title": "群规模上来，靠人顶不住",
-        "sub": "风控 / 线索 / 协同交给 Bot"
-      }
-    ]
+    "heroFlowEntries": null
   },
   "featured": {
     "title": "落地案例",
-    "subtitle": "用买方听得懂的话说清楚：解决什么问题、我做了什么",
+    "subtitle": "按买方痛点写的 3 个代表作——其余能力见下方项目库",
     "items": [
       {
         "id": "fastapi_celery_kb",
-        "title": "研报公告一堆，知识库还老引用错段落",
-        "subtitle": "金融知识库 · 切块 · 重排",
-        "description": "文档已经入库了，问答还是答非所问。先把解析和切块修好，再加上时效/来源排序，而不是先换更大模型。",
+        "title": "研报/公告很多，知识库却经常引用错段落",
+        "subtitle": "金融文档 RAG · 解析分块 · 重排评测",
+        "description": "某中型投研/资讯团队：文档已入库，问答仍答非所问。目标是可上线的知识库问答，且链路可观测。优先重修解析与分块，再上时效/权威重排，而不是先换更大模型。",
         "tags": [
           "RAG",
           "分块",
@@ -178,16 +239,16 @@
         "accent": "#b49bc8",
         "status": "production",
         "highlights": [
-          "重建解析和语义切块，异步入库",
-          "加上时效和权威重排，并留下评测日志",
-          "Docker 部署，方便交接和回滚"
+          "重建研报/公告解析与语义分块管线，异步并行入库",
+          "增加时效与来源权威重排，并对召回链路做日志评测",
+          "用 Docker Compose 交付可扩展部署，支持交接与回滚"
         ]
       },
       {
         "id": "doc_intelligence",
-        "title": "扫描件和乱版面，把整个知识库项目拖进泥潭",
+        "title": "扫描件与复杂版面，把整个 RAG 项目拖进泥潭",
         "subtitle": "PDF / OCR / 目录 / 去水印",
-        "description": "扫描件、表格、水印、目录缺失是常见坑。目标是把脏文档变成能检索的干净结构；能用规则稳住就先用规则。",
+        "description": "企业知识库常见卡点：扫描件、表格、水印、目录层级缺失。目标是把脏文档变成可检索的结构化输入。规则+坐标能稳住的先稳住，VL/OCR 按版面复杂度按需上。",
         "tags": [
           "PDF",
           "OCR",
@@ -198,16 +259,16 @@
         "accent": "#6366f1",
         "status": "production",
         "highlights": [
-          "PDF 结构解析和表格识别",
-          "去水印提升 OCR，目录提取多级兜底",
-          "做成高并发解析接口给下游用"
+          "搭建 PDF 结构化解析与表格识别，输出干净 Markdown/结构树",
+          "用多规则净水提升 OCR 基线，目录提取做三级降级兜底",
+          "封装高并发解析 API，方便下游分块与向量化直接接入"
         ]
       },
       {
         "id": "group_management_bot",
-        "title": "群一大，风控/担保/客服靠人顶不住",
-        "subtitle": "社群机器人 · 担保对账",
-        "description": "商业社群扩起来后，验证、防骗、担保交易和客服靠人工撑不住。重点做稳、能对账、能监控。",
+        "title": "群规模上来后，风控/担保/客服靠人顶不住",
+        "subtitle": "社群 Bot · 担保对账 · 可监控",
+        "description": "商业社群在扩群后，验证、反垃圾、担保交易与客服工单靠人工撑不住。交付重点是稳定性、对账闭环与运营可控，而不是堆功能。",
         "tags": [
           "Bot",
           "风控",
@@ -218,74 +279,78 @@
         "accent": "#1db954",
         "status": "production",
         "highlights": [
-          "入群验证、反垃圾、风控自动化",
-          "担保交易和财务对账",
-          "运营后台 + 工单客服闭环"
+          "实现入群验证、反垃圾到风控管理的自动化治理",
+          "构建专群资金担保与财务对账，降低人工差错",
+          "提供运营控制台与工单客服，形成可监控的商业闭环"
         ]
       }
     ]
   },
   "experience": {
-    "title": "做过什么",
-    "subtitle": "这些年主要在「能上线」这条线上干活",
+    "title": "能力履历",
+    "subtitle": "面向生产交付的工程路径，不是 Demo 合集",
     "items": [
       {
-        "period": "2024 - 至今",
-        "title": "企业 AI 系统",
-        "description": "帮企业做智能助手、知识库问答、多模态应用，从试做到正式上线都做过，强调能监控、能回滚。",
+        "period": "2024 — 至今",
+        "title": "企业 AI 架构设计与研发",
+        "description": "主导智能体、复杂 RAG、多模态应用从 POC 到高可用生产：强调评测、观测、回滚与交接，而不是只演示效果。",
         "tags": [
-          "智能助手",
-          "知识库",
+          "智能体",
+          "RAG",
+          "FastAPI",
           "可观测"
         ]
       },
       {
-        "period": "2022 - 2024",
-        "title": "文档处理",
-        "description": "处理百万级金融 PDF：复杂排版、OCR、切块，给 AI 准备干净数据。",
+        "period": "2022 — 2024",
+        "title": "文档智能与非结构化数据处理",
+        "description": "构建百万级金融文档解析管线，攻克复杂版面、OCR、分块策略，把「能搜到」建立在「解析对」之上。",
         "tags": [
           "PDF",
-          "OCR"
+          "OCR",
+          "ETL"
         ]
       },
       {
-        "period": "2020 - 至今",
-        "title": "机器人和后台",
-        "description": "高并发的社群机器人和监控系统，交易和客服流程要稳。",
+        "period": "2020 — 至今",
+        "title": "高并发 IM 机器人与后台架构",
+        "description": "设计商业社群机器人与运维监控中枢，用异步框架与缓存队列守住交易与客服稳定性。",
         "tags": [
-          "机器人",
-          "飞书",
+          "Bot",
+          "飞书 API",
           "Redis"
         ]
       },
       {
         "period": "持续",
-        "title": "AI 工具链",
-        "description": "研究 AI 调工具、写代码、查数据库，让流程可审计、可复现。",
+        "title": "MCP & Agent 工程化",
+        "description": "把工具编排、代码执行与 Text2SQL 嵌进可审计、可复现的工程流程，避免 Agent 只会演示。",
         "tags": [
           "MCP",
-          "Agent"
+          "Agent",
+          "Text2SQL"
         ]
       }
     ]
   },
   "skills": {
-    "title": "会什么",
-    "motto": "不光会调大模型，<strong>更会把 AI 嵌进现有系统</strong>，做得稳、扩得开、能交接。",
+    "title": "核心能力",
+    "motto": "不只精于调模型，<strong>更专注把 AI 做成可上生产的系统</strong>——可观测、可回滚、可维护。",
     "items": [
       {
-        "title": "AI 应用",
-        "description": "知识库问答 / 助手上生产 / 模型服务化 / 多智能体 / 工具调用",
+        "title": "AI 应用工程化",
+        "description": "RAG 全链路 / Agent 上生产 / LLM 服务化 / Multi-Agent / MCP 工具链",
         "tags": [
           "RAG",
           "Agent",
-          "MCP"
+          "MCP",
+          "评测"
         ],
         "icon": "🤖"
       },
       {
-        "title": "金融文本 & 知识库",
-        "description": "研报公告切块、搜索排序、图表检索、资讯分类",
+        "title": "行业文本 & 知识库",
+        "description": "研报/公告分块向量化、召回重排、图表召回、资讯打标与问答网关",
         "tags": [
           "向量库",
           "Rerank",
@@ -294,20 +359,22 @@
         "icon": "📊"
       },
       {
-        "title": "文档处理",
-        "description": "PDF 解析 / OCR / 去水印 / 表格识别 / 目录还原",
+        "title": "文档智能",
+        "description": "PDF 解析 / OCR-VL / 去水印 / 表格识别 / 目录还原 / 结构化抽取",
         "tags": [
           "PDF",
-          "OCR"
+          "OCR",
+          "Pipeline"
         ],
         "icon": "📄"
       },
       {
-        "title": "集成 & 自动化",
-        "description": "社群机器人 / 飞书 / 邮件自动化 / 任务队列",
+        "title": "平台集成 & 自动化",
+        "description": "国内 IM Bot / 飞书 / 邮件 RPA / Celery 任务调度与对账闭环",
         "tags": [
           "Bot",
-          "飞书"
+          "飞书",
+          "Celery"
         ],
         "icon": "⚡"
       }
@@ -315,34 +382,34 @@
     "summary": [
       {
         "icon": "🏗️",
-        "text": "全栈"
+        "text": "全栈架构"
       },
       {
         "icon": "🧠",
-        "text": "AI 落地"
+        "text": "AI 工程化"
       },
       {
         "icon": "🚀",
-        "text": "快速交付"
+        "text": "敏捷交付"
       }
     ]
   },
   "services": {
-    "title": "怎么合作",
+    "title": "合作方式",
     "items": [
       {
-        "title": "15 分钟先聊清楚",
-        "description": "先看问题是不是匹配；你把场景说清，我口头给建议，不写长方案。",
+        "title": "15 分钟需求澄清",
+        "description": "先对齐问题类型与是否匹配；你填清场景后约聊。只做归类与建议，不写长方案。",
         "technologies": [
-          "澄清",
-          "匹配"
+          "获客",
+          "过滤匹配"
         ],
         "badge": "免费 · 限时",
         "icon": "💬"
       },
       {
         "title": "知识库 / AI 落地诊断",
-        "description": "访谈现状、画架构草图、列风险和优先级。先把坑标出来，再决定要不要上大项目。",
+        "description": "现状访谈 + 架构草图 + 风险清单 + 优先级 backlog。先把坑标清楚，再决定要不要上大项目。",
         "technologies": [
           "诊断纪要",
           "路线图"
@@ -351,8 +418,8 @@
         "icon": "🩺"
       },
       {
-        "title": "技术顾问",
-        "description": "架构评审、关键决策、Code Review、疑难排障。适合已有团队、缺「做过线上」的人盯方向。",
+        "title": "技术顾问包",
+        "description": "架构评审、关键设计拍板、Code Review、排障升级。适合已有团队、缺「做过生产」的人盯方向。",
         "technologies": [
           "架构",
           "Code Review"
@@ -362,7 +429,7 @@
       },
       {
         "title": "模块交付",
-        "description": "固定范围：文档解析、召回重排、问答网关、机器人自动化等，带验收和交接。",
+        "description": "固定范围交付：文档解析管线、召回重排、RAG 对话网关、飞书/Bot 自动化等，含验收与交接。",
         "technologies": [
           "解析",
           "Rerank",
@@ -373,8 +440,8 @@
         "icon": "📦"
       },
       {
-        "title": "完整项目",
-        "description": "从调研到上线交接一条龙。按里程碑付款；档期满了会直说。",
+        "title": "完整项目交付",
+        "description": "端到端：调研 → 实施 → 上线 → 交接。里程碑付款；档期占满时会坦诚说明内容节奏。",
         "technologies": [
           "RAG",
           "Agent",
@@ -385,25 +452,25 @@
       }
     ],
     "partners": {
-      "title": "这样的伙伴最合适",
+      "title": "这样的伙伴最匹配",
       "types": [
         {
           "icon": "🏗️",
-          "type": "技术负责人",
-          "description": "Demo 好看上不了线、知识库不准、链路没法监控"
+          "type": "技术负责人 / 架构师",
+          "description": "Demo 好看上不了生产、RAG 不准、链路不可观测——需要可部署可运维的方案"
         },
         {
           "icon": "🏢",
-          "type": "业务负责人",
-          "description": "文档多、人工贵、流程断--需要知识库或机器人"
+          "type": "业务负责人（金融/教育/社群）",
+          "description": "文档多、人工贵、流程断——需要文档管线 / 知识库问答 / Bot 自动化"
         },
         {
           "icon": "🚀",
-          "type": "创业公司 CTO",
-          "description": "要快、要稳，缺人顶核心模块"
+          "type": "创业团队 CTO",
+          "description": "要快、要稳、要人能顶住——顾问 + 核心模块交付"
         }
       ],
-      "note": "不做纯 PPT 包装，也不接「三天万能助手」表演项目。欢迎先<strong>发知识库/文档现状</strong>，再约 15 分钟聊"
+      "note": "不做纯包装 PPT、不接「三天万能 Agent」表演项目。欢迎先<strong>发知识库/文档现状</strong>，再约 15 分钟澄清"
     }
   },
   "projects": {
@@ -412,16 +479,16 @@
     "items": [],
     "innovation": {
       "icon": "💡",
-      "title": "我的理念",
-      "text": "AI 的价值在于真能用--能监控、能回滚、好维护。我不卖概念，我交付业务里在跑的系统。"
+      "title": "技术理念",
+      "text": "AI 的价值在落地——可观测、可回滚、可维护。我不卖概念，我交付能在业务里真正跑起来的系统。"
     }
   },
   "contact": {
     "title": "合作交流",
     "intro": {
       "icon": "✨",
-      "title": "把你的知识库 / 助手现状发我",
-      "description": "搜不准、解析炸、助手上不了线都可以聊。我会实话实说能不能做，并建议走诊断、顾问还是模块交付。"
+      "title": "说一个你最想省事的环节",
+      "description": "不用先写技术方案。说清楚谁在做、现在怎么做、哪里最费时间，就可以开始聊。"
     },
     "methods": [],
     "availability": {
@@ -430,7 +497,7 @@
       "responseTime": "2–4 小时",
       "timezone": "UTC+8（北京时间）",
       "labels": {
-        "usuallyWithin": "工作日一般",
+        "usuallyWithin": "工作日通常在",
         "response": "内回复",
         "timezoneLabel": "时区"
       }
@@ -440,20 +507,16 @@
       "title": "合作方式",
       "types": [
         {
-          "icon": "🩺",
-          "text": "诊断包"
-        },
-        {
-          "icon": "📚",
-          "text": "技术顾问"
+          "icon": "📄",
+          "text": "看一份样例"
         },
         {
           "icon": "📦",
-          "text": "模块交付"
+          "text": "试一个工具"
         },
         {
-          "icon": "🚀",
-          "text": "完整项目"
+          "icon": "🤝",
+          "text": "再定合作范围"
         }
       ]
     },
@@ -465,55 +528,55 @@
       ]
     },
     "form": {
-      "title": "开始合作",
-      "subtitle": "发我现状就行；工作日一般 2–4 小时内回复",
+      "title": "有类似的问题，一起聊聊",
+      "subtitle": "带一个具体问题来，先看看现有工具能不能帮上忙。",
       "fields": {
         "name": {
-          "label": "怎么称呼",
-          "placeholder": "你的名字"
+          "label": "你的名字",
+          "placeholder": "怎么称呼？"
         },
         "contact": {
           "label": "联系方式",
-          "placeholder": "微信 / 邮箱 / 手机"
+          "placeholder": "微信 / 邮箱 / 手机号"
         },
         "topic": {
-          "label": "想聊什么",
-          "placeholder": "知识库不准 / 文档解析 / 助手上线 / 顾问…"
+          "label": "想省哪件事",
+          "placeholder": "比如：自动收研报、分类资讯、少填几次表"
         },
         "message": {
-          "label": "现状简述",
-          "placeholder": "已有什么（文档量、是否入库、卡在哪）、目标与时间…"
+          "label": "简单说说现在怎么做",
+          "placeholder": "谁在做？每天大概多少份？哪一步最费时间？想得到什么结果？"
         }
       },
-      "submit": "发我现状",
+      "submit": "发我这个需求",
       "submitting": "发送中…",
-      "success": "收到了！我会尽快回复并建议下一步",
-      "error": "发送失败，请稍后重试或直接联系我"
+      "success": "已收到！我会尽快回复并建议下一步",
+      "error": "发送失败，请稍后重试或直接加微信联系"
     }
   },
   "businessFlows": {
     "title": "业务流",
-    "subtitle": "按你卡在哪一步找能力，不是按我有什么技术铺卡片",
+    "subtitle": "按你卡在哪一步定位能力，不是按我有什么技术铺卡片",
     "flows": [
       {
         "id": "flow-rag",
         "icon": "📚",
         "accent": "#b49bc8",
         "title": "企业知识库从 0 到上线",
-        "subtitle": "从脏文档到能上线的问答接口，一条龙打通",
-        "persona": "如果你是技术/业务负责人：文档一堆，问答不准、上不了线",
-        "oneLiner": "别先换更大模型，先把解析、分块、重排、网关修好",
+        "subtitle": "RAG 全链路 · 从脏文档到可上线问答网关",
+        "persona": "如果你是技术/业务负责人：文档已堆了一堆，问答不准、上不了生产",
+        "oneLiner": "不先换更大模型，先把解析、分块、重排、网关修到位",
         "nodes": [
           {
             "id": "a1-doc-feed",
             "stage": "A1 · 文档进料",
             "painPoint": "扫描件、表格、水印、目录缺失，脏文档喂出脏知识",
-            "painDetail": "知识库最常卡在上游：PDF 结构丢了、表格乱码、水印盖住正文、目录拿不到。下游怎么调都白搭。",
+            "painDetail": "企业知识库最常见的卡点在上游：PDF 结构丢了、表格变成乱码、水印盖住正文、目录层级拿不到。下游怎么调都白搭。",
             "projects": [
               {
                 "id": "pdf2xml",
-                "title": "PDF 结构化解析",
-                "how": "把 PDF 拆成干净的结构化数据，给后续流程用",
+                "title": "高精度 PDF 结构化解析引擎",
+                "how": "用底层库逆向 PDF 坐标，提炼文本/表格/层级，给下游最干净的数据源",
                 "tags": [
                   "PDF",
                   "FastAPI"
@@ -523,8 +586,8 @@
               },
               {
                 "id": "pdf_watermark",
-                "title": "PDF 去水印",
-                "how": "研报批量去水印，后面 OCR 更准",
+                "title": "智能 PDF 净水处理引擎",
+                "how": "可配置规则库 + 视觉坐标匹配，批量去水印，抬升 OCR 基线",
                 "tags": [
                   "水印",
                   "批处理"
@@ -534,8 +597,8 @@
               },
               {
                 "id": "paddle_ocr_vl",
-                "title": "图片 OCR 服务",
-                "how": "扫描件、复杂图片上传就能提取文字结构",
+                "title": "多模态 OCR 视觉解析服务",
+                "how": "OCR + 版面理解封装成高并发 API，扫描件上传即解析",
                 "tags": [
                   "OCR",
                   "VL"
@@ -545,8 +608,8 @@
               },
               {
                 "id": "extract_pdf_toc",
-                "title": "PDF 目录提取",
-                "how": "尽量把研报目录结构还原出来",
+                "title": "研报目录层级深度挖掘",
+                "how": "书签提取 -> 目录页解析 -> 版面理解，三级降级兜底",
                 "tags": [
                   "PDF",
                   "目录"
@@ -556,8 +619,8 @@
               },
               {
                 "id": "gpu_rapid_layout",
-                "title": "版面元素检测",
-                "how": "快速识别文档里的图、表、段落位置",
+                "title": "GPU 版面元素极速检测",
+                "how": "GPU 推理集群加速，高并发异步落库，拆解图/表/段落",
                 "tags": [
                   "版面检测",
                   "GPU"
@@ -570,13 +633,13 @@
           {
             "id": "a2-chunking",
             "stage": "A2 · 语义分块",
-            "painPoint": "一刀切分块把表格打散、语义截断，召回上限被锁死",
-            "painDetail": "分块是 RAG 精度的隐性天花板。硬切会撕断表格、割裂上下文，召回再准也拼不回完整语义。",
+            "painPoint": "一刀切分块把表格打散、把语义截断，召回上限被锁死",
+            "painDetail": "分块是 RAG 精度的隐性天花板。按字数硬切会撕断表格、割裂上下文，召回再准也拼不回完整语义。",
             "projects": [
               {
                 "id": "pdf_chunker",
-                "title": "研报智能切块",
-                "how": "按段落和表格智能切分，不丢上下文",
+                "title": "研报/公告智能语义分块",
+                "how": "按金融排版智能分块，识别多形态表格，输出高质量 Markdown",
                 "tags": [
                   "分块",
                   "表格识别"
@@ -586,8 +649,8 @@
               },
               {
                 "id": "multi_source_chunk",
-                "title": "各种格式文档切块",
-                "how": "不同来源的文档用同一套流程切块入库",
+                "title": "全格式文档自适应分块管线",
+                "how": "兼容多格式来源的统一分块管线，GPU 生产环境流式清洗入库",
                 "tags": [
                   "分块",
                   "向量化"
@@ -599,14 +662,14 @@
           },
           {
             "id": "a3-recall",
-            "stage": "A3 · 向量召回",
-            "painPoint": "关键词命中为主，语义对不上，图表数据搜不到",
-            "painDetail": "默认 BM25 搜不到同义表达，图表更是盲区。图表和正文要双路向量化才能捞回来。",
+            "stage": "A3 · 向量化召回",
+            "painPoint": "关键词命中为主，语义对不上，图表里的数据根本搜不到",
+            "painDetail": "默认 BM25 搜不到同义表达，图表内容更是检索盲区。图表和正文要双路向量化才能捞回来。",
             "projects": [
               {
                 "id": "qwen3_pg_recall",
-                "title": "向量搜索服务",
-                "how": "用向量数据库做语义搜索，找相似内容",
+                "title": "Qwen3 向量化检索中台",
+                "how": "基于 Qwen3 Embedding + PGVector 的向量召回微服务，优化垂直行业命中率",
                 "tags": [
                   "Qwen3",
                   "PostgreSQL"
@@ -616,8 +679,8 @@
               },
               {
                 "id": "report_recall",
-                "title": "研报图文一起搜",
-                "how": "PDF 里的图表和文字分别存，问的时候都能搜到",
+                "title": "研报图文多模态召回",
+                "how": "PDF 内联图表与正文双路向量化存储，精准响应图表数据与文本证据检索",
                 "tags": [
                   "向量检索",
                   "研报"
@@ -629,14 +692,14 @@
           },
           {
             "id": "a4-rerank",
-            "stage": "A4 · 重排和引用",
-            "painPoint": "top-k 一股脑塞给 LLM，引用错段落，答非所问",
-            "painDetail": "召回的 top-k 里混了过时和弱相关片段，LLM 会被带偏。必须做时效/权威重排，留评测日志。",
+            "stage": "A4 · 重排与引用",
+            "painPoint": "top-k 一股脑塞给 LLM，引用错段落，问答答非所问",
+            "painDetail": "召回回来的 top-k 里混了过时信息和弱相关片段，LLM 会被带偏。必须做时效/权威重排，并留下评测日志。",
             "projects": [
               {
                 "id": "rerank_system",
-                "title": "搜索结果重排序",
-                "how": "搜出来的资料再排个序，引用更靠谱",
+                "title": "检索重排序系统",
+                "how": "对召回候选做语义重排与去重，融合时效与来源权重，提升引用准确率",
                 "tags": [
                   "Rerank",
                   "RAG"
@@ -650,12 +713,12 @@
             "id": "a5-ingest",
             "stage": "A5 · 异步入库基建",
             "painPoint": "文档入库靠手动跑，规模化不了、回滚不了",
-            "painDetail": "文档量大，手动入库既慢又容易丢。需要异步入库集群 + 可扩展部署，才能撑住规模、支持交接回滚。",
+            "painDetail": "文档量一大，手动入库既慢又容易丢。需要异步入库集群 + 可扩展部署，才能撑住规模并支持交接回滚。",
             "projects": [
               {
                 "id": "fastapi_celery_kb",
-                "title": "文档批量入库",
-                "how": "大量文档排队处理，自动切块和向量化",
+                "title": "海量长文档异步入库集群",
+                "how": "基于 Celery + Docker 的异步分布式文档处理系统，支撑研报/公告自动化入库与向量化编排",
                 "tags": [
                   "Celery",
                   "Docker"
@@ -668,13 +731,13 @@
           {
             "id": "a6-gateway",
             "stage": "A6 · 对话问答网关",
-            "painPoint": "没有鉴权、审计、日志，上不了线",
-            "painDetail": "内部 demo 可以裸跑，上生产必须有鉴权、日志、审计。网关要把检索和生成封装成标准接口。",
+            "painPoint": "没有鉴权、审计、日志，上不了生产",
+            "painDetail": "内部 demo 可以裸跑，但上生产必须有鉴权、调用日志、审计。对话网关要把复杂检索与生成逻辑封装成标准 OpenAPI。",
             "projects": [
               {
                 "id": "enterprise_chat_openapi",
-                "title": "企业问答 API",
-                "how": "封装好搜索+问答，别的系统直接调接口",
+                "title": "企业级对话问答网关",
+                "how": "标准化对话式 RAG OpenAPI 接口，封装检索与生成，提供鉴权与调用日志审计",
                 "tags": [
                   "OpenAPI",
                   "Chat"
@@ -690,21 +753,21 @@
         "id": "flow-agent",
         "icon": "🤖",
         "accent": "#1db954",
-        "title": "Agent 从演示到上线",
-        "subtitle": "工具编排 / 代码执行 / 多智能体",
-        "persona": "如果你是 CTO/技术负责人：Agent demo 好看，换场景就废、上不了线",
-        "oneLiner": "把工具编排、代码执行、多智能体做成能审计的流程",
+        "title": "Agent 从演示到生产",
+        "subtitle": "智能体工程化 · 工具编排 / 代码执行 / 多智能体协同",
+        "persona": "如果你是 CTO/技术负责人：Agent demo 好看但换场景就废、上不了线",
+        "oneLiner": "把工具编排、代码执行、多智能体协同嵌进可审计的工程流程",
         "nodes": [
           {
             "id": "b1-dynamic-tools",
             "stage": "B1 · 工具动态化",
-            "painPoint": "工具写死，换场景就废，静态工具链泛化难",
-            "painDetail": "工具调用写死在代码里，加一个工具就要改逻辑。LLM 要能在沙箱里写代码、按需挂工具。",
+            "painPoint": "工具写死，换个场景就废，静态工具链泛化难",
+            "painDetail": "工具调用写死在代码里，新增一个工具就要改一次逻辑。LLM 需要能在沙箱里动态写代码、按需挂载工具。",
             "projects": [
               {
                 "id": "dynamic_mcp",
-                "title": "AI 写代码调工具",
-                "how": "AI 在隔离环境里写代码、调工具，更灵活",
+                "title": "沙箱化代码执行与工具代理",
+                "how": "赋能 LLM 在隔离沙箱中动态编写执行代码并按需挂载工具，解决静态工具链泛化难题",
                 "tags": [
                   "MCP",
                   "Code Act"
@@ -717,13 +780,13 @@
           {
             "id": "b2-orchestration",
             "stage": "B2 · 多工具编排",
-            "painPoint": "多工具协同靠手写 if-else，编排不可复用",
-            "painDetail": "多工具串联写成面条 if-else，换意图就重写。要按自然语言智能规划调用链路。",
+            "painPoint": "多工具协同靠手写 if-else，编排逻辑不可复用",
+            "painDetail": "多工具串联写成面条式 if-else，换一个意图就要重写一遍。需要按自然语言指令智能规划调用链路。",
             "projects": [
               {
                 "id": "mcp_json_rpc",
-                "title": "多工具编排",
-                "how": "你说一句话，AI 自动规划调哪些工具、什么顺序",
+                "title": "MCP 服务流编排引擎",
+                "how": "根据自然语言指令智能规划多工具调用链路，支持上下文感知的意图拆解与并发执行",
                 "tags": [
                   "JSON-RPC",
                   "编排"
@@ -736,13 +799,13 @@
           {
             "id": "b3-gateway",
             "stage": "B3 · 模型能力聚合",
-            "painPoint": "每个业务系统直连大模型，AI 接口失控",
-            "painDetail": "每个系统各自直连大模型，调用分散、成本失控、没法统一治理。要中间层聚合。",
+            "painPoint": "每个业务系统直连大模型，AI 接口资产失控",
+            "painDetail": "每个业务系统各自直连大模型，调用分散、成本失控、无法统一治理。需要中间层聚合 AI 接口资产。",
             "projects": [
               {
                 "id": "ai_mcp_middleware",
-                "title": "AI 能力统一网关",
-                "how": "各业务系统通过统一入口调 AI，好管好用",
+                "title": "企业级模型能力聚合网关",
+                "how": "构建统一 AI 工具调度中间层，屏蔽业务系统直连大模型的复杂性，集中管控与路由",
                 "tags": [
                   "MCP",
                   "API"
@@ -756,12 +819,12 @@
             "id": "b4-multi-agent",
             "stage": "B4 · 多智能体协同",
             "painPoint": "单 Agent 顶不住复杂任务，拆不动、路由乱",
-            "painDetail": "单 Agent 上下文一长就跑偏，复杂任务要多角色协同：自主拆解、多轮路由、自动执行。",
+            "painDetail": "单 Agent 上下文一长就跑偏，复杂任务需要多角色协同：自主拆解、多轮路由、自动化执行闭环。",
             "projects": [
               {
                 "id": "multi_agent_collab",
-                "title": "多个 AI 协作",
-                "how": "复杂任务拆给多个 AI 角色，自动配合完成",
+                "title": "复杂业务多智能体协同",
+                "how": "设计多角色 Agent 协同网络，实现复杂任务自主拆解、多轮路由与自动化执行闭环",
                 "tags": [
                   "Multi-Agent"
                 ],
@@ -773,13 +836,13 @@
           {
             "id": "b5-edge",
             "stage": "B5 · 端侧执行",
-            "painPoint": "没有可控执行环境，移动端接不进来",
-            "painDetail": "很多业务在手机端，但 Agent 没有可控环境接不进来。要云手机群控 + 标准 API。",
+            "painPoint": "没有可控的执行环境，移动端/端侧场景接不进来",
+            "painDetail": "很多业务发生在手机端/端侧，但 Agent 没有可控的执行环境接不进来。需要云手机群控 + 标准 API。",
             "projects": [
               {
                 "id": "phone_autoglm",
-                "title": "手机群控平台",
-                "how": "网页管多台手机，API 下发任务查进度",
+                "title": "Phone AutoGLM 群控平台",
+                "how": "基于 AutoGLM 的云手机群控平台，Web 控制台 + REST API 下发指令、查询进度、导入素材",
                 "tags": [
                   "AutoGLM",
                   "群控"
@@ -796,20 +859,20 @@
         "icon": "📈",
         "accent": "#8b5cf6",
         "title": "金融投研内容生产",
-        "subtitle": "从附件到盘中异动，自动化流水线",
-        "persona": "如果你是金融/资讯团队：研报多、人工贵、流程断",
-        "oneLiner": "从附件到盘中异动，做成自动化流水线",
+        "subtitle": "从附件采集到盘中异动，把投研内容生产做成自动化流水线",
+        "persona": "如果你是金融/资讯团队：研报公告多、人工贵、流程断",
+        "oneLiner": "从附件采集到盘中异动，把投研内容生产做成自动化流水线",
         "nodes": [
           {
             "id": "c1-collect",
             "stage": "C1 · 多源采集",
             "painPoint": "研报附件散落邮箱，人工搬不动、搬不对",
-            "painDetail": "研报每天堆邮箱里，人工下载、重命名、入库既慢又容易漏。要 RPA 自动轮询 + 邮件分发。",
+            "painDetail": "研报每天堆在邮箱里，人工下载、重命名、入库既慢又容易漏。需要 RPA 自动轮询 + 邮件情报分发。",
             "projects": [
               {
                 "id": "email_auto_crawl",
-                "title": "邮箱研报自动采集",
-                "how": "自动收邮件附件、提取表格数据入库",
+                "title": "研报附件 RPA 自动化采集",
+                "how": "自动化轮询邮箱并萃取附件研报中的关键数据表格，输出标准结构化台账",
                 "tags": [
                   "RPA",
                   "PDF"
@@ -819,8 +882,8 @@
               },
               {
                 "id": "cc_monitor_gmail",
-                "title": "邮件自动转发",
-                "how": "重要邮件自动提取内容发到聊天工具",
+                "title": "邮件情报自动化分发引擎",
+                "how": "实时监听核心邮箱，定制规则萃取高价值邮件并跨平台路由投递",
                 "tags": [
                   "IMAP",
                   "Bot"
@@ -832,14 +895,14 @@
           },
           {
             "id": "c2-extract",
-            "stage": "C2 · 实体和语义提取",
-            "painPoint": "实体/时间提取不准，业务语义弱",
-            "painDetail": "研报里公司名、时间、指标靠正则提取漏错多，下游聚合不准。要定制 NER + 自动打标。",
+            "stage": "C2 · 实体与语义提取",
+            "painPoint": "实体/时间提取不准，业务语义理解弱",
+            "painDetail": "研报里的公司名、时间、指标靠正则提取漏错多，下游聚合做不准。需要定制 NER + 资讯自动打标。",
             "projects": [
               {
                 "id": "temp_ner",
-                "title": "金融实体识别",
-                "how": "从研报里自动提取公司名、时间等关键信息",
+                "title": "高精度金融实体识别 (NER)",
+                "how": "定制化金融实体提取，结合知识图谱召回与财报周期逻辑解析，强化业务语义理解",
                 "tags": [
                   "NER",
                   "FastAPI"
@@ -849,8 +912,8 @@
               },
               {
                 "id": "announcement_tagging",
-                "title": "公告自动打标签",
-                "how": "海量公告自动分类打标，方便下游使用",
+                "title": "金融资讯智能打标分类",
+                "how": "NLP 模型对海量公告与资讯自动打标分类，为下游聚合与推送提供数据支撑",
                 "tags": [
                   "NLP",
                   "分类"
@@ -864,12 +927,12 @@
             "id": "c3-monitor",
             "stage": "C3 · 盘中异动监测",
             "painPoint": "盘中异动没人盯，风险滞后、机会溜走",
-            "painDetail": "盘中行情和资讯异动靠人盯不现实，等看到已经晚了。要毫秒监听 + 多维量化 + 实时预警。",
+            "painDetail": "盘中行情和资讯异动靠人盯不现实，等看到已经晚了。需要毫秒级监听 + 多维量化指标自动评估 + 实时预警。",
             "projects": [
               {
                 "id": "etf_unusual",
-                "title": "ETF 异动提醒",
-                "how": "盯盘发现异常就推送，辅助投研决策",
+                "title": "ETF 盘中异动量化监测",
+                "how": "毫秒级行情与资讯异动监测引擎，多维量化指标自动评估风险，实时预警辅助投研决策",
                 "tags": [
                   "ETF",
                   "量化"
@@ -879,8 +942,8 @@
               },
               {
                 "id": "onchain_token_monitor",
-                "title": "链上交易监控",
-                "how": "盯链上交易，异常就推到 IM",
+                "title": "资产交易高频监控预警",
+                "how": "低延迟交易数据监听节点 + Redis 高速去重研判，毫秒级推送核心交易情报",
                 "tags": [
                   "Web3",
                   "IM"
@@ -893,13 +956,13 @@
           {
             "id": "c4-parsing",
             "stage": "C4 · 题型解析引擎",
-            "painPoint": "评估和生成混在一起，解析不严谨",
-            "painDetail": "教育场景一道题既评估又生成，LLM 容易自我背书。要分离评估和生成，支持多轮复核。",
+            "painPoint": "评估与生成混在一起，解析不严谨",
+            "painDetail": "教育场景里一道题既评估又生成，LLM 容易自我背书。需要分离评估与生成，并支持多轮复核。",
             "projects": [
               {
                 "id": "multi_llm_analysis",
-                "title": "AI 教育题目解析",
-                "how": "不同题型走不同 AI，解答完还会复查",
+                "title": "多模型教育解析引擎",
+                "how": "构建复杂题型识别分流网络，分离评估与生成环节，支持多轮自动复核确保解析严谨性",
                 "tags": [
                   "Multi-LLM",
                   "题型引擎"
@@ -915,21 +978,21 @@
         "id": "flow-community",
         "icon": "🤝",
         "accent": "#1db954",
-        "title": "社群变现和办公自动化",
-        "subtitle": "风控、线索、协同交给机器人",
-        "persona": "如果你是社群运营/私域负责人：群一大，靠人顶不住",
-        "oneLiner": "风控、线索、协同交给机器人和自动化",
+        "title": "社群变现与办公自动化",
+        "subtitle": "把风控、线索、协同交给 Bot 与自动化",
+        "persona": "如果你是社群运营/私域负责人：群规模上来靠人顶不住",
+        "oneLiner": "把风控、线索、协同交给 Bot 与自动化",
         "nodes": [
           {
             "id": "d1-moderation",
-            "stage": "D1 · 群管风控和担保",
-            "painPoint": "验证、反垃圾、担保、客服靠人工撑不住",
-            "painDetail": "社群扩群后，入群验证、反垃圾、担保、客服全靠人工。重点做稳、能对账、能监控。",
+            "stage": "D1 · 群管风控与担保",
+            "painPoint": "验证、反垃圾、担保交易、客服工单靠人工撑不住",
+            "painDetail": "商业社群扩群后，入群验证、反垃圾、担保交易、客服工单全靠人工。交付重点是稳定性、对账闭环与运营可控。",
             "projects": [
               {
                 "id": "group_management_bot",
-                "title": "社群运营机器人",
-                "how": "管群、担保交易、客服，私域变现一条龙",
+                "title": "社群管理与商业变现中枢",
+                "how": "一体化社群运营方案，涵盖反作弊风控、担保交易与智能客服，形成可监控的商业闭环",
                 "tags": [
                   "Bot",
                   "担保交易"
@@ -942,13 +1005,13 @@
           {
             "id": "d2-leads",
             "stage": "D2 · 商业线索洞察",
-            "painPoint": "群里商机抓不住，线索流失在聊天洪流",
-            "painDetail": "群里每天上万条消息，人工扫不过来，商机白白流失。要 7×24 监听 + LLM 提取意图 + 定向触达。",
+            "painPoint": "群里商机抓不住，线索流失在聊天洪流里",
+            "painDetail": "群里每天上万条消息，人工扫不过来，互补商机白白流失。需要 7×24 监听 + LLM 提取商业意图 + 定向触达。",
             "projects": [
               {
                 "id": "need_radar_bot",
-                "title": "商机挖掘雷达",
-                "how": "监听群消息，AI 找买卖需求并推送",
+                "title": "社群商业线索洞察雷达",
+                "how": "7×24 全量监听社群动态，LLM 提取商业意图，精准捕捉互补商机并实时触达",
                 "tags": [
                   "Bot",
                   "LLM"
@@ -962,12 +1025,12 @@
             "id": "d3-search",
             "stage": "D3 · 历史内容检索",
             "painPoint": "聊天记录是黑盒，有价值信息找不到",
-            "painDetail": "群历史是信息矿，但全文搜索搜不到语义相近的。要全文 + 向量双路召回。",
+            "painDetail": "群历史是巨大的信息矿，但全文搜索搜不到语义相近的内容。需要全文 + 向量双路召回。",
             "projects": [
               {
                 "id": "tg_ai_search",
-                "title": "群聊历史搜索",
-                "how": "在大量聊天记录里快速找到有用信息",
+                "title": "社群历史内容智能检索引擎",
+                "how": "融合全文检索与向量相似度的双路召回，深度挖掘海量社群聊天记录中的有价值信息",
                 "tags": [
                   "IM",
                   "混合检索"
@@ -979,14 +1042,14 @@
           },
           {
             "id": "d4-office",
-            "stage": "D4 · 办公协同和桌面效率",
+            "stage": "D4 · 办公协同与桌面效率",
             "painPoint": "飞书/邮箱/桌面数据不通，人工对账成本高",
-            "painDetail": "飞书表格和后端不通，订单状态要人工同步；桌面操作重复。要数据管道双向同步 + 桌面 AI 增强。",
+            "painDetail": "飞书表格和后端系统数据不通，订单状态要人工同步；桌面操作重复劳动。需要数据管道双向同步 + 桌面 AI 增强。",
             "projects": [
               {
                 "id": "lark_sync",
-                "title": "飞书数据同步",
-                "how": "飞书表格和后端系统双向同步，少手工对账",
+                "title": "企业办公协同数据管道",
+                "how": "打通飞书多维表格与后端业务系统，订单状态与客商信息双向实时同步，消除人工对账",
                 "tags": [
                   "飞书",
                   "自动化"
@@ -996,8 +1059,8 @@
               },
               {
                 "id": "smart_clipboard",
-                "title": "AI 剪贴板",
-                "how": "复制内容时 AI 自动帮你改写、整理",
+                "title": "AI 增强智能剪贴板",
+                "how": "基于 Rust 的桌面级效率工具，实时监听并调用 LLM 重塑剪贴板内容，无缝衔接工作流",
                 "tags": [
                   "Tauri",
                   "Rust"
