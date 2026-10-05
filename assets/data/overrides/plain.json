@@ -1,0 +1,222 @@
+{
+  "ui": {
+    "pageTitle": "阿布 · 帮团队少翻资料、少做重复活",
+    "pageDescription": "给业务负责人的简明介绍：做过哪些项目、解决什么问题、哪些现有工具可以按需调整使用。",
+    "searchPlaceholder": "看问题、看工具、聊需求",
+    "heroCtaPrimary": "看看有哪些小工具",
+    "heroCtaSecondary": "先看解决过的问题",
+    "nav": [
+      {
+        "id": "home",
+        "label": "一句话介绍",
+        "shortLabel": "介绍",
+        "icon": "fas fa-house"
+      },
+      {
+        "id": "plain-cases",
+        "label": "解决什么问题",
+        "shortLabel": "案例",
+        "icon": "fas fa-fire"
+      },
+      {
+        "id": "tools",
+        "label": "可复用的小工具",
+        "shortLabel": "工具",
+        "icon": "fas fa-bolt"
+      },
+      {
+        "id": "contact",
+        "label": "聊聊你的需求",
+        "shortLabel": "联系",
+        "icon": "fas fa-envelope"
+      }
+    ],
+    "brief": {
+      "eyebrow": "给业务负责人 · 2 分钟了解",
+      "audience": "适合投研、资讯、运营和企业办公团队",
+      "technicalLabel": "查看完整技术版",
+      "casesTitle": "做过哪些项目，解决什么问题？",
+      "casesSubtitle": "先看有没有你熟悉的麻烦。",
+      "problemLabel": "遇到的问题",
+      "solutionLabel": "做过的项目",
+      "resultLabel": "带来的帮助",
+      "cases": [
+        {
+          "id": "fastapi_celery_kb",
+          "title": "资料很多，答案不好找",
+          "audience": "投研 / 资讯团队",
+          "problem": "研报、公告堆了一大堆，找一条信息要来回翻。",
+          "solution": "研报与公告问答：用日常语言提问，查找相关内容和出处。",
+          "result": "少翻文件，找到信息后能回看原文。"
+        },
+        {
+          "id": "doc_intelligence",
+          "title": "数据在文件里，整理全靠手工",
+          "audience": "研究 / 数据团队",
+          "problem": "扫描件里的文字、研报里的表格，要反复复制和整理。",
+          "solution": "文档整理：从文件里提取文字和表格，供后续检索、汇总。",
+          "result": "减少重复录入，把时间留给核对和分析。"
+        },
+        {
+          "id": "lark_sync",
+          "title": "信息分散，更新靠人来回搬",
+          "audience": "运营 / 办公团队",
+          "problem": "邮件要盯，表格要填，业务系统里的状态还要再更新一遍。",
+          "solution": "邮件提醒与飞书同步：把重要信息送到指定位置，让两边的数据同步。",
+          "result": "少做重复搬运，也少漏掉需要处理的信息。"
+        }
+      ],
+      "toolsTitle": "哪些小工具可以拿来改一改？",
+      "toolsSubtitle": "下面都有对应的已有项目。可以先从一个小场景试起。",
+      "toolsNote": "这里的“可复用”指已有实现可作为基础；能否直接试用，要先确认样例、账号权限和运行环境。",
+      "inputLabel": "你提供",
+      "outputLabel": "工具帮你做",
+      "setupLabel": "还要调整",
+      "tools": [
+        {
+          "id": "email_auto_crawl",
+          "title": "研报附件自动收集",
+          "status": "已有采集项目",
+          "fit": "每天从邮箱收研报的团队",
+          "input": "指定邮箱里的研报附件。",
+          "output": "自动收集附件，提取其中需要的表格数据。",
+          "setup": "接入邮箱，确定附件范围和要提取的字段。"
+        },
+        {
+          "id": "cc_monitor_gmail",
+          "title": "重要邮件自动提醒",
+          "status": "已有提醒工具",
+          "fit": "不想反复刷邮箱的同事",
+          "input": "要关注的发件人、关键词。",
+          "output": "筛出重要邮件，把内容推送到指定聊天工具。",
+          "setup": "配置筛选规则和消息接收位置。"
+        },
+        {
+          "id": "announcement_tagging",
+          "title": "公告资讯自动分类",
+          "status": "已有分类项目",
+          "fit": "每天整理大量资讯的团队",
+          "input": "公告、资讯和想要的分类。",
+          "output": "给内容打上标签，方便筛选、汇总和分发。",
+          "setup": "对齐分类口径，用一批样例检查效果。"
+        },
+        {
+          "id": "paddle_ocr_vl",
+          "title": "扫描件文字与表格提取",
+          "status": "已有文档处理服务",
+          "fit": "需要把扫描资料变成可用数据的团队",
+          "input": "扫描文件或图片样例。",
+          "output": "提取文字、识别表格，减少手工录入。",
+          "setup": "确认版面识别效果和导出格式，再接入使用。"
+        },
+        {
+          "id": "lark_sync",
+          "title": "飞书表格与业务系统同步",
+          "status": "已有项目 · 需对接系统",
+          "fit": "同一份数据要在两处维护的团队",
+          "input": "飞书表格和业务系统中要同步的数据。",
+          "output": "同步订单状态、客商资料，减少重复填表。",
+          "setup": "对齐字段、同步规则和系统访问权限。"
+        },
+        {
+          "id": "etf_unusual",
+          "title": "ETF 盘中异动提醒",
+          "status": "已有监测项目 · 需接数据",
+          "fit": "需要关注行情变化的投研团队",
+          "input": "关注的 ETF 和提醒条件。",
+          "output": "持续检查行情变化，触发条件时发送提醒。",
+          "setup": "确认行情来源、提醒指标和接收渠道。"
+        }
+      ],
+      "conversationTitle": "和金融行业朋友聊，问这三句就够了",
+      "questions": [
+        "哪件事每天都要重复做，最费人？",
+        "现在资料放在哪里，能不能拿一份样例？",
+        "如果先试一个小工具，做到什么程度才算有用？"
+      ],
+      "conversationNote": "可以先聊收研报、筛资讯、整理表格这类具体需求。拿到样例，再判断哪些工具能复用、哪些需要定制。",
+      "enabled": true
+    }
+  },
+  "profile": {
+    "tagline": "AI 工具与办公自动化",
+    "heroTitle": "帮团队少翻资料，少做重复活",
+    "greeting": {
+      "text": "你好，我是阿布",
+      "description": "我是阿布，做过金融文档处理、资料问答和办公自动化。把查资料、收邮件、整理数据这些费时的事，做成能帮上忙的工具。"
+    },
+    "heroChips": [
+      "查资料更方便",
+      "整理文件更省事",
+      "信息更新少手工"
+    ],
+    "heroFlowEntries": null,
+    "stats": [
+      {
+        "number": "6+",
+        "label": "年实战"
+      },
+      {
+        "number": "80+",
+        "label": "个项目"
+      },
+      {
+        "number": "15+",
+        "label": "个 AI 项目"
+      },
+      {
+        "number": "全流程",
+        "label": "交付"
+      }
+    ],
+    "roles": [
+      {
+        "label": "一句话",
+        "value": "把查资料、收邮件、整理数据这些重复活，做成能用的小工具。",
+        "type": "primary"
+      },
+      {
+        "label": "适合",
+        "value": "投研、运营和企业办公团队",
+        "type": "secondary"
+      }
+    ]
+  },
+  "contact": {
+    "intro": {
+      "title": "说一个你最想省事的环节",
+      "description": "不用先写技术方案。说清楚谁在做、现在怎么做、哪里最费时间，就可以开始聊。"
+    },
+    "collaboration": {
+      "types": [
+        {
+          "icon": "📄",
+          "text": "看一份样例"
+        },
+        {
+          "icon": "📦",
+          "text": "试一个工具"
+        },
+        {
+          "icon": "🤝",
+          "text": "再定合作范围"
+        }
+      ]
+    },
+    "form": {
+      "title": "有类似的问题，一起聊聊",
+      "subtitle": "带一个具体问题来，先看看现有工具能不能帮上忙。",
+      "fields": {
+        "topic": {
+          "label": "想省哪件事",
+          "placeholder": "比如：自动收研报、分类资讯、少填几次表"
+        },
+        "message": {
+          "label": "简单说说现在怎么做",
+          "placeholder": "谁在做？每天大概多少份？哪一步最费时间？想得到什么结果？"
+        }
+      },
+      "submit": "发我这个需求"
+    }
+  }
+}

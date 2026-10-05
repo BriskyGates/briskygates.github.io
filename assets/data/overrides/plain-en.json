@@ -1,0 +1,222 @@
+{
+  "ui": {
+    "pageTitle": "Abu · Less searching, less repetitive work",
+    "pageDescription": "A short business guide to past projects, problems they address, and tools that can be adapted for your team.",
+    "searchPlaceholder": "Problems, tools, and your next step",
+    "heroCtaPrimary": "Explore reusable tools",
+    "heroCtaSecondary": "See problems addressed",
+    "nav": [
+      {
+        "id": "home",
+        "label": "Overview",
+        "shortLabel": "Home",
+        "icon": "fas fa-house"
+      },
+      {
+        "id": "plain-cases",
+        "label": "Problems addressed",
+        "shortLabel": "Work",
+        "icon": "fas fa-fire"
+      },
+      {
+        "id": "tools",
+        "label": "Reusable tools",
+        "shortLabel": "Tools",
+        "icon": "fas fa-bolt"
+      },
+      {
+        "id": "contact",
+        "label": "Discuss a need",
+        "shortLabel": "Contact",
+        "icon": "fas fa-envelope"
+      }
+    ],
+    "brief": {
+      "eyebrow": "For business teams · A 2-minute overview",
+      "audience": "For research, news, operations, and office teams",
+      "technicalLabel": "View the full technical version",
+      "casesTitle": "What problems have I worked on?",
+      "casesSubtitle": "Start with a problem your team recognizes.",
+      "problemLabel": "The problem",
+      "solutionLabel": "The project",
+      "resultLabel": "How it helps",
+      "cases": [
+        {
+          "id": "fastapi_celery_kb",
+          "title": "Lots of documents, hard-to-find answers",
+          "audience": "Research / news teams",
+          "problem": "Finding one fact means opening report after report.",
+          "solution": "Report and announcement Q&A: ask in everyday language and find relevant passages and sources.",
+          "result": "Spend less time searching and check the original source."
+        },
+        {
+          "id": "doc_intelligence",
+          "title": "Useful data trapped in documents",
+          "audience": "Research / data teams",
+          "problem": "Scanned text and report tables have to be copied and organized by hand.",
+          "solution": "Document processing: extract text and tables for search and further analysis.",
+          "result": "Reduce repetitive data entry and leave more time for checking and analysis."
+        },
+        {
+          "id": "lark_sync",
+          "title": "Updates copied between systems",
+          "audience": "Operations / office teams",
+          "problem": "People watch inboxes and re-enter the same updates in spreadsheets and business systems.",
+          "solution": "Email alerts and Lark sync: route key information and synchronize records.",
+          "result": "Reduce manual copying and missed updates."
+        }
+      ],
+      "toolsTitle": "Which tools can be adapted?",
+      "toolsSubtitle": "Each tool below has an existing implementation to build on. Start with one small task.",
+      "toolsNote": "Reuse means building on existing work. A trial depends on sample data, account permissions, and the setup needed to run it.",
+      "inputLabel": "You provide",
+      "outputLabel": "The tool handles",
+      "setupLabel": "What needs adapting",
+      "tools": [
+        {
+          "id": "email_auto_crawl",
+          "title": "Collect report attachments",
+          "status": "Existing collection project",
+          "fit": "Teams receiving reports by email",
+          "input": "A mailbox with report attachments.",
+          "output": "Collect attachments and extract relevant table data.",
+          "setup": "Connect the mailbox and define attachment filters and fields."
+        },
+        {
+          "id": "cc_monitor_gmail",
+          "title": "Important email alerts",
+          "status": "Existing alert tool",
+          "fit": "People who keep checking their inbox",
+          "input": "Senders and keywords to watch.",
+          "output": "Filter important emails and send their contents to a chosen chat tool.",
+          "setup": "Set filtering rules and the message destination."
+        },
+        {
+          "id": "announcement_tagging",
+          "title": "Sort announcements and news",
+          "status": "Existing classification project",
+          "fit": "Teams organizing large volumes of news",
+          "input": "Articles, announcements, and desired categories.",
+          "output": "Label content for filtering, summaries, and distribution.",
+          "setup": "Agree on categories and check the results against samples."
+        },
+        {
+          "id": "paddle_ocr_vl",
+          "title": "Extract scanned text and tables",
+          "status": "Existing document service",
+          "fit": "Teams turning scanned documents into usable data",
+          "input": "Sample scans or images.",
+          "output": "Extract text and identify tables to reduce manual entry.",
+          "setup": "Check recognition quality and output format before connecting it."
+        },
+        {
+          "id": "lark_sync",
+          "title": "Sync Lark and business records",
+          "status": "Existing project · Integration needed",
+          "fit": "Teams maintaining the same records in two places",
+          "input": "Lark tables and the business records to synchronize.",
+          "output": "Sync order status and customer or supplier details.",
+          "setup": "Map fields, agree on sync rules, and configure system access."
+        },
+        {
+          "id": "etf_unusual",
+          "title": "Intraday ETF alerts",
+          "status": "Existing project · Data feed needed",
+          "fit": "Research teams watching market changes",
+          "input": "ETFs to watch and alert conditions.",
+          "output": "Monitor changes and send an alert when conditions are met.",
+          "setup": "Confirm the market data source, indicators, and alert channel."
+        }
+      ],
+      "conversationTitle": "Three questions to ask a finance team",
+      "questions": [
+        "Which repetitive task takes the most time every day?",
+        "Where does the data live, and can you share a sample?",
+        "What would a useful result from a small trial look like?"
+      ],
+      "conversationNote": "Start with collecting reports, sorting news, or organizing tables. A sample helps establish what can be reused and what needs custom work.",
+      "enabled": true
+    }
+  },
+  "profile": {
+    "tagline": "AI tools & office automation",
+    "heroTitle": "Less searching. Less repetitive work.",
+    "greeting": {
+      "text": "Hi, I’m Abu",
+      "description": "I build tools for financial documents, information search, and office automation—helping teams collect emails, organize data, and find what they need."
+    },
+    "heroChips": [
+      "Find information",
+      "Organize documents",
+      "Keep records in sync"
+    ],
+    "heroFlowEntries": null,
+    "stats": [
+      {
+        "number": "6+",
+        "label": "years building"
+      },
+      {
+        "number": "80+",
+        "label": "projects"
+      },
+      {
+        "number": "15+",
+        "label": "AI projects"
+      },
+      {
+        "number": "End-to-end",
+        "label": "delivery"
+      }
+    ],
+    "roles": [
+      {
+        "label": "In one line",
+        "value": "I turn repetitive information work into practical tools.",
+        "type": "primary"
+      },
+      {
+        "label": "For",
+        "value": "Research, operations, and office teams",
+        "type": "secondary"
+      }
+    ]
+  },
+  "contact": {
+    "intro": {
+      "title": "Tell me one task you want to simplify",
+      "description": "No technical brief needed. Tell me who does the task, how it works today, and what takes the most time."
+    },
+    "collaboration": {
+      "types": [
+        {
+          "icon": "📄",
+          "text": "Review a sample"
+        },
+        {
+          "icon": "📦",
+          "text": "Try one tool"
+        },
+        {
+          "icon": "🤝",
+          "text": "Agree on scope"
+        }
+      ]
+    },
+    "form": {
+      "title": "Have a similar problem? Let’s talk.",
+      "subtitle": "Bring a specific task and we can see whether an existing tool can help.",
+      "fields": {
+        "topic": {
+          "label": "Task to simplify",
+          "placeholder": "Collect reports, sort news, or avoid duplicate data entry"
+        },
+        "message": {
+          "label": "How it works today",
+          "placeholder": "Who does it? How many items each day? What takes the most time? What result would help?"
+        }
+      },
+      "submit": "Send this request"
+    }
+  }
+}
