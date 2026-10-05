@@ -69,89 +69,139 @@
       "cases": [
         {
           "id": "fastapi_celery_kb",
-          "title": "Lots of documents, hard-to-find answers",
-          "audience": "Research / news teams",
-          "problem": "Finding one fact means opening report after report.",
-          "solution": "Report and announcement Q&A: ask in everyday language and find relevant passages and sources.",
-          "result": "Spend less time searching and check the original source."
+          "title": "Lots of reports, but the knowledge base still answers badly",
+          "audience": "Finance research / news teams",
+          "problem": "Documents are ingested, yet answers are off and citations are unreliable.",
+          "solution": "Finance knowledge base: improve parsing, chunking, search, and citation ranking.",
+          "result": "Answers stay closer to the source and can be checked and expanded for team use."
         },
         {
           "id": "doc_intelligence",
-          "title": "Useful data trapped in documents",
-          "audience": "Research / data teams",
-          "problem": "Scanned text and report tables have to be copied and organized by hand.",
-          "solution": "Document processing: extract text and tables for search and further analysis.",
-          "result": "Reduce repetitive data entry and leave more time for checking and analysis."
+          "title": "Scans, tables, and complex PDFs are hard to use",
+          "audience": "Research / risk / data teams",
+          "problem": "Scans cannot be read cleanly, while tables and document structure get lost.",
+          "solution": "Complex document processing: extract text, tables, sections, and layout into searchable data.",
+          "result": "Difficult files become usable input for Q&A, extraction, and analysis."
         },
         {
-          "id": "lark_sync",
-          "title": "Updates copied between systems",
-          "audience": "Operations / office teams",
-          "problem": "People watch inboxes and re-enter the same updates in spreadsheets and business systems.",
-          "solution": "Email alerts and Lark sync: route key information and synchronize records.",
-          "result": "Reduce manual copying and missed updates."
+          "id": "report_recall",
+          "title": "Data inside report charts cannot be found",
+          "audience": "Research / financial data teams",
+          "problem": "Text is searchable, but chart numbers and conclusions remain hidden.",
+          "solution": "Joint text-and-chart retrieval for reports, returning both types of evidence.",
+          "result": "Search covers charts as well as text and reduces manual page checking."
+        },
+        {
+          "id": "email_auto_crawl",
+          "title": "Collecting and organizing reports by email takes too much time",
+          "audience": "Finance research / news teams",
+          "problem": "People download, rename, register, and extract report attachments by hand.",
+          "solution": "Automated report collection: watch mailboxes and extract structured information.",
+          "result": "Fewer missed files and less repetitive entry into downstream workflows."
+        },
+        {
+          "id": "announcement_tagging",
+          "title": "Too much news to sort and prioritize",
+          "audience": "News / research operations teams",
+          "problem": "Classifying, tagging, and distributing announcements manually is slow.",
+          "solution": "Financial news classification by topic, company, event, and business labels.",
+          "result": "Teams can filter important items before summarizing, pushing, or researching."
+        },
+        {
+          "id": "etf_unusual",
+          "title": "Intraday changes are easy to miss",
+          "audience": "Quant / research teams",
+          "problem": "Markets and news move too quickly for a person to watch continuously.",
+          "solution": "Intraday monitoring that checks market and news signals and sends alerts.",
+          "result": "Move from noticing changes late to receiving timely signals for research decisions."
+        },
+        {
+          "id": "multi_agent_collab",
+          "title": "An AI assistant demos well but cannot handle complex work",
+          "audience": "Fintech / enterprise AI teams",
+          "problem": "Long, multi-role tasks drift and are difficult to ship reliably.",
+          "solution": "Multi-agent workflows that split research, checking, and summarization into roles.",
+          "result": "Complex processes become easier to review, hand off, and release step by step."
         }
       ],
       "toolsTitle": "Which tools can be adapted?",
-      "toolsSubtitle": "Each tool below has an existing implementation to build on. Start with one small task.",
-      "toolsNote": "Reuse means building on existing work. A trial depends on sample data, account permissions, and the setup needed to run it.",
+      "toolsSubtitle": "Each item below builds on an existing project.",
+      "toolsNote": "These are reusable project bases, not off-the-shelf products. A trial still needs samples, permissions, data connections, and acceptance criteria.",
       "inputLabel": "You provide",
       "outputLabel": "The tool handles",
       "setupLabel": "What needs adapting",
       "tools": [
         {
-          "id": "email_auto_crawl",
-          "title": "Collect report attachments",
-          "status": "Existing collection project",
-          "fit": "Teams receiving reports by email",
-          "input": "A mailbox with report attachments.",
-          "output": "Collect attachments and extract relevant table data.",
-          "setup": "Connect the mailbox and define attachment filters and fields."
+          "id": "paddle_ocr_vl",
+          "title": "Complex PDF and scan processing",
+          "status": "Existing core service",
+          "fit": "Teams with scans, tables, or stamped documents",
+          "input": "PDF or image samples.",
+          "output": "Extracted text, tables, sections, and layout.",
+          "setup": "Confirm sample quality, fields, and output format."
         },
         {
-          "id": "cc_monitor_gmail",
-          "title": "Important email alerts",
-          "status": "Existing alert tool",
-          "fit": "People who keep checking their inbox",
-          "input": "Senders and keywords to watch.",
-          "output": "Filter important emails and send their contents to a chosen chat tool.",
-          "setup": "Set filtering rules and the message destination."
+          "id": "pdf_chunker",
+          "title": "Report chunking and chart retrieval",
+          "status": "Existing project base",
+          "fit": "Teams building a finance knowledge base or report Q&A",
+          "input": "Report samples and common questions.",
+          "output": "Semantic chunks for text and tables with joint retrieval.",
+          "setup": "Tune industry terms, chunk rules, and evaluation questions."
+        },
+        {
+          "id": "email_auto_crawl",
+          "title": "Automated report collection",
+          "status": "Existing collection project",
+          "fit": "Teams receiving reports by email",
+          "input": "Mailbox, attachment samples, and fields to extract.",
+          "output": "Collect attachments, organize files, and extract structured data.",
+          "setup": "Connect the mailbox and configure file and field rules."
+        },
+        {
+          "id": "temp_ner",
+          "title": "Financial entity and metric extraction",
+          "status": "Existing recognition project",
+          "fit": "Teams organizing companies, people, dates, and metrics from reports",
+          "input": "Report samples and entity types to watch.",
+          "output": "Extract companies, sectors, metrics, dates, and other key facts.",
+          "setup": "Add domain vocabulary and calibrate with samples."
         },
         {
           "id": "announcement_tagging",
-          "title": "Sort announcements and news",
+          "title": "Automatic news and announcement tagging",
           "status": "Existing classification project",
-          "fit": "Teams organizing large volumes of news",
-          "input": "Articles, announcements, and desired categories.",
-          "output": "Label content for filtering, summaries, and distribution.",
-          "setup": "Agree on categories and check the results against samples."
-        },
-        {
-          "id": "paddle_ocr_vl",
-          "title": "Extract scanned text and tables",
-          "status": "Existing document service",
-          "fit": "Teams turning scanned documents into usable data",
-          "input": "Sample scans or images.",
-          "output": "Extract text and identify tables to reduce manual entry.",
-          "setup": "Check recognition quality and output format before connecting it."
-        },
-        {
-          "id": "lark_sync",
-          "title": "Sync Lark and business records",
-          "status": "Existing project · Integration needed",
-          "fit": "Teams maintaining the same records in two places",
-          "input": "Lark tables and the business records to synchronize.",
-          "output": "Sync order status and customer or supplier details.",
-          "setup": "Map fields, agree on sync rules, and configure system access."
+          "fit": "Teams processing large volumes of finance news",
+          "input": "News samples and category rules.",
+          "output": "Classify and label content for filtering, summaries, and distribution.",
+          "setup": "Confirm category levels and boundary examples."
         },
         {
           "id": "etf_unusual",
-          "title": "Intraday ETF alerts",
-          "status": "Existing project · Data feed needed",
-          "fit": "Research teams watching market changes",
-          "input": "ETFs to watch and alert conditions.",
-          "output": "Monitor changes and send an alert when conditions are met.",
-          "setup": "Confirm the market data source, indicators, and alert channel."
+          "title": "ETF and trade anomaly monitoring",
+          "status": "Existing monitoring project · data feed needed",
+          "fit": "Research teams that need timely market signals",
+          "input": "Market data, instruments, and alert conditions.",
+          "output": "Monitor signals and push alerts with related information.",
+          "setup": "Connect the data source and agree on indicators and channels."
+        },
+        {
+          "id": "enterprise_chat_openapi",
+          "title": "Knowledge-base Q&A API",
+          "status": "Existing gateway project",
+          "fit": "Teams connecting Q&A to an existing system",
+          "input": "Document sources, permissions, and Q&A scenarios.",
+          "output": "A standard Q&A API with citations and call records.",
+          "setup": "Connect identity, data sources, and business systems."
+        },
+        {
+          "id": "mcp_json_rpc",
+          "title": "Multi-tool workflow orchestration",
+          "status": "Existing orchestration project",
+          "fit": "Teams automating query, organize, and review steps with AI",
+          "input": "Connected systems and one concrete workflow.",
+          "output": "Plan and run tool calls in order from a natural-language request.",
+          "setup": "Connect tools and define permissions, boundaries, and approval points."
         }
       ],
       "conversationTitle": "Three questions to ask a finance team",
@@ -160,7 +210,7 @@
         "Where does the data live, and can you share a sample?",
         "What would a useful result from a small trial look like?"
       ],
-      "conversationNote": "Start with collecting reports, sorting news, or organizing tables. A sample helps establish what can be reused and what needs custom work."
+      "conversationNote": "Start with reports, document extraction, news tagging, or market alerts. A sample makes it clear what can be reused and what needs custom work."
     }
   },
   "profile": {
@@ -175,9 +225,9 @@
       "description": "I build tools for financial documents, information search, and office automation—helping teams collect emails, organize data, and find what they need."
     },
     "heroChips": [
-      "Find information",
-      "Organize documents",
-      "Keep records in sync"
+      "Finance document AI",
+      "Research automation",
+      "Market alerts"
     ],
     "roles": [
       {
