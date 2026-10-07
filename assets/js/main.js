@@ -286,6 +286,35 @@ function renderWithVue(config) {
                         <path d="M12 3l2.12 6.09 6.44.13-5.14 3.89 1.87 6.17L12 15.6l-5.29 3.68 1.87-6.17L3.44 9.22l6.44-.13L12 3z" fill="url(#${fid('showcase')})" stroke="url(#${gid('showcase')})" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                         <circle cx="12" cy="12.4" r="1.9" fill="url(#${gid('showcase')})"/>
                     </svg>`,
+                    'plain-cases': `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="${gid('cases')}" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fb923c"/>
+                                <stop offset="100%" stop-color="#ef4444"/>
+                            </linearGradient>
+                            <linearGradient id="${fid('cases')}" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fb923c" stop-opacity="0.24"/>
+                                <stop offset="100%" stop-color="#ef4444" stop-opacity="0.07"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="12" cy="12" r="9" fill="url(#${fid('cases')})" stroke="url(#${gid('cases')})" stroke-width="1.8"/>
+                        <path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21" stroke="url(#${gid('cases')})" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="m8.4 12 2.4 2.4 4.8-5" stroke="url(#${gid('cases')})" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`,
+                    tools: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="${gid('tools')}" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#60a5fa"/>
+                                <stop offset="100%" stop-color="#6366f1"/>
+                            </linearGradient>
+                            <linearGradient id="${fid('tools')}" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.24"/>
+                                <stop offset="100%" stop-color="#6366f1" stop-opacity="0.08"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M13.8 5.2a5.5 5.5 0 0 0-6.7 6.7l-4.2 4.2a2.8 2.8 0 0 0 4 4l4.2-4.2a5.5 5.5 0 0 0 6.7-6.7l-3.2 3.2-3.1-3.1 3.2-3.2z" fill="url(#${fid('tools')})" stroke="url(#${gid('tools')})" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="5.2" cy="18.8" r="1" fill="#818cf8"/>
+                    </svg>`,
                     'flow-rag': `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <defs>
                             <linearGradient id="${gid('flow')}" x1="2" y1="3" x2="22" y2="21" gradientUnits="userSpaceOnUse">
@@ -372,7 +401,7 @@ function renderWithVue(config) {
                         <circle cx="12" cy="14" r="1.3" fill="#fb7185"/>
                     </svg>`
                 };
-                return icons[id] || `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/></svg>`;
+                return icons[id] || `<svg class="nav-svg nav-svg--fallback" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/></svg>`;
             },
             getShowcaseVisual(project) {
                 const id = project?.id || '';
