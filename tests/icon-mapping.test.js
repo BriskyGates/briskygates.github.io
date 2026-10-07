@@ -76,10 +76,10 @@ function resolve(expr, entry, config) {
 
 // 兜底分支现在也返回 <svg>，所以不能只看 "<svg" 开头 —— 必须把兜底标记本身排除掉，
 // 否则「语义分支全失配、只拿到占位图标」这种最要命的情况会被误判为通过。
-const FALLBACK_MARK = 'tech-icon--fallback';
+const FALLBACK_MARKS = ['tech-icon--fallback', 'nav-svg--fallback'];
 function isRealIcon(out) {
     const s = String(out).trim();
-    return s.startsWith('<svg') && !s.includes(FALLBACK_MARK);
+    return s.startsWith('<svg') && !FALLBACK_MARKS.some((mark) => s.includes(mark));
 }
 
 test('index.html 里每个 getTechIcon 调用都传了跨语言稳定的键', () => {
@@ -89,7 +89,7 @@ test('index.html 里每个 getTechIcon 调用都传了跨语言稳定的键', ()
 });
 
 for (const { file, data } of CONFIGS) {
-    test(`${file}：全部图标调用点都渲染成 <svg>` , () => {
+    test(`${file}：全部图标调用点都使用对应图标`, () => {
         const broken = [];
 
         const navKey = NAV_CALL ? NAV_CALL[1] : 'item.id';
