@@ -111,16 +111,7 @@ description: 专注把 RAG、Agent、文档智能做成可上生产的系统；�
             <div class="bento-hero-grid noise-overlay">
                 <!-- Bento 1: Main Value & Identity -->
                 <article class="bento-card bento-card--main liquid-glass">
-                    <div class="bento-card__header">
-                        <div class="hero-profile-inline">
-                            <div class="hero-avatar-ring">
-                                <span class="hero-avatar" v-html="getBrandAvatar('lg', 'hero')"></span>
-                            </div>
-                            <div class="hero-profile-meta">
-                                <strong>{{ config.profile.name }}</strong>
-                                <span>{{ config.profile.tagline }}</span>
-                            </div>
-                        </div>
+                    <div class="bento-card__header" v-if="config.profile.status">
                         <div class="radar-status-badge">
                             <span class="radar-pulse"></span>
                             <span>{{ config.profile.status }}</span>
