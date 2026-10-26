@@ -1,6 +1,6 @@
 # Jekyll 配置文件
-title: 阿布 · 企业 AI 落地工程师
-description: 专注把 RAG、Agent、文档智能做成可上生产的系统；擅长金融/企业知识库与办公自动化
+title: "阿布 · 企业 AI 落地工程师 | 专注 RAG 知识库、Agent 架构与文档智能生产化"
+description: "专注把 RAG、Agent、文档智能做成可上生产的系统；擅长金融/企业知识库与办公自动化。提供从现状诊断、解析重排到上线对账的端到端工程交付，欢迎技术负责人与业务团队咨询。"
 url: https://briskygates.github.io
 baseurl: ""
 author: 阿布
@@ -39,6 +39,7 @@ exclude:
 # 包含文件（纯静态，不经 Jekyll 模板渲染）
 include:
   - _pages
+  - 404.html
   - sitemap.xml
   - robots.txt
   - llms.txt
