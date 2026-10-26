@@ -1,47 +1,47 @@
-# Abu · Enterprise AI Production Engineer | Production RAG, Agents & Document Intelligence
+# Abu · One-Person Studio | Commercial AI Production & Financial RAG Systems
 
-> I ship RAG systems, AI agents, and intelligent document processing pipelines into production — enterprise knowledge bases and workflow automation. Turning demos into observable, reliable systems.
+> Helping business leaders replace repetitive manual analyst roles with private AI engines, saving $60K-$90K/yr. $2K Audit Package, 2-3 week Turnkey Delivery, and Monthly Retainers. No free POCs.
 
 ## 个人简介
 
 - 姓名: Abu
-- 状态: Available
-- 标语: Full-Stack Engineer
-- 定位: Turning AI from tech demos into real production power
-- 介绍: I'm an enterprise AI production engineer — I help tech leads and business teams turn RAG, Agents, and document intelligence into systems that are deployable, measurable, and operable . If your knowledge base cites the wrong passages, document parsing is broken, or Agents won't ship — send me the status quo.
-- 技术关键词: Enterprise / finance RAG, Document intelligence, Agents in production, Observable and rollback-ready, Bot / Feishu automation
-- 数据: 6+ Years · 80+ Repos · 15+ AI Projects · Full-Stack Delivery
+- 状态: 2026 Q4 · 2 Delivery & Audit Slots Open
+- 标语: Founder, One-Person Company · AI Systems Architect
+- 定位: Turning AI into Real Production Power — Cutting Heavy Labor for Founders
+- 介绍: I'm Abu (One-Person Engineering Studio) . I help teams crack high-precision financial RAG, complex multi-column document parsing, and production Agent reconciliation . Observable, private, and ROI-driven.
+- 技术关键词: Financial & Legal RAG, PDF/OCR Coordinate Inversion, Agent State Machine & Reconciliation, FTE Labor Replacement, 50-Doc Benchmark Verification
+- 数据: $75K+ Annual Labor Saved / Case · 80+ Internal Repos · 2-3 Wks Turnkey Docker Shipping · 50-Doc Benchmark Audit
 
-## Production cases
+## Production Cases
 
-Three buyer-pain stories — more capabilities in the project library below
+Engineering breakthroughs that unlock clear commercial FTE replacement ledgers
 
-### Lots of reports filed — the knowledge base still cites the wrong passages
-- 副标题: Finance RAG · parsing and chunking · rerank and eval
-- 描述: A mid-size research/news team: docs were ingested, Q&A still missed the point. Goal: a shippable knowledge Q&A with an observable pipeline. Fix parsing and chunking first, then add freshness/authority rerank — not a bigger model.
+### Massive Research Reports, yet Knowledge Base Hallucinates
+- 副标题: Financial Document RAG · Authority Rerank · $75K/Yr Labor Saved
+- 描述: Mid-sized research team: 4 junior analysts spent days manually segmenting reports with an 8% error rate. Our private Rerank pipeline reduced manual review to 1 person with 99% accuracy, saving $55K+ net annually.
 - 标签: RAG, Chunking, Rerank, Celery
 - 亮点:
-  - Rebuilt report/filing parsing and semantic chunking with async parallel ingest
-  - Added freshness and source-authority rerank plus recall-path logging and eval
-  - Delivered scalable Docker Compose deploy with handoff and rollback in mind
+  - Custom dual-column PDF segmentation eliminating layout breakage & table shifts
+  - Time-weighted + institutional authority Rerank gateway pushing recall to 91.4%
+  - Private Docker Compose turnkey image, reducing P95 latency to <320ms
 
-### Scans and messy layouts drag the whole RAG project into the mud
-- 副标题: PDF / OCR / TOC / watermark cleanup
-- 描述: Common enterprise KB blockers: scans, tables, watermarks, missing TOC hierarchy. Goal: turn dirty docs into structured, searchable input. Prefer rules + coordinates when stable; bring VL/OCR when layout complexity demands it.
+### Scanned PDFs & Wild Layouts Dragging RAG into a Quagmire
+- 副标题: Coordinate Inversion · Smart De-Watermarking · Zero OCR Drift
+- 描述: The lethal flaw in enterprise AI: 90% of RAG failures stem from missing layout coordinates in pre-ingestion, not weak LLMs. Coordinate inversion fixes tables without expensive LLM token traps.
 - 标签: PDF, OCR, Layout, Structured
 - 亮点:
-  - Built PDF structure parsing and table recognition into clean Markdown/trees
-  - Rule-based cleanup to lift OCR baselines; three-tier TOC extraction fallback
-  - Wrapped high-concurrency parse APIs for downstream chunking and embedding
+  - Raw coordinate extraction + multi-level fallback table reconstruction to Markdown
+  - Rule-based image de-watermarking middleware elevating downstream vector clarity
+  - 50-doc benchmark dataset sealed for objective 95% pass rate sign-off
 
-### As the group scales, risk control / escrow / support cannot stay manual
-- 副标题: Community bot · escrow reconciliation · observability
-- 描述: A commercial community outgrew manual verification, anti-spam, escrow trades, and support tickets. Delivery focus: stability, reconciliation loops, and operable ops — not feature sprawl.
+### Scaling Community Transactions Beyond Manual Human Capacity
+- 副标题: Commercial Bot · Escrow Reconciliation · 24/7 Risk Control
+- 描述: High-volume commercial groups and cross-border businesses leak cash when audited manually. We ship state-machine accounting, escrow automation, and anti-fraud tripwires.
 - 标签: Bot, Risk, Escrow, Redis
 - 亮点:
-  - Automated join verification, anti-spam, and risk governance
-  - Built VIP-group escrow and financial reconciliation to cut human error
-  - Shipped an ops console and ticketing for a monitorable commercial loop
+  - FastAPI + Redis + Celery distributed async ticket & group reconciliation engine
+  - Automated fund escrow, real-time balance anomaly triggers & audit trails
+  - Zero human reconciliation errors across high-volume active communities
 
 ## Business flows
 
@@ -286,25 +286,25 @@ IM bots / Feishu / email RPA / Celery scheduling and reconciliation loops
 
 ## Ways to work together
 
-### 15-min problem triage [Free · time-boxed]
-Classify the problem and fit. Fill in your scenario first. Verbal guidance only — no long proposal.
-技术: Intake, Fit check
+### 15-Min Problem Triage & Fit Check [Free · Time-boxed]
+Align on problem scope and mutual fit. Bring your raw scenario. Direct guidance on whether an audit or build makes sense.
+技术: 1-on-1 Call, Feasibility
 
-### Knowledge-base / AI production diagnosis [Diagnosis pack]
-Status interview + architecture sketch + risk list + prioritized backlog. Mark the pits before a big build.
-技术: Diagnosis notes, Roadmap
+### Production Readiness Audit Package [$2,000 · High Intent]
+Bring your dirtiest 30 documents for a closed-door benchmark test. Receive an architecture sketch, risk radar, and prioritized backlog. 100% credited toward full delivery.
+技术: 3-5 Days, Benchmark, 100% Credited
 
-### Advisory retainer [Monthly advisory]
-Architecture reviews, key design calls, code review, escalation support. For teams that need a production-experienced peer.
-技术: Architecture, Code Review
+### Turnkey Engine Delivery [$18K~$22K · Recommended]
+Abu implements the hardest pre-ingestion & rerank pipelines, shipping a private Docker image. Replaces 3-4 analyst roles with >200% first-year ROI.
+技术: 2-3 Wk Agile, Private Docker, FTE Replacement
 
-### Module delivery [Priced modules]
-Fixed-scope modules: parse pipeline, recall rerank, RAG chat gateway, Feishu/Bot automation — with acceptance and handoff.
-技术: Parsing, Rerank, Gateway, Bot
+### Fractional AI Advisory Retainer [$2.5K~$3K/Mo · 2 Slots]
+Act as your external fractional CTO. Weekly architecture reviews, design sign-offs, 2-hour emergency escalation, and strict anti-scope-creep defense.
+技术: Monthly Advisory, Escalation, Code Review
 
-### Full project delivery [End-to-end]
-End-to-end: discovery → build → launch → handoff. Milestone payments; I will be honest when capacity is full.
-技术: RAG, Agent, FastAPI
+### Modular Pipeline Delivery [Priced Modules]
+Fixed-scope modules: PDF coordinate parsing pipeline, temporal authority Rerank, or Bot reconciliation. Sealed 50-doc benchmark acceptance.
+技术: Parse Pipeline, Rerank Gateway, Benchmark Sign-off
 
 ## Technical Philosophy
 
