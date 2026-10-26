@@ -23,13 +23,13 @@ test('detectCurrentLanguage: URL 参数优先级最高', () => {
     assert.equal(core.detectCurrentLanguage('?lang=zh-Hant', 'zh', false), 'zh-Hant');
 });
 
-test('detectCurrentLanguage: localStorage 作为 URL 缺失时的备选', () => {
-    assert.equal(core.detectCurrentLanguage('', 'en', false), 'en');
+test('detectCurrentLanguage: 无 URL 参数时始终默认中文 (不被 localStorage 污染)', () => {
+    assert.equal(core.detectCurrentLanguage('', 'en', false), 'zh');
     assert.equal(core.detectCurrentLanguage('', 'zh', false), 'zh');
-    assert.equal(core.detectCurrentLanguage('', 'plain', false), 'plain');
-    assert.equal(core.detectCurrentLanguage('', 'plain-Hant', false), 'plain-Hant');
-    assert.equal(core.detectCurrentLanguage('', 'plain-en', false), 'plain-en');
-    assert.equal(core.detectCurrentLanguage('', 'zh-Hant', false), 'zh-Hant');
+    assert.equal(core.detectCurrentLanguage('', 'plain', false), 'zh');
+    assert.equal(core.detectCurrentLanguage('', 'plain-Hant', false), 'zh');
+    assert.equal(core.detectCurrentLanguage('', 'plain-en', false), 'zh');
+    assert.equal(core.detectCurrentLanguage('', 'zh-Hant', false), 'zh');
 });
 
 test('detectCurrentLanguage: 无效值时默认中文', () => {

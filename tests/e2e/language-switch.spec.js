@@ -104,7 +104,9 @@ test('下拉列表可切回简体中文', async ({ page }) => {
 
     await expect(page.locator('.hero-title')).not.toContainText(/Production Power/i);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('简体中文');
-    await expect(page).toHaveURL(/lang=zh/);
+    await expect(page).not.toHaveURL(/lang=en/);
+    const url = new URL(page.url());
+    expect(url.searchParams.get('lang')).toBeNull();
 });
 
 test('URL 参数 lang=en 直接加载英文', async ({ page }) => {
@@ -162,7 +164,7 @@ test('URL 参数 lang=zh-Hant 直接加载繁体中文', async ({ page }) => {
     await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
 });
 
-test('localStorage 语言偏好在无 URL 参数时生效', async ({ page }) => {
+test('无 URL 参数时始终默认加载简体中文 (避免 localStorage 污染主页)', async ({ page }) => {
     await page.addInitScript(() => {
         localStorage.setItem('preferredLanguage', 'en');
     });
@@ -170,7 +172,10 @@ test('localStorage 语言偏好在无 URL 参数时生效', async ({ page }) => 
     await page.goto('/');
     await waitForAppReady(page);
 
-    await expect(page.locator('.hero-title')).toContainText(/Production Power/i);
+    await expect(page.locator('.hero-title')).not.toContainText(/Production Power/i);
+    await expect(page.locator('.hero-title')).toBeVisible();
+    await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('简体中文');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
 });
 
 test('浏览器后退应同步页面语言', async ({ page }) => {

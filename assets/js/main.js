@@ -1436,13 +1436,26 @@ async function applyLanguage(lang, config, options = {}) {
 
     currentLang = lang;
     currentConfig = config;
-    localStorage.setItem('preferredLanguage', lang);
+    try {
+        localStorage.setItem('preferredLanguage', lang);
+    } catch (_) {}
 
     if (syncUrl) {
         const url = new URL(window.location.href);
-        if (url.searchParams.get('lang') !== lang) {
-            url.searchParams.set('lang', lang);
-            window.history.pushState({ lang }, '', url);
+        if (lang === 'zh') {
+            if (url.searchParams.has('lang')) {
+                url.searchParams.delete('lang');
+                const cleanSearch = url.searchParams.toString();
+                const cleanUrl = url.pathname + (cleanSearch ? '?' + cleanSearch : '') + url.hash;
+                window.history.pushState({ lang }, '', cleanUrl || '/');
+            }
+        } else {
+            if (url.searchParams.get('lang') !== lang) {
+                url.searchParams.set('lang', lang);
+                const searchStr = url.searchParams.toString();
+                const newUrl = url.pathname + (searchStr ? '?' + searchStr : '') + url.hash;
+                window.history.pushState({ lang }, '', newUrl);
+            }
         }
     }
 
@@ -1486,14 +1499,22 @@ async function initApp(config) {
         typeof window.siteConfig !== 'undefined' && window.siteConfig !== null
     );
 
+    if (window.location.search.includes('lang=zh')) {
+        const url = new URL(window.location.href);
+        url.searchParams.delete('lang');
+        const cleanSearch = url.searchParams.toString();
+        const cleanUrl = url.pathname + (cleanSearch ? '?' + cleanSearch : '') + url.hash;
+        window.history.replaceState({ lang: currentLang }, '', cleanUrl || '/');
+    }
+
     try {
         const data = currentLang === 'zh'
             ? config
             : await loadConfigForLanguage(currentLang);
-        await applyLanguage(currentLang, data);
+        await applyLanguage(currentLang, data, { syncUrl: false });
     } catch (error) {
         console.warn('无法加载目标语言配置，使用默认配置:', error);
-        await applyLanguage('zh', config);
+        await applyLanguage('zh', config, { syncUrl: false });
     }
 }
 

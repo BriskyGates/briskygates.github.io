@@ -32,14 +32,7 @@
             return langParam;
         }
 
-        if (isSupportedLang(savedLang)) {
-            return savedLang;
-        }
-
-        if (hasSiteConfig) {
-            return 'zh';
-        }
-
+        // 根路径/无 lang 参数时始终以官方主力版本 zh 为准，防止本地旧缓存劫持主页
         return 'zh';
     }
 
