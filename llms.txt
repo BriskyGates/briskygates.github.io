@@ -14,10 +14,10 @@
 
 ## 完整内容（机器可读）
 
-- [中文完整履历（纯文本）](/llms-full.txt)
-- [英文完整履历（纯文本）](/llms-full.en.txt)
-- [中文站点配置 JSON](/assets/data/homeConfig.json)
-- [英文站点配置 JSON](/assets/data/homeConfig.en.json)
+- [中文完整履历（纯文本）](https://briskygates.github.io/llms-full.txt)
+- [英文完整履历（纯文本）](https://briskygates.github.io/llms-full.en.txt)
+- [中文站点配置 JSON](https://briskygates.github.io/assets/data/homeConfig.json)
+- [英文站点配置 JSON](https://briskygates.github.io/assets/data/homeConfig.en.json)
 - [个人主页](https://briskygates.github.io)
 
 ## 合作方向
@@ -30,4 +30,4 @@
 
 ## Optional
 
-- [English summary](/llms-full.en.txt)
+- [English summary](https://briskygates.github.io/llms-full.en.txt)
