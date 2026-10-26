@@ -1,9 +1,9 @@
 [🌐 在线主页](https://briskygates.github.io) · [部署与开发文档](DEPLOY.md)
 
 <!-- 本文件由 npm run build 根据 assets/data/homeConfig.json 自动生成，请勿手改 -->
-# 阿布 · 企业 AI 落地工程师
+# 阿布 · 企业 AI 落地工程师 | 专注 RAG 知识库、Agent 架构与文档智能生产化
 
-> 专注把 RAG、Agent、文档智能做成可上生产的系统；擅长金融/企业知识库与办公自动化
+> 专注把 RAG、Agent、文档智能做成可上生产的系统；擅长金融/企业知识库与办公自动化。提供从现状诊断、解析重排到上线对账的端到端工程交付，欢迎技术负责人与业务团队咨询。
 
 ## 个人简介
 
@@ -323,7 +323,7 @@ AI 的价值在落地——可观测、可回滚、可维护。我不卖概念�
 
 ---
 
-**阿布** · 专注把 RAG、Agent、文档智能做成可上生产的系统；擅长金融/企业知识库与办公自动化
+**阿布** · 专注把 RAG、Agent、文档智能做成可上生产的系统；擅长金融/企业知识库与办公自动化。提供从现状诊断、解析重排到上线对账的端到端工程交付，欢迎技术负责人与业务团队咨询。
 
 - 站点：https://briskygates.github.io
 - 仓库：https://github.com/briskygates/briskygates.github.io

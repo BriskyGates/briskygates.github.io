@@ -1,6 +1,6 @@
-# Abu · Enterprise AI Production Engineer
+# Abu · Enterprise AI Production Engineer | Production RAG, Agents & Document Intelligence
 
-> I ship RAG, Agents, and document intelligence into production — enterprise knowledge bases and workflow automation
+> I ship RAG systems, AI agents, and intelligent document processing pipelines into production — enterprise knowledge bases and workflow automation. Turning demos into observable, reliable systems.
 
 ## 个人简介
 
