@@ -31,12 +31,14 @@ test('generateLlmsFull: 生成可读的纯文本履历', () => {
     assert.match(text, /homeConfig\.json/);
 });
 
-test('generateJsonLd: 包含 Person 与 WebSite 节点', () => {
+test('generateJsonLd: 包含 Person 与 WebSite 节点并包含 sameAs 实体链接', () => {
     const data = generateJsonLd(zhConfig);
     const types = data['@graph'].map(node => node['@type']);
     assert.ok(types.includes('Person'));
     assert.ok(types.includes('WebSite'));
     assert.ok(types.includes('ProfilePage'));
+    const person = data['@graph'].find(node => node['@type'] === 'Person');
+    assert.ok(Array.isArray(person.sameAs) && person.sameAs.includes('https://github.com/briskygates'));
 });
 
 test('index.html: 预渲染区块不含 Vue 模板语法', () => {

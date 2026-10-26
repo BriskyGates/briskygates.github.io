@@ -33,6 +33,10 @@ function generateJsonLd(config, siteUrl = 'https://briskygates.github.io') {
                 jobTitle: 'Enterprise AI Production Engineer',
                 image: `${siteUrl}/assets/img/og-cover.png`,
                 url: siteUrl,
+                sameAs: [
+                    'https://github.com/briskygates',
+                    'https://github.com/BriskyGates'
+                ],
                 knowsAbout: [...knowsAbout],
                 worksFor: {
                     '@type': 'Organization',
