@@ -7,7 +7,8 @@
     <title>{{ page.title | default: site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
     {% include seo-head.html %}
-    <link rel="alternate" type="text/plain" href="{{ '/llms.txt' | relative_url }}" title="LLM site summary">
+    <link rel="describedby" href="{{ '/llms.txt' | absolute_url }}">
+    <link rel="alternate" type="text/plain" href="{{ '/llms.txt' | absolute_url }}" title="LLM site summary">
     {% include json-ld.html %}
     <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
     <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/favicon.svg' | relative_url }}">

@@ -160,13 +160,23 @@ test('default.html 按顺序加载 app-core.js 与 main.js', () => {
     assert.ok(coreIndex < mainIndex);
 });
 
-test('SEO 模板包含 canonical 与 Open Graph 标签', () => {
+test('SEO 模板包含 canonical 与 Open Graph 标签，且 llms.txt 声明绝对路径', () => {
     const layout = fs.readFileSync(path.join(ROOT, '_layouts/default.html'), 'utf8');
     const seoHead = fs.readFileSync(path.join(ROOT, '_includes/seo-head.html'), 'utf8');
+    const llmsTxt = fs.readFileSync(path.join(ROOT, 'llms.txt'), 'utf8');
+
     assert.match(layout, /seo-head\.html/);
     assert.match(seoHead, /rel="canonical"/);
     assert.match(seoHead, /property="og:title"/);
     assert.match(seoHead, /name="twitter:card"/);
+
+    // AI 爬虫友好：link 标签必须使用 absolute_url 避免 Gemini 等提取相对路径访问失败
+    assert.match(layout, /<link rel="describedby" href="\{\{ '\/llms\.txt' \| absolute_url \}\}">/);
+    assert.match(layout, /<link rel="alternate" type="text\/plain" href="\{\{ '\/llms\.txt' \| absolute_url \}\}"/);
+
+    // llms.txt 内部子链接不得使用相对路径，必须为完整 URL
+    assert.doesNotMatch(llmsTxt, /\]\(\//, 'llms.txt 不应包含以 / 开头的相对链接');
+    assert.match(llmsTxt, /https:\/\/briskygates\.github\.io\/llms-full\.txt/);
 });
 
 test('语言配置文件不含 UTF-8 BOM', () => {
