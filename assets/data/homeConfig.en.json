@@ -6,6 +6,20 @@
     "searchPlaceholder": "Explore $2K Audit, FTE Turnkey Delivery, and Production Cases…",
     "heroCtaPrimary": "Book a $2,000 Production Audit",
     "heroCtaSecondary": "View FTE Human Replacement Ledger",
+    "statsTitle": "DELIVERY IMPACT",
+    "marqueeTitle": "ENGINEERING STACK",
+    "marqueeSubtitle": "Production-Ready · High Throughput · Low Latency",
+    "scenarioTitle": "SCENARIO SOLUTIONS",
+    "marqueeBadges": [
+      "Enterprise RAG Pipeline",
+      "Multi-Agent Orchestration",
+      "Complex Layout & OCR",
+      "FastAPI + Celery Workers",
+      "Hybrid Vector Search",
+      "Re-ranking & Verification",
+      "Private Docker Deployment",
+      "Automated Bots & Webhooks"
+    ],
     "contactMethodsTitle": "Contact",
     "languageToggle": {
       "tooltip": "Choose language"

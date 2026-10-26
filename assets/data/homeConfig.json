@@ -1,11 +1,25 @@
 {
   "ui": {
     "pageTitle": "阿布 · 一人公司商业级 AI 落地 | 专注金融投研 RAG、复杂文档智能与生产级 Agent 对账",
-    "pageDescription": "帮企业 1 号位用确定性的私有化 AI 引擎替代重复人力，年砍 40-60 万刚性成本。提供 1.5 万现状技术诊断包、2-3 周标杆工程交付全案与按月 Retainer 顾问，拒接无边界需求，拒绝免费 POC。",
+    "pageDescription": "帮企业 1 号位用确定性的私有化 AI 引擎替代重复人力，年砍 40-60 万刚性成本。提供 1.5 万现状技术诊断包、2-3 周标杆工程交付全案与常年架构顾问，拒接无边界需求，拒绝免费 POC。",
     "labelSuffix": "：",
-    "searchPlaceholder": "探索 1.5 万诊断包、FTE 交付全案与落地案例…",
+    "searchPlaceholder": "探索 1.5 万技术诊断包、标杆交付全案与落地案例…",
     "heroCtaPrimary": "预约 1.5 万元现状诊断包",
-    "heroCtaSecondary": "查看 FTE 人力替代实战账本",
+    "heroCtaSecondary": "查看人力替代实战账本",
+    "statsTitle": "核心交付战绩",
+    "marqueeTitle": "落地工程技术底座",
+    "marqueeSubtitle": "可落地 · 生产可用 · 高吞吐低延迟",
+    "scenarioTitle": "高频业务痛点场景",
+    "marqueeBadges": [
+      "企业级 RAG 架构",
+      "多智能体工具编排",
+      "复杂版面与 OCR 智能",
+      "FastAPI + Celery 异步队列",
+      "Milvus / pgvector 向量检索",
+      "时效与权威重排 Rerank",
+      "Docker / 容器化私有部署",
+      "自动化工作流与 Bot"
+    ],
     "contactMethodsTitle": "联系方式",
     "languageToggle": {
       "tooltip": "选择语言"
@@ -100,19 +114,19 @@
   "profile": {
     "name": "阿布",
     "avatar": "🐶",
-    "tagline": "一人公司 (OPC) 创始人 · 商业级 AI 架构师",
+    "tagline": "独立工程专家 · 商业级 AI 落地架构师",
     "status": "2026 Q4 · 仅余 2 个深度交付与诊断席位",
     "heroTitle": "让 AI 跨越演示原型，落地为年省数十万的真实生产力",
     "title": "关于我",
     "greeting": {
       "text": "Hi，我是阿布，常驻上海",
-      "description": "我是<strong>阿布（One-Person Engineering Studio）</strong>。专注帮企业技术团队攻克<strong>金融研报精准召回、复杂多版面文档智能解析与生产级 Agent 对账闭环</strong>。只做可上线、可观测、有明确 FTE 投资回报的私有化工程交付。"
+      "description": "我是<strong>阿布（独立工程专家 / 一人技术工作室）</strong>。专注帮企业技术团队攻克<strong>金融研报精准召回、复杂多版面文档智能解析与生产级 Agent 对账闭环</strong>。只做可上线、可观测、有明确全职人力替代投资回报的私有化工程交付。"
     },
     "heroChips": [
       "企业/金融文档 RAG",
       "PDF/OCR 坐标逆向",
       "Agent 生产对账",
-      "FTE 人力替代",
+      "全职人力替代",
       "50 份测试集客观验收"
     ],
     "roles": [
@@ -183,7 +197,7 @@
   },
   "featured": {
     "title": "落地案例",
-    "subtitle": "用确定性工程攻坚破局，算清商业 FTE 替代账本",
+    "subtitle": "用确定性工程攻坚破局，算清商业人力替代实战账本",
     "items": [
       {
         "id": "fastapi_celery_kb",
@@ -369,8 +383,8 @@
         "icon": "💬"
       },
       {
-        "title": "现状技术诊断包 (Production Audit)",
-        "description": "带上企业最脏的 30 份数据现场闭门跑分。输出架构草图、风险雷达与优先级 Backlog。效果不达标分文不取；后续签约全案 100% 全额抵扣。",
+        "title": "现状技术诊断包",
+        "description": "带上企业最脏的 30 份数据现场闭门跑分。输出架构草图、风险雷达与优先级清单。效果不达标分文不取；后续签约全案 100% 全额抵扣。",
         "technologies": [
           "3-5天闭门",
           "跑分排雷",
@@ -380,29 +394,29 @@
         "icon": "🩺"
       },
       {
-        "title": "标杆工程交付全案 (Turnkey Engine)",
-        "description": "由阿布亲自下场攻坚核心管线，交付自研 Docker 私有化引擎并上线投产。为企业替代 3-4 个初级岗位，当年投资回报率超 200%。",
+        "title": "标杆工程交付全案",
+        "description": "由阿布亲自下场攻坚核心管线，交付自研容器私有化引擎并上线投产。为企业替代 3-4 个初级岗位，当年投资回报率超 200%。",
         "technologies": [
           "2-3周敏捷",
-          "Docker 私有化",
-          "FTE 替代"
+          "私有化部署",
+          "全职人力替代"
         ],
         "badge": "¥120,000~150,000 · 推荐",
         "icon": "🚀"
       },
       {
-        "title": "Retainer 架构顾问 (Fractional Advisory)",
-        "description": "作为外部虚拟 CTO，深度参与每周架构评审、关键技术拍板、突发生产故障 2 小时急诊排障与代码审计。锁定防范围蔓延。",
+        "title": "常年架构技术顾问 (按月协同)",
+        "description": "作为外部虚拟技术合伙人/CTO，深度参与每周架构评审、关键技术拍板、突发生产故障 2 小时急诊排障与代码审计。锁定防范围蔓延。",
         "technologies": [
-          "按月顾问",
-          "急诊排障",
-          "Code Review"
+          "按月技术顾问",
+          "2小时急诊",
+          "代码与架构评审"
         ],
         "badge": "¥15,000~20,000/月 · 仅限2家",
         "icon": "📚"
       },
       {
-        "title": "关键模块交付 (Modular Pipeline)",
+        "title": "关键模块工程交付",
         "description": "固定范围与预算交付：PDF 复杂解析管线、时效 Rerank 网关或 Bot 自动化对账系统。封存 50 份基准测试集客观验收。",
         "technologies": [
           "解析管线",

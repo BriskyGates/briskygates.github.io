@@ -122,7 +122,17 @@ function renderWithVue(config) {
                 },
                 contactSending: false,
                 contactFeedback: '',
-                contactFeedbackType: ''
+                contactFeedbackType: '',
+                defaultMarqueeBadges: [
+                    '企业级 RAG 架构',
+                    '多智能体工具编排',
+                    '复杂版面与 OCR 智能',
+                    'FastAPI + Celery 异步队列',
+                    'Milvus / pgvector 向量检索',
+                    '时效与权威重排 Rerank',
+                    'Docker / 容器化私有部署',
+                    '自动化工作流与 Bot'
+                ]
             };
         },
         computed: {

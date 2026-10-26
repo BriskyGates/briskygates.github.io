@@ -11,7 +11,7 @@ module.exports = defineConfig({
     webServer: {
         command: 'node tests/helpers/serve-fixture.js',
         url: 'http://127.0.0.1:4174',
-        reuseExistingServer: false,
+        reuseExistingServer: !process.env.CI,
         timeout: 120000
     }
 });

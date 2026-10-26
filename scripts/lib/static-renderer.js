@@ -70,7 +70,7 @@ function renderAppShell(config) {
                 </article>
                 <article class="bento-card bento-card--stats liquid-glass">
                     <div class="bento-card-label">
-                        <span>DELIVERY IMPACT</span>
+                        <span>${escapeHtml(ui.statsTitle || '核心交付战绩')}</span>
                     </div>
                     <div class="hero-stats-grid">${stats}
                     </div>

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 阿布 · 一人公司商业级 AI 落地 | 专注金融投研 RAG、复杂文档智能与生产级 Agent 对账
-description: 帮企业 1 号位用确定性的私有化 AI 引擎替代重复人力，年砍 40-60 万刚性成本。提供 1.5 万现状技术诊断包、2-3 周标杆工程交付全案与按月 Retainer 顾问，拒接无边界需求，拒绝免费 POC。
+description: 帮企业 1 号位用确定性的私有化 AI 引擎替代重复人力，年砍 40-60 万刚性成本。提供 1.5 万现状技术诊断包、2-3 周标杆工程交付全案与常年架构顾问，拒接无边界需求，拒绝免费 POC。
 ---
 
 <template id="vue-app-template">
@@ -140,7 +140,7 @@ description: 帮企业 1 号位用确定性的私有化 AI 引擎替代重复人
                 <article class="bento-card bento-card--stats liquid-glass">
                     <div class="bento-card-label">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-                        <span>DELIVERY IMPACT</span>
+                        <span>{{ (config.ui && config.ui.statsTitle) || '核心交付战绩' }}</span>
                     </div>
                     <div class="hero-stats-grid">
                         <div v-for="stat in config.profile.stats" :key="stat.label" class="hero-stat-card">
@@ -157,30 +157,20 @@ description: 帮企业 1 号位用确定性的私有化 AI 引擎替代重复人
                 <!-- Bento 3: Tech Stack Marquee (Full-width) -->
                 <article class="bento-card bento-card--marquee liquid-glass" v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled)">
                     <div class="marquee-header">
-                        <span class="marquee-title">ENGINEERING STACK</span>
-                        <span class="marquee-sub">可落地 · 生产可用 · 高吞吐低延迟</span>
+                        <span class="marquee-title">{{ (config.ui && config.ui.marqueeTitle) || '落地工程技术底座' }}</span>
+                        <span class="marquee-sub">{{ (config.ui && config.ui.marqueeSubtitle) || '可落地 · 生产可用 · 高吞吐低延迟' }}</span>
                     </div>
                     <div class="marquee-container" aria-label="技术栈跑马灯">
                         <div class="marquee-track">
                             <div class="marquee-group">
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>企业级 RAG 架构</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>Multi-Agent 工具编排</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>PDF / OCR 复杂版面智能</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>FastAPI + Celery 异步队列</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>Milvus / pgvector 向量检索</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>时效与权威重排 Rerank</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>Docker / 云原生部署</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>飞书 / 企微 Bot 自动化</span>
+                                <span v-for="badge in ((config.ui && config.ui.marqueeBadges) || defaultMarqueeBadges)" :key="badge" class="tech-badge">
+                                    <i class="tech-icon-dot"></i>{{ badge }}
+                                </span>
                             </div>
                             <div class="marquee-group" aria-hidden="true">
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>企业级 RAG 架构</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>Multi-Agent 工具编排</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>PDF / OCR 复杂版面智能</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>FastAPI + Celery 异步队列</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>Milvus / pgvector 向量检索</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>时效与权威重排 Rerank</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>Docker / 云原生部署</span>
-                                <span class="tech-badge"><i class="tech-icon-dot"></i>飞书 / 企微 Bot 自动化</span>
+                                <span v-for="badge in ((config.ui && config.ui.marqueeBadges) || defaultMarqueeBadges)" :key="'dup-' + badge" class="tech-badge">
+                                    <i class="tech-icon-dot"></i>{{ badge }}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -190,7 +180,7 @@ description: 帮企业 1 号位用确定性的私有化 AI 引擎替代重复人
                 <article class="bento-card bento-card--flows liquid-glass" v-if="config.profile.heroFlowEntries && !(config.ui && config.ui.brief && config.ui.brief.enabled)">
                     <div class="bento-card-label">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                        <span>SCENARIO SOLUTIONS · 快速定位场景</span>
+                        <span>{{ (config.ui && config.ui.scenarioTitle) || '高频业务痛点场景' }}</span>
                     </div>
                     <div class="bento-flow-grid">
                         <button
@@ -532,7 +522,7 @@ description: 帮企业 1 号位用确定性的私有化 AI 引擎替代重复人
 <aside class="sidebar" aria-label="主导航">
         <div class="sidebar-brand">
             <strong>阿布</strong>
-            <span>一人公司 (OPC) 创始人 · 商业级 AI 架构师</span>
+            <span>独立工程专家 · 商业级 AI 落地架构师</span>
         </div>
         <nav class="sidebar-nav">
             <a href="#home" class="nav-item">
@@ -572,13 +562,13 @@ description: 帮企业 1 号位用确定性的私有化 AI 引擎替代重复人
                     <div class="bento-card__body">
                         <p class="hero-eyebrow">早上好</p>
                         <h1 class="hero-title">让 AI 跨越演示原型，落地为年省数十万的真实生产力</h1>
-                        <p class="hero-subtitle">我是<strong>阿布（One-Person Engineering Studio）</strong>。专注帮企业技术团队攻克<strong>金融研报精准召回、复杂多版面文档智能解析与生产级 Agent 对账闭环</strong>。只做可上线、可观测、有明确 FTE 投资回报的私有化工程交付。</p>
-                        <div class="hero-chips"><span class="hero-chip">企业/金融文档 RAG</span><span class="hero-chip">PDF/OCR 坐标逆向</span><span class="hero-chip">Agent 生产对账</span><span class="hero-chip">FTE 人力替代</span><span class="hero-chip">50 份测试集客观验收</span></div>
+                        <p class="hero-subtitle">我是<strong>阿布（独立工程专家 / 一人技术工作室）</strong>。专注帮企业技术团队攻克<strong>金融研报精准召回、复杂多版面文档智能解析与生产级 Agent 对账闭环</strong>。只做可上线、可观测、有明确全职人力替代投资回报的私有化工程交付。</p>
+                        <div class="hero-chips"><span class="hero-chip">企业/金融文档 RAG</span><span class="hero-chip">PDF/OCR 坐标逆向</span><span class="hero-chip">Agent 生产对账</span><span class="hero-chip">全职人力替代</span><span class="hero-chip">50 份测试集客观验收</span></div>
                     </div>
                 </article>
                 <article class="bento-card bento-card--stats liquid-glass">
                     <div class="bento-card-label">
-                        <span>DELIVERY IMPACT</span>
+                        <span>核心交付战绩</span>
                     </div>
                     <div class="hero-stats-grid">
                     <div class="hero-stat-card">
@@ -615,7 +605,7 @@ description: 帮企业 1 号位用确定性的私有化 AI 引擎替代重复人
 
         <section id="services" class="content-section seo-prerender" aria-label="服务摘要">
             <h2>合作方式</h2>
-            <ul><li>15 分钟需求澄清与可行性判断：先对齐问题类型与是否匹配。带上你的场景与痛点在线直聊，只做归类与可行性建议，不写套话 PPT。</li><li>现状技术诊断包 (Production Audit)：带上企业最脏的 30 份数据现场闭门跑分。输出架构草图、风险雷达与优先级 Backlog。效果不达标分文不取；后续签约全案 100% 全额抵扣。</li><li>标杆工程交付全案 (Turnkey Engine)：由阿布亲自下场攻坚核心管线，交付自研 Docker 私有化引擎并上线投产。为企业替代 3-4 个初级岗位，当年投资回报率超 200%。</li><li>Retainer 架构顾问 (Fractional Advisory)：作为外部虚拟 CTO，深度参与每周架构评审、关键技术拍板、突发生产故障 2 小时急诊排障与代码审计。锁定防范围蔓延。</li><li>关键模块交付 (Modular Pipeline)：固定范围与预算交付：PDF 复杂解析管线、时效 Rerank 网关或 Bot 自动化对账系统。封存 50 份基准测试集客观验收。</li></ul>
+            <ul><li>15 分钟需求澄清与可行性判断：先对齐问题类型与是否匹配。带上你的场景与痛点在线直聊，只做归类与可行性建议，不写套话 PPT。</li><li>现状技术诊断包：带上企业最脏的 30 份数据现场闭门跑分。输出架构草图、风险雷达与优先级清单。效果不达标分文不取；后续签约全案 100% 全额抵扣。</li><li>标杆工程交付全案：由阿布亲自下场攻坚核心管线，交付自研容器私有化引擎并上线投产。为企业替代 3-4 个初级岗位，当年投资回报率超 200%。</li><li>常年架构技术顾问 (按月协同)：作为外部虚拟技术合伙人/CTO，深度参与每周架构评审、关键技术拍板、突发生产故障 2 小时急诊排障与代码审计。锁定防范围蔓延。</li><li>关键模块工程交付：固定范围与预算交付：PDF 复杂解析管线、时效 Rerank 网关或 Bot 自动化对账系统。封存 50 份基准测试集客观验收。</li></ul>
         </section>
     </main>
 <!-- PRERENDER:END -->
