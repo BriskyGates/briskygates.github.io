@@ -35,7 +35,8 @@ function generateJsonLd(config, siteUrl = 'https://briskygates.github.io') {
                 url: siteUrl,
                 sameAs: [
                     'https://github.com/briskygates',
-                    'https://github.com/BriskyGates'
+                    'https://github.com/BriskyGates',
+                    'https://afdian.com/a/abuai'
                 ],
                 knowsAbout: [...knowsAbout],
                 worksFor: {

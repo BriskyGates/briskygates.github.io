@@ -507,6 +507,13 @@
         "Benchmark sign-off"
       ]
     },
+    "support": {
+      "badge": "Verified Creator",
+      "title": "Support Abu on Afdian",
+      "text": "If my open-source projects, case studies, or engineering notes have helped you, consider supporting me on Afdian.",
+      "platform": "Afdian",
+      "url": "https://afdian.com/a/abuai"
+    },
     "form": {
       "title": "Start a conversation",
       "subtitle": "Send your scenario status; weekday replies usually within 2–4 hours",

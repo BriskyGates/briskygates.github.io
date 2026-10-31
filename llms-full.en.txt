@@ -310,6 +310,12 @@ Fixed-scope modules: PDF coordinate parsing pipeline, temporal authority Rerank,
 
 AI value is production — observable, rollback-ready, maintainable. I do not sell concepts; I deliver systems that actually run in the business.
 
+## Verified Creator
+
+- 平台: Afdian
+- 认证主页: https://afdian.com/a/abuai
+- 说明: If my open-source projects, case studies, or engineering notes have helped you, consider supporting me on Afdian.
+
 ## 机器可读数据源
 
 - 站点: https://briskygates.github.io

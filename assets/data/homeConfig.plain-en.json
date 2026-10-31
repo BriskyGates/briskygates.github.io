@@ -592,6 +592,13 @@
         "Benchmark sign-off"
       ]
     },
+    "support": {
+      "badge": "Verified Creator",
+      "title": "Buy Abu a Coffee",
+      "text": "If you enjoy my open tools or practical notes, feel free to sponsor my work on Afdian to keep new projects coming.",
+      "platform": "Afdian",
+      "url": "https://afdian.com/a/abuai"
+    },
     "form": {
       "title": "Have a similar problem? Let’s talk.",
       "subtitle": "Bring a specific task and we can see whether an existing tool can help.",

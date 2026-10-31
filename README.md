@@ -313,6 +313,12 @@ PDF 解析 / OCR-VL / 去水印 / 表格识别 / 目录还原 / 结构化抽取
 
 AI 的价值在落地——可观测、可回滚、可维护。我不卖概念，我交付能在业务里真正跑起来的系统。
 
+## 创作者认证
+
+- 平台: 爱发电 (Afdian)
+- 认证主页: https://afdian.com/a/abuai
+- 说明: 如果我的开源项目、落地案例或工程思考对你有启发，欢迎在爱发电支持我，助力独立工程持续交付。
+
 ## 机器可读数据源
 
 - 站点: https://briskygates.github.io
@@ -326,5 +332,6 @@ AI 的价值在落地——可观测、可回滚、可维护。我不卖概念�
 **阿布** · 帮企业 1 号位用确定性的私有化 AI 引擎替代重复人力，年砍 40-60 万刚性成本。提供 1.5 万现状技术诊断包、2-3 周标杆工程交付全案与常年架构顾问，拒接无边界需求，拒绝免费 POC。
 
 - 站点：https://briskygates.github.io
+- 爱发电：https://afdian.com/a/abuai
 - 仓库：https://github.com/briskygates/briskygates.github.io
 - 修改内容请编辑 `assets/data/homeConfig.json`，然后执行 `npm run build` 并推送

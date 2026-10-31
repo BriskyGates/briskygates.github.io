@@ -140,6 +140,16 @@ function generateLlmsFull(config, lang = 'zh') {
         lines.push('');
     }
 
+    if (config.contact?.support) {
+        const sup = config.contact.support;
+        lines.push(`## ${sup.badge || '创作者认证'}`);
+        lines.push('');
+        lines.push(`- 平台: ${sup.platform}`);
+        lines.push(`- 认证主页: ${sup.url}`);
+        lines.push(`- 说明: ${sup.text}`);
+        lines.push('');
+    }
+
     const siteUrl = 'https://briskygates.github.io';
     lines.push('## 机器可读数据源');
     lines.push('');
@@ -173,6 +183,7 @@ function generateReadme(config) {
         `**${profile.name || '阿布'}** · ${ui.pageDescription || ''}`,
         '',
         `- 站点：${siteUrl}`,
+        `- 爱发电：${config.contact?.support?.url || 'https://afdian.com/a/abuai'}`,
         `- 仓库：https://github.com/briskygates/briskygates.github.io`,
         `- 修改内容请编辑 \`assets/data/homeConfig.json\`，然后执行 \`npm run build\` 并推送`
     ].join('\n');

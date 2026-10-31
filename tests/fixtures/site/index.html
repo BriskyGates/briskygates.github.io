@@ -432,6 +432,31 @@
                             </div>
                         </div>
                     </div>
+                    <div class="contact-support-card" v-if="config.contact && config.contact.support">
+                        <div class="contact-support-badge-row">
+                            <span class="support-auth-tag">
+                                <svg class="support-spark-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                                <span>{{ config.contact.support.badge }}</span>
+                            </span>
+                            <span class="support-platform-label">{{ config.contact.support.platform }}</span>
+                        </div>
+                        <p class="contact-support-desc">{{ config.contact.support.text }}</p>
+                        <a
+                            :href="config.contact.support.url"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn-support-link"
+                            :aria-label="config.contact.support.title + ' - ' + config.contact.support.platform"
+                        >
+                            <span>{{ config.contact.support.title }}</span>
+                            <svg class="external-arrow-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
                 <form class="contact-form" @submit.prevent="submitContactForm">
                     <div class="form-field">
@@ -483,6 +508,11 @@
                     </p>
                 </form>
             </div>
+            <div class="contact-footer-chips" v-if="config.contact && config.contact.footer && config.contact.footer.highlights">
+                <div class="footer-chips">
+                    <span v-for="h in config.contact.footer.highlights" :key="h">{{ h }}</span>
+                </div>
+            </div>
         </section>
 
         <!-- Philosophy -->
@@ -495,6 +525,50 @@
                 </div>
             </div>
         </section>
+
+        <!-- Site Footer -->
+        <footer class="site-footer">
+            <div class="site-footer-inner">
+                <div class="site-footer-brand">
+                    <div class="site-footer-name-row">
+                        <strong>{{ config.profile.name }}</strong>
+                        <span class="site-footer-sep">·</span>
+                        <span class="site-footer-role">{{ config.profile.tagline }}</span>
+                    </div>
+                    <p class="site-footer-copy">© 2026 {{ config.profile.name }}. All rights reserved.</p>
+                </div>
+                <div class="site-footer-links">
+                    <a
+                        v-if="config.contact && config.contact.support"
+                        :href="config.contact.support.url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer-link footer-link--afdian"
+                        :aria-label="config.contact.support.platform"
+                    >
+                        <svg class="footer-link-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                        <span>{{ config.contact.support.platform }}</span>
+                    </a>
+                    <a
+                        href="https://github.com/briskygates"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer-link"
+                        aria-label="GitHub"
+                    >
+                        <svg class="footer-link-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="llms.txt" class="footer-link" aria-label="LLM context document">
+                        <span>llms.txt</span>
+                    </a>
+                </div>
+            </div>
+        </footer>
     </main>
 
     <nav class="mobile-bottom-nav" aria-label="快捷导航">
