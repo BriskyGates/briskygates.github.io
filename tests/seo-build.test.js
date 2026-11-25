@@ -17,9 +17,12 @@ test('renderAppShell: 输出真实姓名而非 Vue 占位符', () => {
     assert.doesNotMatch(html, /\{\{\s*config\./);
 });
 
-test('renderAppShell: 包含代表作与技能区块', () => {
+test('renderAppShell: 包含四篇工程案例、可读的交付内容与技能区块', () => {
     const html = renderAppShell(zhConfig);
-    assert.match(html, /知识库却经常引用错段落/);
+    for (const [, title] of zhConfig.ui.studio.casebook.cases) {
+        assert.ok(html.includes(title));
+    }
+    assert.ok(html.includes(zhConfig.featured.items[0].highlights[2]));
     assert.match(html, /核心能力/);
     assert.match(html, /id="showcase"/);
 });

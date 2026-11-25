@@ -140,7 +140,7 @@ test('各语言配置嵌套 key 结构一致', () => {
 test('index.html 使用配置驱动渲染且无硬编码亮点文案', () => {
     const indexHtml = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
     assert.doesNotMatch(indexHtml, /亮点：/);
-    assert.match(indexHtml, /getStatusText/);
+    assert.match(indexHtml, /v-html="casesHtml"/);
     assert.match(indexHtml, /selectLanguage/);
     assert.match(indexHtml, /lang-dropdown/);
 });

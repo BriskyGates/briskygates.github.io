@@ -1,94 +1,44 @@
 const { test, expect } = require('@playwright/test');
 
-async function waitForAppReady(page) {
-    await page.waitForFunction(() => {
-        const title = document.querySelector('.hero-title');
-        return title && title.textContent.length > 4 && !title.textContent.includes('{{');
+for (const [width, nav] of [[390, '.mobile-bottom-nav'], [1440, '.sidebar-nav']]) {
+    test.describe(`正式首页导航 · ${width}px`, () => {
+        test.use({ viewport: { width, height: 860 } });
+
+        test('四个章节均可访问，滚动位置与当前导航一致', async ({ page }) => {
+            await page.goto('/');
+            await page.locator('#app[data-v-app]').waitFor();
+            for (const id of ['showcase', 'case-studies', 'studio-library', 'contact']) {
+                const link = page.locator(`${nav} a[href="#${id}"]`);
+                await link.click();
+                await expect(link).toHaveAttribute('aria-current', 'location');
+                await expect(page).toHaveURL(new RegExp('#' + id + '$'));
+                await expect.poll(() => page.locator('#' + id).evaluate(el => {
+                    const top = el.getBoundingClientRect().top;
+                    return top < innerHeight / 2 && top >= -4;
+                })).toBe(true);
+                await expect(link).toHaveClass(/active/);
+            }
+            await page.locator('.studio-brand').click();
+            await expect(page).toHaveURL(/#home$/);
+        });
+
+        test('旧版业务流链接展开对应资料，浏览器后退回到案例', async ({ page }) => {
+            await page.goto('/#case-studies');
+            await page.locator('#app[data-v-app]').waitFor();
+            await page.locator('#case-fastapi_celery_kb .casebook-related').click();
+            await expect(page).toHaveURL(/#flow-rag$/);
+            await expect(page.locator('#workflows')).toHaveAttribute('open', '');
+            await expect(page.locator('#flow-rag')).toBeInViewport();
+            await expect(page.locator(nav + ' a[href="#studio-library"]')).toHaveClass(/active/);
+            await page.goBack();
+            await expect(page.locator('#casebook-heading')).toBeInViewport();
+        });
+
+        test('滚动到页面底部时选中联系项', async ({ page }) => {
+            await page.goto('/');
+            await page.locator('#app[data-v-app]').waitFor();
+            await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
+            await expect(page.locator(nav + ' a[href="#contact"]')).toHaveClass(/active/);
+        });
     });
 }
-
-test.describe('移动端导航栏跟手性与交互测试', () => {
-    test.use({ viewport: { width: 390, height: 844 } });
-
-    test('移动端点击各导航项均能准确高亮且无回退', async ({ page }) => {
-        await page.goto('/');
-        await waitForAppReady(page);
-
-        const navItems = [
-            { id: 'showcase', label: '作品' },
-            { id: 'flow-rag', label: '业务流' },
-            { id: 'experience', label: '履历' },
-            { id: 'skills', label: '技能' },
-            { id: 'services', label: '服务' },
-            { id: 'contact', label: '联系' },
-            { id: 'home', label: '首页' }
-        ];
-
-        for (const item of navItems) {
-            const navLink = page.locator(`.mobile-bottom-nav .mobile-nav-item[href="#${item.id}"]`);
-            await navLink.click();
-            await page.waitForTimeout(600);
-            await expect(navLink).toHaveClass(/active/);
-        }
-    });
-
-    test('页面自然滚动到底部时联系模块自动高亮', async ({ page }) => {
-        await page.goto('/');
-        await waitForAppReady(page);
-
-        await page.evaluate(() => {
-            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' });
-        });
-        await page.waitForTimeout(300);
-
-        const contactLink = page.locator('.mobile-bottom-nav .mobile-nav-item[href="#contact"]');
-        await expect(contactLink).toHaveClass(/active/);
-    });
-
-    test('点击 Hero 业务流诊断卡能正确联动到业务流导航', async ({ page }) => {
-        await page.goto('/');
-        await waitForAppReady(page);
-
-        const heroFlowEntries = page.locator('.hero-flow-entry');
-        const count = await heroFlowEntries.count();
-        expect(count).toBeGreaterThan(0);
-
-        await heroFlowEntries.first().click();
-        await page.waitForTimeout(600);
-
-        const flowNav = page.locator('.mobile-bottom-nav .mobile-nav-item[href="#flow-rag"]');
-        await expect(flowNav).toHaveClass(/active/);
-        await expect(page.locator('.top-bar-brand strong')).toHaveText('业务流');
-    });
-});
-
-test.describe('桌面端导航栏跟手性与交互测试', () => {
-    test.use({ viewport: { width: 1440, height: 900 } });
-
-    test('桌面端点击各导航项均能精准高亮对应项', async ({ page }) => {
-        await page.goto('/');
-        await waitForAppReady(page);
-
-        const navItems = ['showcase', 'flow-rag', 'experience', 'skills', 'services', 'contact', 'home'];
-
-        for (const id of navItems) {
-            const navLink = page.locator(`.sidebar-nav .nav-item[href="#${id}"]`);
-            await navLink.click();
-            await page.waitForTimeout(600);
-            await expect(navLink).toHaveClass(/active/);
-        }
-    });
-
-    test('桌面端自然滚动到底部时激活联系项', async ({ page }) => {
-        await page.goto('/');
-        await waitForAppReady(page);
-
-        await page.evaluate(() => {
-            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' });
-        });
-        await page.waitForTimeout(300);
-
-        const contactLink = page.locator(`.sidebar-nav .nav-item[href="#contact"]`);
-        await expect(contactLink).toHaveClass(/active/);
-    });
-});

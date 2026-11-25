@@ -25,8 +25,15 @@ const html = `<!DOCTYPE html>
     <title>Test Fixture</title>
     <meta name="description" content="test fixture">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/studio-home.css">
+    <link rel="stylesheet" href="/assets/css/studio-products.css">
+    <link rel="stylesheet" href="/assets/css/casebook.css">
+    <link rel="stylesheet" href="/assets/css/case-documents.css">
+    <link rel="stylesheet" href="/assets/css/case-ledger.css">
+    <link rel="stylesheet" href="/assets/css/case-tools.css">
+    <link rel="stylesheet" href="/assets/css/studio-library.css">
 </head>
-<body class="site-body">
+<body class="site-body studio-homepage">
 <template id="vue-app-template">
 ${appTemplate}
 </template>
@@ -36,6 +43,12 @@ ${prerender}
     <script>window.siteConfig = null;</script>
     <script defer src="/assets/vendor/vue.global.prod.js"></script>
     <script defer src="/assets/js/app-core.js"></script>
+    <script defer src="/assets/js/studio-home.js"></script>
+    <script defer src="/assets/js/studio-products.js"></script>
+    <script defer src="/assets/js/case-documents.js"></script>
+    <script defer src="/assets/js/case-ledger.js"></script>
+    <script defer src="/assets/js/case-tools.js"></script>
+    <script defer src="/assets/js/casebook.js"></script>
     <script defer src="/assets/js/main.js"></script>
 </body>
 </html>

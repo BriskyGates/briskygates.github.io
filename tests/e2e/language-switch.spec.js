@@ -1,4 +1,6 @@
 const { test, expect } = require('@playwright/test');
+const heroEN = require('../../assets/data/homeConfig.en.json').profile.heroTitle;
+const heroHant = require('../../assets/data/homeConfig.zh-Hant.json').profile.heroTitle;
 
 async function waitForAppReady(page) {
     await page.waitForFunction(() => {
@@ -40,7 +42,7 @@ test('下拉列表可选择繁体中文', async ({ page }) => {
 
     await selectLanguage(page, '繁體中文');
 
-    await expect(page.locator('.hero-title')).toContainText(/生產力/);
+    await expect(page.locator('.hero-title')).toContainText(heroHant);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('繁體中文');
     await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
     await expect(page).toHaveURL(/lang=zh-Hant/);
@@ -50,7 +52,7 @@ test('下拉列表可选择大白话', async ({ page }) => {
     await page.goto('/?lang=zh-Hant');
     await waitForAppReady(page);
 
-    await expect(page.locator('.hero-title')).toContainText(/生產力/);
+    await expect(page.locator('.hero-title')).toContainText(heroHant);
 
     await selectLanguage(page, '大白话');
 
@@ -65,7 +67,7 @@ test('下拉列表可选择英文', async ({ page }) => {
 
     await selectLanguage(page, 'English');
 
-    await expect(page.locator('.hero-title')).toContainText(/Production Power|real — not just demos/i);
+    await expect(page.locator('.hero-title')).toContainText(heroEN);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('English');
     await expect(page).toHaveURL(/lang=en/);
 });
@@ -98,11 +100,11 @@ test('下拉列表可切回简体中文', async ({ page }) => {
     await page.goto('/?lang=en');
     await waitForAppReady(page);
 
-    await expect(page.locator('.hero-title')).toContainText(/Production Power/i);
+    await expect(page.locator('.hero-title')).toContainText(heroEN);
 
     await selectLanguage(page, '简体中文');
 
-    await expect(page.locator('.hero-title')).not.toContainText(/Production Power/i);
+    await expect(page.locator('.hero-title')).not.toContainText(heroEN);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('简体中文');
     await expect(page).not.toHaveURL(/lang=en/);
     const url = new URL(page.url());
@@ -113,7 +115,7 @@ test('URL 参数 lang=en 直接加载英文', async ({ page }) => {
     await page.goto('/?lang=en');
     await waitForAppReady(page);
 
-    await expect(page.locator('.hero-title')).toContainText(/Production Power/i);
+    await expect(page.locator('.hero-title')).toContainText(heroEN);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('English');
 });
 
@@ -159,7 +161,7 @@ test('URL 参数 lang=zh-Hant 直接加载繁体中文', async ({ page }) => {
     await page.goto('/?lang=zh-Hant');
     await waitForAppReady(page);
 
-    await expect(page.locator('.hero-title')).toContainText(/生產力/);
+    await expect(page.locator('.hero-title')).toContainText(heroHant);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('繁體中文');
     await expect(page.locator('html')).toHaveAttribute('lang', 'zh-TW');
 });
@@ -172,7 +174,7 @@ test('无 URL 参数时始终默认加载简体中文 (避免 localStorage 污�
     await page.goto('/');
     await waitForAppReady(page);
 
-    await expect(page.locator('.hero-title')).not.toContainText(/Production Power/i);
+    await expect(page.locator('.hero-title')).not.toContainText(heroEN);
     await expect(page.locator('.hero-title')).toBeVisible();
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('简体中文');
     await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
@@ -183,11 +185,11 @@ test('浏览器后退应同步页面语言', async ({ page }) => {
     await waitForAppReady(page);
 
     await selectLanguage(page, '繁體中文');
-    await expect(page.locator('.hero-title')).toContainText(/生產力/);
+    await expect(page.locator('.hero-title')).toContainText(heroHant);
 
     await page.goBack();
     await waitForAppReady(page);
-    await expect(page.locator('.hero-title')).not.toContainText(/生產力/);
+    await expect(page.locator('.hero-title')).not.toContainText(heroHant);
     await expect(page.locator('.lang-dropdown .lang-btn').first()).toContainText('简体中文');
 });
 

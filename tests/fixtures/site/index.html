@@ -6,204 +6,70 @@
     <title>Test Fixture</title>
     <meta name="description" content="test fixture">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/studio-home.css">
+    <link rel="stylesheet" href="/assets/css/studio-products.css">
+    <link rel="stylesheet" href="/assets/css/casebook.css">
+    <link rel="stylesheet" href="/assets/css/case-documents.css">
+    <link rel="stylesheet" href="/assets/css/case-ledger.css">
+    <link rel="stylesheet" href="/assets/css/case-tools.css">
+    <link rel="stylesheet" href="/assets/css/studio-library.css">
 </head>
-<body class="site-body">
+<body class="site-body studio-homepage">
 <template id="vue-app-template">
-<div class="app-shell-inner" v-cloak>
-    <aside class="sidebar" :class="{ open: sidebarOpen }" aria-label="主导航">
-        <div class="sidebar-brand">
-            <span class="brand-mark" v-html="getBrandAvatar('sm')"></span>
-            <div class="brand-text">
-                <strong>{{ config.profile.name }}</strong>
-                <span>{{ config.profile.tagline }}</span>
-            </div>
-        </div>
-        <nav class="sidebar-nav">
-            <a
-                v-for="item in config.ui.nav"
-                :key="item.id"
-                :href="'#' + item.id"
-                class="nav-item"
-                :class="{ active: activeSection === item.id }"
-                @click.prevent="scrollToSection(item.id)"
-            >
-                <span class="nav-icon-wrap" v-html="getNavIcon(item.id)" aria-hidden="true"></span>
-                <span>{{ item.label }}</span>
+<div class="app-shell-inner studio-homepage" v-cloak>
+    <a class="studio-skip" href="#main-content">{{ config.ui.studio.skipLabel }}</a>
+    <header class="studio-header">
+        <div class="studio-header-inner">
+            <a class="studio-brand top-bar-brand" href="#home" @click.prevent="scrollToSection('home')">
+                <span class="brand-mark" aria-hidden="true" v-html="getBrandAvatar('sm')"></span>
+                <span class="brand-handle" lang="en">Abu Studio</span>
+                <strong class="mobile-section">{{ activeSection === 'home' ? config.profile.name : activeNavLabel }}</strong>
             </a>
-        </nav>
-        <div class="sidebar-footer">
-            <div class="lang-dropdown" :class="{ 'lang-dropdown--open': langMenuOpen && langMenuSource === 'sidebar' }">
-                <button
-                    type="button"
-                    class="lang-btn"
-                    @click.stop="toggleLangMenu('sidebar')"
-                    :aria-label="config.ui.languageToggle.tooltip"
-                    aria-haspopup="listbox"
-                    :aria-expanded="langMenuOpen && langMenuSource === 'sidebar'"
-                >
-                    <svg class="lang-btn__globe" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    <span class="lang-btn__label">{{ currentLanguageLabel }}</span>
-                    <svg class="lang-btn__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <ul v-show="langMenuOpen && langMenuSource === 'sidebar'" class="lang-menu" role="listbox" :aria-label="config.ui.languageToggle.tooltip">
-                    <li v-for="opt in languageOptions" :key="opt.code" role="presentation">
-                        <button
-                            type="button"
-                            class="lang-menu__item"
-                            :class="{ 'lang-menu__item--active': currentLang === opt.code }"
-                            role="option"
-                            :aria-selected="currentLang === opt.code"
-                            @click="selectLanguage(opt.code)"
-                        >
-                            <span>{{ opt.label }}</span>
-                            <svg v-if="currentLang === opt.code" class="lang-menu__check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </aside>
-
-    <main class="main-view">
-        <header class="top-bar">
-            <div class="top-bar-brand">
-                <span class="brand-avatar" v-html="getBrandAvatar('md')"></span>
-                <div class="brand-meta">
-                    <strong>{{ activeSection === 'home' ? config.profile.name : activeNavLabel }}</strong>
-                    <span class="status-dot">{{ config.profile.tagline }}</span>
+            <nav class="sidebar-nav" :aria-label="config.ui.studio.navigation">
+                <a v-for="item in config.ui.nav" :key="item.id" :href="'#' + item.id"
+                    class="nav-item" :class="{ active: activeSection === item.id }"
+                    :aria-current="activeSection === item.id ? 'location' : null"
+                    @click.prevent="scrollToSection(item.id)">{{ item.label }}</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="lang-dropdown" :class="{ 'lang-dropdown--open': langMenuOpen }">
+                    <button
+                        type="button"
+                        class="lang-btn"
+                        @click.stop="toggleLangMenu()"
+                        :aria-label="config.ui.languageToggle.tooltip"
+                        aria-haspopup="listbox"
+                        :aria-expanded="langMenuOpen"
+                    >
+                        <svg class="lang-btn__globe" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span class="lang-btn__label">{{ currentLanguageLabel }}</span>
+                        <svg class="lang-btn__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <ul v-show="langMenuOpen" class="lang-menu" role="listbox" :aria-label="config.ui.languageToggle.tooltip">
+                        <li v-for="opt in languageOptions" :key="opt.code" role="presentation">
+                            <button
+                                type="button"
+                                class="lang-menu__item"
+                                :class="{ 'lang-menu__item--active': currentLang === opt.code }"
+                                role="option"
+                                :aria-selected="currentLang === opt.code"
+                                @click="selectLanguage(opt.code)"
+                            >
+                                <span>{{ opt.label }}</span>
+                                <svg v-if="currentLang === opt.code" class="lang-menu__check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            </button>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="search-pill" role="search">
-                <svg class="search-pill__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <span>{{ config.ui.searchPlaceholder }}</span>
-            </div>
-            <div class="lang-dropdown lang-dropdown--compact" :class="{ 'lang-dropdown--open': langMenuOpen && langMenuSource === 'compact' }">
-                <button
-                    type="button"
-                    class="lang-btn lang-btn--compact"
-                    @click.stop="toggleLangMenu('compact')"
-                    :aria-label="config.ui.languageToggle.tooltip"
-                    aria-haspopup="listbox"
-                    :aria-expanded="langMenuOpen && langMenuSource === 'compact'"
-                >
-                    <svg class="lang-btn__globe" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    <span class="lang-btn__label">{{ currentLanguageLabel }}</span>
-                    <svg class="lang-btn__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <ul v-show="langMenuOpen && langMenuSource === 'compact'" class="lang-menu" role="listbox" :aria-label="config.ui.languageToggle.tooltip">
-                    <li v-for="opt in languageOptions" :key="opt.code" role="presentation">
-                        <button
-                            type="button"
-                            class="lang-menu__item"
-                            :class="{ 'lang-menu__item--active': currentLang === opt.code }"
-                            role="option"
-                            :aria-selected="currentLang === opt.code"
-                            @click="selectLanguage(opt.code)"
-                        >
-                            <span>{{ opt.label }}</span>
-                            <svg v-if="currentLang === opt.code" class="lang-menu__check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- Hero: MotionSites Bento Grid & Liquid-Glass -->
-        <section id="home" class="hero-banner bento-hero">
-            <div class="hero-bg" :style="heroGradientStyle" aria-hidden="true"></div>
-            <div class="bento-hero-grid noise-overlay">
-                <!-- Bento 1: Main Value & Identity -->
-                <article class="bento-card bento-card--main liquid-glass">
-                    <div class="bento-card__header" v-if="config.profile.status">
-                        <div class="radar-status-badge">
-                            <span class="radar-pulse"></span>
-                            <span>{{ config.profile.status }}</span>
-                        </div>
-                    </div>
-                    <div class="bento-card__body">
-                        <p class="hero-eyebrow">{{ timeGreeting }}</p>
-                        <h1 class="hero-title">{{ config.profile.heroTitle }}</h1>
-                        <p class="hero-subtitle" v-html="config.profile.greeting.description"></p>
-                        <div class="hero-chips">
-                            <span v-for="chip in config.profile.heroChips" :key="chip" class="hero-chip">{{ chip }}</span>
-                        </div>
-                    </div>
-                    <div class="hero-actions">
-                        <button type="button" class="btn-primary" @click="scrollToSection('contact')">
-                            <svg class="btn-arrow-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            {{ config.ui.heroCtaPrimary }}
-                        </button>
-                        <button type="button" class="btn-secondary" @click="scrollToSection(config.ui && config.ui.brief && config.ui.brief.enabled ? 'plain-cases' : 'showcase')">
-                            {{ config.ui.heroCtaSecondary }}
-                        </button>
-                    </div>
-                </article>
-
-                <!-- Bento 2: Delivery Impact & Stats -->
-                <article class="bento-card bento-card--stats liquid-glass">
-                    <div class="bento-card-label">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-                        <span>{{ (config.ui && config.ui.statsTitle) || '核心交付战绩' }}</span>
-                    </div>
-                    <div class="hero-stats-grid">
-                        <div v-for="stat in config.profile.stats" :key="stat.label" class="hero-stat-card">
-                            <span class="hero-stat-num">{{ stat.number }}</span>
-                            <span class="hero-stat-label">{{ stat.label }}</span>
-                        </div>
-                    </div>
-                    <div class="bento-role-highlight" v-if="config.profile.roles && config.profile.roles[0]">
-                        <span class="role-pill-icon">⚡</span>
-                        <p>{{ config.profile.roles[0].value }}</p>
-                    </div>
-                </article>
-
-                <!-- Bento 3: Tech Stack Marquee (Full-width) -->
-                <article class="bento-card bento-card--marquee liquid-glass" v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled)">
-                    <div class="marquee-header">
-                        <span class="marquee-title">{{ (config.ui && config.ui.marqueeTitle) || '落地工程技术底座' }}</span>
-                        <span class="marquee-sub">{{ (config.ui && config.ui.marqueeSubtitle) || '可落地 · 生产可用 · 高吞吐低延迟' }}</span>
-                    </div>
-                    <div class="marquee-container" aria-label="技术栈跑马灯">
-                        <div class="marquee-track">
-                            <div class="marquee-group">
-                                <span v-for="badge in ((config.ui && config.ui.marqueeBadges) || defaultMarqueeBadges)" :key="badge" class="tech-badge">
-                                    <i class="tech-icon-dot"></i>{{ badge }}
-                                </span>
-                            </div>
-                            <div class="marquee-group" aria-hidden="true">
-                                <span v-for="badge in ((config.ui && config.ui.marqueeBadges) || defaultMarqueeBadges)" :key="'dup-' + badge" class="tech-badge">
-                                    <i class="tech-icon-dot"></i>{{ badge }}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Bento 4: Quick Flow Entries -->
-                <article class="bento-card bento-card--flows liquid-glass" v-if="config.profile.heroFlowEntries && !(config.ui && config.ui.brief && config.ui.brief.enabled)">
-                    <div class="bento-card-label">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                        <span>{{ (config.ui && config.ui.scenarioTitle) || '高频业务痛点场景' }}</span>
-                    </div>
-                    <div class="bento-flow-grid">
-                        <button
-                            v-for="entry in config.profile.heroFlowEntries"
-                            :key="entry.id"
-                            type="button"
-                            class="bento-flow-tile hero-flow-entry"
-                            @click="scrollToSection(entry.id)"
-                        >
-                            <span class="bento-flow-icon" v-html="getTechIcon(entry.id, 'hero-flow')"></span>
-                            <div class="bento-flow-text">
-                                <strong>{{ entry.title }}</strong>
-                                <span>{{ entry.sub }}</span>
-                            </div>
-                            <svg class="bento-flow-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-                        </button>
-                    </div>
-                </article>
-            </div>
-        </section>
+    <main class="main-view" id="main-content" tabindex="-1">
+        <div class="studio-hero-slot" v-html="heroHtml"></div>
+        <section :id="config.ui.brief.enabled ? 'products' : 'showcase'" class="bento-card--products studio-product-slot" v-html="productsHtml"></section>
+        <div class="studio-cases-slot" v-html="casesHtml"></div>
+        <div v-html="deliveryHtml"></div>
 
         <!-- Business-facing short version -->
         <section id="plain-cases" v-if="config.ui && config.ui.brief && config.ui.brief.enabled" class="content-section plain-brief-section" aria-labelledby="plain-cases-title">
@@ -239,7 +105,7 @@
                         <h3>{{ tool.title }}</h3>
                         <span class="plain-tool-status">{{ tool.status }}</span>
                     </div>
-                    <p class="plain-tool-fit">适合：{{ tool.fit }}</p>
+                    <p class="plain-tool-fit">{{ tool.fit }}</p>
                     <div class="plain-tool-row"><strong>{{ config.ui.brief.inputLabel }}</strong><span>{{ tool.input }}</span></div>
                     <div class="plain-tool-row"><strong>{{ config.ui.brief.outputLabel }}</strong><span>{{ tool.output }}</span></div>
                     <div class="plain-tool-row plain-tool-row--setup"><strong>{{ config.ui.brief.setupLabel }}</strong><span>{{ tool.setup }}</span></div>
@@ -259,147 +125,138 @@
             <p class="plain-conversation-note">{{ config.ui.brief.conversationNote }}</p>
         </section>
 
-        <!-- Featured horizontal row -->
-        <section id="showcase" class="content-section motion-reveal" v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled) && config.featured && config.featured.items">
-            <div class="section-head">
-                <h2>{{ config.featured.title }}</h2>
-                <p>{{ config.featured.subtitle }}</p>
-            </div>
-            <div class="media-row-wrap">
-            <div class="media-row reveal-stagger">
-                <article
-                    v-for="project in config.featured.items"
-                    :key="project.id"
-                    class="media-card media-card--featured liquid-glass"
-                    :style="{ '--card-accent': project.accent }"
-                >
-                    <div class="media-card-visual" :class="'media-card-visual--' + project.id">
-                        <div class="media-card-diagram" v-html="getShowcaseVisual(project)"></div>
-                        <span class="media-card-badge">{{ getStatusText(project.status) }}</span>
-                    </div>
-                    <div class="media-card-body">
-                        <h3>{{ project.title }}</h3>
-                        <p class="media-card-sub">{{ project.subtitle }}</p>
-                        <p class="media-card-desc">{{ project.description }}</p>
-                        <ul class="media-card-highlights" v-if="project.highlights">
-                            <li v-for="h in project.highlights" :key="h">{{ h }}</li>
-                        </ul>
-                        <div class="tag-row">
-                            <span v-for="tag in project.tags" :key="tag" class="tag-pill">{{ tag }}</span>
+        <section id="studio-library" class="studio-library" v-if="!config.ui.brief.enabled" aria-labelledby="library-title">
+            <header class="library-heading">
+                <h2 id="library-title">{{ config.ui.studio.libraryTitle }}</h2>
+                <p>{{ config.ui.studio.libraryIntro }}</p>
+            </header>
+            <details id="workflows" class="library-chapter">
+                <summary>{{ config.ui.studio.flowLabel }}</summary>
+                <div class="library-page">
+                    <section v-if="config.profile.heroFlowEntries" class="content-section">
+                        <div class="section-head"><h2>{{ config.ui.scenarioTitle }}</h2></div>
+                        <div class="flow-directory">
+                            <a v-for="entry in config.profile.heroFlowEntries" :key="entry.id" :href="'#' + entry.id" class="hero-flow-entry" @click.prevent="scrollToSection(entry.id)">
+                                <span class="flow-entry-icon" v-html="getTechIcon(entry.id, 'hero-flow')"></span>
+                                <span><strong>{{ entry.title }}</strong><small>{{ entry.sub }}</small></span>
+                            </a>
                         </div>
-                    </div>
-                </article>
-            </div>
-            </div>
-        </section>
+                    </section>
 
-        <!-- Business flows -->
-        <section
-            v-for="flow in (config.businessFlows && config.businessFlows.flows) || []"
-            v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled)"
-            :key="flow.id"
-            :id="flow.id"
-            class="content-section flow-section motion-reveal"
-            :style="{ '--flow-accent': flow.accent }"
-        >
-            <div class="section-head">
-                <h2>{{ flow.title }}</h2>
-                <p class="flow-persona">{{ flow.persona }}</p>
-                <p class="flow-oneliner">{{ flow.oneLiner }}</p>
-            </div>
-            <div class="flow-track">
-                <article v-for="node in flow.nodes" :key="node.id" class="flow-node">
-                    <header class="flow-node-head">
-                        <span class="flow-stage">{{ node.stage }}</span>
-                        <h3 class="flow-pain">{{ node.painPoint }}</h3>
-                        <p class="flow-pain-detail">{{ node.painDetail }}</p>
-                    </header>
-                    <div class="flow-projects">
-                        <div v-for="p in node.projects" :key="p.id" class="flow-project-card">
-                            <span class="flow-project-icon" v-html="getTechIcon(p.id || p.icon, 'flow-project')"></span>
-                            <div class="flow-project-body">
-                                <strong>{{ p.title }}</strong>
-                                <p>{{ p.how }}</p>
+                    <!-- Business flows -->
+                    <section
+                        v-for="flow in (config.businessFlows && config.businessFlows.flows) || []"
+                        :key="flow.id"
+                        :id="flow.id"
+                        class="content-section flow-section motion-reveal"
+                        :style="{ '--flow-accent': flow.accent }"
+                    >
+                        <div class="section-head">
+                            <h2>{{ flow.title }}</h2>
+                            <p class="flow-persona">{{ flow.persona }}</p>
+                            <p class="flow-oneliner">{{ flow.oneLiner }}</p>
+                        </div>
+                        <div class="flow-track">
+                            <details v-for="node in flow.nodes" :key="node.id" class="flow-node">
+                                <summary class="flow-node-head">
+                                    <span class="flow-stage">{{ node.stage }}</span>
+                                    <h3 class="flow-pain">{{ node.painPoint }}</h3>
+                                </summary>
+                                <p class="flow-pain-detail">{{ node.painDetail }}</p>
+                                <div class="flow-projects">
+                                    <div v-for="p in node.projects" :key="p.id" class="flow-project-card">
+                                        <span class="flow-project-icon" v-html="getTechIcon(p.id || p.icon, 'flow-project')"></span>
+                                        <div class="flow-project-body">
+                                            <strong>{{ p.title }}</strong>
+                                            <p>{{ p.how }}</p>
+                                            <div class="tag-row">
+                                                <span v-for="tag in p.tags" :key="tag" class="tag-pill tag-pill--muted">{{ tag }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </section>
+                </div>
+            </details>
+
+            <details id="experience" class="library-chapter">
+                <summary>{{ config.experience.title }}</summary>
+                <div class="library-page">
+                    <div class="section-head">
+                        <p>{{ config.experience.subtitle }}</p>
+                    </div>
+                    <div class="timeline">
+                        <article v-for="(item, idx) in config.experience.items" :key="idx" class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-card liquid-glass">
+                                <span class="timeline-period">{{ item.period }}</span>
+                                <h3>{{ item.title }}</h3>
+                                <p>{{ item.description }}</p>
                                 <div class="tag-row">
-                                    <span v-for="tag in p.tags" :key="tag" class="tag-pill tag-pill--muted">{{ tag }}</span>
+                                    <span v-for="tag in item.tags" :key="tag" class="tag-pill tag-pill--muted">{{ tag }}</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </details>
+
+            <details id="skills" class="library-chapter">
+                <summary>{{ config.skills.title }}</summary>
+                <div class="library-page">
+                    <div class="section-head">
+                        <p class="section-motto" v-html="config.skills.motto"></p>
+                    </div>
+                    <ul class="stack-list"><li v-for="tech in config.ui.marqueeBadges" :key="tech">{{ tech }}</li></ul>
+                    <div class="skills-grid reveal-stagger">
+                        <article v-for="skill in config.skills.items" :key="skill.title" class="skill-tile">
+                            <span class="skill-tile-icon" v-html="getTechIcon(skill.icon || skill.title, 'skill')"></span>
+                            <h3>{{ skill.title }}</h3>
+                            <p>{{ skill.description }}</p>
+                            <div class="tag-row">
+                                <span v-for="tag in skill.tags" :key="tag" class="tag-pill">{{ tag }}</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </details>
+
+            <details id="services" class="library-chapter">
+                <summary>{{ config.services.title }}</summary>
+                <div class="library-page">
+                    <div class="section-head">
+                    </div>
+                    <div class="services-grid reveal-stagger">
+                        <article v-for="service in config.services.items" :key="service.title" class="service-tile">
+                            <div class="service-tile-top">
+                                <span class="service-tile-icon" v-html="getTechIcon(service.icon || service.title, 'service')"></span>
+                                <span class="service-badge">{{ service.badge }}</span>
+                            </div>
+                            <h3>{{ service.title }}</h3>
+                            <p>{{ service.description }}</p>
+                            <div class="tag-row">
+                                <span v-for="tech in service.technologies" :key="tech" class="tag-pill tag-pill--muted">{{ tech }}</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="partners-banner" v-if="config.services.partners">
+                        <h3>{{ config.services.partners.title }}</h3>
+                        <div class="partners-row">
+                            <div v-for="partner in config.services.partners.types" :key="partner.type" class="partner-pill">
+                                <span class="partner-pill-icon" v-html="getTechIcon(partner.icon || partner.type, 'partner')"></span>
+                                <div>
+                                    <strong>{{ partner.type }}</strong>
+                                    <p>{{ partner.description }}</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Experience timeline -->
-        <section id="experience" class="content-section motion-reveal" v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled) && config.experience">
-            <div class="section-head">
-                <h2>{{ config.experience.title }}</h2>
-                <p>{{ config.experience.subtitle }}</p>
-            </div>
-            <div class="timeline">
-                <article v-for="(item, idx) in config.experience.items" :key="idx" class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-card liquid-glass">
-                        <span class="timeline-period">{{ item.period }}</span>
-                        <h3>{{ item.title }}</h3>
-                        <p>{{ item.description }}</p>
-                        <div class="tag-row">
-                            <span v-for="tag in item.tags" :key="tag" class="tag-pill tag-pill--muted">{{ tag }}</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section id="skills" class="content-section motion-reveal" v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled)">
-            <div class="section-head">
-                <h2>{{ config.skills.title }}</h2>
-                <p class="section-motto" v-html="config.skills.motto"></p>
-            </div>
-            <div class="skills-grid reveal-stagger">
-                <article v-for="skill in config.skills.items" :key="skill.title" class="skill-tile">
-                    <span class="skill-tile-icon" v-html="getTechIcon(skill.icon || skill.title, 'skill')"></span>
-                    <h3>{{ skill.title }}</h3>
-                    <p>{{ skill.description }}</p>
-                    <div class="tag-row">
-                        <span v-for="tag in skill.tags" :key="tag" class="tag-pill">{{ tag }}</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Services -->
-        <section id="services" class="content-section motion-reveal" v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled)">
-            <div class="section-head">
-                <h2>{{ config.services.title }}</h2>
-            </div>
-            <div class="services-grid reveal-stagger">
-                <article v-for="service in config.services.items" :key="service.title" class="service-tile">
-                    <div class="service-tile-top">
-                        <span class="service-tile-icon" v-html="getTechIcon(service.icon || service.title, 'service')"></span>
-                        <span class="service-badge">{{ service.badge }}</span>
-                    </div>
-                    <h3>{{ service.title }}</h3>
-                    <p>{{ service.description }}</p>
-                    <div class="tag-row">
-                        <span v-for="tech in service.technologies" :key="tech" class="tag-pill tag-pill--muted">{{ tech }}</span>
-                    </div>
-                </article>
-            </div>
-            <div class="partners-banner" v-if="config.services.partners">
-                <h3>{{ config.services.partners.title }}</h3>
-                <div class="partners-row">
-                    <div v-for="partner in config.services.partners.types" :key="partner.type" class="partner-pill">
-                        <span class="partner-pill-icon" v-html="getTechIcon(partner.icon || partner.type, 'partner')"></span>
-                        <div>
-                            <strong>{{ partner.type }}</strong>
-                            <p>{{ partner.description }}</p>
-                        </div>
+                        <p class="partners-note" v-html="config.services.partners.note"></p>
                     </div>
                 </div>
-                <p class="partners-note" v-html="config.services.partners.note"></p>
-            </div>
+            </details>
+
         </section>
 
         <!-- Contact Form -->
@@ -408,61 +265,34 @@
                 <h2>{{ config.contact.form.title }}</h2>
                 <p>{{ config.contact.form.subtitle }}</p>
             </div>
+            <p v-if="config.profile.status" class="availability-note">{{ config.profile.status }}</p>
+            <details v-if="config.ui.brief.enabled" id="services" class="library-chapter">
+                <summary>{{ config.services.title }}</summary>
+                <div class="library-page">
+                    <dl v-for="service in config.services.items" :key="service.icon" class="service-tile">
+                        <dt><strong>{{ service.title }}</strong></dt>
+                        <dd>{{ service.description }}</dd>
+                    </dl>
+                </div>
+            </details>
             <div class="contact-layout">
                 <div class="contact-intro-card">
                     <div class="contact-intro-icon" v-html="getTechIcon(config.contact.intro.icon, 'contact-intro')"></div>
                     <h3>{{ config.contact.intro.title }}</h3>
                     <p>{{ config.contact.intro.description }}</p>
-                    <div class="contact-meta-row">
-                        <div class="contact-meta-item">
-                            <span class="contact-meta-icon" v-html="getTechIcon(config.contact.availability.icon, 'contact-avail')"></span>
-                            <div>
-                                <strong>{{ config.contact.availability.title }}</strong>
-                                <p>{{ config.contact.availability.labels.usuallyWithin }} {{ config.contact.availability.responseTime }} {{ config.contact.availability.response }}</p>
-                                <span class="contact-meta-sub">{{ config.contact.availability.labels.timezoneLabel }}{{ config.ui.labelSuffix }}{{ config.contact.availability.timezone }}</span>
-                            </div>
-                        </div>
-                        <div class="contact-meta-item">
-                            <span class="contact-meta-icon" v-html="getTechIcon(config.contact.collaboration.icon, 'contact-collab')"></span>
-                            <div>
-                                <strong>{{ config.contact.collaboration.title }}</strong>
-                                <div class="contact-collab-tags">
-                                    <span v-for="type in config.contact.collaboration.types" :key="type.text" class="tag-pill"><span class="tag-pill-icon" v-html="getTechIcon(type.icon || type.text, 'contact-type')"></span>{{ type.text }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-support-card" v-if="config.contact && config.contact.support">
-                        <div class="contact-support-badge-row">
-                            <span class="support-auth-tag">
-                                <svg class="support-spark-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                                </svg>
-                                <span>{{ config.contact.support.badge }}</span>
-                            </span>
-                            <span class="support-platform-label">{{ config.contact.support.platform }}</span>
-                        </div>
-                        <p class="contact-support-desc">{{ config.contact.support.text }}</p>
-                        <a
-                            :href="config.contact.support.url"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn-support-link"
-                            :aria-label="config.contact.support.title + ' - ' + config.contact.support.platform"
-                        >
-                            <span>{{ config.contact.support.title }}</span>
-                            <svg class="external-arrow-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
                 <form class="contact-form" @submit.prevent="submitContactForm">
+                    <div v-if="contactContextDisplay" class="contact-case-context" data-contact-context tabindex="-1"
+                        ref="contactContext" role="group" aria-labelledby="contact-context-label" aria-describedby="contact-context-choice">
+                        <strong id="contact-context-label">{{ contactContextDisplay.label }}</strong>
+                        <p id="contact-context-choice">{{ contactContextDisplay.title }} · {{ contactContextDisplay.service }}</p>
+                        <button type="button" data-clear-contact-context @click="clearContactContext">{{ config.ui.studio.deliveryStory.clearContext }}</button>
+                    </div>
                     <div class="form-field">
                         <label :for="'contact-name'">{{ config.contact.form.fields.name.label }}</label>
                         <input
                             id="contact-name"
+                            ref="contactName"
                             v-model="contactForm.name"
                             type="text"
                             :placeholder="config.contact.form.fields.name.placeholder"
@@ -507,21 +337,56 @@
                         {{ contactFeedback }}
                     </p>
                 </form>
+                <div class="contact-details">
+                    <div class="contact-meta-row">
+                        <div class="contact-meta-item">
+                            <span class="contact-meta-icon" v-html="getTechIcon(config.contact.availability.icon, 'contact-avail')"></span>
+                            <div>
+                                <strong>{{ config.contact.availability.title }}</strong>
+                                <p>{{ config.contact.availability.labels.usuallyWithin }} {{ config.contact.availability.responseTime }} {{ config.contact.availability.labels.response }}</p>
+                                <span class="contact-meta-sub">{{ config.contact.availability.labels.timezoneLabel }}{{ config.ui.labelSuffix }}{{ config.contact.availability.timezone }}</span>
+                            </div>
+                        </div>
+                        <div class="contact-meta-item">
+                            <span class="contact-meta-icon" v-html="getTechIcon(config.contact.collaboration.icon, 'contact-collab')"></span>
+                            <div>
+                                <strong>{{ config.contact.collaboration.title }}</strong>
+                                <div class="contact-collab-tags">
+                                    <span v-for="type in config.contact.collaboration.types" :key="type.text" class="tag-pill"><span class="tag-pill-icon" v-html="getTechIcon(type.icon || type.text, 'contact-type')"></span>{{ type.text }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-support-card" v-if="config.contact && config.contact.support">
+                        <div class="contact-support-badge-row">
+                            <span class="support-auth-tag">
+                                <svg class="support-spark-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                                <span>{{ config.contact.support.badge }}</span>
+                            </span>
+                            <span class="support-platform-label">{{ config.contact.support.platform }}</span>
+                        </div>
+                        <p class="contact-support-desc">{{ config.contact.support.text }}</p>
+                        <a
+                            :href="config.contact.support.url"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn-support-link"
+                            :aria-label="config.contact.support.title + ' - ' + config.contact.support.platform"
+                        >
+                            <span>{{ config.contact.support.title }}</span>
+                            <svg class="external-arrow-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="contact-footer-chips" v-if="config.contact && config.contact.footer && config.contact.footer.highlights">
                 <div class="footer-chips">
                     <span v-for="h in config.contact.footer.highlights" :key="h">{{ h }}</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Philosophy -->
-        <section class="content-section motion-reveal" v-if="!(config.ui && config.ui.brief && config.ui.brief.enabled) && config.projects && config.projects.innovation">
-            <div class="philosophy-card">
-                <span class="philosophy-card-icon" v-html="getTechIcon(config.projects.innovation.icon, 'philosophy')"></span>
-                <div>
-                    <h3>{{ config.projects.innovation.title }}</h3>
-                    <p>{{ config.projects.innovation.text }}</p>
                 </div>
             </div>
         </section>
@@ -543,7 +408,7 @@
                         :href="config.contact.support.url"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="footer-link footer-link--afdian"
+                        class="footer-link"
                         :aria-label="config.contact.support.platform"
                     >
                         <svg class="footer-link-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -571,21 +436,19 @@
         </footer>
     </main>
 
-    <nav class="mobile-bottom-nav" aria-label="快捷导航">
+    <nav class="mobile-bottom-nav" :aria-label="config.ui.studio.navigation">
         <a
             v-for="item in config.ui.nav"
             :key="'mb-' + item.id"
             :href="'#' + item.id"
             class="mobile-nav-item"
             :class="{ active: activeSection === item.id }"
+            :aria-current="activeSection === item.id ? 'location' : null"
             @click.prevent="scrollToSection(item.id)"
         >
-            <span class="nav-icon-wrap" v-html="getNavIcon(item.id)" aria-hidden="true"></span>
             <span>{{ item.shortLabel || item.label }}</span>
         </a>
     </nav>
-
-    <div class="sidebar-overlay" :class="{ open: sidebarOpen }" @click="sidebarOpen = false"></div>
 
     <div id="toast" class="toast" v-if="showToast">
         <span>{{ toastMessage }}</span>
@@ -593,99 +456,333 @@
 </div>
 </template>
 <div id="app" class="app-shell">
-<aside class="sidebar" aria-label="主导航">
-        <div class="sidebar-brand">
-            <strong>阿布</strong>
-            <span>独立工程专家 · 商业级 AI 落地架构师</span>
+<div class="app-shell-inner studio-homepage">
+        <header class="studio-header"><div class="studio-header-inner">
+            <a href="#home" class="studio-brand"><img src="assets/img/favicon.svg" alt="" width="29" height="29"><span class="brand-handle" lang="en">Abu Studio</span></a>
+            <nav class="sidebar-nav" aria-label="页面导航"><a class="nav-item" href="#showcase">作品</a><a class="nav-item" href="#case-studies">工程案例</a><a class="nav-item" href="#studio-library">工作室</a><a class="nav-item" href="#contact">联系</a></nav>
+        </div></header>
+        <main class="main-view" id="main-content">
+            <div class="studio-hero-slot"><section id="home" class="studio-feature" aria-labelledby="studio-main-title">
+            <div class="studio-feature-intro"><div class="studio-byline"><p>阿布的一人公司（OPC） · 上海</p><a class="delivery-entry" href="#glide-delivery">读 Glide 的交付手记</a></div>
+            <h1 class="hero-title" id="studio-main-title">把重复的事，交给软件。</h1></div>
+            <div class="studio-feature-tabs" role="tablist" aria-label="切换精选产品">
+            <button type="button" role="tab" id="feature-tab-glide" aria-controls="feature-panel-glide" aria-selected="true" tabindex="0" data-feature-select="glide">Glide</button>
+            <button type="button" role="tab" id="feature-tab-freight" aria-controls="feature-panel-freight" aria-selected="false" tabindex="-1" data-feature-select="freight">CrossLeads</button></div>
+            <div class="studio-feature-frame"><div class="studio-feature-panel studio-feature-panel--glide" id="feature-panel-glide" data-feature-panel="glide" role="tabpanel" aria-labelledby="feature-tab-glide" >
+                <img class="studio-feature-photo" src="assets/img/studio/glide-in-motion.webp" width="1440" height="810" fetchpriority="high" alt="一只手握着白色鼠标，在深蓝色桌面上轻划。">
+                <div class="studio-feature-copy">
+                    <p class="studio-feature-product">Glide 妙划</p>
+                    <h2>一道手势，窗口就位。</h2>
+                    <a id="launch-glide" class="studio-feature-cta" href="https://www.glide-ai.fun/" data-studio-demo="glide" data-open="glide">试划窗口手势</a>
+                </div>
+            </div><div class="studio-feature-panel studio-feature-panel--freight" id="feature-panel-freight" data-feature-panel="freight" role="tabpanel" aria-labelledby="feature-tab-freight" hidden>
+                <img class="studio-feature-photo" src="assets/img/studio/crossleads-at-sea.webp" width="1440" height="810" loading="lazy" alt="夕照下，一艘满载集装箱的货轮驶过开阔的海面。">
+                <div class="studio-feature-copy">
+                    <p class="studio-feature-product">CrossLeads 搜买家</p>
+                    <h2>从一票提单，找到下一位买家。</h2>
+                    <a id="launch-freight" class="studio-feature-cta" href="https://app.soumaijia.cn/" data-studio-demo="freight" data-open="freight">试找海外买家</a>
+                </div>
+            </div></div>
+        </section></div>
+            <section id="showcase" class="bento-card--products studio-product-slot"><div class="studio-products"><h2 id="work-title">我做的产品</h2><div class="work-grid"><article class="work-card bento-product-tile" data-work="glide" data-platform="macOS App" aria-labelledby="work-glide">
+      <a id="card-glide" class="work-entry" data-open="glide" href="https://www.glide-ai.fun/" aria-label="Glide · 试划分屏">
+        <div class="work-poster work-poster--glide">
+          <div class="work-brand-line"><img class="work-mark" src="assets/img/studio/glide-app-icon.webp" alt="" width="48" height="48">
+            <h3 class="work-brand" id="work-glide"><span class="bento-product-name" lang="en">Glide</span> <span class="work-brand-zh">妙划</span></h3>
+          </div>
+          <div class="glide-shot" role="img" aria-label="向上再左转的轨迹把窗口吸附到桌面左半屏。">
+        <div class="glide-shot-window"><div class="glide-shot-bar"><i></i><i></i><i></i></div><div class="glide-shot-note"><b>工作笔记</b><i></i><i></i><i></i></div></div>
+        <span class="glide-shot-stroke"><i></i></span><span class="glide-shot-label">左半屏</span>
+      </div>
         </div>
-        <nav class="sidebar-nav">
-            <a href="#home" class="nav-item">
-                <span>首页</span>
-            </a>
-            <a href="#showcase" class="nav-item">
-                <span>代表作</span>
-            </a>
-            <a href="#flow-rag" class="nav-item">
-                <span>业务流</span>
-            </a>
-            <a href="#experience" class="nav-item">
-                <span>履历</span>
-            </a>
-            <a href="#skills" class="nav-item">
-                <span>技能</span>
-            </a>
-            <a href="#services" class="nav-item">
-                <span>服务</span>
-            </a>
-            <a href="#contact" class="nav-item">
-                <span>联系</span>
-            </a>
-        </nav>
-    </aside>
-
-    <main class="main-view">
-        <section id="home" class="hero-banner bento-hero">
-            <div class="bento-hero-grid noise-overlay">
-                <article class="bento-card bento-card--main liquid-glass">
-                    <div class="bento-card__header">
-                        <div class="radar-status-badge">
-                            <span class="radar-pulse"></span>
-                            <span>2026 Q4 · 仅余 2 个深度交付与诊断席位</span>
-                        </div>
-                    </div>
-                    <div class="bento-card__body">
-                        <p class="hero-eyebrow">早上好</p>
-                        <h1 class="hero-title">让 AI 跨越演示原型，落地为年省数十万的真实生产力</h1>
-                        <p class="hero-subtitle">我是<strong>阿布（独立工程专家 / 一人技术工作室）</strong>。专注帮企业技术团队攻克<strong>金融研报精准召回、复杂多版面文档智能解析与生产级 Agent 对账闭环</strong>。只做可上线、可观测、有明确全职人力替代投资回报的私有化工程交付。</p>
-                        <div class="hero-chips"><span class="hero-chip">企业/金融文档 RAG</span><span class="hero-chip">PDF/OCR 坐标逆向</span><span class="hero-chip">Agent 生产对账</span><span class="hero-chip">全职人力替代</span><span class="hero-chip">50 份测试集客观验收</span></div>
-                    </div>
-                </article>
-                <article class="bento-card bento-card--stats liquid-glass">
-                    <div class="bento-card-label">
-                        <span>核心交付战绩</span>
-                    </div>
-                    <div class="hero-stats-grid">
-                    <div class="hero-stat-card">
-                        <span class="hero-stat-num">¥53.7万</span>
-                        <span class="hero-stat-label">单案年省刚性支出</span>
-                    </div>
-                    <div class="hero-stat-card">
-                        <span class="hero-stat-num">80+</span>
-                        <span class="hero-stat-label">自研工程仓库</span>
-                    </div>
-                    <div class="hero-stat-card">
-                        <span class="hero-stat-num">2~3周</span>
-                        <span class="hero-stat-label">Docker 交付上线</span>
-                    </div>
-                    <div class="hero-stat-card">
-                        <span class="hero-stat-num">50份封存</span>
-                        <span class="hero-stat-label">测试集客观验收</span>
-                    </div>
-                    </div>
-                </article>
+        <div class="work-copy"><h4 class="bento-product-subtitle">用手势给 Mac 窗口分屏</h4><span class="work-try">试划分屏</span></div>
+      </a>
+      <p class="work-summary">用一道手势整理桌面窗口，或圈出屏幕上的内容，交给 AI 识别、搜索。</p>
+      <a class="work-link bento-product-link" href="https://www.glide-ai.fun/" target="_blank" rel="noopener noreferrer" aria-label="访问 Glide">产品官网</a>
+    </article>
+<article class="work-card bento-product-tile" data-work="freight" data-platform="Web SaaS" aria-labelledby="work-crossleads">
+      <a id="card-freight" class="work-entry" data-open="freight" href="https://app.soumaijia.cn/" aria-label="CrossLeads 搜买家 · 试找买家">
+        <div class="work-poster work-poster--freight">
+          <div class="work-brand-line"><img class="work-mark" src="assets/img/studio/crossleads-mark.svg" alt="" width="48" height="48">
+            <h3 class="work-brand bento-product-name" id="work-crossleads"><span lang="en">CrossLeads</span> <span class="work-brand-zh">搜买家</span></h3><small class="freight-shot-disclaimer">虚构演示数据</small>
+          </div>
+          <div class="freight-shot" role="img" aria-label="虚构例子：从电动自行车提单匹配荷兰的一家采购商。">
+      <div class="freight-shot-bill"><span>海关提单</span><b>电动自行车</b><i></i><i></i></div>
+      <i class="freight-shot-arrow"></i>
+      <div class="freight-shot-buyer"><span>匹配的采购商</span><b>鹿特丹自行车分销商</b><small lang="en">NL</small></div>
+    </div>
+        </div>
+        <div class="work-copy"><h4 class="bento-product-subtitle">找到采购过同类产品的海外买家</h4><span class="work-try">试找买家</span></div>
+      </a>
+      <p class="work-summary">从海关和公开商业数据里找到潜在买家、定位联系人，再起草第一封开发信。</p>
+      <a class="work-link bento-product-link" href="https://app.soumaijia.cn/" target="_blank" rel="noopener noreferrer" aria-label="打开搜买家">产品官网</a>
+    </article></div></div><dialog id="project-viewer" class="project-viewer" aria-labelledby="viewer-title">
+    <div class="viewer-shell">
+      <header class="viewer-bar"><span>作品体验</span><button type="button" class="viewer-close desk-back" autofocus>关闭</button></header>
+      <div class="viewer-body" tabindex="-1">
+        <div class="viewer-identity"><img class="viewer-icon" alt="" width="56" height="56"><div><p class="viewer-platform"></p><h2 id="viewer-title" tabindex="-1"></h2></div></div>
+        <p class="viewer-intro"></p>
+        <section id="demo-glide" class="viewer-demo" data-project="glide" data-info="Glide 支持鼠标和触控板，可为不同 App 设置手势，用来切换窗口、吸附分屏或执行快捷键。" hidden>
+          <section class="gdraw" data-glide-draw aria-label="Glide 妙划手势演练">
+            <header class="gdraw-head"><h3 class="gdraw-title">手势画板</h3><button class="gdraw-reset" type="button" data-reset disabled>复位</button></header>
+            <div class="gdraw-pad" data-pad tabindex="-1" role="group" aria-label="手势画板" aria-describedby="gdraw-help">
+              <div class="gdraw-window" aria-hidden="true">
+                <div class="gdraw-chrome"><i></i><i></i><i></i></div>
+                <div class="gdraw-page"><div class="gdraw-sidebar"></div><div class="gdraw-doc"><b>窗口手势备忘</b><ul class="gdraw-note"><li><kbd>↑</kbd>最大化</li><li><kbd>↑←</kbd>左半屏</li><li><kbd>↑→</kbd>右半屏</li></ul></div></div>
+              </div>
+              <div class="gdraw-target" aria-hidden="true"></div>
+              <canvas class="gdraw-ink" aria-hidden="true"></canvas>
+              <span class="gdraw-cue" aria-hidden="true"><i></i>从这里上划</span>
             </div>
+            <div class="gdraw-controls">
+              <p class="gdraw-help" id="gdraw-help">按住鼠标或用单指上划，松手即最大化。先上划再拐向左或右，可吸附到半屏。 <span id="gdraw-touch-help">触控板也支持双指纵滑。</span></p>
+              <div class="gdraw-pair" role="group" aria-label="演示窗口手势">
+                <span class="gdraw-watch">看示范</span>
+                <button type="button" data-snap="max" aria-pressed="false"><span aria-hidden="true">↑</span>最大化</button>
+                <button type="button" data-snap="left" aria-pressed="false"><span aria-hidden="true">↰</span>左半屏</button>
+                <button type="button" data-snap="right" aria-pressed="false"><span aria-hidden="true">↱</span>右半屏</button>
+              </div>
+              <div class="gdraw-feedback">
+                <p class="gdraw-status" role="status" aria-live="polite" aria-atomic="true">窗口居中。</p>
+              </div>
+            </div>
+          </section>
         </section>
+        <section id="demo-freight" class="viewer-demo" data-project="freight" data-info="团队可以整理目标企业、准备用不同语言发送的开发邮件，并对照原文和译文跟进买家回复。" hidden>
+          <section class="freight-demo" data-freight-demo aria-label="搜买家互动演示">
+            <header class="freight-demo__bar">
+              <h3>买家工作台</h3>
+              <span class="freight-demo__fixture">虚构演示数据</span>
+            </header>
+            <div class="freight-demo__body">
+              <div class="freight-tabs" role="tablist" aria-label="买家工作台">
+                <button type="button" role="tab" id="freight-search-tab" data-freight-tab="search" aria-controls="freight-search-view" aria-selected="true">找买家</button>
+                <button type="button" role="tab" id="freight-pool-tab" data-freight-tab="pool" aria-controls="freight-pool-view" aria-selected="false" tabindex="-1">潜客池 <b data-freight-count>0</b></button>
+              </div>
+              <section id="freight-search-view" role="tabpanel" aria-labelledby="freight-search-tab" data-freight-panel="search">
+                <div class="freight-demo__search" role="group" aria-label="选择检索产品">
+                  <span class="freight-demo__lens" aria-hidden="true"></span>
+                  <button type="button" data-freight-key="bikes" aria-pressed="true">电动自行车</button>
+                  <button type="button" data-freight-key="filters" aria-pressed="false">空气过滤器</button>
+                </div>
+                <div class="freight-demo__results-head">匹配的采购商</div>
+                <div class="freight-demo__result">
+                  <div class="freight-demo__summary">
+                    <span class="freight-demo__country" lang="en" data-freight-country>NL</span>
+                    <div class="freight-demo__company"><strong data-freight-name>鹿特丹自行车分销商</strong><span data-freight-sector>荷兰 · 自行车及配件</span></div>
+                  </div>
+                  <button type="button" class="freight-demo__save" data-freight-save aria-pressed="false">
+                    <span class="freight-demo__plus" aria-hidden="true"></span><span data-freight-action>加入潜客池</span>
+                  </button>
+                </div>
+              </section>
+              <section id="freight-pool-view" role="tabpanel" aria-labelledby="freight-pool-tab" data-freight-panel="pool" hidden>
+                <ul class="freight-pool-list" data-freight-list aria-label="已加入的采购商" hidden></ul>
+                <div class="freight-pool-empty" data-freight-empty>
+                  <p>潜客池还是空的</p>
+                  <button type="button" data-freight-find>去找买家</button>
+                </div>
+              </section>
+              <p class="freight-pool-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+              <template data-freight-row>
+                <li class="freight-pool-row">
+                  <div class="freight-demo__summary">
+                    <span class="freight-demo__country" lang="en" data-pool-country></span>
+                    <div class="freight-demo__company"><strong data-pool-name></strong><span data-pool-sector></span></div>
+                  </div>
+                  <button type="button" class="freight-pool-remove">移出</button>
+                </li>
+              </template>
+            </div>
+          </section>
+        </section>
+        <details class="viewer-detail"><summary>产品说明</summary><p></p></details>
+      </div>
+      <footer class="viewer-footer"><button class="viewer-switch" type="button"></button><a class="viewer-site" target="_blank" rel="noopener noreferrer"></a></footer>
+    </div>
+  </dialog></section>
+            <div class="studio-cases-slot"><section class="casebook" id="case-studies" aria-labelledby="casebook-heading">
+            <header class="casebook-head"><h2 id="casebook-heading">工程案例</h2><p>选择一个案例，从原始材料追到处理结果。</p></header>
+            <nav class="casebook-index" aria-label="选择工程案例"><a href="#case-fastapi_celery_kb" data-case-link="report" aria-label="研报引用"><span class="case-full-label">研报引用</span><span class="case-short-label">研报引用</span></a><a href="#case-doc_intelligence" data-case-link="scan" aria-label="扫描表格"><span class="case-full-label">扫描表格</span><span class="case-short-label">扫描表格</span></a><a href="#case-group_management_bot" data-case-link="ledger" aria-label="交易对账"><span class="case-full-label">交易对账</span><span class="case-short-label">交易对账</span></a><a href="#case-tool-orchestration" data-case-link="tools" aria-label="工具调用"><span class="case-full-label">工具调用</span><span class="case-short-label">工具调用</span></a></nav>
+            <noscript><p>开启 JavaScript 后可操作以下材料。</p></noscript>
+            <div class="casebook-entries"><article class="casebook-entry" id="case-fastapi_celery_kb" data-case-kind="report" aria-labelledby="case-fastapi_celery_kb-title">
+                <header class="case-intro">
+                    <p class="case-kicker">金融投研</p>
+                    <h3 id="case-fastapi_celery_kb-title">让研报问答引用到正确的段落</h3>
+                    <p class="case-lead">一条订单消息同时出现在周报与摘编里。研究员需要知道，用哪一段原文才能支持截止日当天的判断。</p>
+                </header>
+                <section class="case-lab" aria-labelledby="lab-report-title">
+                    <header class="case-lab-head"><div><p class="case-lab-type">模拟业务材料</p><h4 id="lab-report-title">复核「订单回暖」这条引用</h4></div>
+                        <button class="lab-reset" type="button" data-case-reset disabled>重置</button></header>
+                    <div class="case-jumps"><button type="button" data-case-jump="source">回看材料</button><button type="button" data-case-jump="inspect">前往核验区</button></div>
+                    <fieldset class="case-interaction" disabled aria-labelledby="lab-report-title"><div data-case-surface><p class="lab-caption">先设回答截止日，再核对来源、段落和页码。</p>
+                <div class="lab-workspace cd-report">
+                    <div class="lab-source"><h5>候选材料</h5>
+                        <label class="lab-control"><span>排列方式</span><select data-case-change="sort"><option value="publication" selected>发布日期 · 从新到旧</option><option value="primary">先看截至该日的一手材料</option></select></label>
+                        <div class="cd-sources" role="group" aria-label="候选材料"><button class="cd-source-choice" type="button" data-case-action="source" data-value="digest" aria-pressed="true"><strong>市场观察 · 周报摘编</strong><small>3 月 15 日 · 二手摘编</small></button><button class="cd-source-choice" type="button" data-case-action="source" data-value="latest" aria-pressed="false"><strong>制造业周报 · 本期</strong><small>3 月 13 日 · 一手访谈</small></button><button class="cd-source-choice" type="button" data-case-action="source" data-value="earlier" aria-pressed="false"><strong>制造业周报 · 上期</strong><small>3 月 6 日 · 一手访谈</small></button></div>
+                        <div class="cd-report-sheet"><div class="cd-paper-title"><b>市场观察 · 周报摘编</b><span>3 月 15 日</span></div>
+                        <div class="cd-passages" role="group" aria-label="选择要引用的段落"><button class="cd-source-passage" type="button" data-case-action="section" data-value="supply" aria-pressed="false"><strong>供应</strong><span>摘编转述 3 月 6 日周报，称部分原料到货仍有延迟。</span></button><button class="cd-source-passage" type="button" data-case-action="section" data-value="demand" aria-pressed="true"><strong>需求</strong><span>摘编引用 3 月 6 日访谈，称订单持平，未补充新的调研。</span></button></div></div>
+                    </div>
+                    <div class="lab-inspect"><h5>截至所选日期，订单走势如何？</h5>
+                        <label class="lab-control"><span>回答截至</span><select data-case-change="period"><option value="early">3 月 8 日</option><option value="late" selected>3 月 15 日</option></select></label>
+                        <p>日期要在截止日以内。优先采用最新一期周报的实地访谈，引用与订单有关的段落。</p><div class="cd-citation"><small>拟引用的段落</small><p>摘编引用 3 月 6 日访谈，称订单持平，未补充新的调研。</p><cite data-case-feedback>市场观察 · 周报摘编 · 3 月 15 日 · 第 2 页 · 摘编</cite></div>
+                        <div class="lab-actions"><button type="button" data-case-action="cite">核验这条引用</button></div>
 
-        <section id="showcase" class="content-section seo-prerender" aria-label="精选代表作摘要">
-            <h2>落地案例</h2>
-            <ul><li>研报/公告很多，知识库却经常引用错段落 — 某中型投研团队：4 个初级研究员每天手工整理研报并录入，年人力刚性成本 53.7 万元且出错率 8%。私有化重排引擎上线后，1 人复核即达 99% 精准度，年净省 40 万现金，投资回报率超 200%。</li><li>扫描件与复杂版面，把整个 RAG 项目拖进泥潭 — 企业知识库常见死穴：90% 的 RAG 翻车不是模型不行，而是进料时表格与版面坐标丢失。规则 + 坐标逆向能稳住的先稳住，彻底告别盲目升级大模型的无底洞支出。</li><li>群规模上来后，风控/担保/客服靠人顶不住 — 高流水商业社群与出海跨境业务，人工审核极易漏单或被黑产刷单。交付重点是多租户记账闭环、异步状态机与风控熔断，而不是表面堆砌玩具功能。</li></ul>
-        </section>
+                    </div>
+                </div></div></fieldset>
+                    <span class="case-live" role="status" aria-live="polite" aria-atomic="true"></span>
+                </section>
+                <div class="case-notes">
+                    <section><h4>工程取舍</h4><p>检索先找可能相关的段落，再结合发布时间和来源排序。段落保留页码与版面位置，复核人能回到原文，检查说的是供应还是需求。</p></section>
+                    <section><h4>项目交付记录</h4><p>Docker 镜像私有化一键交付，端到端 P95 延迟压至 320ms</p><a class="casebook-related" href="#flow-rag">查看相关业务流 <span aria-hidden="true">↗</span></a></section>
+                </div>
+                <details class="case-record"><summary>查看实现与验收依据</summary><dl>
+                    <dt>验收时检查什么</dt><dd>同一问题分别限定在两期周报的发布日期。检查答复中的证据是否在截止日前已经公开，再按页码回看原段落。召回条数和响应耗时单独记录。</dd>
+                    <dt>何时需要人工复核</dt><dd>如果只找到转述，或不同报告对同一期的走势有分歧，应保留出处供研究员比较，不能把二手描述当作新增的调查事实。</dd>
+                </dl></details>
+            </article><article class="casebook-entry" id="case-doc_intelligence" data-case-kind="scan" aria-labelledby="case-doc_intelligence-title">
+                <header class="case-intro">
+                    <p class="case-kicker">文档解析</p>
+                    <h3 id="case-doc_intelligence-title">从扫描件中还原表格和目录</h3>
+                    <p class="case-lead">字符都认对了，表也可能是错的。扫描件第二行向右偏移，如果沿用第一行的边界，单位就会落进数量列。</p>
+                </header>
+                <section class="case-lab" aria-labelledby="lab-scan-title">
+                    <header class="case-lab-head"><div><p class="case-lab-type">模拟业务材料</p><h4 id="lab-scan-title">修正单位与数量之间的列界</h4></div>
+                        <button class="lab-reset" type="button" data-case-reset disabled>重置</button></header>
+                    <div class="case-jumps"><button type="button" data-case-jump="source">回看材料</button><button type="button" data-case-jump="inspect">前往核验区</button></div>
+                    <fieldset class="case-interaction" disabled aria-labelledby="lab-scan-title"><div data-case-surface><p class="lab-caption">这张虚构领料单的纵线没有被扫出来，第二行的单位偏向右侧。移动列分界，观察两行的单位和数量如何变化，再核对输出。</p><div class="lab-workspace cd-scan">
+                <div class="lab-source"><h5>带位置的原稿</h5><div class="cd-scan-page"><div class="cd-scan-head">领料单 · 扫描片段</div>
+                    <div class="cd-scan-words" style="--cd-cut:59%"><div class="cd-scan-row"><span>样品 A</span><i style="left:52%">件</i><i style="left:77%">8</i></div><div class="cd-scan-row"><span>样品 B</span><i style="left:63%">箱</i><i style="left:83%">3</i></div></div></div>
+                    <label class="lab-control cd-adjust"><span>单位与数量的分界 <b data-cut-label>59%</b></span><input type="range" min="45" max="88" step="1" value="59" data-case-change="boundary"></label><p>虚线左边归入单位，右边归入数量。用滑块或左右方向键微调。</p></div>
+                <div class="lab-inspect"><h5>当前归列结果</h5><div class="lab-table" data-scan-table><table><thead><tr><th scope="col">品名</th><th scope="col">单位</th><th scope="col">数量</th></tr></thead><tbody><tr><th scope="row">样品 A</th><td>件</td><td>8</td></tr><tr><th scope="row">样品 B</th><td class="cd-empty">空</td><td>箱 3</td></tr></tbody></table></div><div class="lab-actions"><button type="button" data-case-action="check">核对两行并生成表格</button></div><div data-scan-verdict><p class="cd-pending" data-case-feedback>仍有空列，请对照原稿。</p></div></div>
+                </div></div></fieldset>
+                    <span class="case-live" role="status" aria-live="polite" aria-atomic="true"></span>
+                </section>
+                <div class="case-notes">
+                    <section><h4>工程取舍</h4><p>保留页面上的文字坐标，再用原文字块核对每个单元格。粘连和空单元格是检查线索；导出的表头、单位和每行数量必须仍能对回原件。</p></section>
+                    <section><h4>项目交付记录</h4><p>手搓 PDF 底层坐标抽取与多级降级目录还原，输出干净结构化 Markdown</p><a class="casebook-related" href="#flow-rag">查看相关业务流 <span aria-hidden="true">↗</span></a></section>
+                </div>
+                <details class="case-record"><summary>查看实现与验收依据</summary><dl>
+                    <dt>验收时检查什么</dt><dd>逐行回查品名、单位与数量是否来自同一个源行。项目记录里留有 50 份复杂样本，用来复验解析改动；这里的两行只演示列界问题。</dd>
+                    <dt>何时需要人工复核</dt><dd>粘连、空列或单元格缺值都会破坏下游统计。遇到异常要回到原页核对字符位置，再决定是否放行结构化输出。</dd>
+                </dl></details>
+            </article><article class="casebook-entry" id="case-group_management_bot" data-case-kind="ledger" aria-labelledby="case-group_management_bot-title">
+                <header class="case-intro">
+                    <p class="case-kicker">交易运营</p>
+                    <h3 id="case-group_management_bot-title">把担保、对账和异常处理串起来</h3>
+                    <p class="case-lead">订单已经进了账本，复核人还要判断付款凭证和到账回执是不是同一笔。把邻单的凭证贴错，也会让一笔未结交易看起来已经结清。</p>
+                </header>
+                <section class="case-lab" aria-labelledby="lab-ledger-title">
+                    <header class="case-lab-head"><div><p class="case-lab-type">模拟业务材料</p><h4 id="lab-ledger-title">复核订单 B 缺失的付款凭证</h4></div>
+                        <button class="lab-reset" type="button" data-case-reset disabled>重置</button></header>
+                    <div class="case-jumps"><button type="button" data-case-jump="source">回看材料</button><button type="button" data-case-jump="inspect">前往核验区</button></div>
+                    <fieldset class="case-interaction" disabled aria-labelledby="lab-ledger-title"><div data-case-surface><p class="lab-caption ledger-sample">查看两张订单的凭证与回执，为缺件登记工单。</p>
+      <div class="lab-workspace ledger-workspace">
+        <section class="lab-source"><h4>订单账本</h4><div class="ledger-orders"><button type="button" class="ledger-order" data-case-action="order" data-value="A" aria-pressed="false">
+        <strong>订单 A</strong><span>凭证已匹配</span></button><button type="button" class="ledger-order" data-case-action="order" data-value="B" aria-pressed="true">
+        <strong>订单 B</strong><span>缺少凭证</span></button></div></section>
+        <section class="lab-inspect"><h4>关联证据</h4>
+          <dl class="ledger-evidence">
+            <div><dt>账本订单</dt><dd>订单 B · 已入账</dd></div>
+            <div><dt>付款凭证</dt><dd>缺少凭证</dd></div>
+            <div><dt>到账回执</dt><dd><span class="ledger-ref">R-B</span> <span aria-hidden="true">·</span> 订单 B</dd></div>
 
-        <section id="skills" class="content-section seo-prerender" aria-label="技能摘要">
-            <h2>核心能力</h2>
-            <p>不只精于调模型， 更专注把 AI 做成可上生产的系统 ——可观测、可回滚、可维护。</p>
-            <ul><li><strong>AI 应用工程化</strong>：RAG 全链路 / Agent 上生产 / LLM 服务化 / Multi-Agent / MCP 工具链</li><li><strong>行业文本 &amp; 知识库</strong>：研报/公告分块向量化、召回重排、图表召回、资讯打标与问答网关</li><li><strong>文档智能</strong>：PDF 解析 / OCR-VL / 去水印 / 表格识别 / 目录还原 / 结构化抽取</li><li><strong>平台集成 &amp; 自动化</strong>：国内 IM Bot / 飞书 / 邮件 RPA / Celery 任务调度与对账闭环</li></ul>
+          </dl>
+          <div class="lab-actions ledger-actions">
+        <button type="button" data-case-action="request">登记异常</button>
+        <button type="button" data-case-action="verify">核对并确认</button></div>
+          <p class="lab-result ledger-feedback" data-case-feedback>账本已有订单，先检查缺少哪项证据。</p>
         </section>
-
-        <section id="services" class="content-section seo-prerender" aria-label="服务摘要">
-            <h2>合作方式</h2>
-            <ul><li>15 分钟需求澄清与可行性判断：先对齐问题类型与是否匹配。带上你的场景与痛点在线直聊，只做归类与可行性建议，不写套话 PPT。</li><li>现状技术诊断包：带上企业最脏的 30 份数据现场闭门跑分。输出架构草图、风险雷达与优先级清单。效果不达标分文不取；后续签约全案 100% 全额抵扣。</li><li>标杆工程交付全案：由阿布亲自下场攻坚核心管线，交付自研容器私有化引擎并上线投产。为企业替代 3-4 个初级岗位，当年投资回报率超 200%。</li><li>常年架构技术顾问 (按月协同)：作为外部虚拟技术合伙人/CTO，深度参与每周架构评审、关键技术拍板、突发生产故障 2 小时急诊排障与代码审计。锁定防范围蔓延。</li><li>关键模块工程交付：固定范围与预算交付：PDF 复杂解析管线、时效 Rerank 网关或 Bot 自动化对账系统。封存 50 份基准测试集客观验收。</li></ul>
-        </section>
-    </main>
+      </div>
+      <section class="ledger-log"><h4>复核记录</h4><ol><li>订单 A：付款凭证 V-A 已匹配到账回执 R-A。</li><li>订单 B：账本有记录，付款凭证缺失。</li></ol></section></div></fieldset>
+                    <span class="case-live" role="status" aria-live="polite" aria-atomic="true"></span>
+                </section>
+                <div class="case-notes">
+                    <section><h4>工程取舍</h4><p>账本、订单凭证与到账记录分别保留，用订单标识建立关联。异常交易留给复核人处理，后续可以沿着工单查看补交了什么、为何通过。</p></section>
+                    <section><h4>项目交付记录</h4><p>每笔担保交易都有记录。资金出现异常时，系统会发出提醒，方便回查处理过程。</p><a class="casebook-related" href="#flow-community">查看相关业务流 <span aria-hidden="true">↗</span></a></section>
+                </div>
+                <details class="case-record"><summary>查看实现与验收依据</summary><dl>
+                    <dt>验收时检查什么</dt><dd>从付款凭证与到账回执分别追到订单号，再检查异常工单与处理记录是否指向同一订单。示例故意提供邻单的凭证来验证这条规则。</dd>
+                    <dt>何时需要人工复核</dt><dd>缺少凭证，或凭证与到账记录的订单号不同，订单应继续等待复核。保留尝试记录，使下一位处理人知道上一次为什么没有通过。</dd>
+                </dl></details>
+            </article><article class="casebook-entry" id="case-tool-orchestration" data-case-kind="tools" aria-labelledby="case-tool-orchestration-title">
+                <header class="case-intro">
+                    <p class="case-kicker">工程工作流</p>
+                    <h3 id="case-tool-orchestration-title">让业务系统按需调用多个工具</h3>
+                    <p class="case-lead">读取成功不等于提取成功。对同一份入库单，选错页面、保留空列，都会改变下游能否使用结果。</p>
+                </header>
+                <section class="case-lab" aria-labelledby="lab-tools-title">
+                    <header class="case-lab-head"><div><p class="case-lab-type">模拟业务材料</p><h4 id="lab-tools-title">找出这次提表任务卡在哪一步</h4></div>
+                        <button class="lab-reset" type="button" data-case-reset disabled>重置</button></header>
+                    <div class="case-jumps"><button type="button" data-case-jump="source">回看材料</button><button type="button" data-case-jump="inspect">前往核验区</button></div>
+                    <fieldset class="case-interaction" disabled aria-labelledby="lab-tools-title"><div data-case-surface><p class="lab-caption">为入库单 IN-07 计件，保留每次运行的输入、输出和校验结果。</p><div class="lab-workspace tools-lab">
+            <div class="lab-source"><h5>物料入库单 · IN-07</h5>
+            <label class="lab-control"><span>读取哪一页</span><select data-case-change="tools-page"><option value="1">第 1 页 · 填单说明</option><option value="2" selected>第 2 页 · 入库明细</option></select></label>
+            <div class="tools-slip"><p>第 2 页 · 入库明细</p><div class="lab-table"><table><caption>仓库收货记录</caption><thead><tr><th scope="col">入库批次</th><th scope="col">实收件数</th></tr></thead><tbody><tr><th scope="row">A-17</th><td>12</td></tr><tr><th scope="row">B-06</th><td>7</td></tr></tbody></table></div></div>
+            <label class="lab-control"><span>表格提取规则</span><select data-case-change="tools-mode"><option value="keep" selected>保留所有识别列</option><option value="trim">去掉整列空白</option></select></label>
+            <div class="lab-actions"><button type="button" data-case-action="tools-run" data-value="">运行工作流</button></div></div>
+            <div class="lab-inspect"><h5>待执行的请求</h5>
+            <div class="tools-request" data-tools-request><p class="tools-request-input" data-case-feedback>IN-07 · 第 2 页 · 入库明细 · 保留所有识别列</p>
+            <h6>验收条件</h6><p>需提取到明细行。若识别出三列或更多，逐列检查表头和数据，拦住整列空白。</p>
+            <h6>校验后</h6><ul><li>没有明细表，返回选页。</li><li>发现整列空白，返回提取。</li><li>通过校验，合计实收件数。</li></ul></div></div></div></div></fieldset>
+                    <span class="case-live" role="status" aria-live="polite" aria-atomic="true"></span>
+                </section>
+                <div class="case-notes">
+                    <section><h4>工程取舍</h4><p>把文档读取、表格提取和结果校验拆开，分别检查输入和输出。这个工作流归纳了现有项目里的工具编排与表格审计做法，每次重跑都保留独立的示例记录。</p></section>
+                    <section><h4>工作流目标</h4><p>把工具编排、代码执行、多智能体协同嵌进可审计的工程流程</p><a class="casebook-related" href="#flow-agent">查看相关业务流 <span aria-hidden="true">↗</span></a></section>
+                </div>
+                <details class="case-record"><summary>查看实现与验收依据</summary><dl>
+                    <dt>验收时检查什么</dt><dd>按次记录输入页码、提取规则、表格形状和审计分支。即使后一次重跑通过，也能回到第一次，检查哪个输出触发了拦截。</dd>
+                    <dt>何时需要人工复核</dt><dd>说明页没有表格与明细页出现空列，是两类不同的失败。前者要检查输入页，后者要检查提取规则；无法修复时应交人工核验。</dd>
+                </dl></details>
+            </article></div>
+        </section></div>
+            <article id="glide-delivery" class="delivery-story" aria-labelledby="delivery-title">
+            <header class="delivery-heading">
+                <p class="delivery-eyebrow">Glide 妙划 · OPC 交付手记</p>
+                <h2 id="delivery-title">一次右键误判的修复</h2><p class="delivery-intro">我做 Glide，是想在 Mac 上用外接鼠标划一下就能控制窗口。公开试用后，有人反馈手稍微一动，浏览器的右键菜单就打不开了。我从复现这条反馈开始，一直跟到修复版发出。</p>
+            </header>
+            <div class="delivery-record">
+                <ol class="delivery-stages"><li><h3>先把误触重现出来</h3><p>我把同一个右键操作拆成原地轻点、带一点抖动的短按、按住划线三种输入。前两种都应该打开当前应用的菜单，第三种才可能触发窗口操作。</p></li><li><h3>把显示轨迹和执行动作分开</h3><p>我让 Glide 等拖动达到一定距离再显示轨迹，按住停留时仍可看提示。松手后，有明确方向或形成闭环的路径才算手势。一次轻点即使带着微抖，仍会把右键点击送回原应用。</p></li><li><h3>把边界写进测试，随版本交付</h3><p>我为点击、抖动和有效笔画写了回归测试，也修正了补发右键点击的时间戳和松开时序。Glide 1.1.8 在更新说明中记录了菜单修复，并提供 Apple 芯片版和通用版安装包。</p></li></ol>
+                <aside class="delivery-proof" aria-labelledby="delivery-proof-title">
+                    <div class="delivery-build"><div><img src="assets/img/studio/glide-app-icon.webp" width="36" height="36" alt="">
+                        <strong lang="en">Glide <span>1.1.8</span></strong></div>
+                        <time datetime="2026-10-31">2026.10.31</time></div>
+                    <h3 id="delivery-proof-title">三种输入，各自应该发生什么？</h3>
+                    <table aria-labelledby="delivery-proof-title"><thead><tr><th scope="col">输入</th><th scope="col">预期结果</th></tr></thead><tbody><tr><th scope="row">原地短按右键</th><td>当前应用打开右键菜单。</td></tr><tr><th scope="row">短按时手轻微抖动，没有划出方向</th><td>菜单仍在按下的位置打开。</td></tr><tr><th scope="row">使用默认全局手势，按住右键向上划后松开</th><td>当前窗口最大化。</td></tr></tbody></table>
+                    <ul class="delivery-sources">
+                        <li><a href="https://www.v2ex.com/t/1244175?p=1#r_18126913">V2EX 用户反馈</a></li>
+                        <li><a href="https://glide-ai.fun/#changelog">看 Glide 1.1.8 更新说明</a></li>
+                        <li><a href="https://glide-ai.fun/downloads/Glide_v1.1.8_arm64.dmg.sha256">安装包校验记录</a></li>
+                    </ul>
+                </aside>
+            </div>
+            <section class="delivery-collaboration" aria-labelledby="delivery-next">
+                <header><h3 id="delivery-next">你的项目卡在哪一步？</h3>
+                    <p>可以从一次能重现的问题开始，也可以直接讨论一个已有明确边界的模块。</p><a href="#services">查看全部合作方式</a></header>
+                <div class="delivery-routes"><article><h4>15 分钟需求澄清与可行性判断</h4><p>带一段操作录屏或一份去掉敏感信息的样例，标出实际结果和你期待的结果。用 15 分钟一起判断问题出在哪一步。</p>
+                <a href="#contact" data-delivery-route="💬">约 15 分钟澄清需求</a></article><article><h4>关键模块工程交付</h4><p>带一份输入样例和理想输出，最好再带一个容易出错的例子。先约定模块负责哪一步、交付什么，以及用哪组样例验收。</p>
+                <a href="#contact" data-delivery-route="📦">讨论关键模块交付</a></article></div>
+            </section>
+        </article>
+            <section id="studio-library" class="studio-library">
+                <header class="library-heading"><h2>工作室手册</h2><p>我是阿布，在上海经营一家做软件的一人公司（OPC）。我开发 Glide 和 CrossLeads 搜买家，也为企业做金融研报检索、复杂 PDF 解析和自动对账。</p></header>
+                <details id="skills" class="library-chapter"><summary>核心能力</summary><ul class="library-page"><li><strong>AI 应用工程化</strong> · RAG 全链路 / Agent 上生产 / LLM 服务化 / Multi-Agent / MCP 工具链</li><li><strong>行业文本 &amp; 知识库</strong> · 研报/公告分块向量化、召回重排、图表召回、资讯打标与问答网关</li><li><strong>文档智能</strong> · PDF 解析 / OCR-VL / 去水印 / 表格识别 / 目录还原 / 结构化抽取</li><li><strong>平台集成 &amp; 自动化</strong> · 国内 IM Bot / 飞书 / 邮件 RPA / Celery 任务调度与对账闭环</li></ul></details>
+                <details class="library-chapter"><summary>合作方式</summary><ul id="services" class="library-page"><li><strong>15 分钟需求澄清与可行性判断</strong> · 先对齐问题类型与是否匹配。带上你的场景与痛点在线直聊，只做归类与可行性建议，不写套话 PPT。</li><li><strong>现状技术诊断包</strong> · 带上企业最脏的 30 份数据现场闭门跑分。输出架构草图、风险雷达与优先级清单。效果不达标分文不取；后续签约全案 100% 全额抵扣。</li><li><strong>标杆工程交付全案</strong> · 由阿布亲自下场攻坚核心管线，交付自研容器私有化引擎并上线投产。为企业替代 3-4 个初级岗位，当年投资回报率超 200%。</li><li><strong>常年架构技术顾问 (按月协同)</strong> · 作为外部虚拟技术合伙人/CTO，深度参与每周架构评审、关键技术拍板、突发生产故障 2 小时急诊排障与代码审计。锁定防范围蔓延。</li><li><strong>关键模块工程交付</strong> · 固定范围与预算交付：PDF 复杂解析管线、时效 Rerank 网关或 Bot 自动化对账系统。封存 50 份基准测试集客观验收。</li></ul></details>
+            </section>
+            <section id="contact" class="content-section"><div class="section-head"><h2>聊聊你的项目</h2><p>你们现在怎么做？哪一步最费时间？</p></div></section>
+        </main>
+    </div>
 </div>
     <script>window.siteConfig = null;</script>
     <script defer src="/assets/vendor/vue.global.prod.js"></script>
     <script defer src="/assets/js/app-core.js"></script>
+    <script defer src="/assets/js/studio-home.js"></script>
+    <script defer src="/assets/js/studio-products.js"></script>
+    <script defer src="/assets/js/case-documents.js"></script>
+    <script defer src="/assets/js/case-ledger.js"></script>
+    <script defer src="/assets/js/case-tools.js"></script>
+    <script defer src="/assets/js/casebook.js"></script>
     <script defer src="/assets/js/main.js"></script>
 </body>
 </html>
