@@ -15,6 +15,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { chromium } = require('@playwright/test');
+const { escapeHtml } = require('./lib/escape');
+const { profile, ui } = require('../assets/data/homeConfig.json');
 
 const root = path.join(__dirname, '..');
 const imgDir = path.join(root, 'assets', 'img');
@@ -79,6 +81,8 @@ function buildIco(entries) {
 }
 
 function ogCoverHtml() {
+    const { feature, casebook } = ui.studio;
+    const caseLabels = ['report', 'scan', 'ledger', 'tools'].map(key => casebook.reader[key].navShort);
     return `<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <style>
@@ -108,7 +112,7 @@ function ogCoverHtml() {
   }
   .emblem { width: 172px; height: 172px; flex: 0 0 auto; filter: drop-shadow(0 16px 38px rgba(56,189,248,.32)); }
   .emblem svg { width: 100%; height: 100%; display: block; }
-  .text { padding-top: 6px; }
+  .text { min-width: 0; padding-top: 6px; }
   .eyebrow {
     display: inline-flex; align-items: center; gap: 9px;
     font-size: 20px; letter-spacing: .14em; color: #7dd3fc; margin-bottom: 18px;
@@ -119,8 +123,7 @@ function ogCoverHtml() {
     background: ${BRAND_GRADIENT};
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .role { margin-top: 18px; font-size: 31px; font-weight: 600; color: #e8eaed; white-space: nowrap; }
-  .desc { margin-top: 14px; font-size: 23px; color: #9aa4b6; white-space: nowrap; }
+  .role { margin-top: 18px; font-size: 31px; font-weight: 600; color: #e8eaed; }
   .chips { margin-top: 26px; display: flex; gap: 11px; }
   .chip {
     font-size: 20px; padding: 9px 19px; border-radius: 999px; color: #cbd5e1; white-space: nowrap;
@@ -141,18 +144,16 @@ function ogCoverHtml() {
   <div class="cover">
     <div class="emblem">${readFaviconSvg()}</div>
     <div class="text">
-      <div class="eyebrow"><i></i>上海 · 可接项目</div>
-      <h1><span class="gradient-text">阿布</span> · 企业 AI 落地工程师</h1>
-      <div class="role">把 RAG、Agent、文档智能做成可上生产的系统</div>
-      <div class="desc">可部署 · 可评测 · 可运维 —— 不做只有 Demo 好看的 AI</div>
+      <div class="eyebrow"><i></i>${escapeHtml(feature.author)}</div>
+      <h1><span class="gradient-text">${escapeHtml(profile.studioName)}</span></h1>
+      <div class="role">${escapeHtml(profile.heroTitle)}</div>
       <div class="chips">
-        <span class="chip">企业 / 金融文档 RAG</span>
-        <span class="chip">文档智能解析</span>
-        <span class="chip">Bot / 飞书自动化</span>
+        <span class="chip">${escapeHtml(feature.glide.name)}</span>
+        <span class="chip">${escapeHtml(feature.freight.name)}</span>
       </div>
     </div>
   </div>
-  <div class="footer"><span>个人官网 · 落地案例与能力履历</span><b>briskygates.github.io</b></div>
+  <div class="footer"><span>${escapeHtml(casebook.heading)} · ${escapeHtml(caseLabels.join(' / '))}</span><b>briskygates.github.io</b></div>
 </body></html>`;
 }
 

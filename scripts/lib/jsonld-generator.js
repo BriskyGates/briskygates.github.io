@@ -30,7 +30,7 @@ function generateJsonLd(config, siteUrl = 'https://briskygates.github.io') {
                 '@id': `${siteUrl}/#person`,
                 name: profile.name,
                 description: stripHtml(profile.greeting?.description || ui.pageDescription || ''),
-                jobTitle: 'Enterprise AI Production Engineer',
+                jobTitle: profile.tagline,
                 image: `${siteUrl}/assets/img/og-cover.png`,
                 url: siteUrl,
                 sameAs: [
@@ -39,10 +39,10 @@ function generateJsonLd(config, siteUrl = 'https://briskygates.github.io') {
                     'https://afdian.com/a/abuai'
                 ],
                 knowsAbout: [...knowsAbout],
-                worksFor: {
+                worksFor: profile.studioName ? {
                     '@type': 'Organization',
-                    name: 'Independent / Freelance'
-                }
+                    name: profile.studioName
+                } : undefined
             },
             {
                 '@type': 'WebSite',

@@ -1,16 +1,31 @@
-# Abu · One-Person Studio | Commercial AI Production & Financial RAG Systems
+# Abu Studio · Products and engineering from a one-person company (OPC)
 
-> Helping business leaders replace repetitive manual analyst roles with private AI engines, saving $60K-$90K/yr. $2K Audit Package, 2-3 week Turnkey Delivery, and Monthly Retainers. No free POCs.
+> I run Abu Studio, a one-person company (OPC) in Shanghai. Try Glide and CrossLeads, or explore my work on financial report search, PDF extraction and account reconciliation.
 
 ## 个人简介
 
 - 姓名: Abu
 - 状态: 2026 Q4 · 2 Delivery & Audit Slots Open
-- 标语: Founder, One-Person Company · AI Systems Architect
-- 定位: Turning AI into Real Production Power — Cutting Heavy Labor for Founders
-- 介绍: I'm Abu (One-Person Engineering Studio) . I help teams crack high-precision financial RAG, complex multi-column document parsing, and production Agent reconciliation . Observable, private, and ROI-driven.
+- 标语: One-person company (OPC) owner
+- 定位: Software for the work you repeat.
+- 介绍: I’m Abu. I run Abu Studio as a one-person company (OPC) in Shanghai. I develop Glide and CrossLeads and build tools for businesses to search financial reports, extract tables from PDFs and reconcile accounts.
 - 技术关键词: Financial & Legal RAG, PDF/OCR Coordinate Inversion, Agent State Machine & Reconciliation, FTE Labor Replacement, 50-Doc Benchmark Verification
-- 数据: $75K+ Annual Labor Saved / Case · 80+ Internal Repos · 2-3 Wks Turnkey Docker Shipping · 50-Doc Benchmark Audit
+- 数据: $75K+ Annual Labor Saved / Case · 80+ Internal Repos · 2-3 Wks Turnkey Docker Shipping · 50 Documents per benchmark
+
+## Glide · Notes from my one-person company · Fixing a disappearing right-click menu
+
+I built Glide so I could control Mac windows with an ordinary mouse. After I shared it on V2EX, users reported that even a slight movement could swallow a browser right-click. I followed that report from the first reproducible case through to the release.
+
+### Reproduce what the hand actually does
+I tested a stationary click, a quick click with a slight wobble and a deliberate stroke. The first two should open the current app’s menu. Only the stroke should be able to move a window.
+
+### Separate drawing the trail from running an action
+I delayed the trail until the pointer had moved far enough. Holding still can bring up gesture hints. On release, Glide looks for a direction or a closed loop. A quick click that wobbles goes back to the app as a right-click.
+
+### Test the boundary and ship the fix
+I wrote regression tests for clicks, small movements and deliberate strokes. I also corrected the timing of the mouse-down and mouse-up events sent back to the app. The Glide 1.1.8 release notes describe the menu fix, with Apple silicon and universal Mac installers available.
+
+[Read how I shipped the Glide fix](https://briskygates.github.io/#glide-delivery)
 
 ## Production Cases
 
@@ -39,8 +54,8 @@ Engineering breakthroughs that unlock clear commercial FTE replacement ledgers
 - 描述: High-volume commercial groups and cross-border businesses leak cash when audited manually. We ship state-machine accounting, escrow automation, and anti-fraud tripwires.
 - 标签: Bot, Risk, Escrow, Redis
 - 亮点:
-  - FastAPI + Redis + Celery distributed async ticket & group reconciliation engine
-  - Automated fund escrow, real-time balance anomaly triggers & audit trails
+  - One system handles ledger entries, payment checks and support tickets. Longer checks run in a background queue using FastAPI, Redis and Celery.
+  - Each escrow transaction has an audit trail. If a balance looks unusual, the system alerts the team so they can trace what happened.
   - Zero human reconciliation errors across high-volume active communities
 
 ## Business flows
@@ -305,6 +320,26 @@ Act as your external fractional CTO. Weekly architecture reviews, design sign-of
 ### Modular Pipeline Delivery [Priced Modules]
 Fixed-scope modules: PDF coordinate parsing pipeline, temporal authority Rerank, or Bot reconciliation. Sealed 50-doc benchmark acceptance.
 技术: Parse Pipeline, Rerank Gateway, Benchmark Sign-off
+
+## Independent software
+
+> Software from my studio, available to use today.
+
+### Glide (macOS App)
+- 官网/体验链接: https://www.glide-ai.fun/
+- 本地仓库: wgestures_abu
+- 状态: macOS Native · Live Now
+- 概述: Window gestures for your Mac
+- 详情: Draw a gesture to arrange your windows or circle anything on screen to search it with AI.
+- 标签: macOS Native, Swift / AppKit, Circle-to-Search, Window Snapping, Vision OCR
+
+### CrossLeads (SouMaiJia) (Web SaaS)
+- 官网/体验链接: https://app.soumaijia.cn/
+- 本地仓库: freight-ai-agent
+- 状态: Commercial SaaS · Live
+- 概述: Buyer search for global trade
+- 详情: Find prospective buyers in trade data, identify the right contacts and draft a tailored first email.
+- 标签: Global Trade SaaS, Customs Data Mining, Decision-Maker Intel, Automated Outreach, Sales Pipeline
 
 ## Technical Philosophy
 

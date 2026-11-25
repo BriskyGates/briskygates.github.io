@@ -52,6 +52,13 @@ function generateLlmsFull(config, lang = 'zh') {
     }
     lines.push('');
 
+    const story = ui.studio?.deliveryStory;
+    if (story) {
+        lines.push(`## ${story.eyebrow} · ${story.title}`, '', story.intro, '');
+        for (const step of story.steps) lines.push(`### ${step.title}`, step.body, '');
+        lines.push(`[${story.entryLabel}](https://briskygates.github.io/#glide-delivery)`, '');
+    }
+
     if (config.featured?.items?.length) {
         lines.push(`## ${config.featured.title}`);
         lines.push('');
@@ -127,6 +134,27 @@ function generateLlmsFull(config, lang = 'zh') {
             lines.push(service.description);
             if (service.technologies?.length) {
                 lines.push(`技术: ${service.technologies.join(', ')}`);
+            }
+            lines.push('');
+        });
+    }
+
+    if (config.projects?.items?.length) {
+        lines.push(`## ${config.projects.title || '自研上线软件 · 独立产品'}`);
+        lines.push('');
+        if (config.projects.subtitle) {
+            lines.push(`> ${config.projects.subtitle}`);
+            lines.push('');
+        }
+        config.projects.items.forEach(p => {
+            lines.push(`### ${p.name} (${p.platform})`);
+            lines.push(`- 官网/体验链接: ${p.url}`);
+            lines.push(`- 本地仓库: ${p.repo}`);
+            lines.push(`- 状态: ${p.badge}`);
+            lines.push(`- 概述: ${p.title}`);
+            lines.push(`- 详情: ${p.description}`);
+            if (p.tags && p.tags.length) {
+                lines.push(`- 标签: ${p.tags.join(', ')}`);
             }
             lines.push('');
         });
