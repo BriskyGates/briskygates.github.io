@@ -1,0 +1,60 @@
+.freight-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 13px;
+  margin: -3px 0 14px;
+  border-bottom: 1px solid var(--freight-line);
+}
+.freight-tabs button[role="tab"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 3px 2px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--freight-mid);
+  font-size: 13px;
+  font-weight: 600;
+}
+.freight-tabs button[aria-selected="true"] { border-bottom-color: var(--freight-green); color: var(--freight-green); }
+.freight-tabs [data-freight-count] {
+  min-width: 1.65em;
+  padding-inline: 4px;
+  border-radius: 4px;
+  background: #e2ece4;
+  color: #265b47;
+  font-size: .9em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.freight-demo[data-pool-feedback] [data-freight-count] { background: #c2e5ca; color: #194a37; }
+.freight-pool-list { margin: 0; padding: 0; overflow: hidden; border: 1px solid var(--freight-line); border-radius: 7px; background: #fff; list-style: none; }
+.freight-pool-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 8px 10px;
+}
+.freight-pool-row + .freight-pool-row { border-top: 1px solid var(--freight-line); }
+.freight-demo button.freight-pool-remove,
+.freight-pool-empty [data-freight-find] { min-height: 44px; padding-inline: 8px; background: transparent; color: var(--freight-green); font-weight: 600; }
+.freight-pool-row .freight-pool-remove { flex: none; text-decoration: underline; text-underline-offset: .27em; }
+.freight-pool-empty {
+  padding: 19px 14px 11px;
+  border: 1px solid var(--freight-line);
+  border-radius: 7px;
+  background: #fff;
+  text-align: center;
+}
+.freight-pool-empty p { margin: 0; color: var(--freight-ink); font-size: 14px; font-weight: 600; }
+.freight-pool-empty [data-freight-find] { text-decoration: underline; text-underline-offset: .27em; }
+.freight-pool-feedback { min-height: 1.55em; margin: 8px 0 0; color: #215d47; font-size: 12px; line-height: 1.55; overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: no-preference) {
+  .freight-tabs [data-freight-count] { transition: background-color .18s ease-out, color .18s ease-out; }
+}

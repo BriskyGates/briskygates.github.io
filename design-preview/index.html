@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf9f6">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="阿布在上海的一人软件工作室。这里有 macOS 手势工具 Glide、外贸产品搜买家，以及文档检索与自动对账的工程实践。">
+  <title>阿布的软件工作室 · Abu Studio</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="studio.css?v=6">
+  <link rel="stylesheet" href="work.css?v=6">
+  <link rel="stylesheet" href="desktop.css?v=6">
+  <link rel="stylesheet" href="viewer.css?v=6">
+  <link rel="stylesheet" href="freight-pool.css?v=6">
+  <script defer src="navigation.js?v=6"></script>
+  <script defer src="studio.js?v=6"></script>
+  <script defer src="demos.js?v=6"></script>
+</head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead wrap">
+    <a class="brand" href="#top" aria-label="Abu Studio 首页"><span class="spark" aria-hidden="true"><i></i></span>Abu Studio</a>
+    <nav aria-label="主导航">
+      <a href="#work">作品</a><a href="#notes">工程案例</a><a href="#about">关于</a>
+    </nav>
+    <a class="contact-link" href="#contact">联系阿布</a>
+    <details class="mobile-nav"><summary aria-label="网站导航"><span class="menu-lines" aria-hidden="true"></span>导航</summary><nav aria-label="移动导航"><a href="#work">作品</a><a href="#notes">工程案例</a><a href="#about">关于阿布</a><a href="#contact">联系阿布</a></nav></details>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="title">
+      <div class="intro">
+        <p class="eyebrow"><span class="rule" aria-hidden="true"></span>独立开发者 <span class="slash" aria-hidden="true">/</span> 中国上海</p>
+        <h1 id="title">阿布的<br>软件工作室<span class="endmark" aria-hidden="true">.</span></h1>
+        <p class="lede">我做桌面工具，也为企业写软件，让查研报、录表格和核账这些事省点力。</p>
+        <div class="hero-actions"><a class="button primary" href="#work">浏览作品</a><a class="text-link" href="#notes">读工程案例</a></div>
+      </div>
+      <section class="studio-desk" data-desktop-view="home" aria-label="阿布的桌面，交互作品体验">
+        <div class="desk-scene" id="studio-launcher">
+          <div class="desk-sheet" aria-hidden="true"></div>
+          <div class="desk-frame">
+            <div class="desk-toolbar"><span class="desk-symbol" aria-hidden="true"></span>阿布的桌面</div>
+            <div class="desk-wallpaper"></div>
+          </div>
+          <div class="desk-shortcuts">
+            <a class="desk-shortcut" id="launch-glide" data-open="glide" href="#work-glide" aria-label="打开 Glide 妙划，试划分屏"><img src="assets/glide-app-icon.webp" width="48" height="48" alt=""><span><strong>Glide</strong><small>试划分屏</small></span></a>
+            <a class="desk-shortcut" id="launch-freight" data-open="freight" href="#work-crossleads" aria-label="打开搜买家，体验买家搜索"><span class="desk-freight-icon" aria-hidden="true"><img src="assets/crossleads-mark.svg" width="32" height="32" alt=""></span><span><strong>搜买家</strong><small>试找买家</small></span></a>
+          </div>
+          <img class="desk-dog" src="assets/desktop-collie.webp" width="1050" height="1050" fetchpriority="high" alt="黑白边牧歪着头，前爪探出软件窗口。">
+        </div>
+      </section>
+    </section>
+<section class="work section wrap" id="work" aria-labelledby="work-title">
+  <header class="section-heading">
+    <h2 id="work-title">作品选集</h2>
+    <span class="english-label" lang="en">Selected work</span>
+  </header>
+
+  <div class="work-grid">
+    <article class="work-card" data-work="glide" data-platform="macOS 应用" aria-labelledby="work-glide">
+      <a id="card-glide" class="work-entry" data-open="glide" href="https://www.glide-ai.fun/" aria-label="Glide 妙划，试划分屏">
+        <div class="work-poster work-poster--glide">
+          <img class="work-photo" src="assets/glide-in-motion.webp" alt="一只手握着白色无线鼠标，在深蓝色桌面上轻划。" width="1440" height="810" loading="lazy" decoding="async">
+          <img class="work-mark" src="assets/glide-app-icon.webp" width="128" height="128" alt="">
+          <h3 class="work-brand" id="work-glide"><span lang="en">Glide</span><span class="work-brand-zh">妙划</span></h3>
+        </div>
+        <div class="work-copy">
+          <h4>用鼠标手势，给 Mac 窗口分屏。</h4><span class="work-try">试划分屏</span>
+        </div>
+      </a>
+      <p class="work-summary">按住右键，先向上再向左划，当前窗口就贴到左半屏。向左划可以后退，向右划可以前进。</p>
+      <a class="work-link" href="https://www.glide-ai.fun/" target="_blank" rel="noopener noreferrer" aria-label="查看 Glide 妙划官网（在新标签页打开）">产品官网</a>
+    </article>
+
+    <article class="work-card" data-work="freight" data-platform="Web 应用" aria-labelledby="work-crossleads">
+      <a id="card-freight" class="work-entry" data-open="freight" href="https://www.soumaijia.cn/" aria-label="搜买家，试找买家">
+        <div class="work-poster">
+          <img class="work-photo" src="assets/crossleads-at-sea.webp" alt="一艘满载集装箱的货轮在开阔的海面上航行" width="1440" height="810" loading="lazy" decoding="async">
+          <img class="work-mark" src="assets/crossleads-mark.svg" alt="" width="48" height="48">
+          <h3 class="work-brand" id="work-crossleads"><span lang="en">CrossLeads</span><span class="work-brand-zh">搜买家</span></h3>
+        </div>
+        <div class="work-copy">
+          <h4>从海关提单，找到下一位买家。</h4><span class="work-try">试找买家</span>
+        </div>
+      </a>
+      <p class="work-summary">输入产品关键词或 HS 编码，找到采购过同类产品的海外企业，再把值得跟进的公司加入潜客池。</p>
+      <a class="work-link" href="https://www.soumaijia.cn/" target="_blank" rel="noopener noreferrer" aria-label="查看搜买家官网（在新标签页打开）">产品官网</a>
+    </article>
+  </div>
+</section>
+    <section id="notes" class="notes section wrap" aria-labelledby="notes-title">
+      <div class="notes-intro"><div class="section-heading"><h2 id="notes-title">工程案例</h2><span class="english-label" lang="en">Field notes</span></div>
+        <p>软件到了真实业务里，会碰到什么问题？这里记了三次具体的交付。</p>
+      </div>
+      <div class="entries">
+        <details><summary><span class="note-type">检索</span><span class="note-name">让研报答案引回原文</span><span class="toggle-mark" aria-hidden="true"></span></summary><div class="entry-body"><p>同一个问题，在新旧研报里可能有不同答案。我先按版面和语义拆开双栏研报，再结合发布日期和机构来源给候选段落排序。研究员可以沿着引用回到原文复核。</p></div></details>
+        <details><summary><span class="note-type">解析</span><span class="note-name">把扫描表格还原成数据</span><span class="toggle-mark" aria-hidden="true"></span></summary><div class="entry-body"><p>一份 PDF 转成纯文本后，表头和数字很容易错行。我保留文字块在页面上的坐标，先还原表格和目录，再输出结构化 Markdown，供后续检索使用。</p></div></details>
+        <details><summary><span class="note-type">自动化</span><span class="note-name">给每笔对账留下线索</span><span class="toggle-mark" aria-hidden="true"></span></summary><div class="entry-body"><p>人工在群消息和账本之间反复核对，最难追的是异常交易。我把记账、工单和状态变更接在一起，让系统记录处理过程，把需要复核的异常单独提示出来。</p></div></details>
+      </div>
+    </section>
+    <section class="about-band" id="about" aria-labelledby="about-title"><div class="about-grid wrap">
+      <div class="about-intro"><div class="section-heading"><h2 id="about-title">关于阿布</h2><span class="english-label" lang="en">Profile</span></div>
+        <p>我是阿布，一名独立 AI 工程师，在上海经营一人技术工作室。Glide 和搜买家是我做的产品，文档检索、解析和业务自动化是我日常的交付工作。</p>
+      </div>
+      <div class="contact-block" id="contact"><h3>想聊聊你的项目？</h3><p>说说团队现在怎么做、最花时间的是哪一步。</p><a class="button light" href="https://briskygates.github.io/#contact-name:~:text=%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97%E4%B8%8E%E7%A7%B0%E5%91%BC">打开合作表单</a></div>
+    </div>
+    <footer class="footer wrap"><span>Abu Studio · 上海</span><a href="#top">回到顶部</a></footer></section>
+  </main>
+  <dialog id="project-viewer" class="project-viewer" aria-labelledby="viewer-title">
+    <div class="viewer-shell">
+      <header class="viewer-bar"><span>作品体验</span><button type="button" class="viewer-close desk-back" autofocus>关闭</button></header>
+      <div class="viewer-body" tabindex="-1">
+        <div class="viewer-identity"><img class="viewer-icon" alt="" width="56" height="56"><div><p class="viewer-platform"></p><h2 id="viewer-title" tabindex="-1"></h2></div></div>
+        <p class="viewer-intro"></p>
+        <section id="demo-glide" class="viewer-demo" data-project="glide" data-info="Glide 妙划支持鼠标和触控板。你可以为不同 App 单独绑定手势，在内置演练画板上试划，再用它切换窗口、吸附分屏或执行快捷键。" hidden>
+          <section class="gdraw" data-glide-draw aria-label="Glide 妙划手势演练">
+            <header class="gdraw-head"><h3 class="gdraw-title">手势画板</h3><button class="gdraw-reset" type="button" data-reset disabled>复位</button></header>
+            <div class="gdraw-pad" data-pad tabindex="-1" role="group" aria-label="窗口手势画板" aria-describedby="gdraw-help">
+              <div class="gdraw-window" aria-hidden="true">
+                <div class="gdraw-chrome"><i></i><i></i><i></i></div>
+                <div class="gdraw-page"><div class="gdraw-sidebar"></div><div class="gdraw-doc"><b>窗口手势备忘</b><ul class="gdraw-note"><li><kbd>↑</kbd>最大化</li><li><kbd>↑←</kbd>左半屏</li><li><kbd>↑→</kbd>右半屏</li></ul></div></div>
+              </div>
+              <div class="gdraw-target" aria-hidden="true"></div>
+              <canvas class="gdraw-ink" aria-hidden="true"></canvas>
+              <span class="gdraw-cue" aria-hidden="true"><i></i>从这里上划</span>
+            </div>
+            <div class="gdraw-controls">
+              <p class="gdraw-help" id="gdraw-help">在画板中按住鼠标或用单指上划，松手即最大化。拐向左或右可分屏。<span id="gdraw-touch-help">触控板也支持双指纵滑。</span></p>
+              <div class="gdraw-pair" role="group" aria-label="演示窗口手势">
+                <span class="gdraw-watch">看示范</span>
+                <button type="button" data-snap="max" aria-pressed="false"><span aria-hidden="true">↑</span>最大化</button>
+                <button type="button" data-snap="left" aria-pressed="false"><span aria-hidden="true">↰</span>左半屏</button>
+                <button type="button" data-snap="right" aria-pressed="false"><span aria-hidden="true">↱</span>右半屏</button>
+              </div>
+              <div class="gdraw-feedback">
+                <p class="gdraw-status" role="status" aria-live="polite" aria-atomic="true">窗口居中。</p>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section id="demo-freight" class="viewer-demo" data-project="freight" data-info="销售团队可以在潜客池中整理目标企业，用多种语言准备开发邮件。发出后，邮件互动会形成销售线索，收到的买家回复可对照原文和译文继续跟进。" hidden>
+          <section class="freight-demo" data-freight-demo aria-label="搜买家互动演示">
+            <header class="freight-demo__bar">
+              <h3>买家工作台</h3>
+              <span class="freight-demo__fixture">虚构演示数据</span>
+            </header>
+            <div class="freight-demo__body">
+              <div class="freight-tabs" role="tablist" aria-label="买家工作台">
+                <button type="button" role="tab" id="freight-search-tab" data-freight-tab="search" aria-controls="freight-search-view" aria-selected="true">找买家</button>
+                <button type="button" role="tab" id="freight-pool-tab" data-freight-tab="pool" aria-controls="freight-pool-view" aria-selected="false" tabindex="-1">潜客池 <b data-freight-count>0</b></button>
+              </div>
+              <section id="freight-search-view" role="tabpanel" aria-labelledby="freight-search-tab" data-freight-panel="search">
+                <div class="freight-demo__search" role="group" aria-label="选择检索产品">
+                  <span class="freight-demo__lens" aria-hidden="true"></span>
+                  <button type="button" data-freight-key="bikes" aria-pressed="true">电动自行车</button>
+                  <button type="button" data-freight-key="filters" aria-pressed="false">空气过滤器</button>
+                </div>
+                <div class="freight-demo__results-head">匹配的采购商</div>
+                <div class="freight-demo__result">
+                  <div class="freight-demo__summary">
+                    <span class="freight-demo__country" lang="en" data-freight-country>NL</span>
+                    <div class="freight-demo__company"><strong data-freight-name>鹿特丹自行车分销商</strong><span data-freight-sector>荷兰 · 自行车及配件</span></div>
+                  </div>
+                  <button type="button" class="freight-demo__save" data-freight-save aria-pressed="false">
+                    <span class="freight-demo__plus" aria-hidden="true"></span><span data-freight-action>加入潜客池</span>
+                  </button>
+                </div>
+              </section>
+              <section id="freight-pool-view" role="tabpanel" aria-labelledby="freight-pool-tab" data-freight-panel="pool" hidden>
+                <ul class="freight-pool-list" data-freight-list aria-label="已加入的采购商" hidden></ul>
+                <div class="freight-pool-empty" data-freight-empty>
+                  <p>潜客池还是空的</p>
+                  <button type="button" data-freight-find>去找买家</button>
+                </div>
+              </section>
+              <p class="freight-pool-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+              <template data-freight-row>
+                <li class="freight-pool-row">
+                  <div class="freight-demo__summary">
+                    <span class="freight-demo__country" lang="en" data-pool-country></span>
+                    <div class="freight-demo__company"><strong data-pool-name></strong><span data-pool-sector></span></div>
+                  </div>
+                  <button type="button" class="freight-pool-remove">移出</button>
+                </li>
+              </template>
+            </div>
+          </section>
+        </section>
+        <details class="viewer-detail"><summary>产品说明</summary><p></p></details>
+      </div>
+      <footer class="viewer-footer"><button class="viewer-switch" type="button"></button><a class="viewer-site" target="_blank" rel="noopener noreferrer"></a></footer>
+    </div>
+  </dialog>
+</body>
+</html>
