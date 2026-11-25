@@ -1,11 +1,11 @@
 {
   "ui": {
-    "pageTitle": "阿布 · 一人公司商業級 AI 落地 | 專注金融投研 RAG、複雜文檔智能與生產級 Agent 對賬",
-    "pageDescription": "幫企業 1 號位用確定性的私有化 AI 引擎替代重複人力，年砍 40-60 萬剛性成本。提供 1.5 萬現狀技術診斷包、2-3 周標杆工程交付全案與常年架構顧問，拒接無邊界需求，拒絕免費 POC。",
+    "pageTitle": "阿布軟體工作室 · 一人公司（OPC）的產品與工程案例",
+    "pageDescription": "阿布在上海經營一人公司（OPC），開發 Glide 和 CrossLeads 搜買家，也為企業做研報檢索、文件解析和自動對帳。",
     "labelSuffix": "：",
     "searchPlaceholder": "探索 1.5 萬技術診斷包、標杆交付全案與落地案例…",
-    "heroCtaPrimary": "預約 1.5 萬元現狀診斷包",
-    "heroCtaSecondary": "查看人力替代實戰賬本",
+    "heroCtaPrimary": "看我的作品",
+    "heroCtaSecondary": "聊聊項目",
     "statsTitle": "核心交付戰績",
     "marqueeTitle": "落地工程技術底座",
     "marqueeSubtitle": "可落地 · 生產可用 · 高吞吐低延遲",
@@ -31,45 +31,27 @@
     },
     "nav": [
       {
-        "id": "home",
-        "label": "首頁",
-        "shortLabel": "首頁",
-        "icon": "fas fa-house"
-      },
-      {
         "id": "showcase",
-        "label": "代表作",
+        "label": "作品",
         "shortLabel": "作品",
         "icon": "fas fa-fire"
       },
       {
-        "id": "flow-rag",
-        "label": "業務流",
-        "shortLabel": "業務流",
+        "id": "case-studies",
+        "label": "工程案例",
+        "shortLabel": "工程案例",
         "icon": "fas fa-layer-group"
       },
       {
-        "id": "experience",
-        "label": "履歷",
-        "shortLabel": "履歷",
+        "id": "studio-library",
+        "label": "工作室",
+        "shortLabel": "工作室",
         "icon": "fas fa-route"
       },
       {
-        "id": "skills",
-        "label": "技能",
-        "shortLabel": "技能",
-        "icon": "fas fa-bolt"
-      },
-      {
-        "id": "services",
-        "label": "服務",
-        "shortLabel": "服務",
-        "icon": "fas fa-briefcase"
-      },
-      {
         "id": "contact",
-        "label": "聯繫",
-        "shortLabel": "聯繫",
+        "label": "聯絡",
+        "shortLabel": "聯絡",
         "icon": "fas fa-envelope"
       }
     ],
@@ -109,18 +91,538 @@
       "conversationTitle": "",
       "questions": [],
       "conversationNote": ""
+    },
+    "studio": {
+      "deliveryStory": {
+        "eyebrow": "Glide 妙劃 · OPC 交付手記",
+        "title": "一次右鍵誤判的修復",
+        "intro": "我做 Glide，是想在 Mac 上用外接滑鼠劃一下就能控制視窗。開放試用後，有人反映手稍微一動，瀏覽器的右鍵選單就打不開了。我從重現這個問題開始，一路跟到修正版發布。",
+        "steps": [
+          {
+            "title": "先把誤觸重現出來",
+            "body": "我把同一個右鍵操作拆成原地輕點、帶一點晃動的短按、按住劃線三種輸入。前兩種都應該打開目前的應用程式的選單，第三種才可能觸發視窗操作。"
+          },
+          {
+            "title": "把顯示軌跡和執行動作分開",
+            "body": "我讓 Glide 等到拖曳達到一定距離才顯示軌跡，按住不動時仍可查看提示。放開後，路徑有明確方向或形成閉環才算手勢。若只是輕點時手稍微晃動，Glide 會把右鍵點擊送回原來的應用程式。"
+          },
+          {
+            "title": "把邊界寫進測試，隨版本交付",
+            "body": "我為點擊、晃動和有效筆畫寫了迴歸測試，也修正了補發右鍵點擊的時間戳和鬆開時序。Glide 1.1.8 在更新說明中記錄了選單修復，並提供 Apple 晶片版和通用版安裝檔。"
+          }
+        ],
+        "proofTitle": "三種輸入，各自應該發生什麼？",
+        "proofColumns": [
+          "輸入",
+          "預期結果"
+        ],
+        "checks": [
+          [
+            "原地短按右鍵",
+            "目前的應用程式打開右鍵選單。"
+          ],
+          [
+            "短按時手輕微晃動，沒有劃出方向",
+            "選單仍在按下的位置打開。"
+          ],
+          [
+            "使用預設的全域手勢，按住右鍵向上劃再放開",
+            "目前的視窗放到最大。"
+          ]
+        ],
+        "releaseLabel": "看 Glide 1.1.8 更新說明",
+        "collaborationTitle": "你的專案卡在哪一步？",
+        "collaborationIntro": "可以從一次能重現的問題開始，也可以直接討論一個範圍明確的模組。",
+        "routes": [
+          {
+            "icon": "💬",
+            "body": "帶一段操作錄影或一份去掉敏感資訊的範例，標出實際結果和你期待的結果。用 15 分鐘一起判斷問題出在哪一步。",
+            "action": "約 15 分鐘澄清需求"
+          },
+          {
+            "icon": "📦",
+            "body": "帶一份輸入範例和理想輸出，最好再帶一個容易出錯的例子。先約定模組負責哪一步、交付什麼，以及用哪組範例驗收。",
+            "action": "討論關鍵模組交付"
+          }
+        ],
+        "contextLabel": "本次諮詢",
+        "clearContext": "清除選擇",
+        "contextTitle": "Glide 交付手記",
+        "entryLabel": "讀 Glide 的交付手記",
+        "feedbackLabel": "V2EX 使用者回饋",
+        "servicesLabel": "查看所有合作方式",
+        "checksumLabel": "安裝檔校驗碼紀錄"
+      },
+      "workstation": "阿布的工作臺",
+      "imageAlt": "復古電腦的綠色屏幕上，一隻像素邊牧正看著你。",
+      "navigation": "頁面導航",
+      "libraryTitle": "工作室手冊",
+      "libraryIntro": "我是阿布，在上海經營一家做軟體的一人公司（OPC）。我開發 Glide 和 CrossLeads 搜買家，也為企業做金融研報檢索、複雜 PDF 解析和自動對帳。",
+      "flowLabel": "業務流程",
+      "homeLabel": "回到首頁",
+      "skipLabel": "跳到正文",
+      "feature": {
+        "author": "阿布的一人公司（OPC） · 上海",
+        "choose": "切換精選產品",
+        "glide": {
+          "name": "Glide 妙劃",
+          "title": "一道手勢，視窗就位。",
+          "action": "試劃視窗手勢",
+          "alt": "一隻手握著白色滑鼠，在深藍色桌面上輕劃。"
+        },
+        "freight": {
+          "name": "CrossLeads 搜買家",
+          "title": "從一份提單，找到下一位買家。",
+          "action": "試找海外買家",
+          "alt": "夕照下，一艘滿載貨櫃的貨輪駛過開闊的海面。"
+        }
+      },
+      "productDemo": {
+        "experience": "作品體驗",
+        "info": "產品說明",
+        "close": "關閉",
+        "backWork": "返回作品",
+        "backDesk": "返回桌面",
+        "tryOther": "試試 {name}",
+        "visit": "訪問 {name} 官網",
+        "home": "產品官網",
+        "glideTry": "試劃分屏",
+        "freightTry": "試找買家",
+        "glideAlias": "妙劃",
+        "freightAlias": "搜買家",
+        "glideAlt": "向上再左轉的軌跡把視窗吸附到桌面左半屏。",
+        "freightAlt": "虛構例子：從電動自行車提單匹配荷蘭的一家採購商。",
+        "sampleBill": "海關提單",
+        "sampleMatch": "匹配的採購商",
+        "workNote": "工作筆記",
+        "glideInfo": "Glide 支援滑鼠和觸控板，可為不同 App 設定手勢，用來切換視窗、吸附分屏或執行快捷鍵。",
+        "freightInfo": "團隊可以整理目標企業、準備用不同語言傳送的開發郵件，並對照原文和譯文跟進買家回覆。",
+        "glideDemo": "Glide 妙劃手勢演練",
+        "board": "手勢畫板",
+        "reset": "復位",
+        "note": "視窗手勢備忘",
+        "max": "最大化",
+        "left": "左半屏",
+        "right": "右半屏",
+        "start": "從這裡上劃",
+        "help": "按住滑鼠或用單指上劃，鬆手即最大化。先上劃再拐向左或右，可吸附到半屏。",
+        "touch": "觸控板也支援雙指縱滑。",
+        "examples": "演示視窗手勢",
+        "watch": "看示範",
+        "centered": "視窗居中。",
+        "drawing": "正在識別手勢…",
+        "ready": "準備就緒。",
+        "missed": "未識別。試試直上劃一段，再鬆開。",
+        "nextMax": "鬆手將最大化",
+        "nextLeft": "鬆手將貼到左半屏",
+        "nextRight": "鬆手將貼到右半屏",
+        "doneMax": "視窗已最大化。",
+        "doneLeft": "視窗已貼到左半屏。",
+        "doneRight": "視窗已貼到右半屏。",
+        "freightDemo": "搜買家互動演示",
+        "buyerDesk": "買家工作臺",
+        "fictional": "虛構演示資料",
+        "search": "找買家",
+        "pool": "潛客池",
+        "products": "選擇檢索產品",
+        "bikes": "電動腳踏車",
+        "filters": "空氣過濾器",
+        "results": "匹配的採購商",
+        "add": "加入潛客池",
+        "removePool": "移出潛客池",
+        "remove": "移出",
+        "bikeName": "鹿特丹腳踏車分銷商",
+        "bikeSector": "荷蘭 · 腳踏車及配件",
+        "filterName": "漢堡工業耗材採購商",
+        "filterSector": "德國 · 空氣過濾裝置",
+        "savedList": "已加入的採購商",
+        "empty": "潛客池還是空的",
+        "goSearch": "去找買家",
+        "removeName": "移出{name}",
+        "found": "檢索到{name}。",
+        "added": "已加入{name}，池內共 {count} 家。",
+        "removed": "已移出{name}，池內剩餘 {count} 家。"
+      },
+      "casebook": {
+        "heading": "工程案例",
+        "problem": "業務問題",
+        "process": "實施過程",
+        "result": "交付結果",
+        "modules": "相關工程模組",
+        "workflowResult": "工作流程目標",
+        "related": "查看相關業務流程",
+        "cases": [
+          [
+            "金融投研",
+            "讓研報問答引用到正確的段落"
+          ],
+          [
+            "文件解析",
+            "從掃描文件還原表格和目錄"
+          ],
+          [
+            "交易營運",
+            "串起擔保、對帳和異常處理"
+          ],
+          [
+            "工程工作流程",
+            "讓業務系統按需呼叫多個工具"
+          ]
+        ],
+        "examples": {
+          "legend": "試一遍處理過程 · 示例數據",
+          "report": {
+            "stages": [
+              "雙欄原文",
+              "定位段落",
+              "答案出處"
+            ],
+            "publication": "行業週報",
+            "supply": "供應",
+            "supplyText": "到貨趨穩。",
+            "demand": "需求",
+            "demandText": "訂單回暖。",
+            "query": "訂單有什麼變化？",
+            "source": "來源",
+            "question": "怎樣讓研究員知道，一段回答引用的是哪份研報、哪段原文？",
+            "captions": [
+              "先把一頁研報的兩個欄目分開。",
+              "檢索問題時，保留相關段落所屬的章節。",
+              "回答旁邊保留出處，方便回到原文核對。"
+            ]
+          },
+          "scan": {
+            "stages": [
+              "原始版面",
+              "按位置歸列",
+              "結構化表格"
+            ],
+            "headers": [
+              "品名",
+              "單位",
+              "數量"
+            ],
+            "rows": [
+              [
+                "樣品 A",
+                "件",
+                "8"
+              ],
+              [
+                "樣品 B",
+                "箱",
+                "3"
+              ]
+            ],
+            "question": "一張表掃描進電腦後，怎樣知道每個數字原來屬於哪一欄？",
+            "captions": [
+              "掃描件上的空格和換行不足以確定表格結構。",
+              "按文字在頁面上的位置，把同列的字段對齊。",
+              "帶上表頭，每行數據都能單獨讀取。"
+            ]
+          },
+          "ledger": {
+            "stages": [
+              "入賬",
+              "匹配",
+              "異常留痕"
+            ],
+            "idA": "訂單 A",
+            "idB": "訂單 B",
+            "posted": "已入賬",
+            "matched": "憑證已匹配",
+            "missing": "缺少憑證",
+            "review": "待複核",
+            "ticket": "複核工單",
+            "question": "一筆付款該對到哪張訂單？找不到憑證時，該留下什麼紀錄？",
+            "captions": [
+              "兩筆交易分別寫入賬本。",
+              "逐筆核對付款憑證，把缺少憑證的交易挑出來。",
+              "工單關聯原訂單，並記錄需要複核的原因。"
+            ]
+          },
+          "tools": {
+            "stages": [
+              "選擇工具",
+              "執行",
+              "核驗"
+            ],
+            "task": "整理報告中的表格",
+            "input": "輸入",
+            "output": "輸出",
+            "report": "示例報告",
+            "table": "提取的表格",
+            "tools": "調用順序",
+            "trace": "執行記錄",
+            "question": "多個工具一起處理一個任務，下一步該接收什麼，出錯後又從哪裡查起？",
+            "captions": [
+              "把任務拆成讀取文檔、提取表格兩個動作。",
+              "第二個工具接收第一個工具的輸出。",
+              "保留輸入、調用順序和輸出，便於重現和核對。"
+            ]
+          }
+        },
+        "reader": {
+          "intro": "選擇一個案例，從原始材料追到處理結果。",
+          "nav": "選擇工程案例",
+          "sample": "模擬業務資料",
+          "reset": "重置",
+          "restored": "已還原本案例的模擬材料。",
+          "noScript": "開啟 JavaScript 後可操作以下材料。",
+          "design": "工程取捨",
+          "delivery": "專案交付紀錄",
+          "report": {
+            "short": "研報引用",
+            "task": "複核「訂單回暖」這條引用",
+            "lead": "一條訂單消息同時出現在週報與摘編裡。研究員需要知道，用哪一段原文才能支持截止日當天的判斷。",
+            "decision": "檢索先找可能相關的段落，再結合發佈時間和來源排序。段落保留頁碼與版面位置，複核人能回到原文，檢查說的是供應還是需求。",
+            "navShort": "研報引用",
+            "check": "同一問題分別限定在兩期週報的發佈日期。檢查答覆中的證據是否在截止日前已經公開，再按頁碼回看原段落。召回條數和響應耗時單獨記錄。",
+            "review": "如果只找到轉述，或不同報告對同一期的走勢有分歧，應保留出處供研究員比較，不能把二手描述當作新增的調查事實。"
+          },
+          "scan": {
+            "short": "掃描表格",
+            "task": "修正單位與數量之間的列界",
+            "lead": "字符都認對了，表也可能是錯的。掃描件第二行向右偏移，如果沿用第一行的邊界，單位就會落進數量列。",
+            "decision": "保留頁面上的文字座標，再用原文字塊核對每個單元格。粘連和空單元格是檢查線索；導出的表頭、單位和每行數量必須仍能對回原件。",
+            "navShort": "掃描表格",
+            "check": "逐行回查品名、單位與數量是否來自同一個源行。項目記錄裡留有 50 份複雜樣本，用來複驗解析改動；這裡的兩行只演示列界問題。",
+            "review": "粘連、空列或單元格缺值都會破壞下游統計。遇到異常要回到原頁核對字符位置，再決定是否放行結構化輸出。"
+          },
+          "ledger": {
+            "short": "交易對賬",
+            "task": "複核訂單 B 缺失的付款憑證",
+            "lead": "訂單已經進了賬本，複核人還要判斷付款憑證和到賬回執是不是同一筆。把鄰單的憑證貼錯，也會讓一筆未結交易看起來已經結清。",
+            "decision": "賬本、訂單憑證與到賬記錄分別保留，用訂單標識建立關聯。異常交易留給複核人處理，後續可以沿著工單查看補交了什麼、為何通過。",
+            "navShort": "交易對賬",
+            "check": "從付款憑證與到賬回執分別追到訂單號，再檢查異常工單與處理記錄是否指向同一訂單。示例故意提供鄰單的憑證來驗證這條規則。",
+            "review": "缺少憑證，或憑證與到賬記錄的訂單號不同，訂單應繼續等待複核。保留嘗試記錄，使下一位處理人知道上一次為什麼沒有通過。"
+          },
+          "tools": {
+            "short": "工具調用",
+            "task": "找出這次提表任務卡在哪一步",
+            "lead": "讀取成功不等於提取成功。對同一份入庫單，選錯頁面、保留空列，都會改變下游能否使用結果。",
+            "decision": "把文檔讀取、表格提取和結果校驗拆開，分別檢查輸入和輸出。這個工作流歸納了現有項目裡的工具編排與表格審計做法，每次重跑都保留獨立的示例記錄。",
+            "navShort": "工具調用",
+            "check": "按次記錄輸入頁碼、提取規則、表格形狀和審計分支。即使後一次重跑通過，也能回到第一次，檢查哪個輸出觸發了攔截。",
+            "review": "說明頁沒有表格與明細頁出現空列，是兩類不同的失敗。前者要檢查輸入頁，後者要檢查提取規則；無法修復時應交人工核驗。"
+          },
+          "record": "查看實現與驗收依據",
+          "check": "驗收時檢查什麼",
+          "review": "何時需要人工複核",
+          "jump": "前往核驗區",
+          "back": "回看材料"
+        },
+        "labs": {
+          "report": {
+            "brief": "先設回答截止日，再核對來源、段落和頁碼。",
+            "question": "截至所選日期，訂單走勢如何？",
+            "materials": "候選材料",
+            "sortLabel": "排列方式",
+            "sortOptions": {
+              "publication": "發佈日期 · 從新到舊",
+              "primary": "先看截至該日的一手材料"
+            },
+            "periodLabel": "回答截至",
+            "periodOptions": {
+              "early": "3 月 8 日",
+              "late": "3 月 15 日"
+            },
+            "criteria": "日期要在截止日以內。優先採用最新一期週報的實地訪談，引用與訂單有關的段落。",
+            "candidate": "擬引用的段落",
+            "check": "核驗這條引用",
+            "pickPassage": "選擇要引用的段落",
+            "docs": {
+              "earlier": {
+                "title": "製造業週報 · 上期",
+                "date": "3 月 6 日",
+                "kind": "一手訪談",
+                "supply": {
+                  "ref": "第 3 頁 · 供應",
+                  "text": "物流延遲，部分原料到貨時間仍不穩定。"
+                },
+                "demand": {
+                  "ref": "第 4 頁 · 需求",
+                  "text": "受訪工廠的新訂單與上週基本持平，未見明顯回暖。"
+                }
+              },
+              "latest": {
+                "title": "製造業週報 · 本期",
+                "date": "3 月 13 日",
+                "kind": "一手訪談",
+                "supply": {
+                  "ref": "第 2 頁 · 供應",
+                  "text": "主要原料到貨趨穩，排產等待時間縮短。"
+                },
+                "demand": {
+                  "ref": "第 5 頁 · 需求",
+                  "text": "受訪工廠反饋新訂單回暖，主要來自既有客戶補單。"
+                }
+              },
+              "digest": {
+                "title": "市場觀察 · 週報摘編",
+                "date": "3 月 15 日",
+                "kind": "二手摘編",
+                "supply": {
+                  "ref": "第 1 頁 · 摘編",
+                  "text": "摘編轉述 3 月 6 日週報，稱部分原料到貨仍有延遲。"
+                },
+                "demand": {
+                  "ref": "第 2 頁 · 摘編",
+                  "text": "摘編引用 3 月 6 日訪談，稱訂單持平，未補充新的調研。"
+                }
+              }
+            },
+            "verdicts": {
+              "valid": {
+                "title": "引用成立",
+                "body": "所選段落來自截止日前最新一期一手訪談，直接談及新訂單。"
+              },
+              "future": {
+                "title": "這份材料還沒有發佈",
+                "body": "在這個截止日作答會用到未來信息。換成已發佈的週報，再看需求段。"
+              },
+              "section": {
+                "title": "這個段落回答的是供應問題",
+                "body": "到貨和排產情況無法說明訂單是否回暖。保留來源，改選需求段再核驗。"
+              },
+              "secondary": {
+                "title": "發佈日期更新，證據卻更早",
+                "body": "摘編轉述的是 3 月 6 日訪談。對照 3 月 13 日原始週報的需求段。"
+              },
+              "outdated": {
+                "title": "引用來自較早的一期",
+                "body": "這段的確談到訂單，但截止日前已有更新的一手訪談。改選本期週報再核驗。"
+              }
+            }
+          },
+          "scan": {
+            "brief": "這張虛構領料單的縱線沒有被掃出來，第二行的單位偏向右側。移動列分界，觀察兩行的單位和數量如何變化，再核對輸出。",
+            "sourceTitle": "帶位置的原稿",
+            "sheet": "領料單 · 掃描片段",
+            "boundary": "單位與數量的分界",
+            "hint": "虛線左邊歸入單位，右邊歸入數量。用滑塊或左右方向鍵微調。",
+            "output": "當前歸列結果",
+            "empty": "空",
+            "missingUnit": "單位漏列。把分界向右移，直到單位與數字分開。",
+            "missingQty": "數量漏列。把分界向左移，讓數字回到數量欄。",
+            "check": "核對兩行並生成表格",
+            "review": "暫緩輸出，列歸屬仍有衝突",
+            "valid": "核對通過 · Markdown 表格",
+            "ready": "兩行均已分開，可以核對。",
+            "pending": "仍有空列，請對照原稿。",
+            "download": "下載 Markdown 表格"
+          },
+          "ledger": {
+            "sample": "查看兩張訂單的憑證與回執，為缺件登記工單。",
+            "queue": "訂單賬本",
+            "inspect": "關聯證據",
+            "order": "賬本訂單",
+            "proof": "付款憑證",
+            "credit": "到賬回執",
+            "ticket": "異常工單",
+            "pending": "等待補充憑證",
+            "proposed": "待核對憑證",
+            "closed": "複核通過",
+            "openTicket": "登記異常",
+            "verify": "核對並確認",
+            "proofSelect": "補充樣例憑證",
+            "choose": "選擇一張憑證",
+            "attach": "關聯憑證",
+            "history": "複核記錄",
+            "initialA": "{A}：付款憑證 V-A 已匹配到賬回執 R-A。",
+            "initialB": "{B}：賬本有記錄，付款憑證缺失。",
+            "inspectA": "憑證與到賬回執指向同一張訂單。",
+            "inspectB": "賬本已有訂單，先檢查缺少哪項證據。",
+            "requested": "{B}：已登記缺少憑證的原因，等待補件。",
+            "noProof": "{B}：缺少付款憑證，無法確認匹配。",
+            "chosen": "已選擇樣例，關聯後可重新核對。",
+            "attachedA": "{B}：已附上候選憑證 V-A，等待複核。",
+            "attachedB": "{B}：已附上候選憑證 V-B，等待複核。",
+            "mismatch": "V-A 屬於{A}。{B} 保留異常，可更換憑證後重試。",
+            "verified": "{B}：V-B 與到賬回執 R-B 的訂單一致，複核完成。",
+            "proofA": "V-A",
+            "proofB": "V-B",
+            "creditA": "R-A",
+            "creditB": "R-B"
+          },
+          "tools": {
+            "brief": "為入庫單 IN-07 計件，保留每次運行的輸入、輸出和校驗結果。",
+            "sourceTitle": "物料入庫單",
+            "pageLabel": "讀取哪一頁",
+            "pages": {
+              "1": "第 1 頁 · 填單說明",
+              "2": "第 2 頁 · 入庫明細"
+            },
+            "sheetCaption": "倉庫收貨紀錄",
+            "fields": {
+              "batch": "入庫批次",
+              "pieces": "實收件數"
+            },
+            "cover": "填單說明：每個批次占一行，按件計數。入庫明細見第 2 頁。",
+            "modeLabel": "表格擷取規則",
+            "modes": {
+              "keep": "保留所有辨識欄",
+              "trim": "移除整欄空白"
+            },
+            "run": "執行工作流程",
+            "again": "重新執行",
+            "inspector": "執行紀錄",
+            "history": "選擇執行紀錄",
+            "runLabel": "第 {n} 次 · 第 {page} 頁 · {result}",
+            "verdict": {
+              "noTable": "找不到表格",
+              "ghost": "稽核攔下了空欄",
+              "passed": "通過稽核"
+            },
+            "reason": {
+              "noTable": "讀到的是填單說明。切到第 2 頁的入庫明細，再執行一次。",
+              "ghost": "第 {col} 欄的標題和全部 {rows} 筆資料都是空白。對照入庫單，試著變更擷取規則。",
+              "passed": "兩批物料都有批次和件數。通過稽核後，工作流程會將件數交給加總步驟。"
+            },
+            "pageRef": "第 {page} 頁",
+            "shape": "{rows} 筆資料，{cols} 欄",
+            "total": "共 {n} 件",
+            "noRows": "沒有擷取到資料列。",
+            "blank": "空白",
+            "parsed": "擷取到的欄位與資料",
+            "pageOutput": {
+              "cover": "填單說明，沒有明細表",
+              "lines": "入庫明細，逐列讀取批次與件數"
+            },
+            "routes": {
+              "noTable": "返回選頁，暫停加總",
+              "ghost": "返回表格擷取，暫停加總"
+            },
+            "trace": "逐步查看輸入與輸出",
+            "plan": {
+              "title": "待執行的請求",
+              "request": "{doc} · {page} · {mode}",
+              "check": "驗收條件",
+              "rule": "須擷取到明細列。若辨識出三欄以上，逐欄檢查標題與資料，攔下整欄空白。",
+              "route": "稽核後",
+              "paths": [
+                "沒有明細表，返回選頁。",
+                "發現整欄空白，返回擷取。",
+                "通過稽核，加總實收件數。"
+              ]
+            }
+          }
+        }
+      }
     }
   },
   "profile": {
     "name": "阿布",
+    "studioName": "阿布軟體工作室",
     "avatar": "🐶",
-    "tagline": "獨立工程專家 · 商業級 AI 落地架構師",
+    "tagline": "一人公司（OPC）主理人",
     "status": "2026 Q4 · 僅餘 2 個深度交付與診斷席位",
-    "heroTitle": "讓 AI 跨越演示原型，落地為年省數十萬的真實生產力",
+    "heroTitle": "把重複的事，交給軟體。",
     "title": "關於我",
     "greeting": {
-      "text": "Hi，我是阿布，常駐上海",
-      "description": "我是<strong>阿布（獨立工程專家 / 一人技術工作室）</strong>。專注幫企業技術團隊攻克<strong>金融研報精準召回、複雜多版面文檔智能解析與生產級 Agent 對賬閉環</strong>。只做可上線、可觀測、有明確全職人力替代投資回報的私有化工程交付。"
+      "text": "你好，我是阿布",
+      "description": "我是阿布，在上海經營一家做軟體的一人公司（OPC）。我開發 Glide 和 CrossLeads 搜買家，也為企業做金融研報檢索、複雜 PDF 解析和自動對帳。"
     },
     "heroChips": [
       "企業/金融文檔 RAG",
@@ -155,8 +657,8 @@
         "label": "Docker 交付上線"
       },
       {
-        "number": "50份封存",
-        "label": "測試集客觀驗收"
+        "number": "50 份",
+        "label": "封存測試集驗收"
       }
     ],
     "location": {
@@ -254,8 +756,8 @@
         "accent": "#1db954",
         "status": "production",
         "highlights": [
-          "基於 FastAPI + Redis + Celery 打造高併發異步工單與群控對賬中樞",
-          "實現資金擔保自動化、異動報警與交易全鏈路審計日誌",
+          "把記帳、對帳和客服工單接到同一套系統裡，耗時的核對交給背景佇列處理。後端使用 FastAPI、Redis 和 Celery。",
+          "每筆擔保交易都有紀錄。資金出現異常時，系統會發出提醒，方便回查處理過程。",
           "平穩支撐數萬高活躍社群，杜絕財務差錯與人員作弊隱患"
         ]
       }
@@ -450,9 +952,53 @@
     }
   },
   "projects": {
-    "title": "技術理念",
-    "status": "",
-    "items": [],
+    "title": "我做的產品",
+    "subtitle": "從桌面手勢到外貿獲客，這兩款軟件都可以直接體驗。",
+    "status": "production",
+    "items": [
+      {
+        "id": "glide_ai",
+        "name": "Glide",
+        "icon": "🚀",
+        "accent": "#6366f1",
+        "url": "https://www.glide-ai.fun/",
+        "repo": "wgestures_abu",
+        "platform": "macOS App",
+        "badge": "macOS 原生 · 現已發佈",
+        "title": "用手勢分割 Mac 視窗",
+        "description": "用一道手勢整理桌面窗口，或圈出屏幕上的內容，交給 AI 識別、搜索。",
+        "tags": [
+          "macOS 原生",
+          "Swift / AppKit",
+          "畫圈即搜 AI",
+          "窗口吸附分屏",
+          "Vision OCR"
+        ],
+        "cta": "訪問 Glide",
+        "cover": "assets/img/glide-gesture.webp"
+      },
+      {
+        "id": "crossleads_soumaijia",
+        "name": "CrossLeads 搜買家",
+        "icon": "🌐",
+        "accent": "#0ea5e9",
+        "url": "https://app.soumaijia.cn/",
+        "repo": "freight-ai-agent",
+        "platform": "Web SaaS",
+        "badge": "商業 SaaS · 在線運行中",
+        "title": "找到採購過同類產品的海外買家",
+        "description": "從海關和公開商業數據裡找到潛在買家、定位聯繫人，再起草第一封開發信。",
+        "tags": [
+          "外貿出海 SaaS",
+          "海關商業數據挖掘",
+          "決策人深挖",
+          "開發信自動觸達",
+          "銷售線索閉環"
+        ],
+        "cta": "打開搜買家",
+        "cover": "assets/img/crossleads-globe.webp"
+      }
+    ],
     "innovation": {
       "icon": "💡",
       "title": "技術理念",
@@ -463,8 +1009,8 @@
     "title": "合作交流",
     "intro": {
       "icon": "✨",
-      "title": "把你們最棘手的 30 份髒數據發我",
-      "description": "無論是研報召回不準、掃描件解析炸、還是 Agent 無法生產對賬——歡迎帶著真實業務場景溝通。嚴格簽署 NDA 保密協議，直接與阿布本人對話。"
+      "title": "從一個實際例子開始",
+      "description": "一份難讀的表格、一條找不到出處的回答，或一筆遲遲對不上的帳，都可以是起點。"
     },
     "methods": [],
     "availability": {
@@ -515,8 +1061,8 @@
       "url": "https://afdian.com/a/abuai"
     },
     "form": {
-      "title": "開始合作",
-      "subtitle": "發我場景現狀即可；工作日通常 2–4 小時內回覆並給出可行性判斷",
+      "title": "聊聊你的專案",
+      "subtitle": "你們現在怎麼做？哪一步最花時間？",
       "fields": {
         "name": {
           "label": "你的名字與稱呼",

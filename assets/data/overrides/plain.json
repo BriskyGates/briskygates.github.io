@@ -1,32 +1,32 @@
 {
   "ui": {
-    "pageTitle": "阿布 · 帮团队少翻资料、少做重复活",
-    "pageDescription": "给业务负责人的简明介绍：做过哪些项目、解决什么问题、哪些现有工具可以按需调整使用。",
+    "pageTitle": "阿布的一人公司（OPC） · 帮团队少翻资料、少做重复活",
+    "pageDescription": "我是阿布，一个人在上海经营软件工作室。这里用实际例子讲讲，我怎样帮团队找研报原文、读扫描表格和核对账目。",
     "searchPlaceholder": "看问题、看工具、聊需求",
-    "heroCtaPrimary": "看看有哪些小工具",
-    "heroCtaSecondary": "先看解决过的问题",
+    "heroCtaPrimary": "看看小工具",
+    "heroCtaSecondary": "聊聊项目",
     "nav": [
       {
-        "id": "home",
-        "label": "一句话介绍",
-        "shortLabel": "介绍",
-        "icon": "fas fa-house"
-      },
-      {
-        "id": "plain-cases",
-        "label": "解决什么问题",
-        "shortLabel": "案例",
+        "id": "products",
+        "label": "作品",
+        "shortLabel": "作品",
         "icon": "fas fa-fire"
       },
       {
+        "id": "case-studies",
+        "label": "工程案例",
+        "shortLabel": "工程案例",
+        "icon": "fas fa-layer-group"
+      },
+      {
         "id": "tools",
-        "label": "可复用的小工具",
+        "label": "工具",
         "shortLabel": "工具",
         "icon": "fas fa-bolt"
       },
       {
         "id": "contact",
-        "label": "聊聊你的需求",
+        "label": "联系",
         "shortLabel": "联系",
         "icon": "fas fa-envelope"
       }
@@ -186,14 +186,76 @@
       ],
       "conversationNote": "可以先聊研报、文档解析、资讯打标或行情提醒。拿一份样例，就能判断哪些能复用、哪些需要定制。",
       "enabled": true
+    },
+    "studio": {
+      "deliveryStory": {
+        "eyebrow": "Glide 妙划 · OPC 交付手记",
+        "title": "用 Glide 划窗口，右键菜单怎么办？",
+        "intro": "我做了一个 Mac 小工具，按住右键划一下就能调整窗口。一位用户却发现，他只想点开浏览器菜单，手稍微一抖，菜单就没了。",
+        "steps": [
+          {
+            "title": "先弄清楚他想做什么",
+            "body": "用同一个键，可以点一下，手稍微抖着点一下，也可以按住划一笔。前两种操作都应该打开菜单，第三种才用来调整窗口。"
+          },
+          {
+            "title": "让软件等一等",
+            "body": "我把屏幕上的轨迹推迟到鼠标明显移动时才显示，按住不动也能看提示。松手时，Glide 会看刚才有没有划出方向或圈。普通点击和轻微抖动都交还给当前应用。"
+          },
+          {
+            "title": "留下能重复检查的例子",
+            "body": "我把这些操作写进自动测试，也修正了软件把右键点击送回应用的时机。这个修复写进了 Glide 1.1.8 的公开更新说明，用户可以下载 Mac 安装包。"
+          }
+        ],
+        "proofTitle": "你来判断，这一下该做什么？",
+        "proofColumns": [
+          "鼠标怎么动",
+          "应该看到什么"
+        ],
+        "checks": [
+          [
+            "点一下右键",
+            "出现当前应用的菜单。"
+          ],
+          [
+            "点右键时手抖了一下，没有划出方向",
+            "菜单还是在原来的位置打开。"
+          ],
+          [
+            "用默认全局设置，按住右键往上划再松开",
+            "当前窗口最大化。"
+          ]
+        ],
+        "releaseLabel": "看 Glide 1.1.8 更新说明",
+        "collaborationTitle": "想聊聊你手上的问题？",
+        "collaborationIntro": "有一个具体例子，就能开始聊。",
+        "routes": [
+          {
+            "icon": "💬",
+            "body": "发一张截图或一段短录屏，隐去敏感信息。告诉我哪一步做不下去、你本来希望看到什么，我们用 15 分钟一起理清。",
+            "action": "约 15 分钟聊问题"
+          },
+          {
+            "icon": "📦",
+            "body": "想先把其中一步做成工具？带一份原样和你想要的结果。一起选出正常和容易出错的例子，提前说清交付时怎样算做对了。",
+            "action": "聊一个具体模块"
+          }
+        ],
+        "contextLabel": "本次咨询",
+        "clearContext": "清除选择",
+        "contextTitle": "Glide 交付手记",
+        "entryLabel": "读 Glide 的交付手记",
+        "feedbackLabel": "V2EX 用户反馈",
+        "servicesLabel": "查看全部合作方式",
+        "checksumLabel": "安装包校验记录"
+      },
+      "libraryIntro": "我是阿布，在上海经营一人公司（OPC）。我给团队做省时间的工具，比如从研报里找原文、把扫描表格变成数据，或把每天的账核一遍。"
     }
   },
   "profile": {
-    "tagline": "AI 工具与办公自动化",
-    "heroTitle": "帮团队少翻资料，少做重复活",
+    "heroTitle": "少翻资料，少做重复活。",
     "greeting": {
       "text": "你好，我是阿布",
-      "description": "我是阿布，做过金融文档处理、资料问答和办公自动化。把查资料、收邮件、整理数据这些费时的事，做成能帮上忙的工具。"
+      "description": "我是阿布，在上海经营一人公司（OPC）。我给团队做省时间的工具，比如从研报里找原文、把扫描表格变成数据，或把每天的账核一遍。"
     },
     "heroChips": [
       "金融文档 AI",

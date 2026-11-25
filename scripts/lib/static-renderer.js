@@ -1,100 +1,39 @@
 'use strict';
 
 const { escapeHtml, stripHtml } = require('./escape');
+const { renderStudioHero, renderDeliveryStory } = require('../../assets/js/studio-home');
+const { renderStudioProducts } = require('../../assets/js/studio-products');
+const { renderCasebook } = require('../../assets/js/casebook');
 
-/**
- * 精简预渲染：仅输出爬虫需要的核心文本（Hero + 摘要列表），
- * 完整交互内容由 Vue 通过 fetch homeConfig.json 加载。
- */
-function renderAppShell(config) {
-    const ui = config.ui || {};
-    const profile = config.profile || {};
-    const nav = ui.nav || [];
-    const greeting = ui.greetings?.morning || profile.greeting?.text || '';
-
-    const navHtml = nav.map(item => `
-            <a href="#${escapeHtml(item.id)}" class="nav-item">
-                <span>${escapeHtml(item.label)}</span>
-            </a>`).join('');
-
-    const heroChips = (profile.heroChips || [])
-        .map(chip => `<span class="hero-chip">${escapeHtml(chip)}</span>`)
-        .join('');
-
-    const stats = (profile.stats || [])
-        .map(stat => `
-                    <div class="hero-stat-card">
-                        <span class="hero-stat-num">${escapeHtml(stat.number)}</span>
-                        <span class="hero-stat-label">${escapeHtml(stat.label)}</span>
-                    </div>`)
-        .join('');
-
-    const featuredTitles = (config.featured?.items || [])
-        .map(p => `<li>${escapeHtml(p.title)} — ${escapeHtml(p.description)}</li>`)
-        .join('');
-
-    const skillLines = (config.skills?.items || [])
-        .map(s => `<li><strong>${escapeHtml(s.title)}</strong>：${escapeHtml(s.description)}</li>`)
-        .join('');
-
-    const serviceLines = (config.services?.items || [])
-        .map(s => `<li>${escapeHtml(s.title)}：${escapeHtml(s.description)}</li>`)
-        .join('');
-
-    return `
-    <aside class="sidebar" aria-label="主导航">
-        <div class="sidebar-brand">
-            <strong>${escapeHtml(profile.name)}</strong>
-            <span>${escapeHtml(profile.tagline)}</span>
-        </div>
-        <nav class="sidebar-nav">${navHtml}
-        </nav>
-    </aside>
-
-    <main class="main-view">
-        <section id="home" class="hero-banner bento-hero">
-            <div class="bento-hero-grid noise-overlay">
-                <article class="bento-card bento-card--main liquid-glass">
-                    <div class="bento-card__header">
-                        <div class="radar-status-badge">
-                            <span class="radar-pulse"></span>
-                            <span>${escapeHtml(profile.status || '可接项目')}</span>
-                        </div>
-                    </div>
-                    <div class="bento-card__body">
-                        <p class="hero-eyebrow">${escapeHtml(greeting)}</p>
-                        <h1 class="hero-title">${escapeHtml(profile.heroTitle)}</h1>
-                        <p class="hero-subtitle">${profile.greeting?.description || ''}</p>
-                        <div class="hero-chips">${heroChips}</div>
-                    </div>
-                </article>
-                <article class="bento-card bento-card--stats liquid-glass">
-                    <div class="bento-card-label">
-                        <span>${escapeHtml(ui.statsTitle || '核心交付战绩')}</span>
-                    </div>
-                    <div class="hero-stats-grid">${stats}
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="showcase" class="content-section seo-prerender" aria-label="精选代表作摘要">
-            <h2>${escapeHtml(config.featured?.title || '精选代表作')}</h2>
-            <ul>${featuredTitles}</ul>
-        </section>
-
-        <section id="skills" class="content-section seo-prerender" aria-label="技能摘要">
-            <h2>${escapeHtml(config.skills?.title || '核心技术')}</h2>
-            <p>${stripHtml(config.skills?.motto || '')}</p>
-            <ul>${skillLines}</ul>
-        </section>
-
-        <section id="services" class="content-section seo-prerender" aria-label="服务摘要">
-            <h2>${escapeHtml(config.services?.title || '合作服务')}</h2>
-            <ul>${serviceLines}</ul>
-        </section>
-    </main>
-`.trim();
+// Render the same first screen and case studies readers will see after Vue loads.
+function renderAppShell(config, lang = 'zh') {
+    const { ui, profile, skills, contact, services } = config;
+    const e = escapeHtml;
+    const productsId = ui.brief.enabled ? 'products' : 'showcase';
+    const nav = ui.nav.map(item =>
+        `<a class="nav-item" href="#${e(item.id)}">${e(item.label)}</a>`
+    ).join('');
+    const items = group => (group?.items || []).map(item =>
+        `<li><strong>${e(item.title)}</strong> · ${e(stripHtml(item.description))}</li>`
+    ).join('');
+    return `<div class="app-shell-inner studio-homepage">
+        <header class="studio-header"><div class="studio-header-inner">
+            <a href="#home" class="studio-brand"><img src="assets/img/favicon.svg" alt="" width="29" height="29"><span class="brand-handle" lang="en">Abu Studio</span></a>
+            <nav class="sidebar-nav" aria-label="${e(ui.studio.navigation)}">${nav}</nav>
+        </div></header>
+        <main class="main-view" id="main-content">
+            <div class="studio-hero-slot">${renderStudioHero(config, lang)}</div>
+            <section id="${productsId}" class="bento-card--products studio-product-slot">${renderStudioProducts(config, lang)}</section>
+            <div class="studio-cases-slot">${renderCasebook(config, lang)}</div>
+            ${renderDeliveryStory(config)}
+            <section id="studio-library" class="studio-library">
+                <header class="library-heading"><h2>${e(ui.studio.libraryTitle)}</h2><p>${e(stripHtml(profile.greeting.description))}</p></header>
+                <details id="skills" class="library-chapter"><summary>${e(skills.title)}</summary><ul class="library-page">${items(skills)}</ul></details>
+                <details class="library-chapter"><summary>${e(services.title)}</summary><ul id="services" class="library-page">${items(services)}</ul></details>
+            </section>
+            <section id="contact" class="content-section"><div class="section-head"><h2>${e(contact.form.title)}</h2><p>${e(contact.form.subtitle)}</p></div></section>
+        </main>
+    </div>`;
 }
 
 module.exports = { renderAppShell };

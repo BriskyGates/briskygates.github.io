@@ -1,0 +1,44 @@
+.ledger-sample { margin-block: 0 10px; }
+.ledger-workspace { align-items: start; }
+.ledger-workspace > *, .ledger-orders, .ledger-evidence, .ledger-attach, .ledger-log { min-width: 0; max-width: 100%; }
+.ledger-workspace h4, .ledger-log h4 { margin: 0 0 9px; }
+.ledger-orders { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; }
+.ledger-order {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 3px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 8px 11px;
+  border: 1px solid #cdd6cd;
+  border-radius: 5px;
+  background: #fff;
+  color: #253b32;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+.ledger-order strong { font-size: .91rem; }
+.ledger-order span { color: #526456; font-size: .8rem; }
+.ledger-order[aria-pressed="true"] { border-color: #527766; box-shadow: inset 3px 0 #527766; background: #e8f0e8; }
+.ledger-evidence { margin: 0; }
+.ledger-evidence > div { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); align-items: baseline; gap: 10px; padding-block: 7px; border-bottom: 1px solid #d9e0d8; }
+.ledger-evidence dt { color: #55625b; }
+.ledger-evidence dd { min-width: 0; margin: 0; font-weight: 550; overflow-wrap: anywhere; }
+.ledger-ref { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+.ledger-attach { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 5px 8px; margin-block: 12px 5px; }
+.ledger-attach label { display: grid; grid-template-columns: minmax(0, 1fr); gap: 3px; min-width: 0; max-width: 100%; color: #4b5850; font-size: .85rem; }
+.ledger-attach select, .ledger-attach button, .ledger-actions button { min-width: 0; max-width: 100%; min-height: 42px; }
+.ledger-attach select { width: 100%; padding: 5px 7px; border: 1px solid #afc0b1; border-radius: 4px; background: #fff; color: #23392b; font: inherit; }
+.ledger-attach button { padding: 4px 10px; border: 1px solid #afc0b1; border-radius: 4px; background: #f8faf6; color: #294c36; }
+.ledger-attach button:disabled { color: #6d7a70; opacity: .68; cursor: default; }
+.ledger-actions { margin-top: 8px; }
+.ledger-feedback { overflow-wrap: anywhere; }
+.ledger-log { margin-top: 15px; }
+.ledger-log ol { margin: 0; padding-inline-start: 1.7em; color: #455349; font-size: .85rem; line-height: 1.6; overflow-wrap: anywhere; }
+.ledger-log li + li { margin-top: 3px; }
+.ledger-log li::marker { color: #5e7364; font-variant-numeric: tabular-nums; }
+@media (max-width: 600px) {
+  .ledger-attach select, .ledger-attach button, .ledger-actions button { min-height: 44px; }
+}

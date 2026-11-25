@@ -1,0 +1,68 @@
+.tools-lab .tools-slip {
+    margin: 14px 0 18px;
+    padding: 14px 16px;
+    border: 1px solid var(--case-line);
+    border-radius: 8px;
+    background: white;
+}
+.tools-lab .tools-slip > p:first-child {
+    margin: 0 0 8px;
+    color: var(--case-muted);
+    font-size: .83rem;
+    font-weight: 600;
+}
+.tools-lab .tools-slip > p:last-child { margin-bottom: 0; }
+.tools-lab .lab-table table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+.tools-lab table caption {
+    padding: 5px 0 7px;
+    color: var(--case-muted);
+    font-size: .81rem;
+    text-align: start;
+}
+.tools-lab .lab-table :is(td, th) { overflow-wrap: anywhere; font-size: .9rem; }
+.tools-lab .tools-empty, .tools-lab .tools-record { margin: 0; color: var(--case-muted); font-size: .91rem; }
+.tools-lab .tools-request { color: var(--case-ink); font-size: .92rem; }
+.tools-lab .tools-request-input {
+    padding: 10px 12px;
+    border-inline-start: 3px solid var(--case-accent);
+    background: var(--case-paper);
+    font-weight: 600;
+}
+.tools-lab .tools-request h6 { margin: 15px 0 3px; color: var(--case-muted); font-size: .84rem; }
+.tools-lab .tools-request p, .tools-lab .tools-request ul { margin: 0; }
+.tools-lab .tools-request ul { padding-inline-start: 1.25em; line-height: 1.65; }
+.tools-lab [data-tools-verdict="ghost"], .tools-lab [data-tools-verdict="noTable"] {
+    border-inline-start-color: #aa642d;
+    background: #fbf4eb;
+    color: #5a3c22;
+}
+.tools-lab .tools-trace { margin: 16px 0 0; padding: 0; border: 0; }
+.tools-lab .tools-trace summary {
+    min-height: 44px;
+    padding: 10px 0;
+    color: var(--case-ink);
+    font-size: .92rem;
+    font-weight: 650;
+    cursor: pointer;
+}
+.tools-lab .tools-trace ol { margin: 0; padding-inline-start: 1.8em; }
+.tools-lab .tools-trace li { min-width: 0; padding: 9px 0; border-top: 1px solid var(--case-line); }
+.tools-lab .tools-trace li::marker { color: var(--case-muted); font-variant-numeric: tabular-nums; }
+.tools-lab .tools-trace code { overflow-wrap: anywhere; color: var(--case-ink); font-size: .9rem; }
+.tools-lab .tools-trace dl {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 2px 12px;
+    margin: 5px 0 0;
+    font-size: .86rem;
+    line-height: 1.55;
+}
+.tools-lab .tools-trace dt { color: var(--case-muted); }
+.tools-lab .tools-trace dd { min-width: 0; margin: 0; overflow-wrap: anywhere; }
+.tools-lab .tools-trace .lab-table { margin: 4px 0 2px; }
+@media (max-width: 540px) {
+    .tools-lab .tools-slip { padding: 12px 14px; }
+    .tools-lab .tools-trace ol { padding-inline-start: 1.25em; }
+    .tools-lab .tools-trace dl { gap: 2px 8px; }
+    .tools-lab .lab-table :is(td, th) { padding: 6px 4px; }
+}

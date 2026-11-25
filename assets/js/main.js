@@ -13,7 +13,6 @@ const {
 } = window.SiteAppCore;
 
 const FEISHU_WEBHOOK = 'https://open.feishu.cn/open-apis/bot/v2/hook/95c6e7c8-7469-442c-bcb4-4217417cbdd6';
-const FLOW_SECTION_IDS = ['flow-rag', 'flow-agent', 'flow-finance', 'flow-community'];
 
 let currentLang = 'zh';
 let currentConfig = null;
@@ -22,17 +21,21 @@ let vueApp = null;
 
 function showFatalError(messageHtml) {
     const app = document.getElementById('app');
-    if (app) {
-        app.removeAttribute('v-cloak');
-        app.innerHTML = messageHtml;
+    if (!app) return;
+    app.removeAttribute('v-cloak');
+    // Keep the build-time page readable if Vue or the selected locale fails to load.
+    if (app.querySelector('.studio-feature')) {
+        window.StudioHome?.mountStudioHome(app);
+        return;
     }
+    app.innerHTML = messageHtml;
 }
 
 async function fetchConfig(configPath) {
     const basePath = getBasePath(window.location.pathname);
-    let response = await fetch(basePath + configPath);
+    let response = await fetch(basePath + configPath, { cache: 'no-cache' });
     if (!response.ok) {
-        response = await fetch(configPath);
+        response = await fetch(configPath, { cache: 'no-cache' });
         if (!response.ok) {
             throw new Error(`无法加载配置文件: ${configPath}`);
         }
@@ -71,13 +74,14 @@ function renderWithVue(config) {
     }
 
     if (vueAppInstance) {
+        vueAppInstance.disposeStudio?.();
         vueAppInstance.config = config;
         vueAppInstance.currentLang = currentLang;
         vueAppInstance.langMenuOpen = false;
         vueAppInstance.langMenuSource = null;
         updatePageMeta(config);
         vueAppInstance.$nextTick(() => {
-            vueAppInstance.initScrollReveals();
+            vueAppInstance.bindStudio();
         });
         return;
     }
@@ -120,6 +124,7 @@ function renderWithVue(config) {
                     topic: '',
                     message: ''
                 },
+                contactContext: null,
                 contactSending: false,
                 contactFeedback: '',
                 contactFeedbackType: '',
@@ -136,6 +141,24 @@ function renderWithVue(config) {
             };
         },
         computed: {
+            contactContextDisplay() {
+                const story = this.config.ui.studio.deliveryStory;
+                if (!story || this.contactContext?.caseId !== 'glide') return null;
+                const service = this.config.services.items.find(item => item.icon === this.contactContext.icon);
+                return service ? { label: story.contextLabel, title: story.contextTitle, service: service.title } : null;
+            },
+            heroHtml() {
+                return window.StudioHome.renderStudioHero(this.config, this.currentLang);
+            },
+            productsHtml() {
+                return window.renderStudioProducts(this.config, this.currentLang);
+            },
+            casesHtml() {
+                return window.renderCasebook(this.config, this.currentLang);
+            },
+            deliveryHtml() {
+                return window.StudioHome.renderDeliveryStory(this.config);
+            },
             timeGreeting() {
                 const greetings = this.config?.ui?.greetings;
                 const hour = new Date().getHours();
@@ -165,8 +188,7 @@ function renderWithVue(config) {
                 if (!nav) {
                     return '';
                 }
-                const activeId = FLOW_SECTION_IDS.includes(this.activeSection) ? 'flow-rag' : this.activeSection;
-                const item = nav.find(entry => entry.id === activeId);
+                const item = nav.find(entry => entry.id === this.activeSection);
                 return item?.label || '';
             },
             languageOptions() {
@@ -210,9 +232,7 @@ function renderWithVue(config) {
             window.addEventListener('scroll', this._scrollSpyHandler, { passive: true });
             window.addEventListener('resize', this._resizeHandler, { passive: true });
             this.$nextTick(() => {
-                this.updateActiveSection();
-                this.initScrollReveals();
-                this.initHeroStatsCounter();
+                this.bindStudio();
             });
 
             this._langMenuOutsideHandler = (event) => {
@@ -232,6 +252,7 @@ function renderWithVue(config) {
             document.addEventListener('keydown', this._langMenuEscapeHandler);
         },
         unmounted() {
+            this.disposeStudio?.();
             if (this._revealObserver) {
                 this._revealObserver.disconnect();
                 this._revealObserver = null;
@@ -256,6 +277,82 @@ function renderWithVue(config) {
             }
         },
         methods: {
+            bindStudio() {
+                const root = this.$el;
+                const removeHero = window.StudioHome.mountStudioHome(root);
+                const removeCases = window.mountCasebook(root, this.config);
+                const removeProducts = window.mountStudioProducts(root, this.currentLang, this.config);
+                const followHash = event => {
+                    // The viewer restores the triggering card and exact reading position
+                    // when its history entry is popped. Do not align the section again.
+                    if (event && /^#desk-(glide|freight)$/.test(new URL(event.oldURL).hash)) return;
+                    if (root.querySelector('dialog[open]')) return;
+                    const target = this.getSection(location.hash.slice(1));
+                    if (target) this.goToSection(target, 'instant');
+                };
+                root.addEventListener('click', this.followDeliveryLink);
+                window.addEventListener('hashchange', followHash);
+                this.disposeStudio = () => {
+                    removeHero();
+                    removeCases();
+                    removeProducts();
+                    root.removeEventListener('click', this.followDeliveryLink);
+                    window.removeEventListener('hashchange', followHash);
+                };
+                this.initScrollReveals();
+                if (location.hash) followHash();
+                this.updateActiveSection();
+            },
+            followDeliveryLink(event) {
+                if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+                const link = event.target.closest('a[href="#contact"][data-delivery-route], a[href="#services"]');
+                if (!link || (link.target && link.target !== '_self')) return;
+                if (link.hash === '#services') {
+                    const services = this.getSection('services');
+                    if (services) services.open = true;
+                    return;
+                }
+                const icon = link.dataset.deliveryRoute;
+                const story = this.config.ui.studio.deliveryStory;
+                if (!story?.routes.some(route => route.icon === icon) || !this.config.services.items.some(item => item.icon === icon)) return;
+                event.preventDefault();
+                this.contactContext = { caseId: 'glide', icon };
+                this.$nextTick(() => {
+                    const context = this.$refs.contactContext;
+                    if (context) {
+                        this.scrollToSection('contact', context);
+                        context.focus({ preventScroll: true });
+                    }
+                });
+            },
+            clearContactContext() {
+                this.contactContext = null;
+                this.$nextTick(() => this.$refs.contactName?.focus());
+            },
+            getSection(id) {
+                // Earlier portfolio versions linked directly to these chapters.
+                if (!id) return null;
+                if (document.getElementById(id)?.matches('article[data-case-kind]')) return document.getElementById('case-studies');
+                const plain = this.config.ui.brief.enabled;
+                const work = plain ? 'products' : 'showcase';
+                const aliases = {
+                    work, products: work, showcase: work, notes: 'case-studies',
+                    about: plain ? 'plain-cases' : 'studio-library',
+                    'studio-library': plain ? 'tools' : 'studio-library',
+                    'plain-cases': plain ? 'plain-cases' : 'case-studies',
+                    tools: plain ? 'tools' : 'studio-library'
+                };
+                return document.getElementById(aliases[id] || id);
+            },
+            goToSection(target, behavior) {
+                let node = target;
+                while (node && node !== this.$el) {
+                    if (node.tagName === 'DETAILS') node.open = true;
+                    node = node.parentElement;
+                }
+                const top = target.getBoundingClientRect().top + window.scrollY - this.getScrollOffset();
+                window.scrollTo({ top: Math.max(0, top), behavior });
+            },
             getNavIcon(id) {
                 const g = typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : {});
                 if (!g._navIconSeq) g._navIconSeq = 0;
@@ -411,7 +508,8 @@ function renderWithVue(config) {
                         <circle cx="12" cy="14" r="1.3" fill="#fb7185"/>
                     </svg>`
                 };
-                return icons[id] || `<svg class="nav-svg nav-svg--fallback" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/></svg>`;
+                const sections = { products: 'showcase', 'case-studies': 'plain-cases', 'studio-library': 'experience' };
+                return icons[sections[id] || id] || `<svg class="nav-svg nav-svg--fallback" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/></svg>`;
             },
             getShowcaseVisual(project) {
                 const id = project?.id || '';
@@ -971,24 +1069,23 @@ function renderWithVue(config) {
                 // 联系页主卡：文档 + 上箭头 = "把你的现状发我"（原为四角星芒，读作"AI 魔法"，与文案无关）
                 if (context === 'contact-intro' || k === '✨') {
                     return `<svg class="contact-intro-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <defs><linearGradient id="ct-g-send" x1="2" y1="2" x2="22" y2="22"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#818cf8"/></linearGradient></defs>
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="rgba(56,189,248,0.12)" stroke="url(#ct-g-send)" stroke-width="1.8" stroke-linejoin="round"/>
-                        <polyline points="14 2 14 8 20 8" stroke="url(#ct-g-send)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 19v-6.4M9.2 15.2 12 12.4l2.8 2.8" stroke="url(#ct-g-send)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                        <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 19v-6.4M9.2 15.2 12 12.4l2.8 2.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>`;
                 }
                 if (context === 'contact-avail' || k === '⚡' || k === '⏱️' || k === '⏱') {
                     return `<svg class="contact-meta-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <circle cx="12" cy="12" r="9" stroke="var(--accent)" stroke-width="1.8"/>
-                        <polyline points="12 6 12 12 15 14" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/>
-                        <path d="M19 4l2 2" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/>
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+                        <polyline points="12 6 12 12 15 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M19 4l2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                     </svg>`;
                 }
                 if (context === 'contact-collab' || k === '🤝') {
                     return `<svg class="contact-meta-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M16 11l2 2 4-4" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M8 11l-2 2-4-4" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="12" cy="12" r="3" stroke="var(--accent)" stroke-width="1.8"/>
+                        <path d="M16 11l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 11l-2 2-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
                     </svg>`;
                 }
                 if (context === 'contact-type') {
@@ -1069,23 +1166,18 @@ function renderWithVue(config) {
                 if (this._cachedOffset !== null && this._cachedOffsetWidth === window.innerWidth) {
                     return this._cachedOffset;
                 }
-                const topbar = parseInt(
-                    getComputedStyle(document.documentElement).getPropertyValue('--topbar-height'),
-                    10
-                );
-                const extra = window.innerWidth <= 768 ? 12 : 20;
-                this._cachedOffset = (topbar || 60) + extra;
+                const header = this.$el.querySelector('.studio-header');
+                this._cachedOffset = (header?.offsetHeight || 58) + 12;
                 this._cachedOffsetWidth = window.innerWidth;
                 return this._cachedOffset;
             },
-            scrollToSection(id) {
+            scrollToSection(id, target = null) {
                 this.sidebarOpen = false;
-                const navId = FLOW_SECTION_IDS.includes(id) ? 'flow-rag' : id;
-                this.activeSection = navId;
-
-                const el = document.getElementById(id);
-                if (!el) {
-                    return;
+                const el = target || this.getSection(id);
+                if (!el) return;
+                this.activeSection = el.closest('#studio-library') ? 'studio-library' : id;
+                if (location.hash !== '#' + id) {
+                    history.pushState({ lang: this.currentLang }, '', '#' + id);
                 }
 
                 this._isProgrammaticScroll = true;
@@ -1096,9 +1188,9 @@ function renderWithVue(config) {
                     clearTimeout(this._scrollIdleTimer);
                 }
 
-                const offset = this.getScrollOffset();
-                const top = el.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+                const alignImmediately = target !== null || matchMedia('(prefers-reduced-motion: reduce)').matches;
+                const behavior = alignImmediately ? 'instant' : 'smooth';
+                this.goToSection(el, behavior);
 
                 const unlock = () => {
                     if (!this._isProgrammaticScroll) {
@@ -1144,41 +1236,19 @@ function renderWithVue(config) {
 
                 // 2. 页面顶部检测：保证在顶部时首页稳妥点亮
                 if (scrollY <= Math.max(10, offset / 2)) {
-                    this.activeSection = nav[0].id;
+                    this.activeSection = 'home';
                     return;
                 }
 
                 // 3. 视口中上部阅读焦点线判定（带容差缓冲）
                 const triggerLine = Math.max(offset + 30, Math.min(viewportHeight * 0.35, 240));
 
-                const allSections = [
-                    'home',
-                    'plain-cases',
-                    'tools',
-                    'showcase',
-                    'flow-rag',
-                    'flow-agent',
-                    'flow-finance',
-                    'flow-community',
-                    'experience',
-                    'skills',
-                    'services',
-                    'contact'
-                ];
-
-                let currentSectionId = nav[0].id;
-                for (const sid of allSections) {
-                    const el = document.getElementById(sid);
-                    if (el) {
-                        const top = el.getBoundingClientRect().top;
-                        if (top <= triggerLine) {
-                            currentSectionId = sid;
-                        }
-                    }
+                let currentSectionId = 'home';
+                for (const item of nav) {
+                    const el = document.getElementById(item.id);
+                    if (el && el.getBoundingClientRect().top <= triggerLine) currentSectionId = item.id;
                 }
-
-                const finalNavId = FLOW_SECTION_IDS.includes(currentSectionId) ? 'flow-rag' : currentSectionId;
-                this.activeSection = finalNavId;
+                this.activeSection = currentSectionId;
             },
             toggleLangMenu(source) {
                 if (this.langMenuOpen && this.langMenuSource === source) {
@@ -1251,7 +1321,7 @@ function renderWithVue(config) {
             },
             async submitContactForm() {
                 const cfg = this.config?.contact?.form;
-                if (!cfg) return;
+                if (!cfg || this.contactSending) return;
                 this.contactSending = true;
                 this.contactFeedback = '';
                 this.contactFeedbackType = '';
@@ -1259,6 +1329,9 @@ function renderWithVue(config) {
                 const now = new Date();
                 const timeStr = now.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
                 const lang = navigator.language || 'zh-CN';
+                const context = this.contactContextDisplay;
+                const submittedContext = this.contactContext;
+                const submittedForm = { ...this.contactForm };
 
                 const cardPayload = {
                     msg_type: 'interactive',
@@ -1282,6 +1355,10 @@ function renderWithVue(config) {
                                 tag: 'div',
                                 text: { tag: 'lark_md', content: `**💬 话题**\n${this._esc(this.contactForm.topic)}` }
                             },
+                            ...(context ? [{
+                                tag: 'div',
+                                text: { tag: 'plain_text', content: `${context.label}\n${context.title} · ${context.service}` }
+                            }] : []),
                             {
                                 tag: 'hr'
                             },
@@ -1312,7 +1389,10 @@ function renderWithVue(config) {
                     if (res.ok && result.code === 0) {
                         this.contactFeedback = cfg.success;
                         this.contactFeedbackType = 'success';
-                        this.contactForm = { name: '', contact: '', topic: '', message: '' };
+                        if (Object.keys(submittedForm).every(key => this.contactForm[key] === submittedForm[key])) {
+                            this.contactForm = { name: '', contact: '', topic: '', message: '' };
+                        }
+                        if (this.contactContext === submittedContext) this.contactContext = null;
                     } else {
                         throw new Error(result.msg || 'webhook error');
                     }
@@ -1471,9 +1551,7 @@ async function applyLanguage(lang, config, options = {}) {
 
     renderWithVue(config);
 
-    if (scrollToTop) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    if (scrollToTop && !window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 async function setLanguage(newLang) {
@@ -1497,19 +1575,9 @@ async function setLanguage(newLang) {
     }
 }
 
-async function initApp(config) {
-    if (!config) {
-        console.error('配置数据为空！');
-        return;
-    }
-
-    currentLang = detectCurrentLanguage(
-        window.location.search,
-        localStorage.getItem('preferredLanguage'),
-        typeof window.siteConfig !== 'undefined' && window.siteConfig !== null
-    );
-
-    if (window.location.search.includes('lang=zh')) {
+async function initApp() {
+    currentLang = detectCurrentLanguage(window.location.search, null, false);
+    if (new URLSearchParams(window.location.search).get('lang') === 'zh') {
         const url = new URL(window.location.href);
         url.searchParams.delete('lang');
         const cleanSearch = url.searchParams.toString();
@@ -1518,13 +1586,13 @@ async function initApp(config) {
     }
 
     try {
-        const data = currentLang === 'zh'
-            ? config
-            : await loadConfigForLanguage(currentLang);
+        const data = currentLang === 'zh' && window.siteConfig
+            ? window.siteConfig : await loadConfigForLanguage(currentLang);
         await applyLanguage(currentLang, data, { syncUrl: false });
     } catch (error) {
-        console.warn('无法加载目标语言配置，使用默认配置:', error);
-        await applyLanguage('zh', config, { syncUrl: false });
+        if (currentLang === 'zh') throw error;
+        const fallback = window.siteConfig || await loadConfigForLanguage('zh');
+        await applyLanguage('zh', fallback, { syncUrl: false });
     }
 }
 
@@ -1562,21 +1630,10 @@ function bootstrap() {
 
     window.addEventListener('popstate', handlePopState);
 
-    if (typeof window.siteConfig !== 'undefined' && window.siteConfig !== null) {
-        initApp(window.siteConfig);
-    } else {
-        fetchConfig(getConfigPathForLang('zh'))
-            .then(initApp)
-            .catch(error => {
-                console.error('加载配置失败:', error);
-                showFatalError(
-                    '<div style="padding: 20px; text-align: center;">' +
-                    '<h2>配置加载失败</h2>' +
-                    '<p>请检查 assets/data/homeConfig.json 是否存在且可访问。</p>' +
-                    '</div>'
-                );
-            });
-    }
+    initApp().catch(error => {
+        console.error('加载配置失败:', error);
+        showFatalError('<p>无法加载页面，请刷新后重试。</p>');
+    });
 }
 
 if (document.readyState === 'loading') {

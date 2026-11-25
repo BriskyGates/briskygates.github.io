@@ -1255,6 +1255,275 @@ body.site-body {
     display: inline-block;
 }
 
+/* Bento Card: Live Products & Software */
+.workstation img,
+.product-cover img {
+    max-width: 100%;
+    height: auto;
+}
+
+.bento-card--products {
+    grid-column: 1 / -1;
+    padding: 22px 26px;
+    gap: 16px;
+}
+
+.bento-products-title-icon {
+    color: var(--accent);
+}
+
+.bento-products-pulse-badge {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 8px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    border-radius: var(--radius-full);
+}
+
+.live-dot-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 6px #10b981;
+    display: inline-block;
+    animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes livePulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+    }
+}
+
+.bento-products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.bento-product-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 18px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    transition: transform 0.25s var(--ease-snappy), border-color 0.25s, box-shadow 0.25s, background 0.25s;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.bento-product-tile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--prod-accent, var(--accent)), transparent);
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.bento-product-tile:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(99, 102, 241, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.4), 0 0 20px -4px rgba(99, 102, 241, 0.15);
+}
+
+.bento-product-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    min-width: 0;
+    width: 100%;
+}
+
+.bento-product-brand {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+    flex: 1 1 200px;
+}
+
+.bento-product-emoji {
+    font-size: 1.6rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.bento-product-title-wrap {
+    min-width: 0;
+    flex: 1;
+}
+
+.bento-product-name-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 2px;
+}
+
+.bento-product-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.bento-product-platform {
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bento-product-subtitle {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    line-height: 1.35;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.bento-product-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 9px;
+    border-radius: var(--radius-full);
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #34d399;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    white-space: nowrap;
+    flex-shrink: 0;
+    max-width: 100%;
+}
+
+.live-indicator-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 6px #34d399;
+    display: inline-block;
+}
+
+.bento-product-desc {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin: 0;
+}
+
+.bento-product-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bento-product-tags {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    min-width: 0;
+    flex: 1 1 200px;
+}
+
+.bento-product-tag {
+    font-size: 0.68rem;
+    padding: 2px 7px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    white-space: nowrap;
+}
+
+.bento-product-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(59, 130, 246, 0.2));
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.2s var(--ease-snappy);
+    white-space: nowrap;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.bento-product-link:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(59, 130, 246, 0.35));
+    border-color: rgba(99, 102, 241, 0.7);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+}
+
+.bento-product-link:hover .external-arrow-svg {
+    transform: translate(2px, -2px);
+}
+
+.external-arrow-svg {
+    transition: transform 0.2s;
+}
+
 /* Bento Card: Flow Entries */
 .bento-card--flows {
     grid-column: 1 / -1;
@@ -2377,393 +2646,153 @@ body.site-body {
     background: var(--bg-elevated);
 }
 
-/* ── Contact Form ── */
+/* ── Project enquiries ── */
+.availability-note {
+    margin-block: -6px 20px;
+    color: var(--text-secondary);
+    font-size: .9rem;
+}
+
 .contact-layout {
     display: grid;
-    grid-template-columns: 380px 1fr;
-    gap: 20px;
-    padding: 0 4px;
+    grid-template-columns: minmax(0, .76fr) minmax(0, 1.24fr);
+    grid-template-areas: "intro form" "details form";
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(28px, 5vw, 76px);
     align-items: start;
 }
 
-.contact-intro-card {
-    background: linear-gradient(145deg, rgba(56, 189, 248, 0.06) 0%, var(--bg-card) 50%);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-xl);
-    padding: 28px;
-}
-
-.contact-intro-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-md);
-    background: rgba(56, 189, 248, 0.1);
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    margin-bottom: 14px;
-}
-
-.contact-intro-svg {
-    display: block;
-}
-
-.contact-intro-card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.contact-intro-card > p {
-    font-size: 0.85rem;
+.contact-intro-card, .contact-details, .contact-form { min-width: 0; }
+.contact-intro-card { grid-area: intro; padding-top: 10px; }
+.contact-details { grid-area: details; }
+.contact-intro-icon, .contact-meta-icon, .tag-pill-icon { display: inline-flex; color: var(--text-secondary); }
+.contact-intro-icon { margin-bottom: 10px; }
+.contact-intro-icon svg { width: 25px; height: 25px; }
+.contact-intro-card h3 { margin: 0 0 7px; font-size: 1.25rem; line-height: 1.4; }
+.contact-intro-card > p, .contact-support-desc {
+    max-width: 40em;
     color: var(--text-secondary);
-    line-height: 1.55;
-    margin-bottom: 24px;
+    font-size: .95rem;
+    line-height: 1.65;
 }
 
-.contact-meta-row {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
+.contact-meta-row { margin-top: 22px; }
 .contact-meta-item {
     display: flex;
-    gap: 12px;
     align-items: flex-start;
+    gap: 10px;
+    padding-block: 13px;
+    border-block-start: 1px solid var(--border-subtle);
 }
-
-.contact-meta-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: var(--radius-sm);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-subtle);
-    flex-shrink: 0;
-}
-
-.contact-meta-svg {
-    display: block;
-}
-
-.tag-pill-icon {
-    display: inline-flex;
-    align-items: center;
-    margin-right: 4px;
-    vertical-align: middle;
-}
-
-.tag-pill-icon svg {
-    display: block;
-}
-
-.contact-meta-item strong {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 2px;
-}
-
-.contact-meta-item p {
-    font-size: 0.78rem;
-    color: var(--text-secondary);
-    line-height: 1.45;
-}
-
-.contact-meta-sub {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-}
-
-.contact-collab-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 6px;
-}
-
+.contact-meta-icon { flex: none; padding-top: 3px; }
+.contact-meta-item > div { min-width: 0; }
+.contact-meta-item strong { display: block; margin-bottom: 3px; font-size: .95rem; }
+.contact-meta-item p, .support-platform-label { color: var(--text-secondary); font-size: .9rem; }
+.contact-meta-sub { color: var(--text-muted); font-size: .85rem; }
+.contact-collab-tags { display: flex; flex-wrap: wrap; gap: 5px 8px; margin-top: 6px; }
 .contact-collab-tags .tag-pill {
-    font-size: 0.7rem;
-    padding: 4px 10px;
-}
-
-/* ── Contact Support Card (Afdian Creator Verification) ── */
-.contact-support-card {
-    margin-top: 22px;
-    padding: 16px;
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(56, 189, 248, 0.04) 100%);
-    border: 1px solid rgba(168, 85, 247, 0.22);
-    border-radius: var(--radius-lg);
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-}
-
-.contact-support-badge-row {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    min-width: 0;
-}
-
-.support-auth-tag {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
+    max-width: 100%;
     padding: 3px 8px;
-    border-radius: var(--radius-pill);
-    background: rgba(168, 85, 247, 0.16);
-    border: 1px solid rgba(168, 85, 247, 0.32);
-    color: #d8b4fe;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-}
-
-.support-spark-icon {
-    display: block;
-    color: #e9d5ff;
-}
-
-.support-platform-label {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-
-.contact-support-desc {
-    margin: 10px 0 14px 0;
-    font-size: 0.78rem;
+    font-size: .81rem;
     color: var(--text-secondary);
-    line-height: 1.5;
-    word-break: break-word;
-    overflow-wrap: break-word;
+    background: var(--bg-surface);
+    border-color: var(--border-subtle);
 }
 
+.contact-support-card { margin-top: 8px; padding-top: 16px; border-top: 1px solid var(--border-subtle); }
+.contact-support-badge-row, .support-auth-tag { display: flex; align-items: center; gap: 6px; }
+.contact-support-badge-row { flex-wrap: wrap; gap: 8px; }
+.support-auth-tag {
+    color: var(--text-secondary);
+    background: var(--bg-surface);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: .81rem;
+    font-weight: 600;
+}
+.support-spark-icon, .external-arrow-icon { flex: none; }
+.contact-support-desc { margin: 9px 0 0; }
 .btn-support-link {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 8px 16px;
-    border-radius: var(--radius-pill);
-    background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
-    color: #ffffff;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 2px 10px rgba(147, 51, 234, 0.3);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
-    box-sizing: border-box;
-    max-width: 100%;
+    gap: 5px;
     min-width: 0;
+    max-width: 100%;
+    min-height: 44px;
+    color: var(--text-secondary);
+    font-size: .9rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: .22em;
 }
-
-.btn-support-link:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(147, 51, 234, 0.45);
-    filter: brightness(1.08);
-    color: #ffffff;
-}
-
-.external-arrow-icon {
-    display: block;
-    flex-shrink: 0;
-}
-
-@media (max-width: 480px) {
-    .btn-support-link {
-        width: 100%;
-    }
-}
+.btn-support-link:hover, .btn-support-link:focus-visible { color: var(--action-fill); }
 
 .contact-form {
-    background: rgba(24, 26, 36, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-xl);
-    padding: 30px;
-    box-shadow: var(--shadow-card);
+    grid-area: form;
+    padding: clamp(20px, 2.5vw, 36px);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 17px;
 }
-
-.form-field {
-    margin-bottom: 18px;
-}
-
+.form-field { margin-bottom: 18px; }
 .form-field label {
     display: block;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-bottom: 7px;
-    letter-spacing: 0.02em;
-}
-
-.form-field input,
-.form-field textarea {
-    width: 100%;
-    padding: 11px 16px;
-    background: rgba(14, 16, 22, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-md);
+    margin-bottom: 6px;
     color: var(--text-primary);
-    font-family: var(--font);
-    font-size: 0.875rem;
-    transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
-    outline: none;
+    font-size: .92rem;
+    font-weight: 600;
+}
+.form-field input, .form-field textarea {
     box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 10px 13px;
+    color: var(--text-primary);
+    background: var(--bg-base);
+    border: 1px solid var(--border-medium);
+    border-radius: 7px;
+    font: inherit;
+    font-size: 1rem;
 }
-
-.form-field input:focus,
-.form-field textarea:focus {
-    border-color: var(--accent);
-    background: rgba(18, 20, 28, 0.95);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
-
-.form-field input::placeholder,
-.form-field textarea::placeholder {
-    color: var(--text-muted);
-}
-
-.form-field textarea {
-    resize: vertical;
-    min-height: 110px;
-}
+.form-field input:focus, .form-field textarea:focus { border-color: var(--action-fill); background: var(--bg-card); }
+.form-field input::placeholder, .form-field textarea::placeholder { color: var(--text-muted); }
+.form-field textarea { display: block; resize: vertical; min-height: 110px; }
 
 .btn-submit {
-    width: 100%;
-    padding: 13px 24px;
-    font-family: var(--font);
-    font-size: 0.92rem;
-    font-weight: 700;
-    background: linear-gradient(180deg, #6366f1 0%, #4f46e5 100%);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-md);
-    cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    transition: transform 0.16s var(--ease-snappy), box-shadow 0.16s var(--ease-snappy), opacity 0.16s var(--ease-snappy);
-    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-    touch-action: manipulation;
-}
-
-.btn-submit:active:not(:disabled) {
-    transform: scale(0.98);
-}
-
-.btn-submit:hover:not(:disabled) {
-    background: linear-gradient(180deg, #6d70f5 0%, #5850ec 100%);
-    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.45);
-}
-    border: none;
-    border-radius: var(--radius-pill);
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 8px 20px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    color: #fff;
+    background: var(--action-fill);
+    font: 600 .95rem/1.45 var(--font);
     cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: transform 0.16s var(--ease-snappy), box-shadow 0.16s var(--ease-snappy), opacity 0.16s var(--ease-snappy);
-    box-shadow: 0 4px 16px var(--accent-glow);
-    position: relative;
-    overflow: hidden;
     touch-action: manipulation;
+    overflow-wrap: anywhere;
 }
-
-.btn-submit::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
-    transform: skewX(-20deg);
-    pointer-events: none;
-}
-
-.btn-submit:hover:not(:disabled)::after {
-    animation: btnShimmer 1.2s infinite;
-}
-
-@keyframes btnShimmer {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 200%;
-    }
-}
-
-.btn-submit:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px var(--accent-glow);
-}
-
-.btn-submit__icon {
-    width: 15px;
-    height: 15px;
-    flex-shrink: 0;
-    transition: transform 0.25s var(--ease-spring);
-}
-
-.btn-submit:hover:not(:disabled) .btn-submit__icon {
-    transform: translate(2px, -2px) scale(1.1);
-}
-
-.btn-submit:active:not(:disabled) {
-    transform: scale(0.98);
-}
-
-.btn-submit:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
+.btn-submit:not(:disabled):is(:hover, :active) { background: var(--action-fill-hover); }
+.btn-submit:disabled { opacity: .6; cursor: wait; }
+.btn-submit__icon { width: 15px; height: 15px; flex-shrink: 0; }
 
 .form-feedback {
     margin-top: 14px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-align: center;
-    padding: 10px 16px;
-    border-radius: var(--radius-md);
-    animation: feedbackPopIn 0.3s var(--ease-spring);
+    padding: 10px 14px;
+    border-inline-start: 3px solid currentColor;
+    font-size: .95rem;
 }
-
-@keyframes feedbackPopIn {
-    0% {
-        opacity: 0;
-        transform: translateY(8px) scale(0.96);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.form-feedback.success {
-    background: rgba(52, 211, 153, 0.1);
-    color: var(--success);
-    border: 1px solid rgba(52, 211, 153, 0.2);
-}
-
-.form-feedback.error {
-    background: rgba(239, 68, 68, 0.1);
-    color: #f87171;
-    border: 1px solid rgba(239, 68, 68, 0.2);
-}
+.form-feedback.success { background: #edf5f1; color: var(--success); }
+.form-feedback.error { background: #fcf1ee; color: #923c31; }
 
 /* ── Mobile bottom nav ── */
 .mobile-bottom-nav {
@@ -3008,6 +3037,39 @@ body.site-body {
     .hero-stat-label {
         font-size: 0.65rem;
         word-break: break-word;
+    }
+
+    .bento-products-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .bento-product-tile {
+        padding: 14px 12px;
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .bento-product-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .bento-product-foot {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .bento-product-link {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
     }
 
     .bento-flow-grid {
@@ -3517,13 +3579,19 @@ body.site-body {
     /* 联系人表单移动端 */
     .contact-layout {
         grid-template-columns: minmax(0, 1fr);
-        gap: 14px;
+        grid-template-areas: "intro" "form" "details";
+        grid-template-rows: auto;
+        gap: 18px;
         width: 100%;
+        max-width: 100%;
     }
 
-    .contact-intro-card,
+    .contact-meta-row { margin-top: 0; }
+
+    .contact-intro-card { padding-block: 0; }
+
     .contact-form {
-        padding: 20px 16px;
+        padding: 16px;
         min-width: 0;
         max-width: 100%;
         box-sizing: border-box;
@@ -3537,13 +3605,14 @@ body.site-body {
 
     .form-field input,
     .form-field textarea {
-        font-size: 0.82rem;
+        font-size: 1rem;
         padding: 10px 12px;
         max-width: 100%;
         box-sizing: border-box;
     }
 
     .btn-submit {
+        width: 100%;
         max-width: 100%;
         box-sizing: border-box;
         word-break: break-word;
@@ -3557,6 +3626,43 @@ body.site-body {
 
     .bento-card {
         padding: 14px 12px;
+    }
+
+    .bento-product-tile {
+        padding: 12px 10px;
+    }
+
+    .bento-product-emoji {
+        width: 34px;
+        height: 34px;
+        font-size: 1.25rem;
+    }
+
+    .bento-product-name {
+        font-size: 0.92rem;
+    }
+
+    .bento-product-subtitle {
+        font-size: 0.72rem;
+    }
+
+    .bento-product-desc {
+        font-size: 0.75rem;
+    }
+
+    .bento-product-badge {
+        font-size: 0.62rem;
+        padding: 2px 6px;
+    }
+
+    .bento-product-tag {
+        font-size: 0.6rem;
+        padding: 1px 5px;
+    }
+
+    .bento-product-link {
+        font-size: 0.72rem;
+        padding: 6px 10px;
     }
 
     .hero-stat-card {
@@ -3625,8 +3731,7 @@ body.spotify-body {
 
     .hero-bg::before,
     .hero-status-badge::after,
-    .flow-track::before,
-    .btn-submit::after {
+    .flow-track::before {
         animation: none !important;
     }
 
@@ -3747,19 +3852,6 @@ body.spotify-body {
 .footer-link-icon {
     display: block;
     flex-shrink: 0;
-}
-
-.footer-link--afdian {
-    color: #c084fc;
-    background: rgba(168, 85, 247, 0.08);
-    border-color: rgba(168, 85, 247, 0.2);
-    font-weight: 600;
-}
-
-.footer-link--afdian:hover {
-    color: #e9d5ff;
-    background: rgba(168, 85, 247, 0.18);
-    border-color: rgba(168, 85, 247, 0.35);
 }
 
 @media (max-width: 768px) {
