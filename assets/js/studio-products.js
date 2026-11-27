@@ -522,24 +522,83 @@
     const signal = controller.signal;
     const on = (element, type, listener, options = {}) => element.addEventListener(type, listener, { ...options, signal });
     const body = viewer.querySelector('.viewer-body');
+    const bar = viewer.querySelector('.viewer-bar');
     const close = viewer.querySelector('.viewer-close');
     const switcher = viewer.querySelector('.viewer-switch');
     const title = viewer.querySelector('#viewer-title');
     const detail = viewer.querySelector('.viewer-detail');
     const site = viewer.querySelector('.viewer-site');
     const cards = new Map([...root.querySelectorAll('[data-work]')].map(card => [card.dataset.work, card]));
+    const reducedMotion = typeof win.matchMedia === 'function' ? win.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
+    const mobileSheet = typeof win.matchMedia === 'function' ? win.matchMedia('(max-width: 700px)') : { matches: false };
     let activeProject, origin;
     let awaitingBack = false;
+    let scrollLocked = false;
+    let lockedScrollY = 0;
+    let dragPointerId = null;
+    let dragStartY = 0;
+    let dragOffset = 0;
+    let dragging = false;
+    let springTimer;
     const route = () => cards.has(location.hash.slice(6)) && location.hash.startsWith('#desk-') ? location.hash.slice(6) : null;
     const otherProject = name => name === 'glide' ? 'freight' : 'glide';
     const projectName = card => card.querySelector('.work-brand').textContent.trim();
     const glide = viewer.querySelector('[data-glide-draw]');
     const stopGesture = () => { if (activeProject === 'glide') glide.dispatchEvent(new win.Event('glide-hide')); };
 
+    function updateCloseLabel() {
+      if (!origin) return;
+      close.textContent = mobileSheet.matches
+        ? copy.close
+        : (origin.id.startsWith('launch-') ? copy.backDesk : copy.backWork);
+    }
+
+    function lockPageScroll() {
+      if (scrollLocked) return;
+      lockedScrollY = win.scrollY;
+      scrollLocked = true;
+      document.documentElement.style.setProperty('--viewer-scroll-y', lockedScrollY + 'px');
+      document.documentElement.classList.add('viewer-scroll-lock');
+    }
+
+    function unlockPageScroll() {
+      if (!scrollLocked) return;
+      scrollLocked = false;
+      document.documentElement.classList.remove('viewer-scroll-lock');
+      document.documentElement.style.removeProperty('--viewer-scroll-y');
+      win.scrollTo({ top: lockedScrollY, behavior: 'instant' });
+    }
+
+    function clearDragState(animate) {
+      const id = dragPointerId;
+      dragPointerId = null;
+      dragging = false;
+      dragOffset = 0;
+      clearTimeout(springTimer);
+      if (id !== null && bar && bar.hasPointerCapture?.(id)) bar.releasePointerCapture(id);
+      delete viewer.dataset.dragging;
+      if (animate && !reducedMotion.matches) {
+        viewer.dataset.spring = '';
+        viewer.style.transform = '';
+        const onEnd = event => {
+          if (event && (event.target !== viewer || event.propertyName !== 'transform')) return;
+          clearTimeout(springTimer);
+          viewer.removeEventListener('transitionend', onEnd);
+          delete viewer.dataset.spring;
+        };
+        springTimer = setTimeout(() => onEnd(null), 260);
+        viewer.addEventListener('transitionend', onEnd, { signal });
+      } else {
+        delete viewer.dataset.spring;
+        viewer.style.transform = '';
+      }
+    }
+
     mountGlide(glide, copy, on, signal);
     mountFreight(viewer.querySelector('[data-freight-demo]'), copy, on, signal);
 
     function showProject(name) {
+      clearDragState(false);
       if (viewer.dataset.phase === 'closing') {
         viewer.style.setProperty('--viewer-open-from', getComputedStyle(viewer).transform);
         viewer.style.setProperty('--backdrop-open-from', getComputedStyle(viewer, '::backdrop').opacity);
@@ -567,13 +626,14 @@
       const next = cards.get(otherProject(name));
       switcher.hidden = !next;
       if (next) switcher.textContent = format(copy.tryOther, { name: projectName(next) });
-      close.textContent = origin.id.startsWith('launch-') ? copy.backDesk : copy.backWork;
+      updateCloseLabel();
       delete body.dataset.enter;
       if (switching) {
         void body.offsetWidth;
         body.dataset.enter = '';
         title.focus({ preventScroll: true });
       } else {
+        lockPageScroll();
         viewer.showModal();
         close.focus({ preventScroll: true });
       }
@@ -585,11 +645,14 @@
       stopGesture();
       viewer.style.setProperty('--viewer-close-from', getComputedStyle(viewer).transform);
       viewer.style.setProperty('--backdrop-close-from', getComputedStyle(viewer, '::backdrop').opacity);
+      clearDragState(false);
       viewer.dataset.phase = 'closing';
       function finish() {
         if (signal.aborted || viewer.dataset.phase !== 'closing' || route()) return;
         viewer.close();
         delete viewer.dataset.phase;
+        clearDragState(false);
+        unlockPageScroll();
         activeProject = null;
         const source = origin;
         function restoreSource() {
@@ -663,13 +726,65 @@
       if (pressedBackdrop && event.target === viewer) closeViewer();
       pressedBackdrop = false;
     });
+    if (bar) {
+      on(bar, 'pointerdown', event => {
+        if (!mobileSheet.matches || !viewer.open || awaitingBack || viewer.dataset.phase === 'closing') return;
+        if (!event.isPrimary || dragPointerId !== null) return;
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+        if (event.target.closest('button, a, input, select, textarea')) return;
+        dragPointerId = event.pointerId;
+        dragStartY = event.clientY;
+        dragOffset = 0;
+        dragging = false;
+        bar.setPointerCapture?.(dragPointerId);
+      });
+      on(bar, 'pointermove', event => {
+        if (event.pointerId !== dragPointerId) return;
+        const dy = event.clientY - dragStartY;
+        if (!dragging) {
+          if (dy < 6) return;
+          dragging = true;
+          clearTimeout(springTimer);
+          delete viewer.dataset.spring;
+          viewer.dataset.dragging = '';
+        }
+        dragOffset = Math.max(0, dy);
+        viewer.style.transform = `translateY(${Math.round(dragOffset)}px)`;
+      });
+      on(bar, 'pointerup', event => {
+        if (event.pointerId !== dragPointerId) return;
+        const id = dragPointerId;
+        const shouldClose = dragging && dragOffset > 80;
+        const wasDragging = dragging;
+        dragPointerId = null;
+        dragging = false;
+        dragOffset = 0;
+        if (bar.hasPointerCapture?.(id)) bar.releasePointerCapture(id);
+        if (shouldClose) closeViewer();
+        else clearDragState(wasDragging);
+      });
+      for (const type of ['pointercancel', 'lostpointercapture']) {
+        on(bar, type, event => {
+          if (event.pointerId === dragPointerId) clearDragState(dragging);
+        });
+      }
+    }
+    if (typeof mobileSheet.addEventListener === 'function') {
+      on(mobileSheet, 'change', () => {
+        if (!mobileSheet.matches && dragPointerId !== null) clearDragState(false);
+        if (viewer.open) updateCloseLabel();
+      });
+    }
+    on(win, 'blur', () => { if (dragPointerId !== null) clearDragState(false); });
     on(win, 'popstate', syncLocation);
     on(win, 'hashchange', syncLocation);
     function dispose() {
       if (signal.aborted) return;
       controller.abort();
+      clearDragState(false);
       if (viewer.open) viewer.close();
       delete viewer.dataset.phase;
+      unlockPageScroll();
       for (const [link, fallback] of fallbackLinks) {
         if (fallback !== null) link.setAttribute('href', fallback);
         link.removeAttribute('aria-haspopup');

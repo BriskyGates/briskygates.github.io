@@ -81,19 +81,89 @@
         const links = [...book.querySelectorAll('[data-case-link]')];
         const definitions = new Map(cases.map(item => [item.kind, item]));
         const states = new Map();
+        let paneObserver = null;
+
         for (const article of articles) {
             article.querySelector('.case-interaction').disabled = false;
             const kind = article.dataset.caseKind;
             states.set(kind, definitions.get(kind).lab.initial());
         }
 
+        function setActiveJump(article, pane) {
+            if (!article) return;
+            for (const btn of article.querySelectorAll('[data-case-jump]')) {
+                if (btn.dataset.caseJump === pane) btn.dataset.active = 'true';
+                else delete btn.dataset.active;
+            }
+        }
+
+        function setInspectUpdated(article, updated) {
+            const inspectJump = article?.querySelector('[data-case-jump="inspect"]');
+            if (!inspectJump) return;
+            if (updated) inspectJump.dataset.updated = 'true';
+            else delete inspectJump.dataset.updated;
+        }
+
+        function disconnectObserver() {
+            if (paneObserver) {
+                paneObserver.disconnect();
+                paneObserver = null;
+            }
+        }
+
+        function observeActiveCase(article, { resetActive = false } = {}) {
+            disconnectObserver();
+            if (!article || article.hidden) return;
+            if (resetActive) setActiveJump(article, 'source');
+            if (typeof IntersectionObserver !== 'function') return;
+
+            const source = article.querySelector('.lab-source');
+            const inspect = article.querySelector('.lab-inspect');
+            if (!source || !inspect) return;
+
+            const visible = { source: 0, inspect: 0 };
+            const tops = { source: 0, inspect: 0 };
+
+            paneObserver = new IntersectionObserver(entries => {
+                for (const entry of entries) {
+                    const pane = entry.target === inspect ? 'inspect' : 'source';
+                    visible[pane] = entry.isIntersecting ? entry.intersectionRect.height : 0;
+                    tops[pane] = entry.boundingClientRect.top;
+                }
+                if (visible.inspect > 0 && visible.inspect > visible.source) {
+                    setActiveJump(article, 'inspect');
+                } else if (visible.source > 0) {
+                    setActiveJump(article, 'source');
+                } else if (visible.inspect > 0) {
+                    setActiveJump(article, 'inspect');
+                } else if (tops.inspect < 120) {
+                    setActiveJump(article, 'inspect');
+                } else {
+                    setActiveJump(article, 'source');
+                }
+            }, {
+                rootMargin: '-110px 0px -60px 0px',
+                threshold: [0, 0.1, 0.25, 0.5, 0.75, 1]
+            });
+
+            paneObserver.observe(source);
+            paneObserver.observe(inspect);
+        }
+
         function select(kind) {
-            for (const article of articles) article.hidden = article.dataset.caseKind !== kind;
+            let activeArticle = null;
+            for (const article of articles) {
+                const match = article.dataset.caseKind === kind;
+                article.hidden = !match;
+                if (match) activeArticle = article;
+            }
             for (const link of links) {
                 if (link.dataset.caseLink === kind) link.setAttribute('aria-current', 'true');
                 else link.removeAttribute('aria-current');
             }
+            observeActiveCase(activeArticle, { resetActive: true });
         }
+
         function followLocation() {
             const match = articles.find(article => '#' + article.id === location.hash);
             if (match) select(match.dataset.caseKind);
@@ -105,6 +175,8 @@
             const definition = definitions.get(kind);
             const previous = states.get(kind);
             const reset = control.hasAttribute('data-case-reset');
+            const fromSource = !reset && Boolean(control.closest('.lab-source'));
+            const fromInspect = !reset && Boolean(control.closest('.lab-inspect'));
             const action = eventType === 'change' ? control.dataset.caseChange : control.dataset.caseAction;
             const value = eventType === 'change' ? control.value : control.dataset.value;
             const next = reset ? definition.lab.initial() : definition.lab.reduce(previous, action, value);
@@ -116,6 +188,9 @@
             surface.innerHTML = renderLab(definition, text, next);
             const resetButton = article.querySelector('[data-case-reset]');
             resetButton.disabled = reset;
+            if (reset || fromInspect) setInspectUpdated(article, false);
+            else if (fromSource) setInspectUpdated(article, true);
+            observeActiveCase(article, { resetActive: false });
             if (restore) {
                 const candidates = [...surface.querySelectorAll('button:not(:disabled),input:not(:disabled),select:not(:disabled)')];
                 const same = candidates.find(el => eventType === 'change'
@@ -137,10 +212,16 @@
             }
             const jump = event.target.closest('[data-case-jump]');
             if (jump) {
-                const panel = jump.closest('.case-lab').querySelector('.lab-' + jump.dataset.caseJump);
-                panel.tabIndex = -1;
-                panel.focus({ preventScroll: true });
-                panel.scrollIntoView({ block: 'start', behavior: 'instant' });
+                const article = jump.closest('[data-case-kind]');
+                const target = jump.dataset.caseJump;
+                const panel = jump.closest('.case-lab')?.querySelector('.lab-' + target);
+                if (panel) {
+                    setActiveJump(article, target);
+                    if (target === 'inspect') setInspectUpdated(article, false);
+                    panel.tabIndex = -1;
+                    panel.focus({ preventScroll: true });
+                    panel.scrollIntoView({ block: 'start', behavior: 'instant' });
+                }
                 return;
             }
             const control = event.target.closest('[data-case-action],[data-case-reset]');
@@ -157,8 +238,12 @@
             const kind = article.dataset.caseKind;
             const lab = definitions.get(kind).lab;
             if (lab.previewRange) {
-                const next = lab.reduce(states.get(kind), control.dataset.caseChange, control.value);
+                const previous = states.get(kind);
+                const next = lab.reduce(previous, control.dataset.caseChange, control.value);
                 lab.previewRange(article.querySelector('[data-case-surface]'), text.labs[kind], text.examples[kind], next, h);
+                if (next !== previous && control.closest('.lab-source')) {
+                    setInspectUpdated(article, true);
+                }
             }
         }
 
@@ -169,6 +254,7 @@
         window.addEventListener('hashchange', followLocation);
         followLocation();
         return () => {
+            disconnectObserver();
             delete book.dataset.caseReady;
             book.removeEventListener('click', click);
             book.removeEventListener('change', change);

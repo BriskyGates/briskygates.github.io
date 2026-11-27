@@ -115,11 +115,58 @@
             options[index].focus();
         }
 
+        let swipeState = null;
+
+        function handleTouchStart(event) {
+            if (event.touches.length !== 1) {
+                swipeState = null;
+                return;
+            }
+            const frame = event.target.closest('.studio-feature-frame');
+            const section = frame?.closest('.studio-feature');
+            if (!frame || !section || !root.contains(section)) {
+                swipeState = null;
+                return;
+            }
+            const touch = event.touches[0];
+            swipeState = { x: touch.clientX, y: touch.clientY, section };
+        }
+
+        function handleTouchEnd(event) {
+            if (!swipeState || event.changedTouches.length !== 1) {
+                swipeState = null;
+                return;
+            }
+            const { x, y, section } = swipeState;
+            swipeState = null;
+            const touch = event.changedTouches[0];
+            const dx = touch.clientX - x;
+            const dy = touch.clientY - y;
+            if (Math.abs(dx) < 42 || Math.abs(dx) <= Math.abs(dy) * 1.3) return;
+            const options = [...section.querySelectorAll('[data-feature-select]')];
+            if (options.length < 2) return;
+            const currentIndex = options.findIndex(option => option.getAttribute('aria-selected') === 'true');
+            const baseIndex = currentIndex === -1 ? 0 : currentIndex;
+            const step = dx < 0 ? 1 : -1;
+            const nextIndex = (baseIndex + step + options.length) % options.length;
+            change(options[nextIndex]);
+        }
+
+        function handleTouchCancel() {
+            swipeState = null;
+        }
+
         root.addEventListener('click', handleClick);
         root.addEventListener('keydown', handleKey);
+        root.addEventListener('touchstart', handleTouchStart, { passive: true });
+        root.addEventListener('touchend', handleTouchEnd, { passive: true });
+        root.addEventListener('touchcancel', handleTouchCancel, { passive: true });
         return () => {
             root.removeEventListener('click', handleClick);
             root.removeEventListener('keydown', handleKey);
+            root.removeEventListener('touchstart', handleTouchStart);
+            root.removeEventListener('touchend', handleTouchEnd);
+            root.removeEventListener('touchcancel', handleTouchCancel);
         };
     }
 

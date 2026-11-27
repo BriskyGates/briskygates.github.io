@@ -77,8 +77,7 @@ function renderWithVue(config) {
         vueAppInstance.disposeStudio?.();
         vueAppInstance.config = config;
         vueAppInstance.currentLang = currentLang;
-        vueAppInstance.langMenuOpen = false;
-        vueAppInstance.langMenuSource = null;
+        vueAppInstance.closeLangMenu?.();
         updatePageMeta(config);
         vueAppInstance.$nextTick(() => {
             vueAppInstance.bindStudio();
@@ -196,6 +195,11 @@ function renderWithVue(config) {
             },
             currentLanguageLabel() {
                 return getLanguageLabel(this.currentLang);
+            },
+            contactRetryLabel() {
+                if (this.currentLang === 'en' || this.currentLang === 'plain-en') return 'Try again';
+                if (this.currentLang === 'zh-Hant' || this.currentLang === 'plain-Hant') return '重試發送';
+                return '重试发送';
             }
         },
         mounted() {
@@ -227,6 +231,7 @@ function renderWithVue(config) {
             this._resizeHandler = () => {
                 this._cachedOffset = null;
                 this._cachedOffsetWidth = null;
+                this.syncLangScrollLock();
                 this.updateActiveSection();
             };
             window.addEventListener('scroll', this._scrollSpyHandler, { passive: true });
@@ -240,18 +245,20 @@ function renderWithVue(config) {
                     return;
                 }
                 if (!event.target.closest('.lang-dropdown')) {
-                    this.langMenuOpen = false;
+                    this.closeLangMenu();
                 }
             };
             this._langMenuEscapeHandler = (event) => {
                 if (event.key === 'Escape' && this.langMenuOpen) {
-                    this.langMenuOpen = false;
+                    this.closeLangMenu();
+                    this.$refs.langBtn?.focus({ preventScroll: true });
                 }
             };
             document.addEventListener('click', this._langMenuOutsideHandler);
             document.addEventListener('keydown', this._langMenuEscapeHandler);
         },
         unmounted() {
+            this.closeLangMenu();
             this.disposeStudio?.();
             if (this._revealObserver) {
                 this._revealObserver.disconnect();
@@ -354,162 +361,50 @@ function renderWithVue(config) {
                 window.scrollTo({ top: Math.max(0, top), behavior });
             },
             getNavIcon(id) {
-                const g = typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : {});
-                if (!g._navIconSeq) g._navIconSeq = 0;
-                const seq = ++g._navIconSeq;
-                const gid = (name) => `nav-g-${name}-${seq}`;
-                const fid = (name) => `nav-f-${name}-${seq}`;
-
                 const icons = {
-                    home: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="${gid('home')}" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#38bdf8"/>
-                                <stop offset="100%" stop-color="#0284c7"/>
-                            </linearGradient>
-                            <linearGradient id="${fid('home')}" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.22"/>
-                                <stop offset="100%" stop-color="#0284c7" stop-opacity="0.06"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M3 10.25L12 3.5l9 6.75V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20V10.25z" fill="url(#${fid('home')})"/>
-                        <path d="M3 10.25L12 3.5l9 6.75V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20V10.25z" stroke="url(#${gid('home')})" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M9.5 21.5V14a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v7.5" stroke="url(#${gid('home')})" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="12" cy="8.2" r="1.25" fill="#38bdf8"/>
+                    home: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 10.5L12 3.5l9 7V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20v-9.5z"/>
+                        <path d="M9.5 21.5V14a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v7.5"/>
                     </svg>`,
-                    // 代表作：五角星（精选作品），原为火苗——火苗读作"热门/爆款"，与"作品集"不符
-                    showcase: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="${gid('showcase')}" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#fb923c"/>
-                                <stop offset="50%" stop-color="#f97316"/>
-                                <stop offset="100%" stop-color="#ef4444"/>
-                            </linearGradient>
-                            <linearGradient id="${fid('showcase')}" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#fb923c" stop-opacity="0.28"/>
-                                <stop offset="100%" stop-color="#ef4444" stop-opacity="0.08"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M12 3l2.12 6.09 6.44.13-5.14 3.89 1.87 6.17L12 15.6l-5.29 3.68 1.87-6.17L3.44 9.22l6.44-.13L12 3z" fill="url(#${fid('showcase')})" stroke="url(#${gid('showcase')})" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="12" cy="12.4" r="1.9" fill="url(#${gid('showcase')})"/>
+                    showcase: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3.5" y="3.5" width="7" height="7" rx="1.75"/>
+                        <rect x="13.5" y="3.5" width="7" height="7" rx="1.75"/>
+                        <rect x="3.5" y="13.5" width="7" height="7" rx="1.75"/>
+                        <rect x="13.5" y="13.5" width="7" height="7" rx="1.75"/>
                     </svg>`,
-                    'plain-cases': `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="${gid('cases')}" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#fb923c"/>
-                                <stop offset="100%" stop-color="#ef4444"/>
-                            </linearGradient>
-                            <linearGradient id="${fid('cases')}" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#fb923c" stop-opacity="0.24"/>
-                                <stop offset="100%" stop-color="#ef4444" stop-opacity="0.07"/>
-                            </linearGradient>
-                        </defs>
-                        <circle cx="12" cy="12" r="9" fill="url(#${fid('cases')})" stroke="url(#${gid('cases')})" stroke-width="1.8"/>
-                        <path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21" stroke="url(#${gid('cases')})" stroke-width="1.8" stroke-linecap="round"/>
-                        <path d="m8.4 12 2.4 2.4 4.8-5" stroke="url(#${gid('cases')})" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    'plain-cases': `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M14 3H6.5A2 2 0 0 0 4.5 5v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8.5L14 3z"/>
+                        <polyline points="14 3 14 8.5 19.5 8.5"/>
+                        <path d="M8.5 13.5h7M8.5 17h4.5"/>
                     </svg>`,
-                    tools: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="${gid('tools')}" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#60a5fa"/>
-                                <stop offset="100%" stop-color="#6366f1"/>
-                            </linearGradient>
-                            <linearGradient id="${fid('tools')}" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.24"/>
-                                <stop offset="100%" stop-color="#6366f1" stop-opacity="0.08"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M13.8 5.2a5.5 5.5 0 0 0-6.7 6.7l-4.2 4.2a2.8 2.8 0 0 0 4 4l4.2-4.2a5.5 5.5 0 0 0 6.7-6.7l-3.2 3.2-3.1-3.1 3.2-3.2z" fill="url(#${fid('tools')})" stroke="url(#${gid('tools')})" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="5.2" cy="18.8" r="1" fill="#818cf8"/>
+                    tools: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M14.5 5.5a5 5 0 0 0-6.2 6.2L4.2 15.8a2.2 2.2 0 0 0 3.1 3.1l4.1-4.1a5 5 0 0 0 6.2-6.2l-2.8 2.8-2.6-2.6 2.3-3.3z"/>
                     </svg>`,
-                    'flow-rag': `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="${gid('flow')}" x1="2" y1="3" x2="22" y2="21" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#c084fc"/>
-                                <stop offset="100%" stop-color="#818cf8"/>
-                            </linearGradient>
-                            <linearGradient id="${fid('flow')}" x1="2" y1="3" x2="22" y2="21" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#c084fc" stop-opacity="0.22"/>
-                                <stop offset="100%" stop-color="#818cf8" stop-opacity="0.08"/>
-                            </linearGradient>
-                        </defs>
-                        <rect x="3" y="3.5" width="18" height="4.5" rx="1.75" fill="url(#${fid('flow')})"/>
-                        <rect x="3" y="3.5" width="18" height="4.5" rx="1.75" stroke="url(#${gid('flow')})" stroke-width="1.8"/>
-                        <rect x="3" y="9.75" width="18" height="4.5" rx="1.75" fill="url(#${fid('flow')})"/>
-                        <rect x="3" y="9.75" width="18" height="4.5" rx="1.75" stroke="url(#${gid('flow')})" stroke-width="1.8"/>
-                        <rect x="3" y="16" width="18" height="4.5" rx="1.75" fill="url(#${fid('flow')})"/>
-                        <rect x="3" y="16" width="18" height="4.5" rx="1.75" stroke="url(#${gid('flow')})" stroke-width="1.8"/>
-                        <circle cx="6.5" cy="5.75" r="1" fill="#c084fc"/>
-                        <circle cx="12" cy="12" r="1" fill="#a855f7"/>
-                        <circle cx="17.5" cy="18.25" r="1" fill="#818cf8"/>
+                    'flow-rag': `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="12 3 3 7.5 12 12 21 7.5 12 3"/>
+                        <polyline points="3 12 12 16.5 21 12"/>
+                        <polyline points="3 16.5 12 21 21 16.5"/>
                     </svg>`,
-                    experience: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="${gid('exp')}" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#34d399"/>
-                                <stop offset="100%" stop-color="#059669"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M5.5 4v16" stroke="url(#${gid('exp')})" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="0.1 3.5"/>
-                        <rect x="9.5" y="3.5" width="11" height="4.2" rx="1.5" fill="rgba(52, 211, 153, 0.16)" stroke="url(#${gid('exp')})" stroke-width="1.6"/>
-                        <circle cx="5.5" cy="5.6" r="2.2" fill="#34d399"/>
-                        <rect x="9.5" y="9.9" width="11" height="4.2" rx="1.5" fill="rgba(52, 211, 153, 0.16)" stroke="url(#${gid('exp')})" stroke-width="1.6"/>
-                        <circle cx="5.5" cy="12" r="2.2" fill="#10b981"/>
-                        <rect x="9.5" y="16.3" width="11" height="4.2" rx="1.5" fill="rgba(52, 211, 153, 0.16)" stroke="url(#${gid('exp')})" stroke-width="1.6"/>
-                        <circle cx="5.5" cy="18.4" r="2.2" fill="#059669"/>
+                    experience: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4.5 5.5A2.5 2.5 0 0 1 7 3h12.5v16.5H7a2.5 2.5 0 0 0-2.5 2.5V5.5z"/>
+                        <path d="M4.5 19.5A2.5 2.5 0 0 1 7 17h12.5"/>
+                        <path d="M9 8h6.5M9 11.5h4.5"/>
                     </svg>`,
-                    skills: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="${gid('skills')}" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#fde047"/>
-                                <stop offset="50%" stop-color="#fbbf24"/>
-                                <stop offset="100%" stop-color="#f59e0b"/>
-                            </linearGradient>
-                            <linearGradient id="${fid('skills')}" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#fde047" stop-opacity="0.28"/>
-                                <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.1"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M13 2.5L3.5 13.5a1 1 0 0 0 .8 1.5H11l-2 7.5L19.5 10.5a1 1 0 0 0-.8-1.5H13l2-6.5a.5.5 0 0 0-.8-.5H13z" fill="url(#${fid('skills')})"/>
-                        <path d="M13 2.5L3.5 13.5a1 1 0 0 0 .8 1.5H11l-2 7.5L19.5 10.5a1 1 0 0 0-.8-1.5H13l2-6.5a.5.5 0 0 0-.8-.5H13z" stroke="url(#${gid('skills')})" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <polygon points="12,7 9,13 14,13 11,18 16,11 11,11" fill="#fde047" opacity="0.6"/>
+                    skills: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="13 2.5 4 13.5 11.5 13.5 10.5 21.5 20 10.5 12.5 10.5 13 2.5"/>
                     </svg>`,
-                    services: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="${gid('services')}" x1="2" y1="4" x2="22" y2="21" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#60a5fa"/>
-                                <stop offset="100%" stop-color="#6366f1"/>
-                            </linearGradient>
-                            <linearGradient id="${fid('services')}" x1="2" y1="4" x2="22" y2="21" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.22"/>
-                                <stop offset="100%" stop-color="#6366f1" stop-opacity="0.08"/>
-                            </linearGradient>
-                        </defs>
-                        <rect x="2.5" y="7" width="19" height="13.5" rx="3" fill="url(#${fid('services')})"/>
-                        <rect x="2.5" y="7" width="19" height="13.5" rx="3" stroke="url(#${gid('services')})" stroke-width="1.8"/>
-                        <path d="M8 7V4.75A1.75 1.75 0 0 1 9.75 3h4.5A1.75 1.75 0 0 1 16 4.75V7" stroke="url(#${gid('services')})" stroke-width="1.8" stroke-linecap="round"/>
-                        <line x1="2.5" y1="12" x2="21.5" y2="12" stroke="url(#${gid('services')})" stroke-width="1.5" stroke-dasharray="1.5 2"/>
-                        <rect x="10" y="10.5" width="4" height="3" rx="1" fill="#818cf8"/>
+                    services: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="7" width="18" height="13" rx="2.5"/>
+                        <path d="M8.5 7V5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/>
+                        <path d="M3 12.5h18"/>
                     </svg>`,
-                    contact: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="${gid('contact')}" x1="2" y1="4" x2="22" y2="20" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#fb7185"/>
-                                <stop offset="100%" stop-color="#e11d48"/>
-                            </linearGradient>
-                            <linearGradient id="${fid('contact')}" x1="2" y1="4" x2="22" y2="20" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#fb7185" stop-opacity="0.24"/>
-                                <stop offset="100%" stop-color="#e11d48" stop-opacity="0.08"/>
-                            </linearGradient>
-                        </defs>
-                        <rect x="2.5" y="4.5" width="19" height="15" rx="3" fill="url(#${fid('contact')})"/>
-                        <rect x="2.5" y="4.5" width="19" height="15" rx="3" stroke="url(#${gid('contact')})" stroke-width="1.8"/>
-                        <path d="M3 6.5l8.15 6.11a1.5 1.5 0 0 0 1.7 0L21 6.5" stroke="url(#${gid('contact')})" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="12" cy="14" r="1.3" fill="#fb7185"/>
+                    contact: `<svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="5" width="18" height="14" rx="2.5"/>
+                        <path d="M3.5 7.5l7.6 5.6a1.5 1.5 0 0 0 1.8 0l7.6-5.6"/>
                     </svg>`
                 };
                 const sections = { products: 'showcase', 'case-studies': 'plain-cases', 'studio-library': 'experience' };
-                return icons[sections[id] || id] || `<svg class="nav-svg nav-svg--fallback" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/></svg>`;
+                return icons[sections[id] || id] || `<svg class="nav-svg nav-svg--fallback" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/></svg>`;
             },
             getShowcaseVisual(project) {
                 const id = project?.id || '';
@@ -1250,18 +1145,24 @@ function renderWithVue(config) {
                 }
                 this.activeSection = currentSectionId;
             },
+            syncLangScrollLock() {
+                const shouldLock = Boolean(this.langMenuOpen && window.innerWidth <= 540);
+                document.documentElement.classList.toggle('sheet-scroll-lock', shouldLock);
+                document.body.classList.toggle('sheet-scroll-lock', shouldLock);
+            },
             toggleLangMenu(source) {
                 if (this.langMenuOpen && this.langMenuSource === source) {
-                    this.langMenuOpen = false;
-                    this.langMenuSource = null;
+                    this.closeLangMenu();
                     return;
                 }
                 this.langMenuSource = source;
                 this.langMenuOpen = true;
+                this.syncLangScrollLock();
             },
             closeLangMenu() {
                 this.langMenuOpen = false;
                 this.langMenuSource = null;
+                this.syncLangScrollLock();
             },
             async selectLanguage(lang) {
                 this.closeLangMenu();
