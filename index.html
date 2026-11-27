@@ -13,7 +13,7 @@ description: 阿布在上海经营一人公司（OPC），开发 Glide 和 Cross
             <a class="studio-brand top-bar-brand" href="#home" @click.prevent="scrollToSection('home')">
                 <span class="brand-mark" aria-hidden="true" v-html="getBrandAvatar('sm')"></span>
                 <span class="brand-handle" lang="en">Abu Studio</span>
-                <strong class="mobile-section">{{ activeSection === 'home' ? config.profile.name : activeNavLabel }}</strong>
+                <strong v-if="activeSection !== 'home' && activeNavLabel" class="mobile-section">{{ activeNavLabel }}</strong>
             </a>
             <nav class="sidebar-nav" :aria-label="config.ui.studio.navigation">
                 <a v-for="item in config.ui.nav" :key="item.id" :href="'#' + item.id"
@@ -26,7 +26,8 @@ description: 阿布在上海经营一人公司（OPC），开发 Glide 和 Cross
                     <button
                         type="button"
                         class="lang-btn"
-                        @click.stop="toggleLangMenu()"
+                        ref="langBtn"
+                        @click.stop="toggleLangMenu('header')"
                         :aria-label="config.ui.languageToggle.tooltip"
                         aria-haspopup="listbox"
                         :aria-expanded="langMenuOpen"
@@ -35,6 +36,12 @@ description: 阿布在上海经营一人公司（OPC），开发 Glide 和 Cross
                         <span class="lang-btn__label">{{ currentLanguageLabel }}</span>
                         <svg class="lang-btn__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
+                    <div
+                        v-show="langMenuOpen"
+                        class="lang-backdrop"
+                        aria-hidden="true"
+                        @click="closeLangMenu()"
+                    ></div>
                     <ul v-show="langMenuOpen" class="lang-menu" role="listbox" :aria-label="config.ui.languageToggle.tooltip">
                         <li v-for="opt in languageOptions" :key="opt.code" role="presentation">
                             <button
@@ -285,6 +292,8 @@ description: 阿布在上海经营一人公司（OPC），开发 Glide 和 Cross
                             ref="contactName"
                             v-model="contactForm.name"
                             type="text"
+                            autocomplete="name"
+                            enterkeyhint="next"
                             :placeholder="config.contact.form.fields.name.placeholder"
                             required
                         />
@@ -295,6 +304,8 @@ description: 阿布在上海经营一人公司（OPC），开发 Glide 和 Cross
                             id="contact-info"
                             v-model="contactForm.contact"
                             type="text"
+                            autocomplete="email"
+                            enterkeyhint="next"
                             :placeholder="config.contact.form.fields.contact.placeholder"
                             required
                         />
@@ -305,6 +316,7 @@ description: 阿布在上海经营一人公司（OPC），开发 Glide 和 Cross
                             id="contact-topic"
                             v-model="contactForm.topic"
                             type="text"
+                            enterkeyhint="next"
                             :placeholder="config.contact.form.fields.topic.placeholder"
                             required
                         />
@@ -314,18 +326,33 @@ description: 阿布在上海经营一人公司（OPC），开发 Glide 和 Cross
                         <textarea
                             id="contact-message"
                             v-model="contactForm.message"
+                            enterkeyhint="send"
                             :placeholder="config.contact.form.fields.message.placeholder"
                             rows="4"
                             required
                         ></textarea>
                     </div>
-                    <button type="submit" class="btn-submit" :disabled="contactSending">
-                        <svg class="btn-submit__icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                        {{ contactSending ? config.contact.form.submitting : config.contact.form.submit }}
+                    <button type="submit" class="btn-submit" :disabled="contactSending" :aria-busy="contactSending ? 'true' : null">
+                        <span v-if="contactSending" class="btn-submit__spinner" aria-hidden="true"></span>
+                        <svg v-else class="btn-submit__icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        <span>{{ contactSending ? config.contact.form.submitting : config.contact.form.submit }}</span>
                     </button>
-                    <p v-if="contactFeedback" class="form-feedback" :class="contactFeedbackType">
-                        {{ contactFeedback }}
-                    </p>
+                    <div
+                        v-if="contactFeedback"
+                        class="form-feedback"
+                        :class="contactFeedbackType"
+                        :role="contactFeedbackType === 'error' ? 'alert' : 'status'"
+                        aria-live="polite"
+                    >
+                        <p class="form-feedback__text">{{ contactFeedback }}</p>
+                        <button
+                            v-if="contactFeedbackType === 'error'"
+                            type="button"
+                            class="contact-retry-btn"
+                            :disabled="contactSending"
+                            @click="submitContactForm"
+                        >{{ contactRetryLabel }}</button>
+                    </div>
                 </form>
                 <div class="contact-details">
                     <div class="contact-meta-row">
@@ -436,7 +463,8 @@ description: 阿布在上海经营一人公司（OPC），开发 Glide 和 Cross
             :aria-current="activeSection === item.id ? 'location' : null"
             @click.prevent="scrollToSection(item.id)"
         >
-            <span>{{ item.shortLabel || item.label }}</span>
+            <span class="mobile-nav-icon" aria-hidden="true" v-html="getNavIcon(item.id)"></span>
+            <span class="mobile-nav-label">{{ item.shortLabel || item.label }}</span>
         </a>
     </nav>
 
